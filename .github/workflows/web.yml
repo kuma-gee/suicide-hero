@@ -1,0 +1,20 @@
+name: Publish Web
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  publish-web:
+    name: Publish Web
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:3.2.3
+    steps:
+      - uses: actions/checkout@v1
+      - run: sh scripts/prepare.sh && sh scripts/build.sh web
+      - run: apt-get update && apt-get install -y rsync # is needed in order to deploy to GitHub Pages.
+      - uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: build/web # The folder the action should deploy.

@@ -1,0 +1,264 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "EquationFactory",
+"language": "GDScript",
+"path": "res://addons/shared/utils/equations/EquationFactory.gd"
+}, {
+"base": "Spatial",
+"class": "FaceCamera",
+"language": "GDScript",
+"path": "res://addons/shared/misc/FaceCamera.gd"
+}, {
+"base": "Area",
+"class": "HitBox3D",
+"language": "GDScript",
+"path": "res://addons/shared/misc/HitBox3D.gd"
+}, {
+"base": "Area",
+"class": "HurtBox3D",
+"language": "GDScript",
+"path": "res://addons/shared/misc/HurtBox3D.gd"
+}, {
+"base": "Node",
+"class": "InputMapper",
+"language": "GDScript",
+"path": "res://addons/shared/input/InputMapper.gd"
+}, {
+"base": "Reference",
+"class": "InputProfile",
+"language": "GDScript",
+"path": "res://addons/shared/input/InputProfile.gd"
+}, {
+"base": "Node",
+"class": "InputReader",
+"language": "GDScript",
+"path": "res://addons/shared/input/InputReader.gd"
+}, {
+"base": "Reference",
+"class": "LinearEquation",
+"language": "GDScript",
+"path": "res://addons/shared/utils/equations/LinearEquation.gd"
+}, {
+"base": "Control",
+"class": "Menu",
+"language": "GDScript",
+"path": "res://scenes/menu/Menu.gd"
+}, {
+"base": "Node",
+"class": "MoveDirection2D",
+"language": "GDScript",
+"path": "res://addons/shared/misc/MoveDirection2D.gd"
+}, {
+"base": "Node",
+"class": "MoveDirection3D",
+"language": "GDScript",
+"path": "res://addons/shared/misc/MoveDirection3D.gd"
+}, {
+"base": "State",
+"class": "MoveState",
+"language": "GDScript",
+"path": "res://addons/StateMachine/MoveState.gd"
+}, {
+"base": "Control",
+"class": "PausedMenu",
+"language": "GDScript",
+"path": "res://addons/shared/menu/PausedMenu.gd"
+}, {
+"base": "InputReader",
+"class": "PlayerInput",
+"language": "GDScript",
+"path": "res://addons/shared/input/PlayerInput.gd"
+}, {
+"base": "Node",
+"class": "PlayerManager",
+"language": "GDScript",
+"path": "res://addons/shared/input/PlayerManager.gd"
+}, {
+"base": "Node",
+"class": "Random",
+"language": "GDScript",
+"path": "res://addons/shared/utils/Random.gd"
+}, {
+"base": "Node2D",
+"class": "RandomMove",
+"language": "GDScript",
+"path": "res://addons/shared/misc/RandomMove.gd"
+}, {
+"base": "RayCast",
+"class": "RayCastHit3D",
+"language": "GDScript",
+"path": "res://addons/shared/misc/RayCastHit3D.gd"
+}, {
+"base": "UnitTest",
+"class": "SceneTest",
+"language": "GDScript",
+"path": "res://addons/gut/custom/SceneTest.gd"
+}, {
+"base": "Node",
+"class": "SelectOption",
+"language": "GDScript",
+"path": "res://addons/shared/gui/SelectOption.gd"
+}, {
+"base": "Node",
+"class": "Spawner",
+"language": "GDScript",
+"path": "res://addons/shared/misc/Spawner.gd"
+}, {
+"base": "Node",
+"class": "Stack",
+"language": "GDScript",
+"path": "res://addons/shared/utils/datatypes/Stack.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://addons/StateMachine/State.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://addons/StateMachine/StateMachine.gd"
+}, {
+"base": "Node",
+"class": "UnitTest",
+"language": "GDScript",
+"path": "res://addons/gut/custom/UnitTest.gd"
+}, {
+"base": "Reference",
+"class": "Utils",
+"language": "GDScript",
+"path": "res://addons/shared/utils/Utils.gd"
+}, {
+"base": "Node",
+"class": "ValueFill",
+"language": "GDScript",
+"path": "res://addons/shared/misc/ValueFill.gd"
+}, {
+"base": "Reference",
+"class": "VectorSort",
+"language": "GDScript",
+"path": "res://addons/shared/utils/sort/VectorSort.gd"
+}, {
+"base": "Reference",
+"class": "VectorUtils",
+"language": "GDScript",
+"path": "res://addons/shared/utils/VectorUtils.gd"
+} ]
+_global_script_class_icons={
+"EquationFactory": "",
+"FaceCamera": "",
+"HitBox3D": "",
+"HurtBox3D": "",
+"InputMapper": "",
+"InputProfile": "",
+"InputReader": "",
+"LinearEquation": "",
+"Menu": "",
+"MoveDirection2D": "",
+"MoveDirection3D": "",
+"MoveState": "",
+"PausedMenu": "",
+"PlayerInput": "",
+"PlayerManager": "",
+"Random": "",
+"RandomMove": "",
+"RayCastHit3D": "",
+"SceneTest": "",
+"SelectOption": "",
+"Spawner": "",
+"Stack": "",
+"State": "",
+"StateMachine": "",
+"UnitTest": "",
+"Utils": "",
+"ValueFill": "",
+"VectorSort": "",
+"VectorUtils": ""
+}
+
+[application]
+
+config/name="Suicide Hero"
+run/main_scene="res://scenes/menu/Menu.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+GUI="*res://addons/shared/gui/GUI.tscn"
+Game="*res://Game.gd"
+
+[display]
+
+window/stretch/aspect="keep"
+
+[input]
+
+move_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":6,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+move_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":7,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":-1.0,"script":null)
+ ]
+}
+move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
+ ]
+}
+fire={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+menu={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="objects"
+3d_physics/layer_1="objects"
+2d_physics/layer_2="player"
+3d_physics/layer_2="player"
+2d_physics/layer_3="player_hurtbox"
+3d_physics/layer_3="enemy"
+2d_physics/layer_4="enemy_hurtbox"
+
+[locale]
+
+translations=PoolStringArray( "res://i18n/de.po", "res://i18n/en.po" )
+locale_filter=[ 0, [  ] ]
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

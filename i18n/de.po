@@ -1,0 +1,85 @@
+# Translations template for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# Automatically generated, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-08-01 11:46+0200\n"
+"PO-Revision-Date: 2021-07-30 10:59+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "GAME_OVER"
+msgstr "Game Over"
+
+msgid "BACK_TO_MENU"
+msgstr "Zurück zum Menü"
+
+msgid "SELECT_GAME_MODE"
+msgstr "Spielmodus auswählen"
+
+msgid "RACE"
+msgstr "Rennen"
+
+msgid "DEATHMATCH"
+msgstr "Deathmatch"
+
+msgid "START_GAME"
+msgstr "Spiel starten"
+
+msgid "OPTIONS"
+msgstr "Optionen"
+
+msgid "EXIT_GAME"
+msgstr "Spiel schließen"
+
+msgid "SETTINGS"
+msgstr "Einstellungen"
+
+msgid "LANGUAGE"
+msgstr "Sprache"
+
+msgid "LANG_DE"
+msgstr "Deutsch"
+
+msgid "LANG_EN_US"
+msgstr "Englisch"
+
+msgid "INPUTS"
+msgstr "Eingaben"
+
+msgid "INPUT_MOVE_UP"
+msgstr "Vorwärts"
+
+msgid "INPUT_MOVE_DOWN"
+msgstr "Rückwärts"
+
+msgid "INPUT_MOVE_LEFT"
+msgstr "Links drehen"
+
+msgid "INPUT_MOVE_RIGHT"
+msgstr "Rechts drehen"
+
+msgid "INPUT_FIRE"
+msgstr "Schießen"
+
+msgid "INPUT_BOOST"
+msgstr "Boosten"
+
+msgid "PRESS_ANY_BUTTON"
+msgstr "Beliebigen Knopf drücken"
+
+msgid "RESUME_GAME"
+msgstr "Spiel fortsetzen"
+
+msgid "READY"
+msgstr "Bereit"

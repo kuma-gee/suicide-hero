@@ -1,0 +1,85 @@
+# Translations template for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-08-01 12:46+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+msgid "GAME_OVER"
+msgstr ""
+
+msgid "BACK_TO_MENU"
+msgstr ""
+
+msgid "SELECT_GAME_MODE"
+msgstr ""
+
+msgid "RACE"
+msgstr ""
+
+msgid "DEATHMATCH"
+msgstr ""
+
+msgid "START_GAME"
+msgstr ""
+
+msgid "OPTIONS"
+msgstr ""
+
+msgid "EXIT_GAME"
+msgstr ""
+
+msgid "SETTINGS"
+msgstr ""
+
+msgid "LANGUAGE"
+msgstr ""
+
+msgid "LANG_DE"
+msgstr ""
+
+msgid "LANG_EN_US"
+msgstr ""
+
+msgid "INPUTS"
+msgstr ""
+
+msgid "INPUT_MOVE_UP"
+msgstr ""
+
+msgid "INPUT_MOVE_DOWN"
+msgstr ""
+
+msgid "INPUT_MOVE_LEFT"
+msgstr ""
+
+msgid "INPUT_MOVE_RIGHT"
+msgstr ""
+
+msgid "INPUT_FIRE"
+msgstr ""
+
+msgid "INPUT_BOOST"
+msgstr ""
+
+msgid "PRESS_ANY_BUTTON"
+msgstr ""
+
+msgid "RESUME_GAME"
+msgstr ""
+
+msgid "READY"
+msgstr ""
+
