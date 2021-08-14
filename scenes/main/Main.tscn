@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/main/Main.gd" type="Script" id=1]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://map/Map.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/main/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/shared/misc/ValueFill.gd" type="Script" id=5]
+[ext_resource path="res://scenes/main/PlayerStats.gd" type="Script" id=7]
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Map" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="ExperienceTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="PlayerStats" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="Experience" type="Node" parent="PlayerStats"]
+script = ExtResource( 5 )
+start_empty = true
+overflow = true
+max_value = 20
+
+[node name="Health" type="Node" parent="PlayerStats"]
+script = ExtResource( 5 )
+
+[connection signal="timeout" from="ExperienceTimer" to="PlayerStats" method="_on_ExperienceTimer_timeout"]
+[connection signal="overflow" from="PlayerStats/Experience" to="PlayerStats" method="_on_Experience_overflow"]

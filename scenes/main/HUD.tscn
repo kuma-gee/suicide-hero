@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/shared/gui/ValueBar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/main/HUD.gd" type="Script" id=2]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Root" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bottom" type="HBoxContainer" parent="Root"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -48.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/Bottom"]
+margin_right = 400.0
+margin_bottom = 48.0
+custom_constants/separation = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Root/Bottom/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 14.0
+
+[node name="Level" type="Label" parent="Root/Bottom/VBoxContainer/HBoxContainer"]
+margin_bottom = 14.0
+
+[node name="HealthBar" parent="Root/Bottom/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 16.0
+margin_right = 400.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 0, 20 )
+color = Color( 0.223529, 0.686275, 0.207843, 1 )
+
+[node name="ExpBar" parent="Root/Bottom/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 38.0
+margin_right = 400.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 400, 10 )
+color = Color( 0.756863, 0.756863, 0.411765, 1 )
