@@ -7,7 +7,7 @@ func _ready():
 
 
 func _on_Start_pressed():
-	get_tree().change_scene("res://scenes/main/Main.tscn")
+	var _x = get_tree().change_scene("res://scenes/main/Main.tscn")
 	GUI.open_menu(GUI.InGame, true)
 
 

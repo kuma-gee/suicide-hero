@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://enemy/tiny_zombie.png" type="Texture" id=1]
+[ext_resource path="res://addons/StateMachine/Move2D.gd" type="Script" id=2]
+[ext_resource path="res://addons/shared/misc/ValueFill.gd" type="Script" id=3]
+[ext_resource path="res://addons/shared/combat/HurtBox2D.gd" type="Script" id=4]
+[ext_resource path="res://enemy/Enemy.gd" type="Script" id=5]
+[ext_resource path="res://enemy/HealthDrop.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/shared/combat/HitBox2D.gd" type="Script" id=7]
+[ext_resource path="res://addons/StateMachine/Knockback2D.gd" type="Script" id=8]
+[ext_resource path="res://addons/StateMachine/StateMachine.gd" type="Script" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.36143, 1.71368 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.04087, 4.97941 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4.70679, 4.75669 )
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource( 5 )
+health_drop = ExtResource( 6 )
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Body"]
+texture = ExtResource( 1 )
+offset = Vector2( -0.5, -5 )
+hframes = 8
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource( 3 )
+max_value = 20
+
+[node name="HurtBox" type="Area2D" parent="."]
+position = Vector2( 0, -3.11814 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource( 2 )
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource( 7 )
+damage = 5
+knockback_force = 50
+damage_over_time = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2( 0, -2.89542 )
+shape = SubResource( 3 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 9 )
+initial_state = NodePath("Move2D")
+
+[node name="Move2D" type="Node" parent="StateMachine"]
+script = ExtResource( 2 )
+speed = 100
+acceleration = 500
+kinematic_body_path = NodePath("../..")
+body_path = NodePath("../../Body")
+
+[node name="Knockback2D" type="Node" parent="StateMachine"]
+script = ExtResource( 8 )
+
+[connection signal="zero_value" from="Health" to="." method="_on_Health_zero_value"]
+[connection signal="damaged" from="HurtBox" to="." method="_on_HurtBox_damaged"]
+[connection signal="knockback" from="HurtBox" to="." method="_on_HurtBox_knockback"]
+[connection signal="knockback_finished" from="StateMachine/Knockback2D" to="." method="_on_Knockback2D_knockback_finished"]

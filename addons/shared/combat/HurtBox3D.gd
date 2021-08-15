@@ -1,6 +1,8 @@
 class_name HurtBox3D extends Area
 
+signal damaged(dmg)
 signal hit(pos)
+signal knockback(knockback)
 
 export var invincibility_time = 1
 
@@ -14,9 +16,13 @@ func _ready():
 func _reset_invincibility():
 	invincible = false
 
-func damage(dmg: int, pos: Vector3 = Vector3.ZERO) -> void:
+func damage(dmg: int, pos := Vector3.ZERO, knockback_force := 0) -> void:
 	if invincible: return
 	
 	emit_signal("hit", pos)
+	emit_signal("damaged", dmg)
+	if knockback_force != 0:
+		var knockback_vector = pos.direction_to(global_transform.origin)
+		emit_signal("knockback", knockback_vector * knockback_force)
 	invincible = true
 	timer.start(invincibility_time)

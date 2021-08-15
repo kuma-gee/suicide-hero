@@ -1,26 +1,20 @@
 extends KinematicBody2D
 
-export var speed := 200
-export var acceleration := 600
-export var friction := 800
+signal heal(hp)
+signal damaged(dmg)
 
 onready var input := $PlayerInput
-onready var body := $Body
 onready var bullet_spawner := $BulletSpawner
+onready var state_machine := $StateMachine
 
-var velocity = Vector2.ZERO
+onready var move := $StateMachine/Move2D
+onready var knockback_state := $StateMachine/Knockback2D
 
 func _process(delta):
 	bullet_spawner.spawn = input.is_pressed("fire")
-
-func _physics_process(delta: float):
-	var dir = _get_motion()
-	var accel = acceleration if dir.length() > 0.01 else friction
-	velocity = velocity.move_toward(dir * speed, accel  * delta)
 	
-	_move(velocity)
-	
-	velocity = move_and_slide(velocity)
+	move.motion = _get_motion()
+	move.look_dir = _get_look_direction()
 
 func _get_motion() -> Vector2:
 	return Vector2(
@@ -28,15 +22,21 @@ func _get_motion() -> Vector2:
 		input.get_action_strength("move_down") - input.get_action_strength("move_up")
 	)
 
-func _move(velocity: Vector2) -> void:
-	var look_dir = _get_look_direction(self)
-	var scale_x = 1
-	
-	if look_dir.x < 0:
-		scale_x = -1
-		
-	body.scale.x = scale_x
+func _get_look_direction() -> Vector2:
+	var mouse_pos = get_global_mouse_position()
+	return global_position.direction_to(mouse_pos).normalized()
 
-func _get_look_direction(node: Node2D) -> Vector2:
-	var mouse_pos = node.get_global_mouse_position()
-	return node.global_position.direction_to(mouse_pos).normalized()
+func heal(hp):
+	emit_signal("heal", hp)
+
+
+func _on_Knockback2D_knockback_finished():
+	state_machine.transition(move)
+
+
+func _on_HurtBox_knockback(knockback):
+	state_machine.transition(knockback_state, {"knockback": knockback})
+
+
+func _on_HurtBox_damaged(dmg):
+	emit_signal("damaged", dmg)

@@ -12,9 +12,9 @@ jobs:
       image: barichello/godot-ci:3.3.2
     strategy:
       matrix:
-        channel: [win, linux, mac] # Remove channel if not releasing (Available: win, linux, mac, web)
+        channel: [win, linux, mac, web] # Remove channel if not releasing (Available: win, linux, mac, web)
     env:
-      GAME: food-fight # Change game name
+      GAME: suicide-hero # Change game name
       CHANNEL: ${{matrix.channel}}
     steps:
       - uses: actions/checkout@v1

@@ -8,5 +8,5 @@ func _ready():
 
 func hit(hurtbox):
 	if hurtbox is HurtBox3D:
-		hurtbox.damage(damage)
+		hurtbox.damage(damage, global_transform.origin)
 	queue_free()

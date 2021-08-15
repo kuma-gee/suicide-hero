@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/shared/utils/equations/EquationFactory.gd"
 }, {
+"base": "Reference",
+"class": "ExponentialEquation",
+"language": "GDScript",
+"path": "res://addons/shared/utils/equations/ExponentialEquation.gd"
+}, {
 "base": "Spatial",
 "class": "FaceCamera",
 "language": "GDScript",
@@ -24,15 +29,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/shared/misc/FaceMouse.gd"
 }, {
+"base": "Area2D",
+"class": "HitBox2D",
+"language": "GDScript",
+"path": "res://addons/shared/combat/HitBox2D.gd"
+}, {
 "base": "Area",
 "class": "HitBox3D",
 "language": "GDScript",
-"path": "res://addons/shared/misc/HitBox3D.gd"
+"path": "res://addons/shared/combat/HitBox3D.gd"
+}, {
+"base": "Area2D",
+"class": "HurtBox2D",
+"language": "GDScript",
+"path": "res://addons/shared/combat/HurtBox2D.gd"
 }, {
 "base": "Area",
 "class": "HurtBox3D",
 "language": "GDScript",
-"path": "res://addons/shared/misc/HurtBox3D.gd"
+"path": "res://addons/shared/combat/HurtBox3D.gd"
 }, {
 "base": "Node",
 "class": "InputMapper",
@@ -49,10 +64,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/shared/input/InputReader.gd"
 }, {
+"base": "State",
+"class": "Knockback2D",
+"language": "GDScript",
+"path": "res://addons/StateMachine/Knockback2D.gd"
+}, {
 "base": "Reference",
 "class": "LinearEquation",
 "language": "GDScript",
 "path": "res://addons/shared/utils/equations/LinearEquation.gd"
+}, {
+"base": "Reference",
+"class": "LogarithmEquation",
+"language": "GDScript",
+"path": "res://addons/shared/utils/equations/LogarithmEquation.gd"
 }, {
 "base": "Control",
 "class": "Menu",
@@ -64,15 +89,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/StateMachine/Move.gd"
 }, {
+"base": "State",
+"class": "Move2D",
+"language": "GDScript",
+"path": "res://addons/StateMachine/Move2D.gd"
+}, {
 "base": "Node",
 "class": "MoveDirection2D",
 "language": "GDScript",
-"path": "res://addons/shared/misc/MoveDirection2D.gd"
+"path": "res://addons/shared/movement/MoveDirection2D.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "MoveDirection3D",
 "language": "GDScript",
-"path": "res://addons/shared/misc/MoveDirection3D.gd"
+"path": "res://addons/shared/movement/MoveDirection3D.gd"
 }, {
 "base": "Control",
 "class": "PausedMenu",
@@ -118,6 +148,11 @@ _global_script_classes=[ {
 "class": "SelectOption",
 "language": "GDScript",
 "path": "res://addons/shared/gui/SelectOption.gd"
+}, {
+"base": "Position2D",
+"class": "SpawnPoint",
+"language": "GDScript",
+"path": "res://map/SpawnPoint.gd"
 }, {
 "base": "Node",
 "class": "Spawner",
@@ -166,16 +201,22 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "EquationFactory": "",
+"ExponentialEquation": "",
 "FaceCamera": "",
 "FaceMouse": "",
+"HitBox2D": "",
 "HitBox3D": "",
+"HurtBox2D": "",
 "HurtBox3D": "",
 "InputMapper": "",
 "InputProfile": "",
 "InputReader": "",
+"Knockback2D": "",
 "LinearEquation": "",
+"LogarithmEquation": "",
 "Menu": "",
 "Move": "",
+"Move2D": "",
 "MoveDirection2D": "",
 "MoveDirection3D": "",
 "PausedMenu": "",
@@ -187,6 +228,7 @@ _global_script_class_icons={
 "RayCastHit3D": "",
 "SceneTest": "",
 "SelectOption": "",
+"SpawnPoint": "",
 "Spawner": "",
 "Stack": "",
 "State": "",
@@ -211,7 +253,8 @@ Game="*res://Game.gd"
 
 [display]
 
-window/stretch/aspect="keep"
+window/size/height=687
+window/stretch/aspect="keep_width"
 
 [importer_defaults]
 
@@ -278,6 +321,7 @@ fire={
 2d_physics/layer_3="player_hurtbox"
 3d_physics/layer_3="enemy"
 2d_physics/layer_4="enemy_hurtbox"
+2d_physics/layer_5="enemy"
 
 [locale]
 
