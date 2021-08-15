@@ -34,7 +34,7 @@ jobs:
         env:
           BUTLER_API_KEY: ${{secrets.BUTLER_API_KEY}}
           USER: ${{secrets.ITCHIO_USER}}
-        run: butler push build/$CHANNEL $USER/$GAME:$CHANNEL --userversion ${GITHUB_REF/refs\/tags\//}
+        run: butler push build/$CHANNEL kuma-gee/$GAME:$CHANNEL --userversion ${GITHUB_REF/refs\/tags\//}
   github-release:
     runs-on: ubuntu-latest
     needs: build-release
