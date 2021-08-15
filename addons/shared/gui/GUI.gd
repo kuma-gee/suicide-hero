@@ -10,7 +10,7 @@ enum {
 
 const screen_scene_map = {
 	Main: preload("res://scenes/menu/MainMenu.tscn"),
-#	GameOver: preload("res://scenes/gui/gameover/GameOver.tscn"),
+	GameOver: preload("res://scenes/menu/GameOver.tscn"),
 }
 
 onready var stack := $MenuStack
@@ -28,9 +28,13 @@ func _unhandled_input(event):
 
 
 func open_menu(menu, clear = false):
+	open({"menu": menu})
+
+
+func open(data = {}, clear = false):
 	if clear:
 		stack.clear()
-	stack.push({"menu": menu})
+	stack.push(data)
 
 
 func back_menu():
@@ -46,7 +50,10 @@ func _add_current_menu(value):
 	var menu = stack.current["menu"]
 	if screen_scene_map.has(menu):
 		var scene = screen_scene_map[menu]
-		theme.add_child(scene.instance())
+		var instance = scene.instance()
+		theme.add_child(instance)
+		if instance.has_method("init"):
+			instance.init(stack.current)
 	
 	emit_signal("screen_changed", menu)
 	_update_gui()

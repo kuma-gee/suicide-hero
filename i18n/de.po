@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-01 11:46+0200\n"
+"POT-Creation-Date: 2021-08-15 10:57+0200\n"
 "PO-Revision-Date: 2021-07-30 10:59+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,68 +18,74 @@ msgstr ""
 "Generated-By: Babel 2.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "FINAL_LEVEL"
+msgstr "Erreichter Level"
+
 msgid "GAME_OVER"
 msgstr "Game Over"
 
 msgid "BACK_TO_MENU"
 msgstr "Zurück zum Menü"
 
-msgid "SELECT_GAME_MODE"
-msgstr "Spielmodus auswählen"
-
-msgid "RACE"
-msgstr "Rennen"
-
-msgid "DEATHMATCH"
-msgstr "Deathmatch"
+msgid "PLACEHOLDER"
+msgstr "Platzhalter"
 
 msgid "START_GAME"
 msgstr "Spiel starten"
 
-msgid "OPTIONS"
-msgstr "Optionen"
-
 msgid "EXIT_GAME"
 msgstr "Spiel schließen"
 
-msgid "SETTINGS"
-msgstr "Einstellungen"
+#~ msgid "SELECT_GAME_MODE"
+#~ msgstr "Spielmodus auswählen"
 
-msgid "LANGUAGE"
-msgstr "Sprache"
+#~ msgid "RACE"
+#~ msgstr "Rennen"
 
-msgid "LANG_DE"
-msgstr "Deutsch"
+#~ msgid "DEATHMATCH"
+#~ msgstr "Deathmatch"
 
-msgid "LANG_EN_US"
-msgstr "Englisch"
+#~ msgid "OPTIONS"
+#~ msgstr "Optionen"
 
-msgid "INPUTS"
-msgstr "Eingaben"
+#~ msgid "SETTINGS"
+#~ msgstr "Einstellungen"
 
-msgid "INPUT_MOVE_UP"
-msgstr "Vorwärts"
+#~ msgid "LANGUAGE"
+#~ msgstr "Sprache"
 
-msgid "INPUT_MOVE_DOWN"
-msgstr "Rückwärts"
+#~ msgid "LANG_DE"
+#~ msgstr "Deutsch"
 
-msgid "INPUT_MOVE_LEFT"
-msgstr "Links drehen"
+#~ msgid "LANG_EN_US"
+#~ msgstr "Englisch"
 
-msgid "INPUT_MOVE_RIGHT"
-msgstr "Rechts drehen"
+#~ msgid "INPUTS"
+#~ msgstr "Eingaben"
 
-msgid "INPUT_FIRE"
-msgstr "Schießen"
+#~ msgid "INPUT_MOVE_UP"
+#~ msgstr "Vorwärts"
 
-msgid "INPUT_BOOST"
-msgstr "Boosten"
+#~ msgid "INPUT_MOVE_DOWN"
+#~ msgstr "Rückwärts"
 
-msgid "PRESS_ANY_BUTTON"
-msgstr "Beliebigen Knopf drücken"
+#~ msgid "INPUT_MOVE_LEFT"
+#~ msgstr "Links drehen"
 
-msgid "RESUME_GAME"
-msgstr "Spiel fortsetzen"
+#~ msgid "INPUT_MOVE_RIGHT"
+#~ msgstr "Rechts drehen"
 
-msgid "READY"
-msgstr "Bereit"
+#~ msgid "INPUT_FIRE"
+#~ msgstr "Schießen"
+
+#~ msgid "INPUT_BOOST"
+#~ msgstr "Boosten"
+
+#~ msgid "PRESS_ANY_BUTTON"
+#~ msgstr "Beliebigen Knopf drücken"
+
+#~ msgid "RESUME_GAME"
+#~ msgstr "Spiel fortsetzen"
+
+#~ msgid "READY"
+#~ msgstr "Bereit"

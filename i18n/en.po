@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-01 11:46+0200\n"
+"POT-Creation-Date: 2021-08-15 10:57+0200\n"
 "PO-Revision-Date: 2021-07-30 11:18+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,68 +18,74 @@ msgstr ""
 "Generated-By: Babel 2.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid "FINAL_LEVEL"
+msgstr "Final Level"
+
 msgid "GAME_OVER"
 msgstr "Game Over"
 
 msgid "BACK_TO_MENU"
 msgstr "Back to menu"
 
-msgid "SELECT_GAME_MODE"
-msgstr "Select game mode"
-
-msgid "RACE"
-msgstr "Race"
-
-msgid "DEATHMATCH"
-msgstr "Deathmatch"
+msgid "PLACEHOLDER"
+msgstr "Placeholder"
 
 msgid "START_GAME"
 msgstr "Start game"
 
-msgid "OPTIONS"
-msgstr "Options"
-
 msgid "EXIT_GAME"
 msgstr "Exit game"
 
-msgid "SETTINGS"
-msgstr "Settings"
+#~ msgid "SELECT_GAME_MODE"
+#~ msgstr "Select game mode"
 
-msgid "LANGUAGE"
-msgstr "Language"
+#~ msgid "RACE"
+#~ msgstr "Race"
 
-msgid "LANG_DE"
-msgstr "German"
+#~ msgid "DEATHMATCH"
+#~ msgstr "Deathmatch"
 
-msgid "LANG_EN_US"
-msgstr "English"
+#~ msgid "OPTIONS"
+#~ msgstr "Options"
 
-msgid "INPUTS"
-msgstr "Inputs"
+#~ msgid "SETTINGS"
+#~ msgstr "Settings"
 
-msgid "INPUT_MOVE_UP"
-msgstr "Forward"
+#~ msgid "LANGUAGE"
+#~ msgstr "Language"
 
-msgid "INPUT_MOVE_DOWN"
-msgstr "Backward"
+#~ msgid "LANG_DE"
+#~ msgstr "German"
 
-msgid "INPUT_MOVE_LEFT"
-msgstr "Turn left"
+#~ msgid "LANG_EN_US"
+#~ msgstr "English"
 
-msgid "INPUT_MOVE_RIGHT"
-msgstr "Turn right"
+#~ msgid "INPUTS"
+#~ msgstr "Inputs"
 
-msgid "INPUT_FIRE"
-msgstr "Fire"
+#~ msgid "INPUT_MOVE_UP"
+#~ msgstr "Forward"
 
-msgid "INPUT_BOOST"
-msgstr "Boost"
+#~ msgid "INPUT_MOVE_DOWN"
+#~ msgstr "Backward"
 
-msgid "PRESS_ANY_BUTTON"
-msgstr "Press any button"
+#~ msgid "INPUT_MOVE_LEFT"
+#~ msgstr "Turn left"
 
-msgid "RESUME_GAME"
-msgstr "Resume game"
+#~ msgid "INPUT_MOVE_RIGHT"
+#~ msgstr "Turn right"
 
-msgid "READY"
-msgstr "Ready"
+#~ msgid "INPUT_FIRE"
+#~ msgstr "Fire"
+
+#~ msgid "INPUT_BOOST"
+#~ msgstr "Boost"
+
+#~ msgid "PRESS_ANY_BUTTON"
+#~ msgstr "Press any button"
+
+#~ msgid "RESUME_GAME"
+#~ msgstr "Resume game"
+
+#~ msgid "READY"
+#~ msgstr "Ready"
