@@ -3,9 +3,13 @@ class_name Move2D extends State
 export var speed := 200
 export var acceleration := 600
 export var friction := 800
+export var soft_collision_multiplier := 400
 
 export var kinematic_body_path: NodePath
 onready var kinematic_body: KinematicBody2D = get_node(kinematic_body_path) if kinematic_body_path else owner
+
+export var soft_collision_path: NodePath
+onready var soft_collision: SoftCollision2D = get_node(soft_collision_path) if soft_collision_path else null
 
 export var body_path: NodePath
 onready var body := get_node(body_path)
@@ -18,6 +22,9 @@ func physics_process(delta: float):
 	var dir = motion
 	var accel = acceleration if dir.length() > 0.01 else friction
 	velocity = velocity.move_toward(dir * speed, accel  * delta)
+	
+	if soft_collision:
+		velocity += soft_collision.get_push_vector() * delta * soft_collision_multiplier
 	
 	_move(velocity)
 	
