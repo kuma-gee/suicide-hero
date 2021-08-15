@@ -13,7 +13,7 @@ onready var enemy_spawn_timer := $EnemySpawnTimer
 onready var spawn_positions := $SpawnPositions
 onready var enemies := $Enemies
 
-const enemy = preload("res://enemy/Enemy.tscn")
+const enemy = preload("res://enemy/TinyZombie.tscn")
 
 enum {
 	FLOOR,

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://player/sprite.png" type="Texture" id=1]
 [ext_resource path="res://player/Player.gd" type="Script" id=2]
@@ -12,6 +12,68 @@
 [ext_resource path="res://addons/StateMachine/StateMachine.gd" type="Script" id=10]
 [ext_resource path="res://player/PickupArea.gd" type="Script" id=11]
 
+[sub_resource type="Animation" id=6]
+resource_name = "Hit"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.705882 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Run"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.3211, 9.14295 )
 
@@ -24,6 +86,11 @@ radius = 14.5373
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hit = SubResource( 6 )
+anims/Idle = SubResource( 4 )
+anims/Run = SubResource( 5 )
 
 [node name="GunPointRoot" type="Node2D" parent="."]
 position = Vector2( 0, -5.05109 )
@@ -49,6 +116,7 @@ shape = SubResource( 2 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -11 )
 hframes = 9
+frame = 8
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -88,3 +156,6 @@ shape = SubResource( 3 )
 [connection signal="damaged" from="HurtBox" to="." method="_on_HurtBox_damaged"]
 [connection signal="knockback" from="HurtBox" to="." method="_on_HurtBox_knockback"]
 [connection signal="knockback_finished" from="StateMachine/Knockback2D" to="." method="_on_Knockback2D_knockback_finished"]
+[connection signal="knockback_start" from="StateMachine/Knockback2D" to="AnimationPlayer" method="play" binds= [ "Hit" ]]
+[connection signal="idle" from="StateMachine/Move2D" to="AnimationPlayer" method="play" binds= [ "Idle" ]]
+[connection signal="run" from="StateMachine/Move2D" to="AnimationPlayer" method="play" binds= [ "Run" ]]

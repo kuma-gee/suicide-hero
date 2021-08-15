@@ -1,5 +1,8 @@
 class_name Move2D extends State
 
+signal idle()
+signal run()
+
 export var speed := 200
 export var acceleration := 600
 export var friction := 800
@@ -18,6 +21,9 @@ var velocity = Vector2.ZERO
 var motion = Vector2.ZERO
 var look_dir = Vector2.ZERO
 
+func enter(msg := {}):
+	velocity = Vector2.ZERO
+
 func physics_process(delta: float):
 	var dir = motion
 	var accel = acceleration if dir.length() > 0.01 else friction
@@ -27,6 +33,11 @@ func physics_process(delta: float):
 		velocity += soft_collision.get_push_vector() * delta * soft_collision_multiplier
 	
 	_move(velocity)
+	
+	if velocity.length() > 0.01:
+		emit_signal("run")
+	else:
+		emit_signal("idle")
 	
 	velocity = kinematic_body.move_and_slide(velocity)
 
