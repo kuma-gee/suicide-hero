@@ -109,6 +109,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/shared/menu/PausedMenu.gd"
 }, {
+"base": "Area2D",
+"class": "PickupArea",
+"language": "GDScript",
+"path": "res://player/PickupArea.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://player/Player.gd"
+}, {
 "base": "InputReader",
 "class": "PlayerInput",
 "language": "GDScript",
@@ -225,6 +235,8 @@ _global_script_class_icons={
 "MoveDirection2D": "",
 "MoveDirection3D": "",
 "PausedMenu": "",
+"PickupArea": "",
+"Player": "",
 "PlayerInput": "",
 "PlayerManager": "",
 "PlayerStats": "",
@@ -328,6 +340,7 @@ fire={
 3d_physics/layer_3="enemy"
 2d_physics/layer_4="enemy_hurtbox"
 2d_physics/layer_5="enemy"
+2d_physics/layer_6="pickup"
 
 [locale]
 
