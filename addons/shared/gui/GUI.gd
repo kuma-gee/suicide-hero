@@ -6,11 +6,13 @@ enum {
 	Main,
 	InGame,
 	GameOver,
+	Pause,
 }
 
 const screen_scene_map = {
 	Main: preload("res://scenes/menu/MainMenu.tscn"),
 	GameOver: preload("res://scenes/menu/GameOver.tscn"),
+	Pause: preload("res://scenes/menu/Pause.tscn"),
 }
 
 onready var stack := $MenuStack

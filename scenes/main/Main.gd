@@ -20,6 +20,9 @@ func _ready():
 	experience_timer.start()
 	hud.connect_player_stats(stats)
 
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		GUI.open_menu(GUI.Pause)
 
 func start():
 	GUI.open_menu(GUI.InGame, true)
