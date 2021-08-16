@@ -1,20 +1,24 @@
 class_name Player extends KinematicBody2D
 
-signal heal(hp)
+signal skill_selected(skill)
 signal damaged(dmg)
 
 onready var input := $PlayerInput
-onready var bullet_spawner := $BulletSpawner
+onready var gun_point_root := $GunPointRoot
 onready var state_machine := $StateMachine
 
 onready var move := $StateMachine/Move2D
 onready var knockback_state := $StateMachine/Knockback2D
+onready var skill_select := $SkillSelect
+
+onready var stats := $PlayerStats
 
 func _process(delta):
-	bullet_spawner.spawn = input.is_pressed("fire")
+	gun_point_root.shoot = input.is_pressed("fire")
 	
 	move.motion = _get_motion()
 	move.look_dir = _get_look_direction()
+
 
 func _get_motion() -> Vector2:
 	return Vector2(
@@ -22,13 +26,20 @@ func _get_motion() -> Vector2:
 		input.get_action_strength("move_down") - input.get_action_strength("move_up")
 	)
 
+
 func _get_look_direction() -> Vector2:
 	var mouse_pos = get_global_mouse_position()
 	return global_position.direction_to(mouse_pos).normalized()
 
-func heal(hp):
-	emit_signal("heal", hp)
 
+func heal(hp):
+	stats.health.increase(hp)
+	
+func increase_damage(dmg) -> void:
+	gun_point_root.damage_increase += dmg
+
+func increase_speed(speed) -> void:
+	move.speed += speed
 
 func _on_Knockback2D_knockback_finished():
 	state_machine.transition(move)
@@ -39,4 +50,13 @@ func _on_HurtBox_knockback(knockback):
 
 
 func _on_HurtBox_damaged(dmg):
-	emit_signal("damaged", dmg)
+	stats.health.reduce(dmg)
+
+
+func skills(skill1: int, skill2: int):
+	skill_select.select_skills(skill1, skill2)
+
+
+func _on_SkillSelect_skill_selected(skill):
+	emit_signal("skill_selected", skill)
+

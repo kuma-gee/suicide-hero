@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/main/Main.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://map/Map.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/main/HUD.tscn" type="PackedScene" id=4]
-[ext_resource path="res://addons/shared/misc/ValueFill.gd" type="Script" id=5]
-[ext_resource path="res://scenes/main/PlayerStats.gd" type="Script" id=7]
+[ext_resource path="res://skills/SpeedUp.gd" type="Script" id=5]
+[ext_resource path="res://skills/SkillManager.gd" type="Script" id=6]
+[ext_resource path="res://skills/HealthUp.gd" type="Script" id=7]
+[ext_resource path="res://skills/StrengthUp.gd" type="Script" id=8]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -21,22 +23,27 @@ camera_path = NodePath("../Player/Camera2D")
 [node name="ExperienceTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="PlayerStats" type="Node" parent="."]
+[node name="SkillManager" type="Node" parent="."]
+script = ExtResource( 6 )
+player_path = NodePath("../Player")
+
+[node name="HealthUp" type="Node" parent="SkillManager"]
 script = ExtResource( 7 )
 
-[node name="Experience" type="Node" parent="PlayerStats"]
-script = ExtResource( 5 )
-start_empty = true
-overflow = true
-max_value = 50
+[node name="StrengthUp" type="Node" parent="SkillManager"]
+script = ExtResource( 8 )
+type = 2
 
-[node name="Health" type="Node" parent="PlayerStats"]
+[node name="SpeedUp" type="Node" parent="SkillManager"]
 script = ExtResource( 5 )
+type = 1
+increase = 10
 
-[connection signal="damaged" from="Player" to="PlayerStats/Health" method="reduce"]
-[connection signal="heal" from="Player" to="PlayerStats" method="heal_player"]
+[connection signal="skill_selected" from="Player" to="." method="_on_Player_skill_selected"]
+[connection signal="level_up" from="Player/PlayerStats" to="." method="_on_PlayerStats_level_up"]
+[connection signal="zero_value" from="Player/PlayerStats/Health" to="." method="_on_Health_zero_value"]
+[connection signal="timeout" from="ExperienceTimer" to="Player/PlayerStats" method="_on_ExperienceTimer_timeout"]
 [connection signal="timeout" from="ExperienceTimer" to="." method="_on_ExperienceTimer_timeout"]
-[connection signal="timeout" from="ExperienceTimer" to="PlayerStats" method="_on_ExperienceTimer_timeout"]
-[connection signal="level_up" from="PlayerStats" to="." method="_on_PlayerStats_level_up"]
-[connection signal="overflow" from="PlayerStats/Experience" to="PlayerStats" method="_on_Experience_overflow"]
-[connection signal="zero_value" from="PlayerStats/Health" to="." method="_on_Health_zero_value"]
+
+[editable path="Player"]
+[editable path="Player/PlayerStats"]
