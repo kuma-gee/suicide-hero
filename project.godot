@@ -295,7 +295,8 @@ Game="*res://Game.gd"
 
 [display]
 
-window/size/height=687
+window/size/width=1280
+window/size/height=720
 window/stretch/aspect="keep_width"
 
 [importer_defaults]
