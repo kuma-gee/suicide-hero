@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://scenes/main/Main.gd" type="Script" id=1]
+[ext_resource path="res://player/Main.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://map/Map.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/main/HUD.tscn" type="PackedScene" id=4]
@@ -8,6 +8,7 @@
 [ext_resource path="res://skills/SkillManager.gd" type="Script" id=6]
 [ext_resource path="res://skills/HealthUp.gd" type="Script" id=7]
 [ext_resource path="res://skills/StrengthUp.gd" type="Script" id=8]
+[ext_resource path="res://scenes/main/Retro Battle Theme 5.ogg" type="AudioStream" id=9]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -39,11 +40,16 @@ script = ExtResource( 5 )
 type = 1
 increase = 10
 
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -15.0
+autoplay = true
+
 [connection signal="skill_selected" from="Player" to="." method="_on_Player_skill_selected"]
 [connection signal="level_up" from="Player/PlayerStats" to="." method="_on_PlayerStats_level_up"]
 [connection signal="zero_value" from="Player/PlayerStats/Health" to="." method="_on_Health_zero_value"]
-[connection signal="timeout" from="ExperienceTimer" to="Player/PlayerStats" method="_on_ExperienceTimer_timeout"]
 [connection signal="timeout" from="ExperienceTimer" to="." method="_on_ExperienceTimer_timeout"]
+[connection signal="timeout" from="ExperienceTimer" to="Player/PlayerStats" method="_on_ExperienceTimer_timeout"]
 
 [editable path="Player"]
 [editable path="Player/PlayerStats"]

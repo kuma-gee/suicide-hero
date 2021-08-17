@@ -137,7 +137,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "PlayerStats",
 "language": "GDScript",
-"path": "res://scenes/main/PlayerStats.gd"
+"path": "res://player/PlayerStats.gd"
 }, {
 "base": "Node",
 "class": "Random",
