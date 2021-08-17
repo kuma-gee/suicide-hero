@@ -6,7 +6,7 @@ signal run()
 export var speed := 200
 export var acceleration := 600
 export var friction := 800
-export var soft_collision_multiplier := 400
+export var soft_collision_multiplier := 1000
 
 export var kinematic_body_path: NodePath
 onready var kinematic_body: KinematicBody2D = get_node(kinematic_body_path) if kinematic_body_path else owner
