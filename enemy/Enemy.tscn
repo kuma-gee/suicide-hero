@@ -21,7 +21,7 @@ extents = Vector2( 5.04087, 4.97941 )
 extents = Vector2( 4.70679, 4.75669 )
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 7.47357
+radius = 8.15895
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 16
@@ -65,6 +65,7 @@ position = Vector2( 0, -2.89542 )
 shape = SubResource( 3 )
 
 [node name="SoftCollision2D" type="Area2D" parent="."]
+visible = false
 position = Vector2( 0, -3.04734 )
 collision_layer = 16
 collision_mask = 16
@@ -81,6 +82,7 @@ initial_state = NodePath("Move2D")
 script = ExtResource( 2 )
 speed = 100
 acceleration = 500
+soft_collision_multiplier = 800
 kinematic_body_path = NodePath("../..")
 soft_collision_path = NodePath("../../SoftCollision2D")
 body_path = NodePath("../../Body")
@@ -90,5 +92,7 @@ script = ExtResource( 8 )
 
 [connection signal="zero_value" from="Health" to="." method="_on_Health_zero_value"]
 [connection signal="damaged" from="HurtBox" to="." method="_on_HurtBox_damaged"]
+[connection signal="hit" from="HurtBox" to="." method="_on_HurtBox_hit"]
+[connection signal="invincibility_timeout" from="HurtBox" to="." method="_on_HurtBox_invincibility_timeout"]
 [connection signal="knockback" from="HurtBox" to="." method="_on_HurtBox_knockback"]
 [connection signal="knockback_finished" from="StateMachine/Knockback2D" to="." method="_on_Knockback2D_knockback_finished"]

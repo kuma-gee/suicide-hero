@@ -8,6 +8,7 @@ onready var health := $Health
 onready var state_machine := $StateMachine
 onready var move := $StateMachine/Move2D
 onready var knockback_state := $StateMachine/Knockback2D
+onready var sprite := $Body/Sprite
 
 var player: Node2D
 
@@ -36,3 +37,11 @@ func _on_HurtBox_knockback(knockback):
 
 func _on_Knockback2D_knockback_finished():
 	state_machine.transition(move)
+
+
+func _on_HurtBox_invincibility_timeout():
+	sprite.modulate.a8 = 255
+
+
+func _on_HurtBox_hit():
+	sprite.modulate.a8 = 180

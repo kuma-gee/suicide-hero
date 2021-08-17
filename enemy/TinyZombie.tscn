@@ -24,7 +24,4 @@ tracks/0/keys = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 anims/Run = SubResource( 1 )
 
-[node name="Sprite" parent="Body" index="0"]
-frame = 1
-
 [connection signal="run" from="StateMachine/Move2D" to="AnimationPlayer" method="play" binds= [ "Run" ]]
