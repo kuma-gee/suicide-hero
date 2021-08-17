@@ -21,36 +21,49 @@ const slot_action = {
 	SkillRight: "skill_2",
 }
 
-var _current_skill_1: int
-var _current_skill_2: int
+onready var skill_queue := $Queue
+onready var selected_sound := $SelectedSound
+
+var _current_skills := []
 
 func _unhandled_input(event):
-	if event.is_action_pressed("skill_1"):
-		_select_skill(_current_skill_1)
-		get_tree().set_input_as_handled()
-	elif event.is_action_pressed("skill_2"):
-		_select_skill(_current_skill_2)
-		get_tree().set_input_as_handled()
+	if _current_skills.size() == 2:
+		if event.is_action_pressed("skill_1"):
+			_select_skill(_current_skills[0])
+			get_tree().set_input_as_handled()
+		elif event.is_action_pressed("skill_2"):
+			_select_skill(_current_skills[1])
+			get_tree().set_input_as_handled()
 
 
 func _select_skill(skill) -> void:
 	emit_signal("skill_selected", skill)
 	for child in get_children():
-		remove_child(child)
+		if child is SkillSelectItem:
+			remove_child(child)
+	_current_skills = []
+	skill_queue.auto_deque = true
+	selected_sound.play()
 
 
 func select_skills(skill1: int, skill2: int) -> void:
-	_current_skill_1 = skill1
-	_current_skill_2 = skill2
+	skill_queue.queue([skill1, skill2])
+
+func _show_skill_select(skills: Array):
+	if skills.size() != 2: return
+	_current_skills = skills
 	
-	var sprite1 = _create_skill_select(skill1, SkillLeft)
-	var sprite2 = _create_skill_select(skill2, SkillRight)
+	var sprite1 = _create_skill_select(skills[0], SkillLeft)
+	var sprite2 = _create_skill_select(skills[1], SkillRight)
 	
 	add_child(sprite1)
 	sprite1.global_position.x -= offset
+	sprite1.start_autoselect()
+	sprite1.connect("auto_selected", self, "_select_skill", [_current_skills[0]])
 	
 	add_child(sprite2)
 	sprite2.global_position.x += offset
+	skill_queue.auto_deque = false
 
 func _create_skill_select(skill: int, slot: int) -> Sprite:
 	if not skill_map.has(skill): return null
@@ -65,3 +78,7 @@ func _get_skill_key(skill_slot: int) -> InputEvent:
 	if not slot_action.has(skill_slot): return null
 	var actions = InputMap.get_action_list(slot_action.get(skill_slot))
 	return actions[0] if actions.size() > 0 else null
+
+
+func _on_Queue_dequed(value):
+	_show_skill_select(value)
