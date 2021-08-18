@@ -297,7 +297,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Suicide Hero"
-run/main_scene="res://scenes/menu/Menu.tscn"
+run/main_scene="res://scenes/splashscreen/SplashScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
