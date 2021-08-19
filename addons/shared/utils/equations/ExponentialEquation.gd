@@ -7,7 +7,7 @@ var div := 1.0
 
 var debug = false
 
-func _init(b, r, o, d = 1):
+func _init(b, r, o = 0, d = 1):
 	base = b
 	rise = r
 	offset = o

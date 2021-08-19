@@ -7,7 +7,7 @@ export var level = 1
 onready var experience := $Experience
 onready var health := $Health
 
-var exp_gain_eq = ExponentialEquation.new(2, 10, 5)
+var exp_gain_eq = ExponentialEquation.new(2, 30, 5)
 var exp_lvl_eq = LogarithmEquation.new(100, 50)
 
 
@@ -17,6 +17,7 @@ func _on_ExperienceTimer_timeout():
 
 func _gain_experience() -> void:
 	var ex = _get_experience(health.get_percentage())
+	print(ex)
 	experience.increase(ex)
 	health.reduce(ex)
 
@@ -35,10 +36,7 @@ func _on_Experience_overflow():
 	emit_signal("level_up", level)
 
 func _update_max_experience() -> void:
-	experience.max_value = _get_experience_for_next_level()
-
-func _get_experience_for_next_level() -> int:
-	return exp_lvl_eq.y(level)
+	experience.max_value = exp_lvl_eq.y(level)
 
 func heal_player(hp: int) -> void:
 	health.increase(hp)
