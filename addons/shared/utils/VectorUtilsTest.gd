@@ -54,3 +54,7 @@ class TestFindPointsAround extends UnitTest:
 		var groups = VectorUtils.find_points_around(points, [Vector2.ZERO], 10)
 
 		assert_array_eq(groups.get(Vector2.ZERO), [Vector2(-10, -10), Vector2(-5, 5), Vector2(10, -5)]);
+		
+
+func test_orthogonal():
+	assert_eq(VectorUtils.orthogonal(Vector2(1, 2)), Vector2(2, -1))

@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemy/necromancer.png" type="Texture" id=2]
 [ext_resource path="res://enemy/SkeletonSpawn.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 6, 9 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 5.19379, 8.12529 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "Casting"
@@ -49,6 +55,17 @@ frame = 3
 
 [node name="Health" parent="." index="1"]
 max_value = 30
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2( -1.03009, -1.49831 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2( -0.842796, -4.48737 )
+shape = SubResource( 5 )
+
+[node name="Move2D" parent="StateMachine" index="0"]
+speed = 80
 
 [node name="AnimationPlayer" parent="." index="6"]
 anims/Casting = SubResource( 1 )

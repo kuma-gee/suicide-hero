@@ -17,10 +17,15 @@ const enemy_level_map = {
 	1: [
 		preload("res://enemy/TinyZombie.tscn"),
 		preload("res://enemy/Imp.tscn"),
-		preload("res://enemy/Goblin.tscn")
+		preload("res://enemy/Goblin.tscn"),
 	],
 	5: [
-		preload("res://enemy/Necromancer.tscn")
+		preload("res://enemy/Orc.tscn"),
+		preload("res://enemy/MaskedOrc.tscn"),
+	],
+	8: [
+		preload("res://enemy/Necromancer.tscn"),
+		preload("res://enemy/Swampy.tscn"),
 	]
 }
 

@@ -15,7 +15,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "Hit"
-length = 0.4
+length = 0.001
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/Sprite:frame")
@@ -28,18 +28,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 8 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Body/Sprite:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.705882 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -58,18 +46,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Body/Sprite:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Run"
@@ -85,18 +61,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 4, 5, 6, 7 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Body/Sprite:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -156,7 +120,6 @@ shape = SubResource( 6 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -11 )
 hframes = 9
-frame = 4
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -176,6 +139,7 @@ script = ExtResource( 9 )
 
 [node name="Move2D" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
+speed = 150
 kinematic_body_path = NodePath("../..")
 body_path = NodePath("../../Body")
 
@@ -187,6 +151,7 @@ offset = 20
 
 [connection signal="timeout" from="GunPointRoot/FireRate" to="GunPointRoot" method="_on_FireRate_timeout"]
 [connection signal="damaged" from="HurtBox" to="." method="_on_HurtBox_damaged"]
+[connection signal="invincibility_timeout" from="HurtBox" to="." method="_on_HurtBox_invincibility_timeout"]
 [connection signal="knockback" from="HurtBox" to="." method="_on_HurtBox_knockback"]
 [connection signal="knockback_finished" from="StateMachine/Knockback2D" to="." method="_on_Knockback2D_knockback_finished"]
 [connection signal="knockback_start" from="StateMachine/Knockback2D" to="AnimationPlayer" method="play" binds= [ "Hit" ]]

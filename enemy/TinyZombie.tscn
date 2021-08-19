@@ -1,9 +1,12 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://enemy/enemyRun.tres" type="Animation" id=2]
+[ext_resource path="res://enemy/Run.tres" type="Animation" id=2]
 
 [node name="TinyZombie" instance=ExtResource( 1 )]
+
+[node name="Sprite" parent="Body" index="0"]
+frame = 3
 
 [node name="AnimationPlayer" parent="." index="6"]
 anims/Run = ExtResource( 2 )

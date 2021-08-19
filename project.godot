@@ -229,6 +229,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://skills/StrengthUp.gd"
 }, {
+"base": "Line2D",
+"class": "Trail2D",
+"language": "GDScript",
+"path": "res://addons/Trail/trail_2d.gd"
+}, {
+"base": "Node",
+"class": "TrailCollision",
+"language": "GDScript",
+"path": "res://addons/Trail/TrailCollision.gd"
+}, {
 "base": "Node",
 "class": "UnitTest",
 "language": "GDScript",
@@ -299,6 +309,8 @@ _global_script_class_icons={
 "State": "",
 "StateMachine": "",
 "StrengthUp": "",
+"Trail2D": "",
+"TrailCollision": "",
 "UnitTest": "",
 "Utils": "",
 "ValueFill": "",
@@ -322,6 +334,10 @@ Game="*res://Game.gd"
 window/size/width=1280
 window/size/height=720
 window/stretch/aspect="keep_width"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/Trail/plugin.cfg" )
 
 [importer_defaults]
 

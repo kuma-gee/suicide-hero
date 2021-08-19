@@ -1,36 +1,41 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://enemy/skeleton.png" type="Texture" id=2]
-[ext_resource path="res://enemy/Run.tres" type="Animation" id=3]
+[ext_resource path="res://enemy/Run.tres" type="Animation" id=2]
+[ext_resource path="res://enemy/masked_orc.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.04087, 7.23452 )
+extents = Vector2( 5.04087, 7.67646 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 5.24791, 7.19207 )
+extents = Vector2( 4.70679, 7.81079 )
 
-[node name="Skeleton" instance=ExtResource( 1 )]
-health_drop = null
+[node name="MaskedOrc" instance=ExtResource( 1 )]
+heal_size = 1
 
 [node name="Sprite" parent="Body" index="0"]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 hframes = 4
+frame = 3
 
 [node name="Health" parent="." index="1"]
-max_value = 10
+max_value = 35
+
+[node name="HurtBox" parent="." index="2"]
+visible = true
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2( -0.441944, -1.94454 )
 shape = SubResource( 1 )
 
 [node name="HitBox" parent="." index="3"]
-visible = true
-knockback_force = 25
+damage = 10
+knockback_force = 60
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2( -0.530331, -5.01674 )
 shape = SubResource( 2 )
 
+[node name="Move2D" parent="StateMachine" index="0"]
+speed = 80
+
 [node name="AnimationPlayer" parent="." index="6"]
-anims/Run = ExtResource( 3 )
+anims/Run = ExtResource( 2 )

@@ -1,5 +1,7 @@
 class_name VectorUtils
 
+static func orthogonal(vector: Vector2) -> Vector2:
+	return Vector2(vector.y, -vector.x)
 
 static func find_orthogonal_line(points: Array, dir: Vector2, close_point = null, min_gap = 1, max_gap = 50) -> Array:
 	var selected_angle = -1

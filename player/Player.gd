@@ -12,6 +12,8 @@ onready var knockback_state := $StateMachine/Knockback2D
 onready var skill_select := $SkillSelect
 
 onready var stats := $PlayerStats
+onready var sprite := $Body/Sprite
+onready var anim := $AnimationPlayer
 
 func _process(delta):
 	gun_point_root.shoot = input.is_pressed("fire")
@@ -51,6 +53,7 @@ func _on_HurtBox_knockback(knockback):
 
 func _on_HurtBox_damaged(dmg):
 	stats.health.reduce(dmg)
+	sprite.modulate.a = 0.75
 
 
 func skills(skill1: int, skill2: int):
@@ -60,3 +63,7 @@ func skills(skill1: int, skill2: int):
 func _on_SkillSelect_skill_selected(skill):
 	emit_signal("skill_selected", skill)
 
+
+
+func _on_HurtBox_invincibility_timeout():
+	sprite.modulate.a = 1
