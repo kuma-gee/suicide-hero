@@ -23,7 +23,7 @@ jobs:
       - run: sh scripts/prepare.sh
       - run: sh scripts/build.sh $CHANNEL $GAME
       - name: Publish Itch
-        if: env.BUTLER_API_KEY && env.USER && env.GAME && !contains(github.ref, '-pre')
+        if: env.BUTLER_API_KEY && env.GAME && !contains(github.ref, '-pre')
         shell: bash
         env:
           BUTLER_API_KEY: ${{secrets.BUTLER_API_KEY}}
