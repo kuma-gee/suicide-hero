@@ -22,17 +22,18 @@ func add_skill(skill: int) -> void:
 
 
 func get_random_skills(lvl: int) -> Array:
-	if lvl % 5 != 0: return []
+	if lvl % 2 != 0: return []
+	
 	
 	var available_skills = _get_allowed_skills(lvl)
 	if available_skills.size() == 0: return []
-	
+
 	var skill1 = Random.random_int(0, available_skills.size())
 	var skill2 = skill1
 	if available_skills.size() >= 2:
 		while skill2 == skill1:
 			skill2 = Random.random_int(0, available_skills.size())
-	
+
 	return [available_skills[skill1], available_skills[skill2]] 
 	
 
@@ -40,5 +41,9 @@ func get_random_skills(lvl: int) -> Array:
 func _get_allowed_skills(lvl: int) -> Array:
 	var result = []
 	for child in get_children():
-		result.append(child.type)
+		var skill: Skill = child
+		if skills.has(skill.type) and skills[skill.type] >= skill.max_used:
+			remove_child(child)
+		elif skill.enabled:
+			result.append(child.type)
 	return result

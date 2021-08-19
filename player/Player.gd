@@ -14,6 +14,7 @@ onready var skill_select := $SkillSelect
 onready var stats := $PlayerStats
 onready var sprite := $Body/Sprite
 onready var anim := $AnimationPlayer
+onready var magnet := $PickupMagnet/CollisionShape2D
 
 func _process(delta):
 	gun_point_root.shoot = input.is_pressed("fire")
@@ -36,12 +37,16 @@ func _get_look_direction() -> Vector2:
 
 func heal(hp):
 	stats.health.increase(hp)
-	
+
 func increase_damage(dmg) -> void:
 	gun_point_root.damage_increase += dmg
 
 func increase_speed(speed) -> void:
 	move.speed += speed
+
+func increase_magnet(size) -> void:
+	var circle = magnet.shape as CircleShape2D
+	circle.radius += size
 
 func _on_Knockback2D_knockback_finished():
 	state_machine.transition(move)
@@ -62,7 +67,6 @@ func skills(skill1: int, skill2: int):
 
 func _on_SkillSelect_skill_selected(skill):
 	emit_signal("skill_selected", skill)
-
 
 
 func _on_HurtBox_invincibility_timeout():

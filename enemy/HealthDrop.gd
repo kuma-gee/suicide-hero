@@ -8,6 +8,8 @@ enum Size {
 
 var heal_size = Size.SMALL
 
+onready var move := $MoveToward2D
+
 func _on_HealthDrop_area_entered(area):
 	if not area is PickupArea: return
 	
@@ -20,3 +22,6 @@ func _get_heal_amount() -> int:
 		Size.MEDIUM: return 25
 		Size.LARGE: return 50
 		_: return 0
+
+func set_target(target) -> void:
+	move.target = target

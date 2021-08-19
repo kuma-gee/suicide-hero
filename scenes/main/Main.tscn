@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://player/Main.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://skills/HealthUp.gd" type="Script" id=7]
 [ext_resource path="res://skills/StrengthUp.gd" type="Script" id=8]
 [ext_resource path="res://scenes/main/Retro Battle Theme 5.ogg" type="AudioStream" id=9]
+[ext_resource path="res://skills/MagnetUp.gd" type="Script" id=10]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -39,6 +40,11 @@ type = 2
 script = ExtResource( 5 )
 type = 1
 increase = 10
+
+[node name="MagnetUp" type="Node" parent="SkillManager"]
+script = ExtResource( 10 )
+type = 3
+max_used = 5
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )

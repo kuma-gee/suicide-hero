@@ -8,7 +8,7 @@ onready var logo := $Logo
 func _ready():
 	var start = Color(1, 1, 1, 1)
 	var end = Color(1, 1, 1, 0)
-	tween.interpolate_property(logo, "modulate", start, end, 1, Tween.TRANS_QUAD, Tween.EASE_IN_OUT, 0.5)
+	tween.interpolate_property(logo, "modulate", start, end, 2, Tween.TRANS_QUAD, Tween.EASE_IN_OUT, 0.5)
 	tween.start()
 
 

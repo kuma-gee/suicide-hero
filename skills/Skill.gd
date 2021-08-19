@@ -4,8 +4,10 @@ enum Type {
 	HEALTH,
 	SPEED,
 	STRENGTH,
+	MAGNET,
 }
 
+export var enabled := true
 export(Type) var type: int
 export var max_used := -1
 export var start_level := 1

@@ -3,13 +3,13 @@
 [ext_resource path="res://enemy/tiny_zombie.png" type="Texture" id=1]
 [ext_resource path="res://addons/StateMachine/Move2D.gd" type="Script" id=2]
 [ext_resource path="res://addons/shared/misc/ValueFill.gd" type="Script" id=3]
-[ext_resource path="res://addons/shared/combat/HurtBox2D.gd" type="Script" id=4]
+[ext_resource path="res://addons/shared/rpg/HurtBox2D.gd" type="Script" id=4]
 [ext_resource path="res://enemy/Enemy.gd" type="Script" id=5]
 [ext_resource path="res://enemy/HealthDrop.tscn" type="PackedScene" id=6]
-[ext_resource path="res://addons/shared/combat/HitBox2D.gd" type="Script" id=7]
+[ext_resource path="res://addons/shared/rpg/HitBox2D.gd" type="Script" id=7]
 [ext_resource path="res://addons/StateMachine/Knockback2D.gd" type="Script" id=8]
 [ext_resource path="res://addons/StateMachine/StateMachine.gd" type="Script" id=9]
-[ext_resource path="res://addons/shared/combat/SoftCollision2D.gd" type="Script" id=10]
+[ext_resource path="res://addons/shared/rpg/SoftCollision2D.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.36143, 1.71368 )
