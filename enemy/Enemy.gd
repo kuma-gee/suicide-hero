@@ -1,7 +1,9 @@
-extends KinematicBody2D
+class_name Enemy extends KinematicBody2D
 
+export(HealthDrop.Size) var heal_size := HealthDrop.Size.SMALL
 export var health_drop: PackedScene
 export var enemy_value = 1
+export var keep_distance = 0
 
 onready var health := $Health
 
@@ -14,7 +16,14 @@ var player: Node2D
 
 func _process(delta):
 	if player:
-		move.motion = global_position.direction_to(player.global_position).normalized()
+		var distance := global_position.distance_to(player.global_position)
+		if distance <= keep_distance:
+			if distance <= keep_distance - 10:
+				move.motion = player.global_position.direction_to(global_position).normalized()
+			else:
+				move.motion = Vector2.ZERO
+		else:
+			move.motion = global_position.direction_to(player.global_position).normalized()
 		move.look_dir = move.motion
 
 func _on_HurtBox_damaged(dmg):
@@ -26,9 +35,11 @@ func _on_Health_zero_value():
 	queue_free()
 
 func _spawn_health_drop():
-	var drop = health_drop.instance()
-	get_tree().current_scene.add_child(drop)
-	drop.global_position = global_position
+	if health_drop != null:
+		var drop: HealthDrop = health_drop.instance()
+		drop.heal_size = heal_size
+		get_tree().current_scene.add_child(drop)
+		drop.global_position = global_position
 
 
 func _on_HurtBox_knockback(knockback):

@@ -17,5 +17,4 @@ func available() -> bool:
 
 func _process(delta):
 	if auto_deque and available():
-		print("Deque " + str(values))
 		emit_signal("dequed", deque())

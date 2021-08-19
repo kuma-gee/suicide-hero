@@ -24,3 +24,7 @@ func transition(new_state, msg := {}) -> void:
 	state.exit()
 	state = new_state
 	state.enter(msg)
+
+func transition_node(node_name: String) -> void:
+	if has_node(node_name):
+		transition(get_node(node_name))

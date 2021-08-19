@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemy/skeleton.png" type="Texture" id=2]
+[ext_resource path="res://enemy/enemyRun.tres" type="Animation" id=3]
+
+[node name="Skeleton" instance=ExtResource( 1 )]
+health_drop = null
+
+[node name="Sprite" parent="Body" index="0"]
+texture = ExtResource( 2 )
+hframes = 4
+
+[node name="Health" parent="." index="1"]
+max_value = 10
+
+[node name="HitBox" parent="." index="3"]
+knockback_force = 25
+
+[node name="AnimationPlayer" parent="." index="6"]
+anims/Run = ExtResource( 3 )

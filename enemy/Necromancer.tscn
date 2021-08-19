@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemy/necromancer.png" type="Texture" id=2]
+[ext_resource path="res://enemy/SkeletonSpawn.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Casting"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Run"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[node name="Necromancer" instance=ExtResource( 1 )]
+heal_size = 1
+enemy_value = 15
+keep_distance = 150
+
+[node name="Sprite" parent="Body" index="0"]
+texture = ExtResource( 2 )
+frame = 3
+
+[node name="Health" parent="." index="1"]
+max_value = 30
+
+[node name="AnimationPlayer" parent="." index="6"]
+anims/Casting = SubResource( 1 )
+anims/Run = SubResource( 3 )
+
+[node name="SkeletonSpawn" type="Node" parent="." index="7"]
+script = ExtResource( 4 )
+
+[node name="Enemies" type="Node" parent="SkeletonSpawn" index="0"]
+
+[node name="SpawnTimer" type="Timer" parent="SkeletonSpawn" index="1"]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="SkeletonSpawn/SpawnTimer" to="SkeletonSpawn" method="_on_SpawnTimer_timeout"]

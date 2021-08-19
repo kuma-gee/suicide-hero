@@ -48,8 +48,8 @@ autoplay = true
 [connection signal="skill_selected" from="Player" to="." method="_on_Player_skill_selected"]
 [connection signal="level_up" from="Player/PlayerStats" to="." method="_on_PlayerStats_level_up"]
 [connection signal="zero_value" from="Player/PlayerStats/Health" to="." method="_on_Health_zero_value"]
-[connection signal="timeout" from="ExperienceTimer" to="." method="_on_ExperienceTimer_timeout"]
 [connection signal="timeout" from="ExperienceTimer" to="Player/PlayerStats" method="_on_ExperienceTimer_timeout"]
+[connection signal="timeout" from="ExperienceTimer" to="." method="_on_ExperienceTimer_timeout"]
 
 [editable path="Player"]
 [editable path="Player/PlayerStats"]
