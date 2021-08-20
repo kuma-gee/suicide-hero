@@ -17,6 +17,9 @@ onready var sprite := $Body/Sprite
 onready var anim := $AnimationPlayer
 onready var magnet := $PickupMagnet/CollisionShape2D
 
+onready var pickup_sound := $PickupArea/PickupSound
+onready var hit_sound := $HurtBox/HitSound
+
 func _process(delta):
 	gun_point_root.shoot = input.is_pressed("fire")
 	
@@ -66,6 +69,7 @@ func _on_HurtBox_knockback(knockback):
 func _on_HurtBox_damaged(dmg):
 	stats.health.reduce(dmg)
 	sprite.modulate.a = 0.75
+	hit_sound.play()
 
 
 func skills(skill1: int, skill2: int):
@@ -78,3 +82,7 @@ func _on_SkillSelect_skill_selected(skill):
 
 func _on_HurtBox_invincibility_timeout():
 	sprite.modulate.a = 1
+
+
+func _on_PickupArea_area_entered(area):
+	pickup_sound.play()

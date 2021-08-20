@@ -1,5 +1,7 @@
 class_name HitBox2D extends Area2D
 
+signal hit()
+
 export var damage := 1
 export var knockback_force := 0
 
@@ -21,6 +23,7 @@ func _process(delta):
 func hit(hurtbox):
 	if hurtbox is HurtBox2D:
 		hurtbox.damage(damage, global_position, knockback_force)
+		emit_signal("hit")
 
 
 func enter(node) -> void:

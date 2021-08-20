@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://player/Main.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://skills/MagnetUp.gd" type="Script" id=10]
 [ext_resource path="res://skills/HomingShot.gd" type="Script" id=11]
 [ext_resource path="res://skills/FireRateUp.gd" type="Script" id=12]
+[ext_resource path="res://skills/SFX_powerUp7.wav" type="AudioStream" id=13]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -61,14 +62,17 @@ max_used = 6
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -10.0
+volume_db = -20.0
 autoplay = true
+
+[node name="LevelUpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
 
 [connection signal="skill_selected" from="Player" to="." method="_on_Player_skill_selected"]
 [connection signal="level_up" from="Player/PlayerStats" to="." method="_on_PlayerStats_level_up"]
 [connection signal="zero_value" from="Player/PlayerStats/Health" to="." method="_on_Health_zero_value"]
-[connection signal="timeout" from="ExperienceTimer" to="Player/PlayerStats" method="_on_ExperienceTimer_timeout"]
 [connection signal="timeout" from="ExperienceTimer" to="." method="_on_ExperienceTimer_timeout"]
+[connection signal="timeout" from="ExperienceTimer" to="Player/PlayerStats" method="_on_ExperienceTimer_timeout"]
 [connection signal="skill_added" from="SkillManager" to="HUD" method="skill_updated"]
 
 [editable path="Player"]

@@ -9,6 +9,7 @@ enum Size {
 var heal_size = Size.SMALL
 
 onready var move := $MoveToward2D
+onready var trail := $Trail2D
 
 func _on_HealthDrop_area_entered(area):
 	if not area is PickupArea: return
