@@ -14,10 +14,10 @@ extents = Vector2( 6.662, 7 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 4.98274, 7.19207 )
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0.5 ), 0.0, 1.18182, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0, 0.134228, 0.550336 )
 colors = PoolColorArray( 0, 0, 0, 0, 0.784314, 0.784314, 0.784314, 0.784314, 1, 1, 1, 1 )
 
@@ -47,8 +47,8 @@ speed = 60
 anims/Run = ExtResource( 2 )
 
 [node name="Trail2D" type="Line2D" parent="." index="7"]
-width_curve = SubResource( 4 )
-gradient = SubResource( 3 )
+width_curve = SubResource( 3 )
+gradient = SubResource( 4 )
 texture = ExtResource( 7 )
 texture_mode = 1
 script = ExtResource( 4 )
@@ -68,5 +68,3 @@ damage_over_time = true
 script = ExtResource( 6 )
 trail_path = NodePath("..")
 collision_parent_path = NodePath("../Area2D")
-
-[connection signal="area_entered" from="Trail2D/Area2D" to="Trail2D/TrailCollision" method="_on_Area2D_area_entered"]

@@ -1,6 +1,7 @@
 extends Node2D
 
 export var max_enemy_value = 50
+export var min_small_enemies = 10
 
 export var player_path: NodePath
 onready var player: Player = get_node(player_path)
@@ -23,15 +24,24 @@ const enemy_level_map = {
 		preload("res://enemy/Orc.tscn"),
 		preload("res://enemy/MaskedOrc.tscn"),
 	],
-	8: [
+	7: [
 		preload("res://enemy/Necromancer.tscn"),
 		preload("res://enemy/Swampy.tscn"),
 	]
 }
 
+var _total_small_enemies: int
+var _total_stronger_enemies: int
+
 func _get_total_enemy_value() -> int:
 	var result := 0
+	_total_small_enemies = 0
+	_total_stronger_enemies = 0
 	for enemy in enemies.get_children():
+		if enemy.enemy_value == 1:
+			_total_small_enemies += 1
+		elif enemy.enemy_value > 1:
+			_total_small_enemies += 1
 		result += enemy.enemy_value
 	return result
 
@@ -52,7 +62,8 @@ func _spawn_enemy():
 		print("No position found. Cannot spawn enemy")
 
 func _get_random_enemy():
-	var enemies = _get_available_enemies()
+	var need_smaller_enemies = _total_stronger_enemies > 1 and _total_small_enemies < min_small_enemies
+	var enemies = enemy_level_map[1] if need_smaller_enemies else _get_available_enemies()
 	return enemies[Random.random_int(0, enemies.size())]
 	
 func _get_available_enemies() -> Array:

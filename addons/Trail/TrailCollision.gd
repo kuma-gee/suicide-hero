@@ -55,7 +55,3 @@ func _create_points(points: Array) -> Array:
 		var point = curr_point + point_dir * (trail.width / 2)
 		result.append(point)
 	return result
-
-
-func _on_Area2D_area_entered(area):
-	print(area)

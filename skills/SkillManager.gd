@@ -43,6 +43,6 @@ func _get_allowed_skills(lvl: int) -> Array:
 		var skill: Skill = child
 		if skills.has(skill.type) and skills[skill.type] >= skill.max_used:
 			remove_child(child)
-		elif skill.enabled:
+		elif skill.enabled and lvl >= skill.start_level:
 			result.append(child.type)
 	return result
