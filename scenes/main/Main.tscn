@@ -69,6 +69,7 @@ autoplay = true
 [connection signal="zero_value" from="Player/PlayerStats/Health" to="." method="_on_Health_zero_value"]
 [connection signal="timeout" from="ExperienceTimer" to="Player/PlayerStats" method="_on_ExperienceTimer_timeout"]
 [connection signal="timeout" from="ExperienceTimer" to="." method="_on_ExperienceTimer_timeout"]
+[connection signal="skill_added" from="SkillManager" to="HUD" method="skill_updated"]
 
 [editable path="Player"]
 [editable path="Player/PlayerStats"]

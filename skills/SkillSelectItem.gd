@@ -5,15 +5,13 @@ signal auto_selected
 var texture: Texture
 var key: InputEvent
 
-onready var sprite := $Sprite
-onready var label := $CenterContainer/MarginContainer/Label
-onready var container := $CenterContainer
-onready var timer := $CircleTimer
+onready var texture_label := $TextureLabel
+onready var timer := $TextureLabel/CircleTimer
 
 func _ready():
-	sprite.texture = texture
+	texture_label.set_texture(texture)
 	if key != null:
-		label.text = key.as_text()
+		texture_label.set_label(key.as_text())
 	
 	timer.connect("timeout", self, "_auto_select")
 

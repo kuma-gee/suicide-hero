@@ -5,14 +5,6 @@ signal skill_selected(skill)
 export var offset = 25
 
 const skill_select_item = preload("res://skills/SkillSelectItem.tscn")
-const skill_map = {
-	Skill.Type.HEALTH: preload("res://skills/hp-up.png"),
-	Skill.Type.SPEED: preload("res://skills/speed-up.png"),
-	Skill.Type.STRENGTH: preload("res://skills/strength-up.png"),
-	Skill.Type.MAGNET: preload("res://skills/pickup-up.png"),
-	Skill.Type.HOMING: preload("res://skills/homing-shots.png"),
-	Skill.Type.FIRERATE: preload("res://skills/shot-up.png"),
-}
 
 enum {
 	SkillLeft,
@@ -69,10 +61,10 @@ func _show_skill_select(skills: Array):
 	skill_queue.auto_deque = false
 
 func _create_skill_select(skill: int, slot: int) -> Sprite:
-	if not skill_map.has(skill): return null
+	if not Skill.skill_map.has(skill): return null
 	
 	var select = skill_select_item.instance()
-	select.texture = skill_map.get(skill)
+	select.texture = Skill.skill_map.get(skill)
 	select.key = _get_skill_key(slot)
 	return select
 

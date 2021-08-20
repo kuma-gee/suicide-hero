@@ -1,5 +1,7 @@
 extends Node
 
+signal skill_added(skill, skill_count)
+
 export var player_path: NodePath
 onready var player: Player = get_node(player_path) if player_path else null
 
@@ -15,10 +17,11 @@ func add_skill(skill: int) -> void:
 	if not skills.has(skill):
 		skills[skill] = 0
 	
-	skills[skill] += 1
 	var skill_node = get_node(str(skill))
 	if skill_node:
 		skill_node.apply(player)
+		skills[skill] += 1
+		emit_signal("skill_added", skill, skills[skill])
 
 
 func get_random_skills(lvl: int) -> Array:
