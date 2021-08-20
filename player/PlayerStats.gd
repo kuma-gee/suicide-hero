@@ -17,7 +17,6 @@ func _on_ExperienceTimer_timeout():
 
 func _gain_experience() -> void:
 	var ex = _get_experience(health.get_percentage())
-	print(ex)
 	experience.increase(ex)
 	health.reduce(ex)
 

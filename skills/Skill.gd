@@ -5,6 +5,8 @@ enum Type {
 	SPEED,
 	STRENGTH,
 	MAGNET,
+	HOMING,
+	FIRERATE,
 }
 
 export var enabled := true

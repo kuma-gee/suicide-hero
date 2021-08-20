@@ -1,7 +1,6 @@
 class_name PickupMagnet extends Area2D
 
 export var speed = 300
-export var accel = 50
 
 var items = []
 

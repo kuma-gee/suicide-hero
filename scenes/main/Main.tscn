@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://player/Main.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://skills/StrengthUp.gd" type="Script" id=8]
 [ext_resource path="res://scenes/main/Retro Battle Theme 5.ogg" type="AudioStream" id=9]
 [ext_resource path="res://skills/MagnetUp.gd" type="Script" id=10]
+[ext_resource path="res://skills/HomingShot.gd" type="Script" id=11]
+[ext_resource path="res://skills/FireRateUp.gd" type="Script" id=12]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -46,9 +48,20 @@ script = ExtResource( 10 )
 type = 3
 max_used = 5
 
+[node name="HomingShot" type="Node" parent="SkillManager"]
+script = ExtResource( 11 )
+type = 4
+max_used = 1
+start_level = 3
+
+[node name="FireRateUp" type="Node" parent="SkillManager"]
+script = ExtResource( 12 )
+type = 5
+max_used = 6
+
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -15.0
+volume_db = -10.0
 autoplay = true
 
 [connection signal="skill_selected" from="Player" to="." method="_on_Player_skill_selected"]

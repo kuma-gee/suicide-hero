@@ -5,6 +5,7 @@ signal damaged(dmg)
 
 onready var input := $PlayerInput
 onready var gun_point_root := $GunPointRoot
+onready var gun_fire_rate := $GunPointRoot/FireRate
 onready var state_machine := $StateMachine
 
 onready var move := $StateMachine/Move2D
@@ -47,6 +48,12 @@ func increase_speed(speed) -> void:
 func increase_magnet(size) -> void:
 	var circle = magnet.shape as CircleShape2D
 	circle.radius += size
+
+func enable_homing() -> void:
+	gun_point_root.homing = true
+
+func increase_firerate(decrease: float) -> void:
+	gun_fire_rate.wait_time -= decrease
 
 func _on_Knockback2D_knockback_finished():
 	state_machine.transition(move)

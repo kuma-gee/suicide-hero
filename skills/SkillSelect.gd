@@ -10,6 +10,8 @@ const skill_map = {
 	Skill.Type.SPEED: preload("res://skills/speed-up.png"),
 	Skill.Type.STRENGTH: preload("res://skills/strength-up.png"),
 	Skill.Type.MAGNET: preload("res://skills/pickup-up.png"),
+	Skill.Type.HOMING: preload("res://skills/homing-shots.png"),
+	Skill.Type.FIRERATE: preload("res://skills/shot-up.png"),
 }
 
 enum {

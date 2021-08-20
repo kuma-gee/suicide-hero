@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/shared/misc/FaceMouse.gd"
 }, {
+"base": "Skill",
+"class": "FireRateUp",
+"language": "GDScript",
+"path": "res://skills/FireRateUp.gd"
+}, {
 "base": "Area2D",
 "class": "HealthDrop",
 "language": "GDScript",
@@ -53,6 +58,11 @@ _global_script_classes=[ {
 "class": "HitBox3D",
 "language": "GDScript",
 "path": "res://addons/shared/rpg/HitBox3D.gd"
+}, {
+"base": "Skill",
+"class": "HomingShot",
+"language": "GDScript",
+"path": "res://skills/HomingShot.gd"
 }, {
 "base": "Area2D",
 "class": "HurtBox2D",
@@ -280,10 +290,12 @@ _global_script_class_icons={
 "ExponentialEquation": "",
 "FaceCamera": "",
 "FaceMouse": "",
+"FireRateUp": "",
 "HealthDrop": "",
 "HealthUp": "",
 "HitBox2D": "",
 "HitBox3D": "",
+"HomingShot": "",
 "HurtBox2D": "",
 "HurtBox3D": "",
 "InputMapper": "",
@@ -428,6 +440,7 @@ skill_2={
 2d_physics/layer_4="enemy_hurtbox"
 2d_physics/layer_5="enemy"
 2d_physics/layer_6="pickup"
+2d_physics/layer_7="soft_collision"
 
 [locale]
 
