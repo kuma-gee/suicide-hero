@@ -20,6 +20,8 @@ onready var magnet := $PickupMagnet/CollisionShape2D
 onready var pickup_sound := $PickupArea/PickupSound
 onready var hit_sound := $HurtBox/HitSound
 
+onready var heal_particles := $HealParticles
+
 func _process(delta):
 	gun_point_root.shoot = input.is_pressed("fire")
 	
@@ -41,6 +43,7 @@ func _get_look_direction() -> Vector2:
 
 func heal(hp):
 	stats.health.increase(hp)
+	heal_particles.emitting = true
 
 func increase_damage(dmg) -> void:
 	gun_point_root.damage_increase += dmg

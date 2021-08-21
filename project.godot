@@ -144,6 +144,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/shared/rpg/MoveDirection3D.gd"
 }, {
+"base": "Effect",
+"class": "MoveEffect",
+"language": "GDScript",
+"path": "res://addons/EntityComponentSystem/effects/MoveEffect.gd"
+}, {
 "base": "Node",
 "class": "MoveToward2D",
 "language": "GDScript",
@@ -327,6 +332,7 @@ _global_script_class_icons={
 "Move2D": "",
 "MoveDirection2D": "",
 "MoveDirection3D": "",
+"MoveEffect": "",
 "MoveToward2D": "",
 "PausedMenu": "",
 "PickupArea": "",

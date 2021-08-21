@@ -31,11 +31,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FadeOut" type="Node" parent="."]
+[node name="FadeIn" type="Node" parent="."]
 script = ExtResource( 4 )
 node_path = NodePath("../Logo")
 start = true
+
+[node name="FadeOut" type="Node" parent="."]
+script = ExtResource( 4 )
+node_path = NodePath("../Logo")
 delay = 0.5
 duration = 2.0
+type = 1
 
+[connection signal="finished" from="FadeIn" to="FadeOut" method="start"]
 [connection signal="finished" from="FadeOut" to="." method="_on_FadeOut_finished"]
