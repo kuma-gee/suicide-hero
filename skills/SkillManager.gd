@@ -25,8 +25,6 @@ func add_skill(skill: int) -> void:
 
 
 func get_random_skills(lvl: int) -> Array:
-	if lvl <= 1: return []
-	
 	var available_skills = _get_allowed_skills(lvl)
 	if available_skills.size() == 0: return []
 

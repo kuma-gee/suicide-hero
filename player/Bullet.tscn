@@ -40,7 +40,7 @@ damage = 10
 knockback_force = 50
 
 [node name="Particles2D" type="Particles2D" parent="."]
-amount = 16
+amount = 32
 lifetime = 0.3
 local_coords = false
 process_material = SubResource( 5 )

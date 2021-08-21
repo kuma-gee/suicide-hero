@@ -29,15 +29,16 @@ func _on_Health_zero_value():
 
 
 func _on_PlayerStats_level_up(lvl):
-	if lvl != 1:
-		level_up_sound.play()
 	map.max_enemy_value = min(enemy_eq.y(lvl-1), max_enemies)
 	experience_timer.wait_time = exp_eq.y(lvl-1)
-	player.level_up()
 	
-	var skills = skill_manager.get_random_skills(lvl)
-	if skills.size() == 2:
-		player.skills(skills[0], skills[1])
+	player.level_up()
+	if lvl != 1:
+		level_up_sound.play()
+	
+		var skills = skill_manager.get_random_skills(lvl)
+		if skills.size() == 2:
+			player.skills(skills[0], skills[1])
 
 
 func _on_ExperienceTimer_timeout():

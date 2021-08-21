@@ -22,6 +22,9 @@ onready var hit_sound := $HurtBox/HitSound
 
 onready var heal_particles := $HealParticles
 
+const LEVEL_UP = preload("res://player/LevelUp.tscn")
+const level_up_img = preload("res://player/lvl-up.png")
+
 func _process(delta):
 	gun_point_root.shoot = input.is_pressed("fire")
 	
@@ -62,7 +65,7 @@ func increase_firerate(decrease: float) -> void:
 	gun_fire_rate.wait_time -= decrease
 
 func level_up() -> void:
-	pass
+	show_gain(level_up_img)
 
 func _on_Knockback2D_knockback_finished():
 	state_machine.transition(move)
@@ -77,6 +80,10 @@ func _on_HurtBox_damaged(dmg):
 	sprite.modulate.a = 0.75
 	hit_sound.play()
 
+func show_gain(texture: Texture) -> void:
+	var node = LEVEL_UP.instance()
+	skill_select.add_child(node)
+	node.set_texture(texture)
 
 func skills(skill1: int, skill2: int):
 	skill_select.select_skills(skill1, skill2)
@@ -84,6 +91,7 @@ func skills(skill1: int, skill2: int):
 
 func _on_SkillSelect_skill_selected(skill):
 	emit_signal("skill_selected", skill)
+	show_gain(Skill.skill_map[skill])
 
 
 func _on_HurtBox_invincibility_timeout():

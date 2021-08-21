@@ -7,7 +7,17 @@ enum Type {
 
 export(Type) var type: int
 
+func _ready():
+	if start:
+		node.modulate = _get_initial_value()
+
+func _get_initial_value() -> Color:
+	var alpha = 1 if type == Type.FADE_OUT else 0
+	return Color(1, 1, 1, alpha)
+
 func apply_tween(tween: Tween) -> void:
-	var _start = 1 if type == Type.FADE_OUT else 0
-	var _end = 0 if _start == 1 else 1
-	.interpolate_property(tween, "modulate", Color(1, 1, 1, _start), Color(1, 1, 1, _end))
+	var _start = _get_initial_value()
+
+	var end_alpha = 0 if _start.a == 1 else 1
+	var _end = Color(1, 1, 1, end_alpha)
+	.interpolate_property(tween, "modulate", _start, _end)

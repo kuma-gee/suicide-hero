@@ -1,16 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://addons/EntityComponentSystem/effects/FadeEffect.gd" type="Script" id=1]
 [ext_resource path="res://addons/EntityComponentSystem/effects/MoveEffect.gd" type="Script" id=2]
+[ext_resource path="res://player/LevelUp.gd" type="Script" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 
 [node name="LevelUp" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = -1.0
-margin_top = 0.5
-margin_right = 63.0
-margin_bottom = 64.5
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
 texture = ExtResource( 4 )
 stretch_mode = 4
 __meta__ = {
@@ -20,14 +26,16 @@ __meta__ = {
 [node name="MoveUp" type="Node" parent="."]
 script = ExtResource( 2 )
 start = true
+duration = 0.5
 
 [node name="FadeIn" type="Node" parent="."]
 script = ExtResource( 1 )
 start = true
+duration = 0.5
 
 [node name="FadeOut" type="Node" parent="."]
 script = ExtResource( 1 )
-delay = 3.0
+duration = 0.5
 type = 1
 
 [connection signal="finished" from="FadeIn" to="FadeOut" method="start"]
