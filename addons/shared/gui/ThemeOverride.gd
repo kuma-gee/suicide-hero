@@ -1,3 +1,4 @@
+tool
 extends Control
 
 export var relative_font_size := 1.0

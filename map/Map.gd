@@ -1,7 +1,7 @@
 extends Node2D
 
 export var max_enemy_value = 50
-export var min_small_enemies = 10
+export var min_small_enemies = 20
 
 export var player_path: NodePath
 onready var player: Player = get_node(player_path)
@@ -41,7 +41,7 @@ func _get_total_enemy_value() -> int:
 		if enemy.enemy_value == 1:
 			_total_small_enemies += 1
 		elif enemy.enemy_value > 1:
-			_total_small_enemies += 1
+			_total_stronger_enemies += 1
 		result += enemy.enemy_value
 	return result
 

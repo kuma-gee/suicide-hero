@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Component",
+"language": "GDScript",
+"path": "res://addons/EntityComponentSystem/Component.gd"
+}, {
+"base": "Component",
+"class": "Effect",
+"language": "GDScript",
+"path": "res://addons/EntityComponentSystem/effects/Effect.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -33,6 +43,11 @@ _global_script_classes=[ {
 "class": "FaceMouse",
 "language": "GDScript",
 "path": "res://addons/shared/misc/FaceMouse.gd"
+}, {
+"base": "Effect",
+"class": "FadeEffect",
+"language": "GDScript",
+"path": "res://addons/EntityComponentSystem/effects/FadeEffect.gd"
 }, {
 "base": "Skill",
 "class": "FireRateUp",
@@ -285,11 +300,14 @@ _global_script_classes=[ {
 "path": "res://addons/shared/utils/VectorUtils.gd"
 } ]
 _global_script_class_icons={
+"Component": "",
+"Effect": "",
 "Enemy": "",
 "EquationFactory": "",
 "ExponentialEquation": "",
 "FaceCamera": "",
 "FaceMouse": "",
+"FadeEffect": "",
 "FireRateUp": "",
 "HealthDrop": "",
 "HealthUp": "",
@@ -355,8 +373,8 @@ Game="*res://Game.gd"
 
 [display]
 
-window/size/width=1280
-window/size/height=720
+window/size/width=1920
+window/size/height=1080
 window/stretch/aspect="keep_width"
 
 [editor_plugins]

@@ -4,6 +4,7 @@ signal screen_changed(screen)
 
 enum {
 	Main,
+	Intro,
 	InGame,
 	GameOver,
 	Pause,
@@ -11,6 +12,7 @@ enum {
 
 const screen_scene_map = {
 	Main: preload("res://scenes/menu/MainMenu.tscn"),
+	Intro: preload("res://scenes/menu/Intro.tscn"),
 	GameOver: preload("res://scenes/menu/GameOver.tscn"),
 	Pause: preload("res://scenes/menu/Pause.tscn"),
 }

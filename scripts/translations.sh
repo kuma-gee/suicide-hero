@@ -3,7 +3,9 @@
 mkdir -p i18n
 
 pybabel extract -F babelrc -k text -k LineEdit/placeholder_text -k tr --no-location -o i18n/messages.pot \
-    scenes
+    scenes \
+    player \
+    map
 
 cd i18n
 

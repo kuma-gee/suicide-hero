@@ -11,13 +11,10 @@ onready var skill_manager := $SkillManager
 
 onready var level_up_sound := $LevelUpSound
 
-var enemy_eq = ExponentialEquation.new(2, 1, 40, 2)
+var enemy_eq = ExponentialEquation.new(2, 1, 30, 2)
 var exp_eq = ExponentialEquation.new(0.5, 1.5, 0.5, 2)
 
 func _ready():
-	Game.connect("game_start", self, "start")
-	Game.connect("game_ended", self, "end")
-	
 	_on_PlayerStats_level_up(1)
 	experience_timer.start()
 	hud.connect_player_stats(stats)
@@ -25,13 +22,6 @@ func _ready():
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
 		GUI.open_menu(GUI.Pause)
-
-func start():
-	GUI.open_menu(GUI.InGame, true)
-
-
-func end():
-	get_tree().change_scene("res://scenes/menu/Menu.tscn")
 
 
 func _on_Health_zero_value():
@@ -43,6 +33,7 @@ func _on_PlayerStats_level_up(lvl):
 		level_up_sound.play()
 	map.max_enemy_value = min(enemy_eq.y(lvl-1), max_enemies)
 	experience_timer.wait_time = exp_eq.y(lvl-1)
+	player.level_up()
 	
 	var skills = skill_manager.get_random_skills(lvl)
 	if skills.size() == 2:

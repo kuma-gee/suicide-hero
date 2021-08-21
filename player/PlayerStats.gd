@@ -7,7 +7,7 @@ export var level = 1
 onready var experience := $Experience
 onready var health := $Health
 
-var exp_gain_eq = ExponentialEquation.new(2, 30, 5)
+var exp_gain_eq = ExponentialEquation.new(2, 20, 5)
 var exp_lvl_eq = LogarithmEquation.new(100, 50)
 
 

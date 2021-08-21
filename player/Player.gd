@@ -58,6 +58,9 @@ func enable_homing() -> void:
 func increase_firerate(decrease: float) -> void:
 	gun_fire_rate.wait_time -= decrease
 
+func level_up() -> void:
+	pass
+
 func _on_Knockback2D_knockback_finished():
 	state_machine.transition(move)
 
