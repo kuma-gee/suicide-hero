@@ -2,6 +2,8 @@ class_name Player extends KinematicBody2D
 
 signal skill_selected(skill)
 signal damaged(dmg)
+signal level_up(lvl)
+signal died()
 
 onready var input := $PlayerInput
 onready var gun_point_root := $GunPointRoot
@@ -19,6 +21,7 @@ onready var magnet := $PickupMagnet/CollisionShape2D
 
 onready var pickup_sound := $PickupArea/PickupSound
 onready var hit_sound := $HurtBox/HitSound
+onready var level_up_sound := $LevelUpSound
 
 onready var heal_particles := $HealParticles
 
@@ -64,8 +67,6 @@ func enable_homing() -> void:
 func increase_firerate(decrease: float) -> void:
 	gun_fire_rate.wait_time -= decrease
 
-func level_up() -> void:
-	show_gain(level_up_img)
 
 func _on_Knockback2D_knockback_finished():
 	state_machine.transition(move)
@@ -100,3 +101,13 @@ func _on_HurtBox_invincibility_timeout():
 
 func _on_PickupArea_area_entered(area):
 	pickup_sound.play()
+
+
+func _on_PlayerStats_level_up(lvl):
+	emit_signal("level_up", lvl)
+	show_gain(level_up_img)
+	level_up_sound.play()
+
+
+func _on_Health_zero_value():
+	emit_signal("died")
