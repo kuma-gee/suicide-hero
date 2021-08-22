@@ -10,7 +10,7 @@ onready var experience_timer := $ExperienceTimer
 onready var skill_manager := $SkillManager
 
 var enemy_eq = ExponentialEquation.new(2, 1, 30, 2)
-var exp_eq = ExponentialEquation.new(0.5, 1.5, 0.5, 2)
+var exp_eq = ExponentialEquation.new(0.5, 2, 0.5, 3)
 
 func _ready():
 	randomize() # TODO: active for production only
