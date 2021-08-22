@@ -27,12 +27,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CenterContainer"]
-margin_left = 818.0
-margin_top = 524.0
-margin_right = 1102.0
-margin_bottom = 555.0
-text = "You get infinite EXP in exchange for your life.
-Kill enemies to survive."
+margin_left = 887.0
+margin_top = 533.0
+margin_right = 1033.0
+margin_bottom = 547.0
+text = "GAME_INTRODUCTION"
 script = ExtResource( 2 )
 relative_font_size = 2.0
 

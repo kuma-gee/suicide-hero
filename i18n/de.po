@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-21 17:19+0200\n"
+"POT-Creation-Date: 2021-08-22 16:54+0200\n"
 "PO-Revision-Date: 2021-07-30 10:59+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -36,30 +36,64 @@ msgstr "Game Over"
 msgid "BACK_TO_MENU"
 msgstr "Zurück zum Menü"
 
-msgid ""
-"You get infinite EXP in exchange for your life.\n"
-"Kill enemies to survive."
-msgstr ""
-
 msgid "PLACEHOLDER"
 msgstr "Platzhalter"
+
+msgid "GAME_INTRODUCTION"
+msgstr ""
+"Du bekommst unbegrenzt EXP im Austausch für dein Leben.\n"
+"Töte Gegner um zu überleben."
 
 msgid "START_GAME"
 msgstr "Spiel starten"
 
+msgid "OPTIONS"
+msgstr "Optionen"
+
 msgid "EXIT_GAME"
 msgstr "Spiel schließen"
+
+msgid "SETTINGS"
+msgstr "Einstellungen"
+
+msgid "GENERAL"
+msgstr "Allgemein"
+
+msgid "LANGUAGE"
+msgstr "Sprache"
+
+msgid "LANG_DE"
+msgstr "Deutsch"
+
+msgid "LANG_EN_US"
+msgstr "Englisch"
+
+msgid "AUDIO"
+msgstr "Audio"
+
+msgid "MASTER"
+msgstr "Master"
+
+msgid "MUSIC"
+msgstr "Musik"
+
+msgid "SFX"
+msgstr "Sound Effekte"
+
+msgid "INPUTS"
+msgstr "Eingaben"
 
 msgid "RESUME_GAME"
 msgstr "Spiel fortsetzen"
 
-msgid "LVL_UP"
-msgstr "LVL"
+msgid "MOVE"
+msgstr "Bewegen"
 
-msgid ""
-"WASD - Move\n"
-"Left Mouse - Shoot"
-msgstr ""
+msgid "LEFT_MOUSE"
+msgstr "Linke Maustaste"
+
+msgid "INPUT_FIRE"
+msgstr "Schießen"
 
 #~ msgid "SELECT_GAME_MODE"
 #~ msgstr "Spielmodus auswählen"
@@ -69,24 +103,6 @@ msgstr ""
 
 #~ msgid "DEATHMATCH"
 #~ msgstr "Deathmatch"
-
-#~ msgid "OPTIONS"
-#~ msgstr "Optionen"
-
-#~ msgid "SETTINGS"
-#~ msgstr "Einstellungen"
-
-#~ msgid "LANGUAGE"
-#~ msgstr "Sprache"
-
-#~ msgid "LANG_DE"
-#~ msgstr "Deutsch"
-
-#~ msgid "LANG_EN_US"
-#~ msgstr "Englisch"
-
-#~ msgid "INPUTS"
-#~ msgstr "Eingaben"
 
 #~ msgid "INPUT_MOVE_UP"
 #~ msgstr "Vorwärts"
@@ -99,9 +115,6 @@ msgstr ""
 
 #~ msgid "INPUT_MOVE_RIGHT"
 #~ msgstr "Rechts drehen"
-
-#~ msgid "INPUT_FIRE"
-#~ msgstr "Schießen"
 
 #~ msgid "INPUT_BOOST"
 #~ msgstr "Boosten"

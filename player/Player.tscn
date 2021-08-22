@@ -117,6 +117,7 @@ one_shot = true
 [node name="ShotSound" type="AudioStreamPlayer" parent="GunPointRoot"]
 stream = ExtResource( 14 )
 volume_db = -5.0
+bus = "SFX"
 
 [node name="HurtBox" type="Area2D" parent="."]
 visible = false
@@ -131,6 +132,7 @@ shape = SubResource( 4 )
 
 [node name="HitSound" type="AudioStreamPlayer" parent="HurtBox"]
 stream = ExtResource( 16 )
+bus = "SFX"
 
 [node name="PickupArea" type="Area2D" parent="."]
 position = Vector2( 0, -5.35467 )
@@ -144,6 +146,7 @@ shape = SubResource( 5 )
 [node name="PickupSound" type="AudioStreamPlayer" parent="PickupArea"]
 stream = ExtResource( 15 )
 volume_db = -10.0
+bus = "SFX"
 
 [node name="PickupMagnet" type="Area2D" parent="."]
 position = Vector2( 0, -5.19131 )
@@ -204,6 +207,7 @@ texture = ExtResource( 17 )
 [node name="LevelUpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
 volume_db = -5.0
+bus = "SFX"
 
 [connection signal="timeout" from="GunPointRoot/FireRate" to="GunPointRoot" method="_on_FireRate_timeout"]
 [connection signal="damaged" from="HurtBox" to="." method="_on_HurtBox_damaged"]

@@ -12,5 +12,6 @@ auto_deque = true
 
 [node name="SelectedSound" type="AudioStreamPlayer" parent="."]
 volume_db = -5.0
+bus = "SFX"
 
 [connection signal="dequed" from="Queue" to="." method="_on_Queue_dequed"]

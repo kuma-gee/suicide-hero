@@ -1,4 +1,4 @@
-class_name Menu extends Control
+extends Control
 
 
 func _ready():

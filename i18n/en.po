@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-21 17:19+0200\n"
+"POT-Creation-Date: 2021-08-22 16:54+0200\n"
 "PO-Revision-Date: 2021-07-30 11:18+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -36,30 +36,64 @@ msgstr "Game Over"
 msgid "BACK_TO_MENU"
 msgstr "Back to menu"
 
-msgid ""
-"You get infinite EXP in exchange for your life.\n"
-"Kill enemies to survive."
-msgstr ""
-
 msgid "PLACEHOLDER"
 msgstr "Placeholder"
+
+msgid "GAME_INTRODUCTION"
+msgstr ""
+"You get infinite EXP in exchange for your life.\n"
+"Kill enemies to survive."
 
 msgid "START_GAME"
 msgstr "Start game"
 
+msgid "OPTIONS"
+msgstr "Options"
+
 msgid "EXIT_GAME"
 msgstr "Exit game"
+
+msgid "SETTINGS"
+msgstr "Settings"
+
+msgid "GENERAL"
+msgstr "General"
+
+msgid "LANGUAGE"
+msgstr "Language"
+
+msgid "LANG_DE"
+msgstr "German"
+
+msgid "LANG_EN_US"
+msgstr "English"
+
+msgid "AUDIO"
+msgstr "Audio"
+
+msgid "MASTER"
+msgstr "Master"
+
+msgid "MUSIC"
+msgstr "Music"
+
+msgid "SFX"
+msgstr "Sound Effects"
+
+msgid "INPUTS"
+msgstr "Inputs"
 
 msgid "RESUME_GAME"
 msgstr "Resume game"
 
-msgid "LVL_UP"
-msgstr "LVL"
+msgid "MOVE"
+msgstr "Move"
 
-msgid ""
-"WASD - Move\n"
-"Left Mouse - Shoot"
-msgstr ""
+msgid "LEFT_MOUSE"
+msgstr "Left mouse button"
+
+msgid "INPUT_FIRE"
+msgstr "Fire"
 
 #~ msgid "SELECT_GAME_MODE"
 #~ msgstr "Select game mode"
@@ -69,24 +103,6 @@ msgstr ""
 
 #~ msgid "DEATHMATCH"
 #~ msgstr "Deathmatch"
-
-#~ msgid "OPTIONS"
-#~ msgstr "Options"
-
-#~ msgid "SETTINGS"
-#~ msgstr "Settings"
-
-#~ msgid "LANGUAGE"
-#~ msgstr "Language"
-
-#~ msgid "LANG_DE"
-#~ msgstr "German"
-
-#~ msgid "LANG_EN_US"
-#~ msgstr "English"
-
-#~ msgid "INPUTS"
-#~ msgstr "Inputs"
 
 #~ msgid "INPUT_MOVE_UP"
 #~ msgstr "Forward"
@@ -99,9 +115,6 @@ msgstr ""
 
 #~ msgid "INPUT_MOVE_RIGHT"
 #~ msgstr "Turn right"
-
-#~ msgid "INPUT_FIRE"
-#~ msgstr "Fire"
 
 #~ msgid "INPUT_BOOST"
 #~ msgstr "Boost"

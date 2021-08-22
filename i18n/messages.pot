@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-21 17:19+0200\n"
+"POT-Creation-Date: 2021-08-22 16:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,28 +35,60 @@ msgstr ""
 msgid "BACK_TO_MENU"
 msgstr ""
 
-msgid ""
-"You get infinite EXP in exchange for your life.\n"
-"Kill enemies to survive."
+msgid "PLACEHOLDER"
 msgstr ""
 
-msgid "PLACEHOLDER"
+msgid "GAME_INTRODUCTION"
 msgstr ""
 
 msgid "START_GAME"
 msgstr ""
 
+msgid "OPTIONS"
+msgstr ""
+
 msgid "EXIT_GAME"
+msgstr ""
+
+msgid "SETTINGS"
+msgstr ""
+
+msgid "GENERAL"
+msgstr ""
+
+msgid "LANGUAGE"
+msgstr ""
+
+msgid "LANG_DE"
+msgstr ""
+
+msgid "LANG_EN_US"
+msgstr ""
+
+msgid "AUDIO"
+msgstr ""
+
+msgid "MASTER"
+msgstr ""
+
+msgid "MUSIC"
+msgstr ""
+
+msgid "SFX"
+msgstr ""
+
+msgid "INPUTS"
 msgstr ""
 
 msgid "RESUME_GAME"
 msgstr ""
 
-msgid "LVL_UP"
+msgid "MOVE"
 msgstr ""
 
-msgid ""
-"WASD - Move\n"
-"Left Mouse - Shoot"
+msgid "LEFT_MOUSE"
+msgstr ""
+
+msgid "INPUT_FIRE"
 msgstr ""
 
