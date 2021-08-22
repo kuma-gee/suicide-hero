@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/menu/Options.gd" type="Script" id=1]
 [ext_resource path="res://addons/shared/gui/SelectOption.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://addons/shared/gui/Select.gd" type="Script" id=4]
 [ext_resource path="res://addons/shared/menu/Menu.gd" type="Script" id=5]
 [ext_resource path="res://addons/shared/gui/VolumeSlider.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/shared/gui/InputMapper.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/menu/Header.tscn" type="PackedScene" id=8]
 
 [node name="OptionsMenu" type="MarginContainer"]
@@ -46,7 +47,6 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-focus_node_path = NodePath("VBoxContainer2/VBoxContainer/Languages")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/SETTINGS/CenterContainer"]
 margin_left = 819.0
@@ -153,6 +153,93 @@ margin_top = 52.0
 margin_right = 220.0
 margin_bottom = 68.0
 bus_name = "SFX"
+
+[node name="INPUTS" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+mouse_filter = 1
+script = ExtResource( 3 )
+text = "INPUTS"
+
+[node name="CenterContainer" type="CenterContainer" parent="TabContainer/INPUTS"]
+anchor_right = 1.0
+margin_bottom = 54.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/INPUTS/CenterContainer"]
+margin_left = 882.0
+margin_right = 990.0
+margin_bottom = 164.0
+
+[node name="InputMapper" parent="TabContainer/INPUTS/CenterContainer/VBoxContainer" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -27.0
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 10.0
+text = "MOVE_UP"
+
+[node name="InputMapper2" parent="TabContainer/INPUTS/CenterContainer/VBoxContainer" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -27.0
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 10.0
+text = "MOVE_DOWN"
+
+[node name="InputMapper3" parent="TabContainer/INPUTS/CenterContainer/VBoxContainer" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -27.0
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 10.0
+text = "MOVE_LEFT"
+
+[node name="InputMapper4" parent="TabContainer/INPUTS/CenterContainer/VBoxContainer" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -27.0
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 10.0
+text = "MOVE_RIGHT"
+
+[node name="InputMapper5" parent="TabContainer/INPUTS/CenterContainer/VBoxContainer" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -27.0
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 10.0
+text = "FIRE"
+
+[node name="InputMapper6" parent="TabContainer/INPUTS/CenterContainer/VBoxContainer" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -27.0
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 10.0
+text = "SKILL_1"
+
+[node name="InputMapper7" parent="TabContainer/INPUTS/CenterContainer/VBoxContainer" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -27.0
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 10.0
+text = "SKILL_2"
 
 [connection signal="tab_changed" from="TabContainer" to="." method="_on_TabContainer_tab_changed"]
 [connection signal="item_selected" from="TabContainer/SETTINGS/CenterContainer/VBoxContainer2/VBoxContainer/Languages" to="." method="_on_Languages_item_selected"]

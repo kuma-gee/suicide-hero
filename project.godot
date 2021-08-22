@@ -89,11 +89,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/shared/rpg/HurtBox3D.gd"
 }, {
-"base": "Node",
-"class": "InputMapper",
-"language": "GDScript",
-"path": "res://addons/shared/input/InputMapper.gd"
-}, {
 "base": "Reference",
 "class": "InputProfile",
 "language": "GDScript",
@@ -331,7 +326,6 @@ _global_script_class_icons={
 "HomingShot": "",
 "HurtBox2D": "",
 "HurtBox3D": "",
-"InputMapper": "",
 "InputProfile": "",
 "InputReader": "",
 "Knockback2D": "",
@@ -388,6 +382,7 @@ config/icon="res://icon.png"
 
 GUI="*res://addons/shared/gui/GUI.tscn"
 Game="*res://Game.gd"
+InputAction="*res://addons/shared/input/InputAction.gd"
 
 [display]
 
@@ -450,8 +445,7 @@ move_right={
 }
 fire={
 "deadzone": 0.5,
-"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
 skill_1={

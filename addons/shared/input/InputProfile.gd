@@ -1,20 +1,21 @@
 class_name InputProfile
 
-var mappings = {}
-var player_input: PlayerInput
-var mappable = []
+export var inputs = []
+export var joypad = false
 
-func _init(i: PlayerInput, actions: Array):
-	player_input = i
-	mappable = actions
+var mappings = {}
+
+#func apply_profile() -> void:
+#	for action in mappings.keys():
+#		change_input(action)
 
 
 func get_current_input(action: String) -> InputEvent:
 	var inputs = InputMap.get_action_list(action)
 	for i in inputs:
-		if player_input.joypad and PlayerInput.is_joypad_event(i):
+		if joypad and PlayerInput.is_joypad_event(i):
 			return i
-		if not player_input.joypad and not PlayerInput.is_joypad_event(i):
+		if not joypad and not PlayerInput.is_joypad_event(i):
 			return i
 	return null
 
