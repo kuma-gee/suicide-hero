@@ -13,3 +13,4 @@ Commit Types:
  - fix
  - feat
  - polish
+ - chore

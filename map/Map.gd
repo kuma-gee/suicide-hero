@@ -6,9 +6,6 @@ export var min_small_enemies = 20
 export var player_path: NodePath
 onready var player: Player = get_node(player_path)
 
-export var camera_path: NodePath
-onready var camera: Camera2D = get_node(camera_path)
-
 onready var tilemap := $TileMap
 onready var enemy_spawn_timer := $EnemySpawnTimer
 onready var spawn_positions := $SpawnPositions
