@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://addons/shared/gui/ValueBar.gd" type="Script" id=1]
+[ext_resource path="res://addons/EntityComponentSystem/effects/TransitionEffect.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.705882 )
@@ -17,6 +18,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ValueEffect" type="Node" parent="."]
+script = ExtResource( 2 )
+node_path = NodePath("../ProgressBar")
+duration = 0.5
+
 [node name="ProgressBar" type="ProgressBar" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,3 +36,9 @@ percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MaxValueEffect" type="Node" parent="."]
+script = ExtResource( 2 )
+node_path = NodePath("../ProgressBar")
+duration = 0.5
+property = "max_value"

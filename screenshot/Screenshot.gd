@@ -35,9 +35,10 @@ func finish():
 #	return main_scene.get_node("SkillManager")
 
 func _on_StartTimer_timeout():
-	press_key("fire")
-	yield(get_tree().create_timer(0.05), "timeout")
-	take_screenshot("start.png", COVER_SIZE)
+	pass
+#	press_key("fire")
+#	yield(get_tree().create_timer(0.05), "timeout")
+#	take_screenshot("start.png", COVER_SIZE)
 	
 #	take_screenshot("enemies.png")
 	
@@ -52,7 +53,7 @@ func _on_StartTimer_timeout():
 #	yield(get_tree().create_timer(0.5), "timeout")
 #	take_screenshot("skill.png")
 	
-	finish()
+#	finish()
 
 
 # TODO: share with unit tests?

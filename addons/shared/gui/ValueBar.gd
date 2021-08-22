@@ -4,6 +4,8 @@ export var max_value := 100.0 setget _set_max_value
 export var color: Color
 
 onready var bar := $ProgressBar
+onready var value_effect := $ValueEffect
+onready var max_value_effect := $MaxValueEffect
 
 onready var _max_width := rect_size.x
 onready var value := max_value setget _set_value
@@ -22,9 +24,9 @@ func connect_value_fill(value: ValueFill) -> void:
 
 
 func _set_value(v) -> void:
-	bar.value = v
+	value_effect.value = v
 
 
 func _set_max_value(v) -> void:
-	bar.max_value = v
+	max_value_effect.value = v
 

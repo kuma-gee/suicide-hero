@@ -279,6 +279,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/Trail/TrailCollision.gd"
 }, {
+"base": "Effect",
+"class": "TransitionEffect",
+"language": "GDScript",
+"path": "res://addons/EntityComponentSystem/effects/TransitionEffect.gd"
+}, {
 "base": "Node",
 "class": "UnitTest",
 "language": "GDScript",
@@ -359,6 +364,7 @@ _global_script_class_icons={
 "StrengthUp": "",
 "Trail2D": "",
 "TrailCollision": "",
+"TransitionEffect": "",
 "UnitTest": "",
 "Utils": "",
 "ValueFill": "",

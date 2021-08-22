@@ -1,10 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://screenshot/Screenshot.gd" type="Script" id=1]
 [ext_resource path="res://map/Map.tscn" type="PackedScene" id=2]
-[ext_resource path="res://enemy/Goblin.tscn" type="PackedScene" id=4]
-[ext_resource path="res://enemy/TinyZombie.tscn" type="PackedScene" id=5]
-[ext_resource path="res://enemy/Orc.tscn" type="PackedScene" id=7]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=8]
 
 [node name="Screenshot" type="Node"]
@@ -17,16 +14,15 @@ autostart = true
 [node name="Map" parent="." instance=ExtResource( 2 )]
 player_path = NodePath("Player")
 
+[node name="EnemySpawnTimer" parent="Map" index="1"]
+autostart = false
+
+[node name="Control" parent="Map" index="4"]
+visible = false
+
 [node name="Player" parent="Map" instance=ExtResource( 8 )]
-
-[node name="Orc" parent="Map" instance=ExtResource( 7 )]
-position = Vector2( -70.5556, 0 )
-
-[node name="TinyZombie" parent="Map" instance=ExtResource( 5 )]
-position = Vector2( 61.7362, 37.1677 )
-scale = Vector2( -1, 1 )
-
-[node name="Goblin" parent="Map" instance=ExtResource( 4 )]
-position = Vector2( -51.6568, -44.7272 )
+visible = false
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+
+[editable path="Map"]
