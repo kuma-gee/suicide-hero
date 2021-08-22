@@ -93,6 +93,11 @@ text = "LANG_DE"
 script = ExtResource( 2 )
 text = "LANG_EN_US"
 
+[node name="JA_JP" type="Node" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2/VBoxContainer/Languages"]
+script = ExtResource( 2 )
+text = "LANG_JA_JP"
+disabled = true
+
 [node name="Audio" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2" instance=ExtResource( 8 )]
 anchor_right = 0.0
 anchor_bottom = 0.0

@@ -1,24 +1,25 @@
 # Translations template for PROJECT.
 # Copyright (C) 2021 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+# Automatically generated, 2021.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2021-08-22 21:07+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2021-08-22 21:07+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "PLACEHOLDER"
-msgstr ""
+msgstr "〇〇"
 
 msgid "MOUSE_LEFT"
 msgstr ""
@@ -54,28 +55,28 @@ msgid "START_GAME"
 msgstr ""
 
 msgid "OPTIONS"
-msgstr ""
+msgstr "設定"
 
 msgid "EXIT_GAME"
 msgstr ""
 
 msgid "SETTINGS"
-msgstr ""
+msgstr "設定"
 
 msgid "GENERAL"
 msgstr ""
 
 msgid "LANGUAGE"
-msgstr ""
+msgstr "言語"
 
 msgid "LANG_DE"
-msgstr ""
+msgstr "ドイツ語"
 
 msgid "LANG_EN_US"
-msgstr ""
+msgstr "英語"
 
 msgid "LANG_JA_JP"
-msgstr ""
+msgstr "日本語"
 
 msgid "AUDIO"
 msgstr ""
@@ -84,7 +85,7 @@ msgid "MASTER"
 msgstr ""
 
 msgid "MUSIC"
-msgstr ""
+msgstr "音楽"
 
 msgid "SFX"
 msgstr ""
@@ -118,4 +119,3 @@ msgstr ""
 
 msgid "MOVE"
 msgstr ""
-

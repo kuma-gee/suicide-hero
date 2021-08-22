@@ -474,8 +474,8 @@ skill_2={
 
 [locale]
 
-translations=PoolStringArray( "res://i18n/de.po", "res://i18n/en.po" )
-locale_filter=[ 0, [  ] ]
+translations=PoolStringArray( "res://i18n/de.po", "res://i18n/en.po", "res://i18n/ja.po" )
+locale_filter=[ 0, [ "de", "en", "ja" ] ]
 
 [physics]
 

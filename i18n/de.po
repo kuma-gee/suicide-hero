@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-22 18:07+0200\n"
+"POT-Creation-Date: 2021-08-22 21:05+0200\n"
 "PO-Revision-Date: 2021-07-30 10:59+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -77,6 +77,9 @@ msgstr "Deutsch"
 msgid "LANG_EN_US"
 msgstr "Englisch"
 
+msgid "LANG_JA_JP"
+msgstr "Japanisch"
+
 msgid "AUDIO"
 msgstr "Audio"
 
@@ -118,6 +121,9 @@ msgstr "Spiel fortsetzen"
 
 msgid "MOVE"
 msgstr "Bewegen"
+
+#~ msgid "LANG_JP"
+#~ msgstr "Japanisch"
 
 #~ msgid "SELECT_GAME_MODE"
 #~ msgstr "Spielmodus auswählen"
