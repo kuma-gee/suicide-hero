@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/enemy/orc.png" type="Texture" id=1]
+[ext_resource path="res://src/enemy/Enemy.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.041, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4.70679, 7.63401 )
+
+[sub_resource type="Animation" id=3]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[node name="Orc" instance=ExtResource( 2 )]
+heal_size = 1
+enemy_value = 10
+
+[node name="Sprite" parent="Body" index="0"]
+texture = ExtResource( 1 )
+hframes = 4
+frame = 3
+
+[node name="Health" parent="." index="1"]
+max_value = 25
+
+[node name="HurtBox" parent="." index="2"]
+visible = true
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource( 1 )
+
+[node name="HitBox" parent="." index="3"]
+damage = 15
+knockback_force = 75
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource( 2 )
+
+[node name="Move2D" parent="StateMachine" index="0"]
+speed = 80
+
+[node name="AnimationPlayer" parent="." index="6"]
+anims/Run = SubResource( 3 )

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-22 21:05+0200\n"
+"POT-Creation-Date: 2021-08-23 19:57+0200\n"
 "PO-Revision-Date: 2021-07-30 11:18+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,9 +18,6 @@ msgstr ""
 "Generated-By: Babel 2.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "PLACEHOLDER"
-msgstr "Placeholder"
-
 msgid "MOUSE_LEFT"
 msgstr "Left Mouse Button"
 
@@ -29,6 +26,12 @@ msgstr "Right Mouse Button"
 
 msgid "MOUSE_MIDDLE"
 msgstr "Middle Mouse Button"
+
+msgid "MOVE"
+msgstr "Move"
+
+msgid "FIRE"
+msgstr "Fire"
 
 msgid "LEVEL"
 msgstr "Level"
@@ -47,6 +50,9 @@ msgstr "Game Over"
 
 msgid "BACK_TO_MENU"
 msgstr "Back to menu"
+
+msgid "PLACEHOLDER"
+msgstr "Placeholder"
 
 msgid "GAME_INTRODUCTION"
 msgstr ""
@@ -107,9 +113,6 @@ msgstr "Move Left"
 msgid "MOVE_RIGHT"
 msgstr "Move Right"
 
-msgid "FIRE"
-msgstr "Fire"
-
 msgid "SKILL_1"
 msgstr "Skill 1"
 
@@ -118,9 +121,6 @@ msgstr "Skill 2"
 
 msgid "RESUME_GAME"
 msgstr "Resume game"
-
-msgid "MOVE"
-msgstr "Move"
 
 #~ msgid "LEFT_MOUSE"
 #~ msgstr "Left mouse button"

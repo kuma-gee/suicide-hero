@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-22 21:07+0200\n"
+"POT-Creation-Date: 2021-08-23 19:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-msgid "PLACEHOLDER"
-msgstr ""
-
 msgid "MOUSE_LEFT"
 msgstr ""
 
@@ -27,6 +24,12 @@ msgid "MOUSE_RIGHT"
 msgstr ""
 
 msgid "MOUSE_MIDDLE"
+msgstr ""
+
+msgid "MOVE"
+msgstr ""
+
+msgid "FIRE"
 msgstr ""
 
 msgid "LEVEL"
@@ -45,6 +48,9 @@ msgid "GAME_OVER"
 msgstr ""
 
 msgid "BACK_TO_MENU"
+msgstr ""
+
+msgid "PLACEHOLDER"
 msgstr ""
 
 msgid "GAME_INTRODUCTION"
@@ -104,9 +110,6 @@ msgstr ""
 msgid "MOVE_RIGHT"
 msgstr ""
 
-msgid "FIRE"
-msgstr ""
-
 msgid "SKILL_1"
 msgstr ""
 
@@ -114,8 +117,5 @@ msgid "SKILL_2"
 msgstr ""
 
 msgid "RESUME_GAME"
-msgstr ""
-
-msgid "MOVE"
 msgstr ""
 

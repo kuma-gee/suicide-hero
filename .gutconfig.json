@@ -1,5 +1,5 @@
 {
-  "dirs": ["res://addons/", "res://tests/"],
+  "dirs": ["res://addons/", "res://tests/", "res://src/"],
   "double_strategy": "partial",
   "ignore_pause": false,
   "include_subdirs": true,

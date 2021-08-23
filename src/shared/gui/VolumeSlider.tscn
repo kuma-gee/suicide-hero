@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/shared/gui/VolumeSlider.gd" type="Script" id=1]
+
+[node name="VolumeSlider" type="HSlider"]
+margin_left = 6.60712
+margin_top = 0.943878
+margin_right = 112.607
+margin_bottom = 16.9439
+max_value = 1.0
+step = 0.05
+value = 0.5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="value_changed" from="." to="." method="_on_VolumeSlider_value_changed"]

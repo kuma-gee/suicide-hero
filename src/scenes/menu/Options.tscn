@@ -1,0 +1,250 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/scenes/menu/Options.gd" type="Script" id=1]
+[ext_resource path="res://src/shared/gui/VolumeSlider.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/shared/gui/InputMapper.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/shared/gui/TabName.gd" type="Script" id=4]
+[ext_resource path="res://src/shared/menu/Menu.gd" type="Script" id=5]
+[ext_resource path="res://src/shared/gui/SelectOption.gd" type="Script" id=6]
+[ext_resource path="res://src/scenes/menu/Header.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/shared/gui/Select.gd" type="Script" id=8]
+
+[node name="OptionsMenu" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1900.0
+margin_bottom = 1060.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SETTINGS" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 4 )
+text = "SETTINGS"
+
+[node name="CenterContainer" type="CenterContainer" parent="TabContainer/SETTINGS"]
+anchor_right = 1.0
+margin_bottom = 20.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/SETTINGS/CenterContainer"]
+margin_left = 819.0
+margin_right = 1052.0
+margin_bottom = 128.0
+
+[node name="General" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 233.0
+margin_bottom = 14.0
+text = "GENERAL"
+
+[node name="VBoxContainer" type="GridContainer" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 233.0
+margin_bottom = 38.0
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2/VBoxContainer"]
+margin_top = 3.0
+margin_right = 200.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 200, 0 )
+text = "LANGUAGE"
+
+[node name="Languages" type="OptionButton" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2/VBoxContainer"]
+margin_left = 204.0
+margin_right = 233.0
+margin_bottom = 20.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DE" type="Node" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2/VBoxContainer/Languages"]
+script = ExtResource( 6 )
+text = "LANG_DE"
+
+[node name="EN_US" type="Node" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2/VBoxContainer/Languages"]
+script = ExtResource( 6 )
+text = "LANG_EN_US"
+
+[node name="JA_JP" type="Node" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2/VBoxContainer/Languages"]
+script = ExtResource( 6 )
+text = "LANG_JA_JP"
+disabled = true
+
+[node name="Audio" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 233.0
+margin_bottom = 56.0
+text = "AUDIO"
+
+[node name="VolumeOptions" type="GridContainer" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2"]
+margin_top = 60.0
+margin_right = 233.0
+margin_bottom = 128.0
+custom_constants/vseparation = 10
+custom_constants/hseparation = 20
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2/VolumeOptions"]
+margin_top = 1.0
+margin_right = 50.0
+margin_bottom = 15.0
+text = "MASTER"
+
+[node name="MasterVolume" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2/VolumeOptions" instance=ExtResource( 2 )]
+margin_left = 70.0
+margin_top = 0.0
+margin_right = 220.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 150, 0 )
+
+[node name="MusicLabel" type="Label" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2/VolumeOptions"]
+margin_top = 27.0
+margin_right = 50.0
+margin_bottom = 41.0
+text = "MUSIC"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicVolume" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2/VolumeOptions" instance=ExtResource( 2 )]
+margin_left = 70.0
+margin_top = 26.0
+margin_right = 220.0
+margin_bottom = 42.0
+bus_name = "Music"
+
+[node name="SFXLabel" type="Label" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2/VolumeOptions"]
+margin_top = 53.0
+margin_right = 50.0
+margin_bottom = 67.0
+text = "SFX"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXVolume" parent="TabContainer/SETTINGS/CenterContainer/VBoxContainer2/VolumeOptions" instance=ExtResource( 2 )]
+margin_left = 70.0
+margin_top = 52.0
+margin_right = 220.0
+margin_bottom = 68.0
+bus_name = "SFX"
+
+[node name="INPUTS" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+mouse_filter = 1
+script = ExtResource( 4 )
+text = "INPUTS"
+
+[node name="CenterContainer" type="CenterContainer" parent="TabContainer/INPUTS"]
+anchor_right = 1.0
+margin_bottom = 54.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/INPUTS/CenterContainer"]
+margin_left = 882.0
+margin_right = 990.0
+margin_bottom = 164.0
+
+[node name="InputMapper" parent="TabContainer/INPUTS/CenterContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -27.0
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 10.0
+text = "MOVE_UP"
+
+[node name="InputMapper2" parent="TabContainer/INPUTS/CenterContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -27.0
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 10.0
+text = "MOVE_DOWN"
+
+[node name="InputMapper3" parent="TabContainer/INPUTS/CenterContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -27.0
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 10.0
+text = "MOVE_LEFT"
+
+[node name="InputMapper4" parent="TabContainer/INPUTS/CenterContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -27.0
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 10.0
+text = "MOVE_RIGHT"
+
+[node name="InputMapper5" parent="TabContainer/INPUTS/CenterContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -27.0
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 10.0
+text = "FIRE"
+
+[node name="InputMapper6" parent="TabContainer/INPUTS/CenterContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -27.0
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 10.0
+text = "SKILL_1"
+
+[node name="InputMapper7" parent="TabContainer/INPUTS/CenterContainer/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -27.0
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 10.0
+text = "SKILL_2"
+
+[connection signal="tab_changed" from="TabContainer" to="." method="_on_TabContainer_tab_changed"]
+[connection signal="item_selected" from="TabContainer/SETTINGS/CenterContainer/VBoxContainer2/VBoxContainer/Languages" to="." method="_on_Languages_item_selected"]
