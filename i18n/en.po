@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-23 19:57+0200\n"
+"POT-Creation-Date: 2021-08-24 20:36+0200\n"
 "PO-Revision-Date: 2021-07-30 11:18+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -68,8 +68,41 @@ msgstr "Options"
 msgid "EXIT_GAME"
 msgstr "Exit game"
 
-msgid "SETTINGS"
-msgstr "Settings"
+msgid "RESUME_GAME"
+msgstr "Resume game"
+
+msgid "AUDIO"
+msgstr "Audio"
+
+msgid "MASTER"
+msgstr "Master"
+
+msgid "MUSIC"
+msgstr "Music"
+
+msgid "SFX"
+msgstr "Sound Effects"
+
+msgid "CONTROLS"
+msgstr "Controls"
+
+msgid "MOVE_UP"
+msgstr "Move Up"
+
+msgid "MOVE_LEFT"
+msgstr "Move Left"
+
+msgid "MOVE_DOWN"
+msgstr "Move Down"
+
+msgid "MOVE_RIGHT"
+msgstr "Move Right"
+
+msgid "SKILL_1"
+msgstr "Skill 1"
+
+msgid "SKILL_2"
+msgstr "Skill 2"
 
 msgid "GENERAL"
 msgstr "General"
@@ -86,41 +119,11 @@ msgstr "English"
 msgid "LANG_JA_JP"
 msgstr "Japanese"
 
-msgid "AUDIO"
-msgstr "Audio"
+#~ msgid "SETTINGS"
+#~ msgstr "Settings"
 
-msgid "MASTER"
-msgstr "Master"
-
-msgid "MUSIC"
-msgstr "Music"
-
-msgid "SFX"
-msgstr "Sound Effects"
-
-msgid "INPUTS"
-msgstr "Inputs"
-
-msgid "MOVE_UP"
-msgstr "Move Up"
-
-msgid "MOVE_DOWN"
-msgstr "Move Down"
-
-msgid "MOVE_LEFT"
-msgstr "Move Left"
-
-msgid "MOVE_RIGHT"
-msgstr "Move Right"
-
-msgid "SKILL_1"
-msgstr "Skill 1"
-
-msgid "SKILL_2"
-msgstr "Skill 2"
-
-msgid "RESUME_GAME"
-msgstr "Resume game"
+#~ msgid "INPUTS"
+#~ msgstr "Inputs"
 
 #~ msgid "LEFT_MOUSE"
 #~ msgstr "Left mouse button"

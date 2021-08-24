@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-23 19:57+0200\n"
+"POT-Creation-Date: 2021-08-24 20:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,7 +65,40 @@ msgstr ""
 msgid "EXIT_GAME"
 msgstr ""
 
-msgid "SETTINGS"
+msgid "RESUME_GAME"
+msgstr ""
+
+msgid "AUDIO"
+msgstr ""
+
+msgid "MASTER"
+msgstr ""
+
+msgid "MUSIC"
+msgstr ""
+
+msgid "SFX"
+msgstr ""
+
+msgid "CONTROLS"
+msgstr ""
+
+msgid "MOVE_UP"
+msgstr ""
+
+msgid "MOVE_LEFT"
+msgstr ""
+
+msgid "MOVE_DOWN"
+msgstr ""
+
+msgid "MOVE_RIGHT"
+msgstr ""
+
+msgid "SKILL_1"
+msgstr ""
+
+msgid "SKILL_2"
 msgstr ""
 
 msgid "GENERAL"
@@ -81,41 +114,5 @@ msgid "LANG_EN_US"
 msgstr ""
 
 msgid "LANG_JA_JP"
-msgstr ""
-
-msgid "AUDIO"
-msgstr ""
-
-msgid "MASTER"
-msgstr ""
-
-msgid "MUSIC"
-msgstr ""
-
-msgid "SFX"
-msgstr ""
-
-msgid "INPUTS"
-msgstr ""
-
-msgid "MOVE_UP"
-msgstr ""
-
-msgid "MOVE_DOWN"
-msgstr ""
-
-msgid "MOVE_LEFT"
-msgstr ""
-
-msgid "MOVE_RIGHT"
-msgstr ""
-
-msgid "SKILL_1"
-msgstr ""
-
-msgid "SKILL_2"
-msgstr ""
-
-msgid "RESUME_GAME"
 msgstr ""
 

@@ -2,6 +2,7 @@ extends Node
 
 class_name Stack
 
+signal changed(value)
 signal added(value)
 signal removed(value)
 
@@ -28,3 +29,8 @@ func clear():
 
 func size():
 	return stack.size()
+
+func replace(value) -> void:
+	stack.pop_back()
+	stack.push_back(value)
+	emit_signal("changed", value)

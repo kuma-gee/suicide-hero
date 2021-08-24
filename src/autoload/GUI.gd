@@ -5,6 +5,9 @@ signal screen_changed(screen)
 enum {
 	Main,
 	Options,
+	GeneralOptions,
+	AudioOptions,
+	ControlOptions,
 	Intro,
 	InGame,
 	GameOver,
@@ -13,7 +16,10 @@ enum {
 
 const screen_scene_map = {
 	Main: preload("res://src/scenes/menu/MainMenu.tscn"),
-	Options: preload("res://src/scenes/menu/Options.tscn"),
+	Options: preload("res://src/scenes/menu/options/Options.tscn"),
+	GeneralOptions: preload("res://src/scenes/menu/options/GeneralOptions.tscn"),
+	AudioOptions: preload("res://src/scenes/menu/options/AudioOptions.tscn"),
+	ControlOptions: preload("res://src/scenes/menu/options/ControlOptions.tscn"),
 	Intro: preload("res://src/scenes/menu/Intro.tscn"),
 	GameOver: preload("res://src/scenes/menu/GameOver.tscn"),
 	Pause: preload("res://src/scenes/menu/Pause.tscn"),
@@ -22,6 +28,7 @@ const screen_scene_map = {
 onready var stack := $MenuStack
 onready var theme := $Theme
 
+var current #: GUIMenu
 
 func _ready():
 	stack.connect("removed", self, "_add_current_menu")
@@ -51,15 +58,21 @@ func back_menu():
 
 
 func _add_current_menu(value):
+	var menu = stack.current["menu"]
+
+	if current != null and current.has_method("get_data"):
+		var data = current.get_data()
+		data["menu"] = menu
+		stack.replace(data)
+	
 	_remove_all_menus()
 	
-	var menu = stack.current["menu"]
 	if screen_scene_map.has(menu):
 		var scene = screen_scene_map[menu]
-		var instance = scene.instance()
-		theme.add_child(instance)
-		if instance.has_method("init"):
-			instance.init(stack.current)
+		var current = scene.instance()
+		theme.add_child(current)
+		if current.has_method("init"):
+			current.init(stack.current)
 	
 	emit_signal("screen_changed", menu)
 	_update_gui()

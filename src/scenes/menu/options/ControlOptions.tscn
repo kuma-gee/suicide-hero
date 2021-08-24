@@ -1,0 +1,95 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/scenes/menu/input/InputMapper.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/scenes/menu/Header.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/scenes/menu/options/ControlOptions.gd" type="Script" id=3]
+
+[node name="ControlOptions" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+focus_node_path = NodePath("CenterContainer/VBoxContainer2/VBoxContainer/InputMapper/Button")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 906.0
+margin_top = 449.0
+margin_right = 1014.0
+margin_bottom = 631.0
+
+[node name="Header" parent="CenterContainer/VBoxContainer2" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 108.0
+margin_bottom = 14.0
+text = "CONTROLS"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 108.0
+margin_bottom = 182.0
+
+[node name="InputMapper" parent="CenterContainer/VBoxContainer2/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 108.0
+margin_bottom = 20.0
+text = "MOVE_UP"
+
+[node name="InputMapper3" parent="CenterContainer/VBoxContainer2/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 108.0
+margin_bottom = 44.0
+text = "MOVE_LEFT"
+
+[node name="InputMapper2" parent="CenterContainer/VBoxContainer2/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 48.0
+margin_right = 108.0
+margin_bottom = 68.0
+text = "MOVE_DOWN"
+
+[node name="InputMapper4" parent="CenterContainer/VBoxContainer2/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 108.0
+margin_bottom = 92.0
+text = "MOVE_RIGHT"
+
+[node name="InputMapper5" parent="CenterContainer/VBoxContainer2/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 96.0
+margin_right = 108.0
+margin_bottom = 116.0
+text = "FIRE"
+
+[node name="InputMapper6" parent="CenterContainer/VBoxContainer2/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 120.0
+margin_right = 108.0
+margin_bottom = 140.0
+text = "SKILL_1"
+
+[node name="InputMapper7" parent="CenterContainer/VBoxContainer2/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 144.0
+margin_right = 108.0
+margin_bottom = 164.0
+text = "SKILL_2"

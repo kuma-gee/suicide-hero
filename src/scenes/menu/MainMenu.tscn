@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/shared/gui/ThemeOverride.gd" type="Script" id=1]
 [ext_resource path="res://src/scenes/menu/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://src/shared/menu/Menu.gd" type="Script" id=3]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -62,6 +63,7 @@ margin_bottom = 192.0
 margin_left = 49.0
 margin_right = 143.0
 margin_bottom = 68.0
+script = ExtResource( 3 )
 
 [node name="Start" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
 margin_right = 94.0
