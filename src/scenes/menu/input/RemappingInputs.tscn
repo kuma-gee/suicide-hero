@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/scenes/menu/input/RebindableAction.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/scenes/menu/input/RemappingInputs.gd" type="Script" id=2]
+
+[node name="RemappingInputs" type="GridContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 3.0
+margin_right = 88.0
+margin_bottom = 17.0
+text = "MOVE_UP"
+
+[node name="RebindableAction" parent="." instance=ExtResource( 1 )]
+margin_left = 92.0
+margin_right = 196.0
+action = "move_up"
+
+[node name="Label2" type="Label" parent="."]
+margin_top = 27.0
+margin_right = 88.0
+margin_bottom = 41.0
+text = "MOVE_DOWN"
+
+[node name="RebindableAction2" parent="." instance=ExtResource( 1 )]
+margin_left = 92.0
+margin_top = 24.0
+margin_right = 196.0
+margin_bottom = 44.0
+action = "move_down"
+
+[node name="Label3" type="Label" parent="."]
+margin_top = 51.0
+margin_right = 88.0
+margin_bottom = 65.0
+text = "MOVE_LEFT"
+
+[node name="RebindableAction3" parent="." instance=ExtResource( 1 )]
+margin_left = 92.0
+margin_top = 48.0
+margin_right = 196.0
+margin_bottom = 68.0
+action = "move_left"
+
+[node name="Label4" type="Label" parent="."]
+margin_top = 75.0
+margin_right = 88.0
+margin_bottom = 89.0
+text = "MOVE_RIGHT"
+
+[node name="RebindableAction4" parent="." instance=ExtResource( 1 )]
+margin_left = 92.0
+margin_top = 72.0
+margin_right = 196.0
+margin_bottom = 92.0
+action = "move_right"
+
+[node name="Label5" type="Label" parent="."]
+margin_top = 99.0
+margin_right = 88.0
+margin_bottom = 113.0
+text = "FIRE"
+
+[node name="RebindableAction5" parent="." instance=ExtResource( 1 )]
+margin_left = 92.0
+margin_top = 96.0
+margin_right = 196.0
+margin_bottom = 116.0
+action = "fire"
+
+[node name="Label6" type="Label" parent="."]
+margin_top = 123.0
+margin_right = 88.0
+margin_bottom = 137.0
+text = "SKILL_1"
+
+[node name="RebindableAction6" parent="." instance=ExtResource( 1 )]
+margin_left = 92.0
+margin_top = 120.0
+margin_right = 196.0
+margin_bottom = 140.0
+action = "skill_1"
+
+[node name="Label7" type="Label" parent="."]
+margin_top = 147.0
+margin_right = 88.0
+margin_bottom = 161.0
+text = "SKILL_2"
+
+[node name="RebindableAction7" parent="." instance=ExtResource( 1 )]
+margin_left = 92.0
+margin_top = 144.0
+margin_right = 196.0
+margin_bottom = 164.0
+action = "skill_2"

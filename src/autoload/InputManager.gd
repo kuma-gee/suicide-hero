@@ -14,7 +14,7 @@ func _unhandled_input(event):
 func _is_ui_input(event: InputEvent) -> bool:
 	for input in _ui_inputs:
 		if event.is_action(input):
-			if not _is_joypad(event) or event.get_action_strength(input) > 0:
+			if not _is_joypad(event) or event is InputEventJoypadButton or event.get_action_strength(input) > 0:
 				return true
 	return false
 
@@ -26,23 +26,11 @@ func _set_joypad(value: bool) -> void:
 	
 	joypad = value
 	emit_signal("device_changed")
-
-func get_event(action: String) -> InputEvent:
-	for ev in InputMap.get_action_list(action):
-		if joypad == _is_joypad(ev):
-			return ev
-	return null
-
-func as_text(event: InputEvent) -> String:
-	var text: String
 	
-	if event is InputEventMouseButton:
-			if event.button_index == BUTTON_LEFT:
-				text = tr("MOUSE_LEFT")
-			elif event.button_index == BUTTON_RIGHT:
-				text = tr("MOUSE_RIGHT")
-			elif event.button_index == BUTTON_MIDDLE:
-				text = tr("MOUSE_MIDDLE")
-	else:
-		text = event.as_text()
-	return text
+func get_profile() -> InputProfile:
+	for profile in get_children():
+		if profile.device == main_device and profile.joypad == joypad:
+			return profile
+		
+	print("Returned null profile")
+	return null

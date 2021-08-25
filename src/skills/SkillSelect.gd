@@ -4,7 +4,7 @@ signal skill_selected(skill)
 
 export var offset = 25
 
-const skill_select_item = preload("res://skills/SkillSelectItem.tscn")
+const skill_select_item = preload("res://src/skills/SkillSelectItem.tscn")
 
 enum {
 	SkillLeft,

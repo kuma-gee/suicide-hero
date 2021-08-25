@@ -10,12 +10,12 @@ enum Type {
 }
 
 const skill_map = {
-	Type.HEALTH: preload("res://skills/hp-up.png"),
-	Type.SPEED: preload("res://skills/speed-up.png"),
-	Type.STRENGTH: preload("res://skills/strength-up.png"),
-	Type.MAGNET: preload("res://skills/pickup-up.png"),
-	Type.HOMING: preload("res://skills/homing-shots.png"),
-	Type.FIRERATE: preload("res://skills/shot-up.png"),
+	Type.HEALTH: preload("res://src/skills/hp-up.png"),
+	Type.SPEED: preload("res://src/skills/speed-up.png"),
+	Type.STRENGTH: preload("res://src/skills/strength-up.png"),
+	Type.MAGNET: preload("res://src/skills/pickup-up.png"),
+	Type.HOMING: preload("res://src/skills/homing-shots.png"),
+	Type.FIRERATE: preload("res://src/skills/shot-up.png"),
 }
 
 export var enabled := true

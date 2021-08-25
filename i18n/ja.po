@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-24 20:36+0200\n"
+"POT-Creation-Date: 2021-08-25 17:51+0200\n"
 "PO-Revision-Date: 2021-08-22 21:07+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,21 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "MOUSE_LEFT"
-msgstr ""
-
-msgid "MOUSE_RIGHT"
-msgstr ""
-
-msgid "MOUSE_MIDDLE"
-msgstr ""
-
-msgid "MOVE"
-msgstr ""
-
-msgid "FIRE"
-msgstr ""
 
 msgid "LEVEL"
 msgstr ""
@@ -87,21 +72,6 @@ msgstr ""
 msgid "MOVE_UP"
 msgstr "上"
 
-msgid "MOVE_LEFT"
-msgstr "左"
-
-msgid "MOVE_DOWN"
-msgstr "下"
-
-msgid "MOVE_RIGHT"
-msgstr "右"
-
-msgid "SKILL_1"
-msgstr ""
-
-msgid "SKILL_2"
-msgstr ""
-
 msgid "GENERAL"
 msgstr ""
 
@@ -116,6 +86,15 @@ msgstr "英語"
 
 msgid "LANG_JA_JP"
 msgstr "日本語"
+
+#~ msgid "MOVE_LEFT"
+#~ msgstr "左"
+
+#~ msgid "MOVE_DOWN"
+#~ msgstr "下"
+
+#~ msgid "MOVE_RIGHT"
+#~ msgstr "右"
 
 #~ msgid "SETTINGS"
 #~ msgstr "設定"

@@ -2,10 +2,9 @@
 
 [ext_resource path="res://src/scenes/menu/input/RebindableAction.gd" type="Script" id=1]
 
-[node name="Button" type="Button"]
+[node name="RebindableAction" type="Button"]
 margin_right = 21.0
 margin_bottom = 20.0
-toggle_mode = true
 text = "PLACEHOLDER"
 script = ExtResource( 1 )
 __meta__ = {
@@ -13,4 +12,9 @@ __meta__ = {
 }
 action = "ui_select"
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="pressed" from="." to="." method="_on_Button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

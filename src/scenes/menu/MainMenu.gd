@@ -9,7 +9,7 @@ func _ready():
 		exit.hide()
 		
 func _on_Start_pressed():
-	var _x = get_tree().change_scene("res://scenes/main/Main.tscn")
+	var _x = get_tree().change_scene("res://src/scenes/main/Main.tscn")
 	GUI.open_menu(GUI.Intro, true)
 
 

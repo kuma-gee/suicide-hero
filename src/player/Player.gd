@@ -25,8 +25,8 @@ onready var level_up_sound := $LevelUpSound
 
 onready var heal_particles := $HealParticles
 
-const LEVEL_UP = preload("res://player/LevelUp.tscn")
-const level_up_img = preload("res://player/lvl-up.png")
+const LEVEL_UP = preload("res://src/player/LevelUp.tscn")
+const level_up_img = preload("res://src/player/lvl-up.png")
 
 func _process(delta):
 	gun_point_root.shoot = input.is_pressed("fire")

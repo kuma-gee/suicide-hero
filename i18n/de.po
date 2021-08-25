@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-24 20:36+0200\n"
+"POT-Creation-Date: 2021-08-25 17:51+0200\n"
 "PO-Revision-Date: 2021-07-30 10:59+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,21 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "MOUSE_LEFT"
-msgstr "Linke Maustaste"
-
-msgid "MOUSE_RIGHT"
-msgstr "Rechte Maustaste"
-
-msgid "MOUSE_MIDDLE"
-msgstr "Mittlere Maustaste"
-
-msgid "MOVE"
-msgstr "Bewegen"
-
-msgid "FIRE"
-msgstr "Schießen"
 
 msgid "LEVEL"
 msgstr "Level"
@@ -89,21 +74,6 @@ msgstr "Steuerung"
 msgid "MOVE_UP"
 msgstr "Oben"
 
-msgid "MOVE_LEFT"
-msgstr "Links"
-
-msgid "MOVE_DOWN"
-msgstr "Unten"
-
-msgid "MOVE_RIGHT"
-msgstr "Rechts"
-
-msgid "SKILL_1"
-msgstr "Fähigkeit 1"
-
-msgid "SKILL_2"
-msgstr "Fähigkeit 2"
-
 msgid "GENERAL"
 msgstr "Allgemein"
 
@@ -118,6 +88,36 @@ msgstr "Englisch"
 
 msgid "LANG_JA_JP"
 msgstr "Japanisch"
+
+#~ msgid "MOUSE_LEFT"
+#~ msgstr "Linke Maustaste"
+
+#~ msgid "MOUSE_RIGHT"
+#~ msgstr "Rechte Maustaste"
+
+#~ msgid "MOUSE_MIDDLE"
+#~ msgstr "Mittlere Maustaste"
+
+#~ msgid "MOVE"
+#~ msgstr "Bewegen"
+
+#~ msgid "FIRE"
+#~ msgstr "Schießen"
+
+#~ msgid "MOVE_LEFT"
+#~ msgstr "Links"
+
+#~ msgid "MOVE_DOWN"
+#~ msgstr "Unten"
+
+#~ msgid "MOVE_RIGHT"
+#~ msgstr "Rechts"
+
+#~ msgid "SKILL_1"
+#~ msgstr "Fähigkeit 1"
+
+#~ msgid "SKILL_2"
+#~ msgstr "Fähigkeit 2"
 
 #~ msgid "SETTINGS"
 #~ msgstr "Einstellungen"
