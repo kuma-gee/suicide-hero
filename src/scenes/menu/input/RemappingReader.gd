@@ -20,8 +20,7 @@ func _should_handle_event(event: InputEvent) -> bool:
 		not event is InputEventMouseMotion and \
 		remapping_inputs.profile.is_valid(event, true)
 
-func _unhandled_input(event: InputEvent) -> void:
-	# TODO: handle mouse buttons
+func _input(event: InputEvent) -> void:
 	if _should_handle_event(event):
 		remapping_inputs.profile.change_input(remapping_action, event)
 		get_tree().set_input_as_handled()

@@ -1,6 +1,7 @@
 extends GUIMenu
 
-onready var languages := $CenterContainer/VBoxContainer2/VBoxContainer/Languages
+export var languages_path: NodePath
+onready var languages := get_node(languages_path)
 
 func _ready():
 	var locale = TranslationServer.get_locale()

@@ -12,4 +12,4 @@ func init(data) -> void:
 
 
 func _on_Menu_pressed():
-	var _x = get_tree().change_scene("res://scenes/menu/Menu.tscn")
+	var _x = get_tree().change_scene("res://src/scenes/menu/Menu.tscn")

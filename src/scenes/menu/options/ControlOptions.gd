@@ -20,3 +20,5 @@ onready var controls := $CenterContainer/VBoxContainer2/RemappingInputs
 #	for child in controls.get_children():
 #		result.append(child.text.to_lower())
 #	return result
+
+# TODO: restore defaults button

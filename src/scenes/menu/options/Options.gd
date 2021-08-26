@@ -1,4 +1,4 @@
-extends Control
+extends GUIMenu
 
 
 func _on_Audio_pressed():
