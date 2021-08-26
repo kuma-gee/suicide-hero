@@ -13,8 +13,6 @@ var shoot = false
 var _can_shoot = true
 
 func _process(delta):
-	look_at(get_global_mouse_position())
-	
 	if shoot and _can_shoot:
 		_shoot()
 

@@ -19,7 +19,7 @@ func _ready():
 	hud.connect_player_stats(stats)
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("pause"):
 		GUI.open_menu(GUI.Pause)
 
 

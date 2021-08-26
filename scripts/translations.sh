@@ -2,7 +2,7 @@
 
 mkdir -p i18n
 
-pybabel extract -F babelrc -k text -k LineEdit/placeholder_text -k tr --no-location -o i18n/messages.pot \
+pybabel extract -F babelrc -k text -k action -k LineEdit/placeholder_text -k tr --no-location -o i18n/messages.pot \
     src
 
 cd i18n

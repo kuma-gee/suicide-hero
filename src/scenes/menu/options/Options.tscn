@@ -23,13 +23,13 @@ __meta__ = {
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 919.0
-margin_top = 486.0
+margin_top = 480.0
 margin_right = 1000.0
-margin_bottom = 594.0
+margin_bottom = 600.0
 
 [node name="Container" parent="CenterContainer/OptionMenu" index="0"]
 margin_right = 81.0
-margin_bottom = 68.0
+margin_bottom = 80.0
 
 [node name="General" type="Button" parent="CenterContainer/OptionMenu/Container" index="0"]
 margin_right = 81.0
@@ -41,9 +41,9 @@ __meta__ = {
 }
 
 [node name="Audio" type="Button" parent="CenterContainer/OptionMenu/Container" index="1"]
-margin_top = 24.0
+margin_top = 30.0
 margin_right = 81.0
-margin_bottom = 44.0
+margin_bottom = 50.0
 rect_pivot_offset = Vector2( -1445.83, -770.547 )
 text = "AUDIO"
 __meta__ = {
@@ -51,16 +51,16 @@ __meta__ = {
 }
 
 [node name="Controls" type="Button" parent="CenterContainer/OptionMenu/Container" index="2"]
-margin_top = 48.0
+margin_top = 60.0
 margin_right = 81.0
-margin_bottom = 68.0
+margin_bottom = 80.0
 rect_pivot_offset = Vector2( -1445.83, -770.547 )
 text = "CONTROLS"
 
 [node name="Back" parent="CenterContainer/OptionMenu" index="1"]
-margin_top = 88.0
+margin_top = 100.0
 margin_right = 81.0
-margin_bottom = 108.0
+margin_bottom = 120.0
 
 [connection signal="pressed" from="CenterContainer/OptionMenu/Container/General" to="." method="_on_General_pressed"]
 [connection signal="pressed" from="CenterContainer/OptionMenu/Container/Audio" to="." method="_on_Audio_pressed"]

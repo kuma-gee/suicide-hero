@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-26 17:22+0200\n"
+"POT-Creation-Date: 2021-08-26 18:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,6 +72,18 @@ msgid "SKILL_1"
 msgstr ""
 
 msgid "SKILL_2"
+msgstr ""
+
+msgid "AIM_UP"
+msgstr ""
+
+msgid "AIM_DOWN"
+msgstr ""
+
+msgid "AIM_LEFT"
+msgstr ""
+
+msgid "AIM_RIGHT"
 msgstr ""
 
 msgid "PRESS_KEY"

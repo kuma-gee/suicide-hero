@@ -71,8 +71,7 @@ func _create_skill_select(skill: int, slot: int) -> Sprite:
 
 func _get_skill_key(skill_slot: int) -> InputEvent:
 	if not slot_action.has(skill_slot): return null
-	var actions = InputMap.get_action_list(slot_action.get(skill_slot))
-	return actions[0] if actions.size() > 0 else null
+	return InputManager.get_profile().get_input(slot_action.get(skill_slot))
 
 
 func _on_Queue_dequed(value):

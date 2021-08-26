@@ -1,4 +1,4 @@
-extends Control
+extends GUIMenu
 
 class_name PausedMenu
 

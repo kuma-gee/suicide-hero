@@ -11,4 +11,4 @@ func _on_Resume_pressed():
 
 
 func _on_BackMenu_pressed():
-	get_tree().change_scene("res://scenes/menu/Menu.tscn")
+	get_tree().change_scene("res://src/scenes/menu/Menu.tscn")

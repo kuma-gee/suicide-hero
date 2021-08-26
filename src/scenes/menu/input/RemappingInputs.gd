@@ -5,9 +5,18 @@ signal remapping(action)
 var profile: InputProfile
 
 func _ready():
+	var last = null
 	for child in get_children():
 		if child is RebindableAction:
+			var label = Label.new()
+			label.text = child.action.to_upper()
+			if last != null:
+				add_child_below_node(last, label)
+			else:
+				add_child(label)
+				move_child(label, 0)
 			child.connect("rebind", self, "_on_rebind")
+			last = child
 	
 	_update_profile()
 	InputManager.connect("device_changed", self, "_update_profile")
