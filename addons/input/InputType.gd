@@ -94,33 +94,12 @@ static func to_event(type: int) -> InputEvent:
 		return key
 		
 	if type >= Key.JOYSTICK_L_UP and type <= Key.JOYSTICK_R_LEFT:
-		var joypad = InputEventJoypadMotion.new()
-		
-		if type == Key.JOYSTICK_R2:
-			joypad.axis = JOY_AXIS_7
+		var values = JOY_MOTION_MAP.get(type)
+		if values:
+			var joypad = InputEventJoypadMotion.new()
+			joypad.axis = values[0]
+			joypad.axis_value = values[1]
 			return joypad
-			
-		if type == Key.JOYSTICK_L2:
-			joypad.axis = JOY_AXIS_6
-			return joypad
-		
-		if type in [Key.JOYSTICK_L_LEFT, Key.JOYSTICK_L_RIGHT]:
-			joypad.axis = JOY_AXIS_0
-		elif type in [Key.JOYSTICK_L_UP, Key.JOYSTICK_L_DOWN]:
-			joypad.axis = JOY_AXIS_1
-		elif type in [Key.JOYSTICK_R_LEFT, Key.JOYSTICK_R_RIGHT]:
-			joypad.axis = JOY_AXIS_2
-		elif type in [Key.JOYSTICK_R_UP, Key.JOYSTICK_R_DOWN]:
-			joypad.axis = JOY_AXIS_3
-		
-		var positive_value = [
-			Key.JOYSTICK_L_RIGHT,
-			Key.JOYSTICK_L_DOWN,
-			Key.JOYSTICK_R_RIGHT,
-			Key.JOYSTICK_R_DOWN,
-		]
-		joypad.axis_value = 1 if type in positive_value else -1
-		return joypad
 	
 	if type >= Key.MOUSE_LEFT and type <= Key.MOUSE_MIDDLE:
 		var idx = MOUSE_BUTTON_MAP.values().find(type)
@@ -143,17 +122,11 @@ static func to_type(event: InputEvent) -> int:
 		return -event.scancode
 	
 	if event is InputEventJoypadMotion and event.axis_value != 0:
-		# TODO: use JOY_MOTION_MAP
-		if _is_left_stick(event):
-			if _is_horizontal_axis(event):
-				return Key.JOYSTICK_L_LEFT if event.axis_value < 0 else Key.JOYSTICK_L_RIGHT
-			elif _is_vertical_axis(event):
-				return Key.JOYSTICK_L_UP if event.axis_value < 0 else Key.JOYSTICK_L_DOWN
-		if _is_right_stick(event):
-			if _is_horizontal_axis(event):
-				return Key.JOYSTICK_R_LEFT if event.axis_value < 0 else Key.JOYSTICK_R_RIGHT
-			elif _is_vertical_axis(event):
-				return Key.JOYSTICK_R_UP if event.axis_value < 0 else Key.JOYSTICK_R_DOWN
+		for key in JOY_MOTION_MAP:
+			var value = JOY_MOTION_MAP.get(key)
+			var positive = value[1] > 0
+			if event.axis == value[0] and ((positive and event.axis_value > 0) or (not positive and event.axis_value < 0)):
+				return key
 	elif event is InputEventJoypadButton and JOY_BUTTON_MAP.has(event.button_index):
 		return JOY_BUTTON_MAP.get(event.button_index)
 	elif event is InputEventMouseButton and MOUSE_BUTTON_MAP.has(event.button_index):
