@@ -13,8 +13,8 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-focus_node_path = NodePath("CenterContainer/OptionMenu/VBoxContainer2/VBoxContainer/Languages")
-languages_path = NodePath("CenterContainer/OptionMenu/VBoxContainer2/VBoxContainer/Languages")
+focus_node_path = NodePath("CenterContainer/OptionMenu/Container/VBoxContainer/Languages")
+languages_path = NodePath("CenterContainer/OptionMenu/Container/VBoxContainer/Languages")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
@@ -32,15 +32,11 @@ margin_top = 501.0
 margin_right = 1076.0
 margin_bottom = 579.0
 
-[node name="Back" parent="CenterContainer/OptionMenu" index="0"]
+[node name="Container" parent="CenterContainer/OptionMenu" index="0"]
 margin_right = 233.0
+margin_bottom = 38.0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/OptionMenu"]
-margin_top = 40.0
-margin_right = 233.0
-margin_bottom = 78.0
-
-[node name="General" parent="CenterContainer/OptionMenu/VBoxContainer2" instance=ExtResource( 1 )]
+[node name="General" parent="CenterContainer/OptionMenu/Container" index="0" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 233.0
@@ -48,7 +44,7 @@ margin_bottom = 14.0
 text = "GENERAL"
 align = 1
 
-[node name="VBoxContainer" type="GridContainer" parent="CenterContainer/OptionMenu/VBoxContainer2"]
+[node name="VBoxContainer" type="GridContainer" parent="CenterContainer/OptionMenu/Container" index="1"]
 margin_top = 18.0
 margin_right = 233.0
 margin_bottom = 38.0
@@ -57,14 +53,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CenterContainer/OptionMenu/VBoxContainer2/VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/OptionMenu/Container/VBoxContainer"]
 margin_top = 3.0
 margin_right = 200.0
 margin_bottom = 17.0
 rect_min_size = Vector2( 200, 0 )
 text = "LANGUAGE"
 
-[node name="Languages" type="OptionButton" parent="CenterContainer/OptionMenu/VBoxContainer2/VBoxContainer"]
+[node name="Languages" type="OptionButton" parent="CenterContainer/OptionMenu/Container/VBoxContainer"]
 margin_left = 204.0
 margin_right = 233.0
 margin_bottom = 20.0
@@ -73,18 +69,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DE" type="Node" parent="CenterContainer/OptionMenu/VBoxContainer2/VBoxContainer/Languages"]
+[node name="DE" type="Node" parent="CenterContainer/OptionMenu/Container/VBoxContainer/Languages"]
 script = ExtResource( 2 )
 text = "LANG_DE"
 
-[node name="EN_US" type="Node" parent="CenterContainer/OptionMenu/VBoxContainer2/VBoxContainer/Languages"]
+[node name="EN_US" type="Node" parent="CenterContainer/OptionMenu/Container/VBoxContainer/Languages"]
 script = ExtResource( 2 )
 text = "LANG_EN_US"
 
-[node name="JA_JP" type="Node" parent="CenterContainer/OptionMenu/VBoxContainer2/VBoxContainer/Languages"]
+[node name="JA_JP" type="Node" parent="CenterContainer/OptionMenu/Container/VBoxContainer/Languages"]
 script = ExtResource( 2 )
 text = "LANG_JA_JP"
 
-[connection signal="item_selected" from="CenterContainer/OptionMenu/VBoxContainer2/VBoxContainer/Languages" to="." method="_on_Languages_item_selected"]
+[node name="Back" parent="CenterContainer/OptionMenu" index="1"]
+margin_top = 58.0
+margin_right = 233.0
+margin_bottom = 78.0
+
+[connection signal="item_selected" from="CenterContainer/OptionMenu/Container/VBoxContainer/Languages" to="." method="_on_Languages_item_selected"]
 
 [editable path="CenterContainer/OptionMenu"]

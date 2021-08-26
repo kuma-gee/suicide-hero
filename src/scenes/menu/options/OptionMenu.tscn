@@ -11,9 +11,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Back" type="Button" parent="."]
+[node name="Container" type="VBoxContainer" parent="."]
 margin_right = 1920.0
-margin_bottom = 20.0
+
+[node name="Back" type="Button" parent="."]
+margin_top = 20.0
+margin_right = 1920.0
+margin_bottom = 40.0
 text = "BACK"
 
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

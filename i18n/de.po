@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-25 17:51+0200\n"
+"POT-Creation-Date: 2021-08-26 17:15+0200\n"
 "PO-Revision-Date: 2021-07-30 10:59+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -56,6 +56,30 @@ msgstr "Spiel schließen"
 msgid "RESUME_GAME"
 msgstr "Spiel fortsetzen"
 
+msgid "MOVE_UP"
+msgstr "Oben"
+
+msgid "MOVE_DOWN"
+msgstr "Unten"
+
+msgid "MOVE_LEFT"
+msgstr "Links"
+
+msgid "MOVE_RIGHT"
+msgstr "Rechts"
+
+msgid "FIRE"
+msgstr "Schießen"
+
+msgid "SKILL_1"
+msgstr "Fähigkeit 1"
+
+msgid "SKILL_2"
+msgstr "Fähigkeit 2"
+
+msgid "PRESS_KEY"
+msgstr ""
+
 msgid "AUDIO"
 msgstr "Audio"
 
@@ -70,9 +94,6 @@ msgstr "Sound Effekte"
 
 msgid "CONTROLS"
 msgstr "Steuerung"
-
-msgid "MOVE_UP"
-msgstr "Oben"
 
 msgid "GENERAL"
 msgstr "Allgemein"
@@ -89,6 +110,9 @@ msgstr "Englisch"
 msgid "LANG_JA_JP"
 msgstr "Japanisch"
 
+msgid "BACK"
+msgstr "Zurück"
+
 #~ msgid "MOUSE_LEFT"
 #~ msgstr "Linke Maustaste"
 
@@ -100,24 +124,6 @@ msgstr "Japanisch"
 
 #~ msgid "MOVE"
 #~ msgstr "Bewegen"
-
-#~ msgid "FIRE"
-#~ msgstr "Schießen"
-
-#~ msgid "MOVE_LEFT"
-#~ msgstr "Links"
-
-#~ msgid "MOVE_DOWN"
-#~ msgstr "Unten"
-
-#~ msgid "MOVE_RIGHT"
-#~ msgstr "Rechts"
-
-#~ msgid "SKILL_1"
-#~ msgstr "Fähigkeit 1"
-
-#~ msgid "SKILL_2"
-#~ msgstr "Fähigkeit 2"
 
 #~ msgid "SETTINGS"
 #~ msgstr "Einstellungen"
