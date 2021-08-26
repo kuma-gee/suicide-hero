@@ -91,7 +91,7 @@ msgid "SFX"
 msgstr ""
 
 msgid "CONTROLS"
-msgstr ""
+msgstr "操作"
 
 msgid "GENERAL"
 msgstr ""

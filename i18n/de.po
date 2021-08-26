@@ -78,7 +78,7 @@ msgid "SKILL_2"
 msgstr "Fähigkeit 2"
 
 msgid "PRESS_KEY"
-msgstr ""
+msgstr "Knopf drücken"
 
 msgid "AUDIO"
 msgstr "Audio"

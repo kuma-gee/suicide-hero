@@ -78,7 +78,7 @@ msgid "SKILL_2"
 msgstr "Skill 2"
 
 msgid "PRESS_KEY"
-msgstr ""
+msgstr "Press key"
 
 msgid "AUDIO"
 msgstr "Audio"
@@ -111,7 +111,7 @@ msgid "LANG_JA_JP"
 msgstr "Japanese"
 
 msgid "BACK"
-msgstr ""
+msgstr "Back"
 
 #~ msgid "MOUSE_LEFT"
 #~ msgstr "Left Mouse Button"
