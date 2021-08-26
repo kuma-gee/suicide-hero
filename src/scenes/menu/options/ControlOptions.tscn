@@ -26,13 +26,13 @@ __meta__ = {
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 862.0
-margin_top = 429.0
+margin_top = 411.0
 margin_right = 1058.0
-margin_bottom = 651.0
+margin_bottom = 669.0
 
 [node name="Container" parent="CenterContainer/OptionMenu" index="0"]
 margin_right = 196.0
-margin_bottom = 182.0
+margin_bottom = 218.0
 
 [node name="Header" parent="CenterContainer/OptionMenu/Container" index="0" instance=ExtResource( 2 )]
 anchor_right = 0.0
@@ -45,17 +45,25 @@ align = 1
 [node name="RemappingInputs" parent="CenterContainer/OptionMenu/Container" index="1" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 18.0
+margin_top = 24.0
 margin_right = 196.0
-margin_bottom = 182.0
+margin_bottom = 188.0
+
+[node name="Defaults" type="Button" parent="CenterContainer/OptionMenu/Container" index="2"]
+margin_top = 198.0
+margin_right = 196.0
+margin_bottom = 218.0
+text = "RESTORE_DEFAULTS"
 
 [node name="Back" parent="CenterContainer/OptionMenu" index="1"]
-margin_top = 202.0
+margin_top = 238.0
 margin_right = 196.0
-margin_bottom = 222.0
+margin_bottom = 258.0
 
 [node name="RemappingReader" parent="." instance=ExtResource( 4 )]
 remapping_inputs_path = NodePath("../CenterContainer/OptionMenu/Container/RemappingInputs")
+
+[connection signal="pressed" from="CenterContainer/OptionMenu/Container/Defaults" to="." method="_on_Defaults_pressed"]
 
 [editable path="CenterContainer/OptionMenu"]
 [editable path="CenterContainer/OptionMenu/Container/RemappingInputs"]

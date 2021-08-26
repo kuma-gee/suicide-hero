@@ -13,6 +13,7 @@ __meta__ = {
 
 [node name="Container" type="VBoxContainer" parent="."]
 margin_right = 1920.0
+custom_constants/separation = 10
 
 [node name="Back" type="Button" parent="."]
 margin_top = 20.0

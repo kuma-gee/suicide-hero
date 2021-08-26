@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-26 17:15+0200\n"
+"POT-Creation-Date: 2021-08-26 17:22+0200\n"
 "PO-Revision-Date: 2021-07-30 11:18+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -94,6 +94,9 @@ msgstr "Sound Effects"
 
 msgid "CONTROLS"
 msgstr "Controls"
+
+msgid "RESTORE_DEFAULTS"
+msgstr "Restore Defaults"
 
 msgid "GENERAL"
 msgstr "General"

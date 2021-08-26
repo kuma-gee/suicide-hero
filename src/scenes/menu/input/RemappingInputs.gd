@@ -20,12 +20,12 @@ func _update_profile() -> void:
 		profile.disconnect("input_changed", self, "_on_input_change")
 	profile = InputManager.get_profile()
 	profile.connect("input_changed", self, "_on_input_change")
-	_update()
+	update()
 
 func _on_input_change(action: String) -> void:
-	_update() # TODO: only update the changed action
+	update() # TODO: only update the changed action
 
-func _update() -> void:
+func update() -> void:
 	for child in get_children():
 		if child is RebindableAction:
 			child.profile = profile

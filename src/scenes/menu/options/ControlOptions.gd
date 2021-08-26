@@ -1,6 +1,6 @@
 extends GUIMenu
 
-onready var controls := $CenterContainer/VBoxContainer2/RemappingInputs
+onready var controls := $CenterContainer/OptionMenu/Container/RemappingInputs
 
 #var actions = ["move_left", "move_up", "move"]
 #
@@ -21,4 +21,7 @@ onready var controls := $CenterContainer/VBoxContainer2/RemappingInputs
 #		result.append(child.text.to_lower())
 #	return result
 
-# TODO: restore defaults button
+
+func _on_Defaults_pressed():
+	InputMap.load_from_globals()
+	controls.update()

@@ -28,13 +28,13 @@ __meta__ = {
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 843.0
-margin_top = 501.0
+margin_top = 498.0
 margin_right = 1076.0
-margin_bottom = 579.0
+margin_bottom = 582.0
 
 [node name="Container" parent="CenterContainer/OptionMenu" index="0"]
 margin_right = 233.0
-margin_bottom = 38.0
+margin_bottom = 44.0
 
 [node name="General" parent="CenterContainer/OptionMenu/Container" index="0" instance=ExtResource( 1 )]
 anchor_right = 0.0
@@ -45,9 +45,9 @@ text = "GENERAL"
 align = 1
 
 [node name="VBoxContainer" type="GridContainer" parent="CenterContainer/OptionMenu/Container" index="1"]
-margin_top = 18.0
+margin_top = 24.0
 margin_right = 233.0
-margin_bottom = 38.0
+margin_bottom = 44.0
 columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -82,9 +82,9 @@ script = ExtResource( 2 )
 text = "LANG_JA_JP"
 
 [node name="Back" parent="CenterContainer/OptionMenu" index="1"]
-margin_top = 58.0
+margin_top = 64.0
 margin_right = 233.0
-margin_bottom = 78.0
+margin_bottom = 84.0
 
 [connection signal="item_selected" from="CenterContainer/OptionMenu/Container/VBoxContainer/Languages" to="." method="_on_Languages_item_selected"]
 
