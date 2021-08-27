@@ -99,6 +99,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/shared/rpg/HurtBox3D.gd"
 }, {
+"base": "Node",
+"class": "InputKey",
+"language": "GDScript",
+"path": "res://addons/input/InputKey.gd"
+}, {
 "base": "Label",
 "class": "InputLabel",
 "language": "GDScript",
@@ -358,6 +363,7 @@ _global_script_class_icons={
 "HomingShot": "",
 "HurtBox2D": "",
 "HurtBox3D": "",
+"InputKey": "",
 "InputLabel": "",
 "InputProfile": "",
 "InputReader": "",

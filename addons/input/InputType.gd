@@ -1,12 +1,12 @@
 class_name InputType extends Node
 
 enum Key {
-	ARROW_UP = 2,
-	ARROW_DOWN,
-	ARROW_LEFT,
-	ARROW_RIGHT,
+#	ARROW_UP = 2,
+#	ARROW_DOWN,
+#	ARROW_LEFT,
+#	ARROW_RIGHT,
 	
-	MOUSE_LEFT,
+	MOUSE_LEFT = 2,
 	MOUSE_RIGHT,
 	MOUSE_MIDDLE,
 	

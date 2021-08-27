@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/shared/gui/TextureLabel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/skills/SkillSelectItem.gd" type="Script" id=2]
 [ext_resource path="res://src/shared/gui/CircleTimer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/input/InputKey.gd" type="Script" id=4]
 
 [node name="SkillSelectItem" type="Node2D"]
 script = ExtResource( 2 )
@@ -16,3 +17,9 @@ margin_top = -10.0
 margin_right = 10.0
 margin_bottom = 10.0
 time = 5.0
+
+[node name="InputSprite" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[connection signal="input_text" from="InputSprite" to="TextureLabel" method="set_label"]
+[connection signal="input_texture" from="InputSprite" to="TextureLabel" method="set_label"]

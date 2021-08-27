@@ -25,19 +25,19 @@ __meta__ = {
 [node name="OptionMenu" parent="CenterContainer" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 862.0
-margin_top = 411.0
-margin_right = 1058.0
-margin_bottom = 669.0
+margin_left = 891.0
+margin_top = 423.0
+margin_right = 1028.0
+margin_bottom = 657.0
 
 [node name="Container" parent="CenterContainer/OptionMenu" index="0"]
-margin_right = 196.0
-margin_bottom = 218.0
+margin_right = 137.0
+margin_bottom = 194.0
 
 [node name="Header" parent="CenterContainer/OptionMenu/Container" index="0" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 196.0
+margin_right = 137.0
 margin_bottom = 14.0
 text = "CONTROLS"
 align = 1
@@ -46,19 +46,77 @@ align = 1
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 24.0
-margin_right = 196.0
-margin_bottom = 188.0
+margin_right = 137.0
+margin_bottom = 164.0
+
+[node name="RebindableAction" parent="CenterContainer/OptionMenu/Container/RemappingInputs" index="0"]
+margin_right = 66.0
+margin_bottom = 20.0
+
+[node name="RebindableAction2" parent="CenterContainer/OptionMenu/Container/RemappingInputs" index="1"]
+margin_left = 70.0
+margin_right = 136.0
+margin_bottom = 20.0
+
+[node name="RebindableAction3" parent="CenterContainer/OptionMenu/Container/RemappingInputs" index="2"]
+margin_top = 24.0
+margin_right = 66.0
+margin_bottom = 44.0
+
+[node name="RebindableAction4" parent="CenterContainer/OptionMenu/Container/RemappingInputs" index="3"]
+margin_left = 70.0
+margin_top = 24.0
+margin_right = 136.0
+margin_bottom = 44.0
+
+[node name="RebindableAction5" parent="CenterContainer/OptionMenu/Container/RemappingInputs" index="4"]
+margin_top = 48.0
+margin_right = 66.0
+margin_bottom = 68.0
+
+[node name="RebindableAction6" parent="CenterContainer/OptionMenu/Container/RemappingInputs" index="5"]
+margin_left = 70.0
+margin_top = 48.0
+margin_right = 136.0
+margin_bottom = 68.0
+
+[node name="RebindableAction7" parent="CenterContainer/OptionMenu/Container/RemappingInputs" index="6"]
+margin_top = 72.0
+margin_right = 66.0
+margin_bottom = 92.0
+
+[node name="RebindableAction8" parent="CenterContainer/OptionMenu/Container/RemappingInputs" index="7"]
+margin_left = 70.0
+margin_top = 72.0
+margin_right = 136.0
+margin_bottom = 92.0
+
+[node name="RebindableAction9" parent="CenterContainer/OptionMenu/Container/RemappingInputs" index="8"]
+margin_top = 96.0
+margin_right = 66.0
+margin_bottom = 116.0
+
+[node name="RebindableAction10" parent="CenterContainer/OptionMenu/Container/RemappingInputs" index="9"]
+margin_left = 70.0
+margin_top = 96.0
+margin_right = 136.0
+margin_bottom = 116.0
+
+[node name="RebindableAction11" parent="CenterContainer/OptionMenu/Container/RemappingInputs" index="10"]
+margin_top = 120.0
+margin_right = 66.0
+margin_bottom = 140.0
 
 [node name="Defaults" type="Button" parent="CenterContainer/OptionMenu/Container" index="2"]
-margin_top = 198.0
-margin_right = 196.0
-margin_bottom = 218.0
+margin_top = 174.0
+margin_right = 137.0
+margin_bottom = 194.0
 text = "RESTORE_DEFAULTS"
 
 [node name="Back" parent="CenterContainer/OptionMenu" index="1"]
-margin_top = 238.0
-margin_right = 196.0
-margin_bottom = 258.0
+margin_top = 214.0
+margin_right = 137.0
+margin_bottom = 234.0
 
 [node name="RemappingReader" parent="." instance=ExtResource( 4 )]
 remapping_inputs_path = NodePath("../CenterContainer/OptionMenu/Container/RemappingInputs")
