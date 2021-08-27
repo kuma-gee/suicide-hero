@@ -22,6 +22,7 @@ func _should_handle_event(event: InputEvent) -> bool:
 
 func _input(event: InputEvent) -> void:
 	if _should_handle_event(event):
+		print(event.button_index)
 		remapping_inputs.profile.change_input(remapping_action, event)
 		get_tree().set_input_as_handled()
 		self.remapping_action = ""
