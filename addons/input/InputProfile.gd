@@ -24,10 +24,7 @@ func apply_profile() -> void:
 
 func is_valid(ev: InputEvent, filter_empty = false) -> bool:
 	return (joypad == _is_joypad_event(ev) and device == ev.device) and \
-		(not filter_empty or not _is_empty_input(ev))
-
-func _is_empty_input(ev: InputEvent) -> bool:
-	return ev is InputEventJoypadMotion and abs(ev.axis_value) <= 0.5
+		(not filter_empty or not InputType.is_empty(ev))
 
 func get_input(action: String) -> InputEvent:
 	var inputs = InputMap.get_action_list(action)

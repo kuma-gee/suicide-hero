@@ -23,6 +23,7 @@ onready var magnet := $PickupMagnet/CollisionShape2D
 onready var pickup_sound := $PickupArea/PickupSound
 onready var hit_sound := $HurtBox/HitSound
 onready var level_up_sound := $LevelUpSound
+onready var frame_freeze := $HurtBox/FrameFreeze
 
 onready var heal_particles := $HealParticles
 
@@ -82,6 +83,7 @@ func _on_HurtBox_damaged(dmg):
 	stats.health.reduce(dmg)
 	sprite.modulate.a = 0.75
 	hit_sound.play()
+	frame_freeze.freeze()
 
 func show_gain(texture: Texture) -> void:
 	var node = LEVEL_UP.instance()

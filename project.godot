@@ -59,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/skills/FireRateUp.gd"
 }, {
+"base": "Node",
+"class": "FrameFreeze",
+"language": "GDScript",
+"path": "res://src/shared/misc/FrameFreeze.gd"
+}, {
 "base": "Menu",
 "class": "GUIMenu",
 "language": "GDScript",
@@ -143,11 +148,6 @@ _global_script_classes=[ {
 "class": "Menu",
 "language": "GDScript",
 "path": "res://src/shared/menu/Menu.gd"
-}, {
-"base": "State",
-"class": "Move",
-"language": "GDScript",
-"path": "res://addons/StateMachine/Move.gd"
 }, {
 "base": "State",
 "class": "Move2D",
@@ -355,6 +355,7 @@ _global_script_class_icons={
 "FaceMouse": "",
 "FadeEffect": "",
 "FireRateUp": "",
+"FrameFreeze": "",
 "GUIMenu": "",
 "HealthDrop": "",
 "HealthUp": "",
@@ -372,7 +373,6 @@ _global_script_class_icons={
 "LinearEquation": "",
 "LogarithmEquation": "",
 "Menu": "",
-"Move": "",
 "Move2D": "",
 "MoveDirection2D": "",
 "MoveDirection3D": "",

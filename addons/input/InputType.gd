@@ -1,11 +1,6 @@
 class_name InputType extends Node
 
 enum Key {
-#	ARROW_UP = 2,
-#	ARROW_DOWN,
-#	ARROW_LEFT,
-#	ARROW_RIGHT,
-	
 	MOUSE_LEFT = 2,
 	MOUSE_RIGHT,
 	MOUSE_MIDDLE,
@@ -81,9 +76,6 @@ const MOUSE_BUTTON_MAP = {
 	BUTTON_MIDDLE: Key.MOUSE_MIDDLE,
 }
 
-static func _is_key_event(type: int) -> bool:
-	return type <= 0
-
 static func to_text(type: int) -> String:
 	var index = Key.values().find(type)
 	if index != -1:
@@ -142,14 +134,8 @@ static func to_type(event: InputEvent) -> int:
 	
 	return 1
 
-static func _is_left_stick(event: InputEventJoypadMotion) -> bool:
-	return event.axis in [JOY_AXIS_0, JOY_AXIS_1]
-	
-static func _is_right_stick(event: InputEventJoypadMotion) -> bool:
-	return event.axis in [JOY_AXIS_2, JOY_AXIS_3]
+static func is_empty(ev: InputEvent) -> bool:
+	return ev is InputEventJoypadMotion and abs(ev.axis_value) <= 0.5
 
-static func _is_horizontal_axis(event: InputEventJoypadMotion) -> bool:
-	return event.axis in [JOY_AXIS_0, JOY_AXIS_2]
-	
-static func _is_vertical_axis(event: InputEventJoypadMotion) -> bool:
-	return event.axis in [JOY_AXIS_1, JOY_AXIS_3]
+static func is_joypad(ev: InputEvent) -> bool:
+	return ev is InputEventJoypadMotion or ev is InputEventJoypadButton
