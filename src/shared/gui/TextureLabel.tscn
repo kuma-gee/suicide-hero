@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://theme/theme.tres" type="Theme" id=1]
 [ext_resource path="res://src/shared/gui/ThemeOverride.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://src/shared/gui/CircleProgress.png" type="Texture" id=4]
 [ext_resource path="res://src/shared/gui/TextureLabel.gd" type="Script" id=5]
 [ext_resource path="res://theme/jackeyfont.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://assets/button_triangle1.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 12
@@ -73,5 +72,4 @@ rect_min_size = Vector2( 10, 10 )
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer"]
 margin_right = 85.0
 margin_bottom = 14.0
-texture = ExtResource( 7 )
 expand = true

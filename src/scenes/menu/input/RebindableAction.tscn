@@ -22,3 +22,5 @@ script = ExtResource( 2 )
 
 [connection signal="pressed" from="." to="." method="_on_Button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="input_text" from="InputSprite" to="." method="_on_InputSprite_input_text"]
+[connection signal="input_texture" from="InputSprite" to="." method="_on_InputSprite_input_texture"]
