@@ -444,6 +444,7 @@ enabled=PoolStringArray( "res://addons/Trail/plugin.cfg" )
 [gui]
 
 theme/custom="res://theme/theme.tres"
+theme/custom_font="res://theme/font.tres"
 
 [importer_defaults]
 

@@ -46,19 +46,20 @@ columns = 10
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -64.0
+margin_top = -62.0
+grow_vertical = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="Root/Bottom"]
-margin_right = 437.0
-margin_bottom = 64.0
+margin_right = 436.0
+margin_bottom = 62.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Root/Bottom/PanelContainer"]
-margin_right = 437.0
-margin_bottom = 64.0
+margin_right = 436.0
+margin_bottom = 62.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
@@ -67,37 +68,37 @@ custom_constants/margin_bottom = 5
 [node name="VBoxContainer" type="VBoxContainer" parent="Root/Bottom/PanelContainer/MarginContainer"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 432.0
-margin_bottom = 59.0
+margin_right = 431.0
+margin_bottom = 57.0
 custom_constants/separation = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Root/Bottom/PanelContainer/MarginContainer/VBoxContainer"]
-margin_right = 427.0
-margin_bottom = 14.0
+margin_right = 426.0
+margin_bottom = 13.0
 
 [node name="Level" type="Label" parent="Root/Bottom/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_bottom = 14.0
+margin_bottom = 13.0
 
 [node name="GridContainer" type="GridContainer" parent="Root/Bottom/PanelContainer/MarginContainer/VBoxContainer"]
-margin_top = 16.0
-margin_right = 427.0
-margin_bottom = 54.0
+margin_top = 15.0
+margin_right = 426.0
+margin_bottom = 52.0
 columns = 2
 
 [node name="Level" type="Label" parent="Root/Bottom/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 margin_top = 3.0
-margin_right = 23.0
-margin_bottom = 17.0
+margin_right = 22.0
+margin_bottom = 16.0
 text = "HP"
 
 [node name="HealthBar" parent="Root/Bottom/PanelContainer/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 27.0
-margin_right = 427.0
+margin_left = 26.0
+margin_right = 426.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_horizontal = 3
@@ -106,16 +107,16 @@ color = Color( 0.223529, 0.686275, 0.207843, 1 )
 
 [node name="Label" type="Label" parent="Root/Bottom/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 margin_top = 24.0
-margin_right = 23.0
-margin_bottom = 38.0
+margin_right = 22.0
+margin_bottom = 37.0
 text = "EXP"
 
 [node name="ExpBar" parent="Root/Bottom/PanelContainer/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 27.0
+margin_left = 26.0
 margin_top = 24.0
-margin_right = 427.0
-margin_bottom = 38.0
+margin_right = 426.0
+margin_bottom = 37.0
 rect_min_size = Vector2( 400, 10 )
 color = Color( 0.756863, 0.756863, 0.411765, 1 )

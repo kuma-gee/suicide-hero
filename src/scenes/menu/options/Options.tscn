@@ -22,18 +22,18 @@ __meta__ = {
 [node name="OptionMenu" parent="CenterContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 919.0
-margin_top = 480.0
-margin_right = 1000.0
-margin_bottom = 600.0
+margin_left = 925.0
+margin_top = 482.0
+margin_right = 995.0
+margin_bottom = 598.0
 
 [node name="Container" parent="CenterContainer/OptionMenu" index="0"]
-margin_right = 81.0
-margin_bottom = 80.0
+margin_right = 70.0
+margin_bottom = 77.0
 
 [node name="General" type="Button" parent="CenterContainer/OptionMenu/Container" index="0"]
-margin_right = 81.0
-margin_bottom = 20.0
+margin_right = 70.0
+margin_bottom = 19.0
 rect_pivot_offset = Vector2( -1445.83, -770.547 )
 text = "GENERAL"
 __meta__ = {
@@ -41,9 +41,9 @@ __meta__ = {
 }
 
 [node name="Audio" type="Button" parent="CenterContainer/OptionMenu/Container" index="1"]
-margin_top = 30.0
-margin_right = 81.0
-margin_bottom = 50.0
+margin_top = 29.0
+margin_right = 70.0
+margin_bottom = 48.0
 rect_pivot_offset = Vector2( -1445.83, -770.547 )
 text = "AUDIO"
 __meta__ = {
@@ -51,16 +51,16 @@ __meta__ = {
 }
 
 [node name="Controls" type="Button" parent="CenterContainer/OptionMenu/Container" index="2"]
-margin_top = 60.0
-margin_right = 81.0
-margin_bottom = 80.0
+margin_top = 58.0
+margin_right = 70.0
+margin_bottom = 77.0
 rect_pivot_offset = Vector2( -1445.83, -770.547 )
 text = "CONTROLS"
 
 [node name="Back" parent="CenterContainer/OptionMenu" index="1"]
-margin_top = 100.0
-margin_right = 81.0
-margin_bottom = 120.0
+margin_top = 97.0
+margin_right = 70.0
+margin_bottom = 116.0
 
 [connection signal="pressed" from="CenterContainer/OptionMenu/Container/General" to="." method="_on_General_pressed"]
 [connection signal="pressed" from="CenterContainer/OptionMenu/Container/Audio" to="." method="_on_Audio_pressed"]

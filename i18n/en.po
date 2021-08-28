@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-26 18:03+0200\n"
+"POT-Creation-Date: 2021-08-28 13:27+0200\n"
 "PO-Revision-Date: 2021-07-30 11:18+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -125,6 +125,15 @@ msgstr "English"
 msgid "LANG_JA_JP"
 msgstr "Japanese"
 
+msgid "FONT_SIZE"
+msgstr "Font size"
+
+msgid "-"
+msgstr ""
+
+msgid "+"
+msgstr ""
+
 msgid "BACK"
 msgstr "Back"
 
@@ -146,9 +155,6 @@ msgstr "Back"
 #~ msgid "INPUTS"
 #~ msgstr "Inputs"
 
-#~ msgid "LEFT_MOUSE"
-#~ msgstr "Left mouse button"
-
 #~ msgid "SELECT_GAME_MODE"
 #~ msgstr "Select game mode"
 
@@ -157,24 +163,6 @@ msgstr "Back"
 
 #~ msgid "DEATHMATCH"
 #~ msgstr "Deathmatch"
-
-#~ msgid "INPUT_MOVE_UP"
-#~ msgstr "Forward"
-
-#~ msgid "INPUT_MOVE_DOWN"
-#~ msgstr "Backward"
-
-#~ msgid "INPUT_MOVE_LEFT"
-#~ msgstr "Turn left"
-
-#~ msgid "INPUT_MOVE_RIGHT"
-#~ msgstr "Turn right"
-
-#~ msgid "INPUT_BOOST"
-#~ msgstr "Boost"
-
-#~ msgid "PRESS_ANY_BUTTON"
-#~ msgstr "Press any button"
 
 #~ msgid "READY"
 #~ msgstr "Ready"
