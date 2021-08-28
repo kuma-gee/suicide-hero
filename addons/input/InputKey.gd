@@ -18,10 +18,20 @@ func _update() -> void:
 		var path = _create_path(key)
 		
 		print(path + " for " + str(key))
-		if not File.new().file_exists(path):
+		var dir = Directory.new()
+		dir.open(asset_folder)
+		dir.list_dir_begin()
+		
+		while true:
+			var file = dir.get_next()
+			if file == "":
+				break
+			elif not file.begins_with("."):
+				print(file)
+		
+		if not dir.file_exists(path):
 			print("Path does not exist. Using question mark")
 			path = _create_path(1)
-			_create_path(2)
 		
 		emit_signal("input_texture", path)
 	else:
