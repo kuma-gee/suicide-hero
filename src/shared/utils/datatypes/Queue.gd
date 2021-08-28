@@ -15,6 +15,6 @@ func deque():
 func available() -> bool:
 	return values.size() > 0
 
-func _process(delta):
+func _process(_delta):
 	if auto_deque and available():
 		emit_signal("dequed", deque())

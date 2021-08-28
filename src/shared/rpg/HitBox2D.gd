@@ -10,12 +10,12 @@ export var damage_over_time = false
 var nodes = []
 
 func _ready():
-	connect("area_entered", self, "enter")
-	connect("body_entered", self, "enter")
-	connect("area_exited", self, "exit")
-	connect("body_exited", self, "exit")
+	var _x = connect("area_entered", self, "enter")
+	var _y = connect("body_entered", self, "enter")
+	var _z = connect("area_exited", self, "exit")
+	var _c = connect("body_exited", self, "exit")
 	
-func _process(delta):
+func _process(_delta):
 	for node in nodes:
 		hit(node)
 

@@ -10,7 +10,7 @@ func _input(event):
 	if event is InputEventMouseMotion and event.speed.length() > 0.1:
 		aim_mouse = true
 
-func _process(delta):
+func _process(_delta):
 	var dir = _input_aim()
 	if dir.length() > 0.1:
 		aim_dir = dir

@@ -21,12 +21,12 @@ func _ready():
 	call_deferred("emit_signal", "max_value_changed", max_value)
 	call_deferred("emit_signal", "value_changed", value)
 
-func reduce(value: int) -> void:
-	self.value -= value
+func reduce(v: int) -> void:
+	self.value -= v
 
 
-func increase(value: int) -> void:
-	self.value += value
+func increase(v: int) -> void:
+	self.value += v
 
 
 func is_full_value() -> bool:
@@ -40,7 +40,7 @@ func fill() -> void:
 func _set_value(hp: int) -> void:
 	if value == hp: return
 	
-	value = clamp(hp, 0, max_value)
+	value = int(clamp(hp, 0, max_value))
 
 	if value <= 0:
 		value = 0
@@ -59,7 +59,7 @@ func _set_value(hp: int) -> void:
 	emit_signal("value_changed", value)
 
 func set_max_value(hp: int) -> void:
-	max_value = clamp(hp, 1, hp)
+	max_value = int(clamp(hp, 1, hp))
 	emit_signal("max_value_changed", max_value)
 
 func get_percentage() -> float:

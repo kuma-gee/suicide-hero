@@ -11,8 +11,8 @@ func _ready():
 func focus():
 	if focus_node:
 		focus_node.grab_focus()
-	else:
-		_focus_first()
+#	else:
+#		_focus_first()
 
 func _focus_first():
 	if get_child_count() > 0:

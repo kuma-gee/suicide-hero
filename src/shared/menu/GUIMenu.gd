@@ -2,7 +2,7 @@ class_name GUIMenu extends Menu
 
 
 
-func init(data):
+func init(_data):
 	pass
 
 func get_data() -> Dictionary:

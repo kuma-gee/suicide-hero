@@ -8,8 +8,6 @@ static func find_orthogonal_line(points: Array, dir: Vector2, close_point = null
 	var selected_left = null
 	var selected_right = null
 	
-	var angle_offset = 90
-	
 	if close_point != null:
 		points.sort_custom(VectorSort.new(close_point), "sort_closest")
 	

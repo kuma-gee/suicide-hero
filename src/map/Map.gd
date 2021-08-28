@@ -60,15 +60,15 @@ func _spawn_enemy():
 
 func _get_random_enemy():
 	var need_smaller_enemies = _total_stronger_enemies > 1 and _total_small_enemies < min_small_enemies
-	var enemies = enemy_level_map[1] if need_smaller_enemies else _get_available_enemies()
-	return enemies[Random.random_int(0, enemies.size())]
+	var enemies_to_spawn = enemy_level_map[1] if need_smaller_enemies else _get_available_enemies()
+	return enemies_to_spawn[Random.random_int(0, enemies_to_spawn.size())]
 	
 func _get_available_enemies() -> Array:
-	var enemies = []
+	var available_enemies = []
 	for lvl in enemy_level_map:
 		if player.stats.level >= lvl:
-			enemies.append_array(enemy_level_map[lvl])
-	return enemies
+			available_enemies.append_array(enemy_level_map[lvl])
+	return available_enemies
 
 func _get_random_position():
 	var pos = _get_spawn_positions()

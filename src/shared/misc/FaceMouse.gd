@@ -12,7 +12,7 @@ var homing = false
 var shoot = false
 var _can_shoot = true
 
-func _process(delta):
+func _process(_delta):
 	if shoot and _can_shoot:
 		_shoot()
 

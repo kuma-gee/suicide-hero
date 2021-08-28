@@ -6,7 +6,7 @@ onready var remapping_inputs: RemappingInputs = get_node(remapping_inputs_path)
 var remapping_action: String setget _set_remapping_action
 
 func _ready():
-	remapping_inputs.connect("remapping", self, "_set_remapping_action")
+	var _x = remapping_inputs.connect("remapping", self, "_set_remapping_action")
 	
 func _set_remapping_action(action: String) -> void:
 	remapping_action = action

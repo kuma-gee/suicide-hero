@@ -1,7 +1,6 @@
 class_name Player extends KinematicBody2D
 
 signal skill_selected(skill)
-signal damaged(dmg)
 signal level_up(lvl)
 signal died()
 
@@ -30,7 +29,7 @@ onready var heal_particles := $HealParticles
 const LEVEL_UP = preload("res://src/player/LevelUp.tscn")
 const level_up_img = preload("res://src/player/lvl-up.png")
 
-func _process(delta):
+func _process(_delta):
 	gun_point_root.shoot = input.is_pressed("fire")
 	
 	move.motion = _get_motion().normalized()
@@ -103,7 +102,7 @@ func _on_HurtBox_invincibility_timeout():
 	sprite.modulate.a = 1
 
 
-func _on_PickupArea_area_entered(area):
+func _on_PickupArea_area_entered(_area):
 	pickup_sound.play()
 
 

@@ -3,7 +3,7 @@ extends MenuBase
 export var font_size_increment := 1
 
 onready var languages := $CenterContainer/VBoxContainer/MainContainer/VBoxContainer/Languages
-onready var font := $CenterContainer/VBoxContainer/MainContainer/VBoxContainer/HBoxContainer/Font
+onready var font_label := $CenterContainer/VBoxContainer/MainContainer/VBoxContainer/HBoxContainer/Font
 onready var default_theme = load(ProjectSettings.get_setting("gui/theme/custom"))
 
 func _ready():
@@ -29,4 +29,4 @@ func _on_IncreaseFont_pressed():
 	_update_font_label()
 
 func _update_font_label():
-	font.text = str(get_font("font").get("size"))
+	font_label.text = str(get_font("font").get("size"))

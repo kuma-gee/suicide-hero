@@ -19,3 +19,7 @@ func _on_Exit_pressed():
 
 func _on_Options_pressed():
 	GUI.open_menu(GUI.Options)
+
+
+func _on_About_pressed():
+	GUI.open_menu(GUI.About)
