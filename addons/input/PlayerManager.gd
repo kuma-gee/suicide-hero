@@ -21,7 +21,7 @@ func add_player(event: InputEvent) -> void:
 	
 	var data = {
 		"device": event.device,
-		"joypad": PlayerInput.is_joypad_event(event),
+		"joypad": InputType.is_joypad(event),
 	}
 	
 	if player_exists(data):
