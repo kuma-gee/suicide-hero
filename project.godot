@@ -145,11 +145,6 @@ _global_script_classes=[ {
 "path": "res://src/shared/menu/Menu.gd"
 }, {
 "base": "State",
-"class": "Move",
-"language": "GDScript",
-"path": "res://addons/StateMachine/Move.gd"
-}, {
-"base": "State",
 "class": "Move2D",
 "language": "GDScript",
 "path": "res://addons/StateMachine/Move2D.gd"
@@ -372,7 +367,6 @@ _global_script_class_icons={
 "LinearEquation": "",
 "LogarithmEquation": "",
 "Menu": "",
-"Move": "",
 "Move2D": "",
 "MoveDirection2D": "",
 "MoveDirection3D": "",
