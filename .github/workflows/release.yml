@@ -28,7 +28,7 @@ jobs:
         platform: [win, linux, mac, web]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
         with:
           lfs: true
 
