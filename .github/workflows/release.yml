@@ -29,6 +29,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          lfs: true
 
       # Export Godot Project
       - name: Export ${{ matrix.platform }} Version
@@ -39,6 +41,7 @@ jobs:
 
       # Publish Platforms
       - name: Publish Platforms
+        if: env.ITCH_GAME && !contains(github.ref, '-pre')
         uses: vini-guerrero/godot-exporter/actions/publish@master
         with:
           platform: "Itch"
