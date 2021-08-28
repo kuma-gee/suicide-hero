@@ -109,11 +109,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/input/InputKey.gd"
 }, {
-"base": "Label",
-"class": "InputLabel",
-"language": "GDScript",
-"path": "res://src/scenes/menu/input/InputLabel.gd"
-}, {
 "base": "Node",
 "class": "InputProfile",
 "language": "GDScript",
@@ -148,6 +143,11 @@ _global_script_classes=[ {
 "class": "Menu",
 "language": "GDScript",
 "path": "res://src/shared/menu/Menu.gd"
+}, {
+"base": "GUIMenu",
+"class": "MenuBase",
+"language": "GDScript",
+"path": "res://src/scenes/menu/shared/MenuBase.gd"
 }, {
 "base": "State",
 "class": "Move",
@@ -370,7 +370,6 @@ _global_script_class_icons={
 "HurtBox2D": "",
 "HurtBox3D": "",
 "InputKey": "",
-"InputLabel": "",
 "InputProfile": "",
 "InputReader": "",
 "InputType": "",
@@ -378,6 +377,7 @@ _global_script_class_icons={
 "LinearEquation": "",
 "LogarithmEquation": "",
 "Menu": "",
+"MenuBase": "",
 "Move": "",
 "Move2D": "",
 "MoveDirection2D": "",

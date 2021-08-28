@@ -12,17 +12,19 @@ enum {
 	InGame,
 	GameOver,
 	Pause,
+	About,
 }
 
 const screen_scene_map = {
 	Main: preload("res://src/scenes/menu/MainMenu.tscn"),
 	Options: preload("res://src/scenes/menu/options/Options.tscn"),
-	GeneralOptions: preload("res://src/scenes/menu/options/GeneralOptions.tscn"),
-	AudioOptions: preload("res://src/scenes/menu/options/AudioOptions.tscn"),
-	ControlOptions: preload("res://src/scenes/menu/options/ControlOptions.tscn"),
+	GeneralOptions: preload("res://src/scenes/menu/options/General.tscn"),
+	AudioOptions: preload("res://src/scenes/menu/options/Audio.tscn"),
+	ControlOptions: preload("res://src/scenes/menu/options/Controls.tscn"),
 	Intro: preload("res://src/scenes/menu/Intro.tscn"),
 	GameOver: preload("res://src/scenes/menu/GameOver.tscn"),
 	Pause: preload("res://src/scenes/menu/Pause.tscn"),
+	About: preload("res://src/scenes/menu/About.tscn"),
 }
 
 onready var stack := $MenuStack

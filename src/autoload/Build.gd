@@ -1,3 +1,5 @@
 extends Node
-func _ready() -> void:
-	Env.version = ''
+
+#####
+# NOTE: This file is replaced by the build system. DO NOT EDIT!
+#####

@@ -9,6 +9,7 @@ script = ExtResource( 1 )
 
 [node name="MenuStack" type="Node" parent="."]
 script = ExtResource( 2 )
+min_stack_items = 1
 
 [node name="Theme" type="Control" parent="."]
 anchor_right = 1.0

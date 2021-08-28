@@ -1,11 +1,9 @@
-extends GUIMenu
+extends MenuBase
 
 export var font_size_increment := 1
 
-export var languages_path: NodePath
-onready var languages := get_node(languages_path)
-
-onready var font := $CenterContainer/OptionMenu/Container/VBoxContainer/HBoxContainer/Font
+onready var languages := $CenterContainer/VBoxContainer/MainContainer/VBoxContainer/Languages
+onready var font := $CenterContainer/VBoxContainer/MainContainer/VBoxContainer/HBoxContainer/Font
 onready var default_theme = load(ProjectSettings.get_setting("gui/theme/custom"))
 
 func _ready():

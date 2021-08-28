@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/scenes/menu/About.gd" type="Script" id=1]
+[ext_resource path="res://src/scenes/menu/shared/MenuBase.tscn" type="PackedScene" id=2]
+
+[node name="About" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+focus_node_path = NodePath("CenterContainer/VBoxContainer/Back")
+
+[node name="VBoxContainer" parent="CenterContainer" index="0"]
+margin_top = 514.0
+margin_bottom = 566.0
+
+[node name="MainContainer" parent="CenterContainer/VBoxContainer" index="0"]
+margin_bottom = 13.0
+
+[node name="Version" type="Label" parent="CenterContainer/VBoxContainer/MainContainer" index="0"]
+margin_right = 41.0
+margin_bottom = 13.0
+
+[node name="Back" parent="CenterContainer/VBoxContainer" index="1"]
+margin_top = 33.0
+margin_bottom = 52.0

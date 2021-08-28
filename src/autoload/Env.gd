@@ -8,3 +8,6 @@ func _set_version(v: String) -> void:
 
 func is_prod() -> bool:
 	return version != "dev"
+
+func is_web() -> bool:
+	return OS.get_name() == "HTML5"

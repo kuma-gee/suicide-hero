@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/scenes/menu/shared/BackMenu.gd" type="Script" id=1]
+[ext_resource path="res://src/scenes/menu/Menu.tscn" type="PackedScene" id=2]
+
+[node name="BackMenu" type="Button"]
+margin_right = 12.0
+margin_bottom = 19.0
+text = "BACK_TO_MENU"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+menu_scene = ExtResource( 2 )
+
+[connection signal="pressed" from="." to="." method="_on_BackMenu_pressed"]

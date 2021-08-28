@@ -8,7 +8,3 @@ func _unhandled_input(event):
 
 func _on_Resume_pressed():
 	GUI.back_menu()
-
-
-func _on_BackMenu_pressed():
-	get_tree().change_scene("res://src/scenes/menu/Menu.tscn")
