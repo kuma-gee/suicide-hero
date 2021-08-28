@@ -38,7 +38,8 @@ func test_read_same_device():
 
 
 func test_device_id():
-	var input = autofree(PlayerInput.new(100))
+	var input: PlayerInput = autofree(PlayerInput.new())
+	input.device_id = 100
 
 	var ev = press_key("move_left")
 
