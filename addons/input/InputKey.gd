@@ -16,7 +16,10 @@ func _set_key(k: int) -> void:
 func _update() -> void:
 	if key >= start_type_key:
 		var path = _create_path(key)
+		
+		print(path + " for " + str(key))
 		if not File.new().file_exists(path):
+			print("Path does not exist. Using question mark")
 			path = _create_path(1)
 		
 		emit_signal("input_texture", path)
