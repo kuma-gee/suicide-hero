@@ -8,7 +8,7 @@ jobs:
     name: Publish Web
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:3.2.3
+      image: barichello/godot-ci:3.3.2
     steps:
       - uses: actions/checkout@v1
       - run: sh scripts/prepare.sh && sh scripts/build.sh web
