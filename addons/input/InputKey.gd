@@ -14,7 +14,7 @@ func _set_key(k: int) -> void:
 	_update()
 
 func _update() -> void:
-	if key in InputType.Key:
+	if key in InputType.Key.values():
 		var path = _create_path(key)
 		emit_signal("input_texture", path)
 	else:
