@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/scenes/menu/Pause.gd" type="Script" id=1]
+[ext_resource path="res://src/scenes/menu/shared/BackMenu.tscn" type="PackedScene" id=2]
 
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
@@ -28,30 +29,25 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 902.0
-margin_top = 518.0
-margin_right = 1017.0
-margin_bottom = 562.0
+margin_left = 911.0
+margin_top = 519.0
+margin_right = 1009.0
+margin_bottom = 561.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Resume" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_right = 115.0
-margin_bottom = 20.0
+margin_right = 98.0
+margin_bottom = 19.0
 text = "RESUME_GAME"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackMenu" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 24.0
-margin_right = 115.0
-margin_bottom = 44.0
-text = "BACK_TO_MENU"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="BackMenu" parent="CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 23.0
+margin_right = 98.0
+margin_bottom = 42.0
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/BackMenu" to="." method="_on_BackMenu_pressed"]

@@ -12,17 +12,19 @@ enum {
 	InGame,
 	GameOver,
 	Pause,
+	About,
 }
 
 const screen_scene_map = {
 	Main: preload("res://src/scenes/menu/MainMenu.tscn"),
 	Options: preload("res://src/scenes/menu/options/Options.tscn"),
-	GeneralOptions: preload("res://src/scenes/menu/options/GeneralOptions.tscn"),
-	AudioOptions: preload("res://src/scenes/menu/options/AudioOptions.tscn"),
-	ControlOptions: preload("res://src/scenes/menu/options/ControlOptions.tscn"),
+	GeneralOptions: preload("res://src/scenes/menu/options/General.tscn"),
+	AudioOptions: preload("res://src/scenes/menu/options/Audio.tscn"),
+	ControlOptions: preload("res://src/scenes/menu/options/Controls.tscn"),
 	Intro: preload("res://src/scenes/menu/Intro.tscn"),
 	GameOver: preload("res://src/scenes/menu/GameOver.tscn"),
 	Pause: preload("res://src/scenes/menu/Pause.tscn"),
+	About: preload("res://src/scenes/menu/About.tscn"),
 }
 
 onready var stack := $MenuStack
@@ -31,8 +33,8 @@ onready var theme := $Theme
 var current #: GUIMenu
 
 func _ready():
-	stack.connect("removed", self, "_add_current_menu")
-	stack.connect("added", self, "_add_current_menu")
+	var _x = stack.connect("removed", self, "_add_current_menu")
+	var _y = stack.connect("added", self, "_add_current_menu")
 
 
 func _unhandled_input(event):
@@ -41,7 +43,7 @@ func _unhandled_input(event):
 
 
 func open_menu(menu, clear = false):
-	open({"menu": menu})
+	open({"menu": menu}, clear)
 
 
 func open(data = {}, clear = false):
@@ -57,7 +59,7 @@ func back_menu():
 	stack.pop()
 
 
-func _add_current_menu(value):
+func _add_current_menu(_value):
 	var menu = stack.current["menu"]
 
 	if current != null and current.has_method("get_data"):
@@ -69,7 +71,7 @@ func _add_current_menu(value):
 	
 	if screen_scene_map.has(menu):
 		var scene = screen_scene_map[menu]
-		var current = scene.instance()
+		current = scene.instance()
 		theme.add_child(current)
 		if current.has_method("init"):
 			current.init(stack.current)

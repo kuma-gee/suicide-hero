@@ -14,7 +14,7 @@ onready var sprite := $Body/Sprite
 
 var player: Node2D
 
-func _process(delta):
+func _process(_delta):
 	if player:
 		var distance := global_position.distance_to(player.global_position)
 		if distance <= keep_distance:

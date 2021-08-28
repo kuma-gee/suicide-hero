@@ -14,11 +14,8 @@ func _set_key(k: int) -> void:
 	_update()
 
 func _update() -> void:
-	if key >= start_type_key:
+	if key in InputType.Key.values():
 		var path = _create_path(key)
-		if not File.new().file_exists(path):
-			path = _create_path(1)
-		
 		emit_signal("input_texture", path)
 	else:
 		emit_signal("input_text", InputType.to_text(key))

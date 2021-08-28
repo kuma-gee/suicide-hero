@@ -1,37 +1,23 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://src/scenes/menu/options/OptionMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/scenes/menu/shared/MenuBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/scenes/menu/options/Options.gd" type="Script" id=3]
 
-[node name="Options" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Options" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-focus_node_path = NodePath("CenterContainer/OptionMenu/Container/General")
+focus_node_path = NodePath("CenterContainer/VBoxContainer/MainContainer/General")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OptionMenu" parent="CenterContainer" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="VBoxContainer" parent="CenterContainer" index="0"]
 margin_left = 925.0
-margin_top = 482.0
+margin_top = 485.0
 margin_right = 995.0
-margin_bottom = 598.0
+margin_bottom = 595.0
 
-[node name="Container" parent="CenterContainer/OptionMenu" index="0"]
+[node name="MainContainer" parent="CenterContainer/VBoxContainer" index="0"]
 margin_right = 70.0
-margin_bottom = 77.0
+margin_bottom = 71.0
 
-[node name="General" type="Button" parent="CenterContainer/OptionMenu/Container" index="0"]
+[node name="General" type="Button" parent="CenterContainer/VBoxContainer/MainContainer" index="0"]
 margin_right = 70.0
 margin_bottom = 19.0
 rect_pivot_offset = Vector2( -1445.83, -770.547 )
@@ -40,30 +26,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Audio" type="Button" parent="CenterContainer/OptionMenu/Container" index="1"]
-margin_top = 29.0
+[node name="Audio" type="Button" parent="CenterContainer/VBoxContainer/MainContainer" index="1"]
+margin_top = 26.0
 margin_right = 70.0
-margin_bottom = 48.0
+margin_bottom = 45.0
 rect_pivot_offset = Vector2( -1445.83, -770.547 )
 text = "AUDIO"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Controls" type="Button" parent="CenterContainer/OptionMenu/Container" index="2"]
-margin_top = 58.0
+[node name="Controls" type="Button" parent="CenterContainer/VBoxContainer/MainContainer" index="2"]
+margin_top = 52.0
 margin_right = 70.0
-margin_bottom = 77.0
+margin_bottom = 71.0
 rect_pivot_offset = Vector2( -1445.83, -770.547 )
 text = "CONTROLS"
 
-[node name="Back" parent="CenterContainer/OptionMenu" index="1"]
-margin_top = 97.0
+[node name="Back" parent="CenterContainer/VBoxContainer" index="1"]
+margin_top = 91.0
 margin_right = 70.0
-margin_bottom = 116.0
+margin_bottom = 110.0
 
-[connection signal="pressed" from="CenterContainer/OptionMenu/Container/General" to="." method="_on_General_pressed"]
-[connection signal="pressed" from="CenterContainer/OptionMenu/Container/Audio" to="." method="_on_Audio_pressed"]
-[connection signal="pressed" from="CenterContainer/OptionMenu/Container/Controls" to="." method="_on_Controls_pressed"]
-
-[editable path="CenterContainer/OptionMenu"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MainContainer/General" to="." method="_on_General_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MainContainer/Audio" to="." method="_on_Audio_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MainContainer/Controls" to="." method="_on_Controls_pressed"]

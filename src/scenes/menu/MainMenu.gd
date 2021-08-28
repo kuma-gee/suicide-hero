@@ -1,11 +1,11 @@
-extends Control
+extends MenuBase
 
-onready var title := $MarginContainer/VBoxContainer/MarginContainer/CenterContainer/Title
-onready var exit := $MarginContainer/VBoxContainer/CenterContainer/VBoxContainer/Exit
+onready var title := $CenterContainer/VBoxContainer/MainContainer/MarginContainer/CenterContainer/Title
+onready var exit := $CenterContainer/VBoxContainer/MainContainer/CenterContainer/VBoxContainer/Exit
 
 func _ready():
 	title.text = ProjectSettings.get_setting("application/config/name")
-	if OS.get_name() == "HTML5":
+	if Env.is_web():
 		exit.hide()
 		
 func _on_Start_pressed():
@@ -19,3 +19,7 @@ func _on_Exit_pressed():
 
 func _on_Options_pressed():
 	GUI.open_menu(GUI.Options)
+
+
+func _on_About_pressed():
+	GUI.open_menu(GUI.About)

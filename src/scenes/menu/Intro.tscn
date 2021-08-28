@@ -27,10 +27,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CenterContainer"]
-margin_left = 887.0
+margin_left = 897.0
 margin_top = 533.0
-margin_right = 1033.0
-margin_bottom = 547.0
+margin_right = 1022.0
+margin_bottom = 546.0
 text = "GAME_INTRODUCTION"
 script = ExtResource( 1 )
 relative_font_size = 2.0

@@ -20,7 +20,7 @@ func skill_updated(skill: int, count: int) -> void:
 
 func connect_player_stats(stats: PlayerStats) -> void:
 	set_level(stats.level)
-	stats.connect("level_up", self, "set_level")
+	var _x = stats.connect("level_up", self, "set_level")
 	
 	health.connect_value_fill(stats.health)
 	experience.connect_value_fill(stats.experience)

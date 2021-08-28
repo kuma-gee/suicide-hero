@@ -25,7 +25,7 @@ func _distance_to_player() -> float:
 	return enemy.global_position.distance_to(enemy.player.global_position)
 
 
-func _process(delta):
+func _process(_delta):
 	if _existing_skeletons() != 0 or spawn_count != 0 or _distance_to_player() > spawn_distance_start: return
 	
 	_start_spawn()

@@ -19,7 +19,7 @@ func _ready():
 			last = child
 	
 	_update_profile()
-	InputManager.connect("device_changed", self, "_update_profile")
+	var _x = InputManager.connect("device_changed", self, "_update_profile")
 
 func _on_rebind(action: String) -> void:
 	emit_signal("remapping", action)
@@ -28,10 +28,10 @@ func _update_profile() -> void:
 	if profile:
 		profile.disconnect("input_changed", self, "_on_input_change")
 	profile = InputManager.get_profile()
-	profile.connect("input_changed", self, "_on_input_change")
+	var _x = profile.connect("input_changed", self, "_on_input_change")
 	update()
 
-func _on_input_change(action: String) -> void:
+func _on_input_change(_action: String) -> void:
 	update() # TODO: only update the changed action
 
 func update() -> void:

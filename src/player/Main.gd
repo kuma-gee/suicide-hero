@@ -13,7 +13,8 @@ var enemy_eq = ExponentialEquation.new(2, 1, 30, 2)
 var exp_eq = ExponentialEquation.new(0.5, 2, 0.5, 3)
 
 func _ready():
-	randomize() # TODO: active for production only
+	if Env.is_prod():
+		randomize()
 	_on_Player_level_up(1)
 	experience_timer.start()
 	hud.connect_player_stats(stats)

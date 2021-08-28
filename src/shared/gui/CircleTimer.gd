@@ -16,7 +16,7 @@ func start() -> void:
 func stop() -> void:
 	hide()
 
-func _process(delta):
+func _process(_delta):
 	if not timer.is_stopped():
 		var p = (timer.time_left / time) * max_value
 		value = p

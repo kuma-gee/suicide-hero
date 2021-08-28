@@ -6,6 +6,8 @@ signal changed(value)
 signal added(value)
 signal removed(value)
 
+export var min_stack_items = 0
+
 var stack = []
 
 var current setget ,_get_current
@@ -16,7 +18,7 @@ func _get_current():
 
 
 func pop():
-	if size() <= 0: return
+	if size() <= min_stack_items: return
 	emit_signal("removed", stack.pop_back())
 
 

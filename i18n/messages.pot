@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-28 13:28+0200\n"
+"POT-Creation-Date: 2021-08-28 17:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,25 +26,28 @@ msgstr ""
 msgid "EXP"
 msgstr ""
 
+msgid "VERSION"
+msgstr ""
+
 msgid "FINAL_LEVEL"
 msgstr ""
 
 msgid "GAME_OVER"
 msgstr ""
 
-msgid "BACK_TO_MENU"
+msgid "GAME_INTRODUCTION"
 msgstr ""
 
 msgid "PLACEHOLDER"
-msgstr ""
-
-msgid "GAME_INTRODUCTION"
 msgstr ""
 
 msgid "START_GAME"
 msgstr ""
 
 msgid "OPTIONS"
+msgstr ""
+
+msgid "ABOUT"
 msgstr ""
 
 msgid "EXIT_GAME"
@@ -129,6 +132,9 @@ msgid "-"
 msgstr ""
 
 msgid "+"
+msgstr ""
+
+msgid "BACK_TO_MENU"
 msgstr ""
 
 msgid "BACK"

@@ -6,7 +6,7 @@ onready var remapping_inputs: RemappingInputs = get_node(remapping_inputs_path)
 var remapping_action: String setget _set_remapping_action
 
 func _ready():
-	remapping_inputs.connect("remapping", self, "_set_remapping_action")
+	var _x = remapping_inputs.connect("remapping", self, "_set_remapping_action")
 	
 func _set_remapping_action(action: String) -> void:
 	remapping_action = action
@@ -22,7 +22,6 @@ func _should_handle_event(event: InputEvent) -> bool:
 
 func _input(event: InputEvent) -> void:
 	if _should_handle_event(event):
-		print(event.button_index)
 		remapping_inputs.profile.change_input(remapping_action, event)
 		get_tree().set_input_as_handled()
 		self.remapping_action = ""

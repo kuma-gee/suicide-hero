@@ -18,9 +18,9 @@ func _ready():
 	bar.set("custom_styles/fg", fg)
 
 
-func connect_value_fill(value: ValueFill) -> void:
-	value.connect("max_value_changed", self, "_set_max_value")
-	value.connect("value_changed", self, "_set_value")
+func connect_value_fill(v: ValueFill) -> void:
+	var _x = v.connect("max_value_changed", self, "_set_max_value")
+	var _y = v.connect("value_changed", self, "_set_value")
 
 
 func _set_value(v) -> void:

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-28 13:27+0200\n"
+"POT-Creation-Date: 2021-08-28 17:32+0200\n"
 "PO-Revision-Date: 2021-07-30 10:59+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -27,28 +27,31 @@ msgstr "HP"
 msgid "EXP"
 msgstr "EXP"
 
+msgid "VERSION"
+msgstr "Version"
+
 msgid "FINAL_LEVEL"
 msgstr "Erreichter Level"
 
 msgid "GAME_OVER"
 msgstr "Game Over"
 
-msgid "BACK_TO_MENU"
-msgstr "Zurück zum Menü"
-
-msgid "PLACEHOLDER"
-msgstr "Platzhalter"
-
 msgid "GAME_INTRODUCTION"
 msgstr ""
 "Du bekommst unbegrenzt EXP im Austausch für dein Leben.\n"
 "Töte Gegner um zu überleben."
+
+msgid "PLACEHOLDER"
+msgstr "Platzhalter"
 
 msgid "START_GAME"
 msgstr "Spiel starten"
 
 msgid "OPTIONS"
 msgstr "Optionen"
+
+msgid "ABOUT"
+msgstr "About"
 
 msgid "EXIT_GAME"
 msgstr "Spiel schließen"
@@ -133,6 +136,9 @@ msgstr ""
 
 msgid "+"
 msgstr ""
+
+msgid "BACK_TO_MENU"
+msgstr "Zurück zum Menü"
 
 msgid "BACK"
 msgstr "Zurück"
