@@ -430,6 +430,8 @@ config/icon="res://icon.png"
 
 GUI="*res://src/autoload/GUI.tscn"
 InputManager="*res://src/autoload/InputManager.tscn"
+Env="*res://src/autoload/Env.gd"
+Build="*res://src/autoload/Build.gd"
 
 [display]
 
