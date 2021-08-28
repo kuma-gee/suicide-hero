@@ -21,6 +21,7 @@ func _update() -> void:
 		if not File.new().file_exists(path):
 			print("Path does not exist. Using question mark")
 			path = _create_path(1)
+			_create_path(2)
 		
 		emit_signal("input_texture", path)
 	else:
