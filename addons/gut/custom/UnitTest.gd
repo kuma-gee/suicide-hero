@@ -12,14 +12,22 @@ func release_key(input: String) -> InputEvent:
 
 
 func _create_input(input: String, strength = 0, pressed = true) -> InputEvent:
-	InputEventKey
-	
 	var ev = InputEventAction.new()
 	ev.action = input
 	ev.pressed = pressed
 	ev.strength = strength
 	return ev
 
+func mouse_event(button: int) -> InputEvent:
+	var mouse = InputEventMouseButton.new()
+	mouse.button_index = button
+	return mouse
+
+
+func key_event(code: int) -> InputEvent:
+	var key = InputEventKey.new()
+	key.scancode = code
+	return key
 
 func joypad_motion_event(axis: int, value: float) -> InputEvent:
 	var joy = InputEventJoypadMotion.new()

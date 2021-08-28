@@ -10,7 +10,7 @@ export var spawn_distance_start := 200
 onready var enemies_node := $Enemies
 onready var spawn_timer := $SpawnTimer
 
-const skeleton := preload("res://enemy/Skeleton.tscn")
+const skeleton := preload("res://src/enemy/Skeleton.tscn")
 
 var angle: float
 var spawn_pos: Vector2

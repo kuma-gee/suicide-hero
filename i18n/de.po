@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-23 19:57+0200\n"
+"POT-Creation-Date: 2021-08-26 18:03+0200\n"
 "PO-Revision-Date: 2021-07-30 10:59+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,21 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "MOUSE_LEFT"
-msgstr "Linke Maustaste"
-
-msgid "MOUSE_RIGHT"
-msgstr "Rechte Maustaste"
-
-msgid "MOUSE_MIDDLE"
-msgstr "Mittlere Maustaste"
-
-msgid "MOVE"
-msgstr "Bewegen"
-
-msgid "FIRE"
-msgstr "Schießen"
 
 msgid "LEVEL"
 msgstr "Level"
@@ -68,8 +53,62 @@ msgstr "Optionen"
 msgid "EXIT_GAME"
 msgstr "Spiel schließen"
 
-msgid "SETTINGS"
-msgstr "Einstellungen"
+msgid "RESUME_GAME"
+msgstr "Spiel fortsetzen"
+
+msgid "MOVE_UP"
+msgstr "Oben"
+
+msgid "MOVE_DOWN"
+msgstr "Unten"
+
+msgid "MOVE_LEFT"
+msgstr "Links"
+
+msgid "MOVE_RIGHT"
+msgstr "Rechts"
+
+msgid "FIRE"
+msgstr "Schießen"
+
+msgid "SKILL_1"
+msgstr "Fähigkeit 1"
+
+msgid "SKILL_2"
+msgstr "Fähigkeit 2"
+
+msgid "AIM_UP"
+msgstr "Oben zielen"
+
+msgid "AIM_DOWN"
+msgstr "Unten zielen"
+
+msgid "AIM_LEFT"
+msgstr "Links zielen"
+
+msgid "AIM_RIGHT"
+msgstr "Rechts zielen"
+
+msgid "PRESS_KEY"
+msgstr "Knopf drücken"
+
+msgid "AUDIO"
+msgstr "Audio"
+
+msgid "MASTER"
+msgstr "Master"
+
+msgid "MUSIC"
+msgstr "Musik"
+
+msgid "SFX"
+msgstr "Sound Effekte"
+
+msgid "CONTROLS"
+msgstr "Steuerung"
+
+msgid "RESTORE_DEFAULTS"
+msgstr "Standard wiederherstellen"
 
 msgid "GENERAL"
 msgstr "Allgemein"
@@ -86,41 +125,26 @@ msgstr "Englisch"
 msgid "LANG_JA_JP"
 msgstr "Japanisch"
 
-msgid "AUDIO"
-msgstr "Audio"
+msgid "BACK"
+msgstr "Zurück"
 
-msgid "MASTER"
-msgstr "Master"
+#~ msgid "MOUSE_LEFT"
+#~ msgstr "Linke Maustaste"
 
-msgid "MUSIC"
-msgstr "Musik"
+#~ msgid "MOUSE_RIGHT"
+#~ msgstr "Rechte Maustaste"
 
-msgid "SFX"
-msgstr "Sound Effekte"
+#~ msgid "MOUSE_MIDDLE"
+#~ msgstr "Mittlere Maustaste"
 
-msgid "INPUTS"
-msgstr "Eingaben"
+#~ msgid "MOVE"
+#~ msgstr "Bewegen"
 
-msgid "MOVE_UP"
-msgstr "Nach oben bewegen"
+#~ msgid "SETTINGS"
+#~ msgstr "Einstellungen"
 
-msgid "MOVE_DOWN"
-msgstr "Nach unten bewegen"
-
-msgid "MOVE_LEFT"
-msgstr "Nach links bewegen"
-
-msgid "MOVE_RIGHT"
-msgstr "Nach rechts bewegen"
-
-msgid "SKILL_1"
-msgstr "Fähigkeit 1"
-
-msgid "SKILL_2"
-msgstr "Fähigkeit 2"
-
-msgid "RESUME_GAME"
-msgstr "Spiel fortsetzen"
+#~ msgid "INPUTS"
+#~ msgstr "Eingaben"
 
 #~ msgid "LANG_JP"
 #~ msgstr "Japanisch"

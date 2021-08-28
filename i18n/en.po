@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-23 19:57+0200\n"
+"POT-Creation-Date: 2021-08-26 18:03+0200\n"
 "PO-Revision-Date: 2021-07-30 11:18+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,21 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "MOUSE_LEFT"
-msgstr "Left Mouse Button"
-
-msgid "MOUSE_RIGHT"
-msgstr "Right Mouse Button"
-
-msgid "MOUSE_MIDDLE"
-msgstr "Middle Mouse Button"
-
-msgid "MOVE"
-msgstr "Move"
-
-msgid "FIRE"
-msgstr "Fire"
 
 msgid "LEVEL"
 msgstr "Level"
@@ -68,8 +53,62 @@ msgstr "Options"
 msgid "EXIT_GAME"
 msgstr "Exit game"
 
-msgid "SETTINGS"
-msgstr "Settings"
+msgid "RESUME_GAME"
+msgstr "Resume game"
+
+msgid "MOVE_UP"
+msgstr "Move Up"
+
+msgid "MOVE_DOWN"
+msgstr "Move Down"
+
+msgid "MOVE_LEFT"
+msgstr "Move Left"
+
+msgid "MOVE_RIGHT"
+msgstr "Move Right"
+
+msgid "FIRE"
+msgstr "Fire"
+
+msgid "SKILL_1"
+msgstr "Skill 1"
+
+msgid "SKILL_2"
+msgstr "Skill 2"
+
+msgid "AIM_UP"
+msgstr "Aim Up"
+
+msgid "AIM_DOWN"
+msgstr "Aim Down"
+
+msgid "AIM_LEFT"
+msgstr "Aim Left"
+
+msgid "AIM_RIGHT"
+msgstr "Aim Right"
+
+msgid "PRESS_KEY"
+msgstr "Press key"
+
+msgid "AUDIO"
+msgstr "Audio"
+
+msgid "MASTER"
+msgstr "Master"
+
+msgid "MUSIC"
+msgstr "Music"
+
+msgid "SFX"
+msgstr "Sound Effects"
+
+msgid "CONTROLS"
+msgstr "Controls"
+
+msgid "RESTORE_DEFAULTS"
+msgstr "Restore Defaults"
 
 msgid "GENERAL"
 msgstr "General"
@@ -86,41 +125,26 @@ msgstr "English"
 msgid "LANG_JA_JP"
 msgstr "Japanese"
 
-msgid "AUDIO"
-msgstr "Audio"
+msgid "BACK"
+msgstr "Back"
 
-msgid "MASTER"
-msgstr "Master"
+#~ msgid "MOUSE_LEFT"
+#~ msgstr "Left Mouse Button"
 
-msgid "MUSIC"
-msgstr "Music"
+#~ msgid "MOUSE_RIGHT"
+#~ msgstr "Right Mouse Button"
 
-msgid "SFX"
-msgstr "Sound Effects"
+#~ msgid "MOUSE_MIDDLE"
+#~ msgstr "Middle Mouse Button"
 
-msgid "INPUTS"
-msgstr "Inputs"
+#~ msgid "MOVE"
+#~ msgstr "Move"
 
-msgid "MOVE_UP"
-msgstr "Move Up"
+#~ msgid "SETTINGS"
+#~ msgstr "Settings"
 
-msgid "MOVE_DOWN"
-msgstr "Move Down"
-
-msgid "MOVE_LEFT"
-msgstr "Move Left"
-
-msgid "MOVE_RIGHT"
-msgstr "Move Right"
-
-msgid "SKILL_1"
-msgstr "Skill 1"
-
-msgid "SKILL_2"
-msgstr "Skill 2"
-
-msgid "RESUME_GAME"
-msgstr "Resume game"
+#~ msgid "INPUTS"
+#~ msgstr "Inputs"
 
 #~ msgid "LEFT_MOUSE"
 #~ msgstr "Left mouse button"

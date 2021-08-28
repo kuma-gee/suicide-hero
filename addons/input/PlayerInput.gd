@@ -1,39 +1,29 @@
-extends InputReader
+class_name PlayerInput extends InputReader
 
-"""
-Input Reader for a single player
-"""
+enum Type {
+	SAME_DEVICE,
+	JOYPAD,
+	KEYBOARD,
+}
 
-class_name PlayerInput
-
-export var joypad = false
+export(Type) var type = Type.SAME_DEVICE
 export var device_id = 0
-
-
-func _init(device = 0, joypad = false):
-	self.device_id = device
-	self.joypad = joypad
 
 
 func _unhandled_input(event):
 	handle_input(event)
 
 
-func set_for_event(event: InputEvent) -> void:
-	device_id = event.device
-	joypad = is_joypad_event(event)
-
-
 func is_player_event(event: InputEvent) -> bool:
-	return joypad == is_joypad_event(event) and device_id == event.device
+	var joypad = type == Type.JOYPAD
+	var same_device = type == Type.SAME_DEVICE
+	
+	return device_id == event.device and \
+		(same_device or joypad == is_joypad_event(event))
 
 
 static func is_joypad_event(event: InputEvent) -> bool:
 	return event is InputEventJoypadButton or event is InputEventJoypadMotion
-
-
-func get_unique_name() -> String:
-	return str(get_network_master()) + ":" + str(device_id) + ":" + str(joypad)
 
 
 func handle_input(event: InputEvent) -> void:

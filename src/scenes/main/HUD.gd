@@ -5,7 +5,7 @@ onready var experience := $Root/Bottom/PanelContainer/MarginContainer/VBoxContai
 onready var level := $Root/Bottom/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Level
 onready var skills := $Root/Top/MarginContainer/SkillsContainer
 
-const skill_count := preload("res://scenes/main/SkillCount.tscn")
+const skill_count := preload("res://src/scenes/main/SkillCount.tscn")
 
 func skill_updated(skill: int, count: int) -> void:
 	var node_name = str(skill)

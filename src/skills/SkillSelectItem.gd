@@ -7,12 +7,11 @@ var key: InputEvent
 
 onready var texture_label := $TextureLabel
 onready var timer := $TextureLabel/CircleTimer
+onready var input_sprite := $InputSprite
 
 func _ready():
 	texture_label.set_texture(texture)
-	if key != null:
-		texture_label.set_label(key.as_text())
-	
+	input_sprite.key = InputType.to_type(key)
 	timer.connect("timeout", self, "_auto_select")
 
 func start_autoselect():

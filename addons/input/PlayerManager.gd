@@ -35,7 +35,9 @@ func add_player(event: InputEvent) -> void:
 
 
 func _create_input(player) -> void:
-	var input = PlayerInput.new(player["device"], player["joypad"])
+	var input = PlayerInput.new()
+	input.device_id = player["device"]
+	input.type = PlayerInput.Type.JOYPAD if player["joypad"] else PlayerInput.Type.KEYBOARD
 	add_child(input)
 
 

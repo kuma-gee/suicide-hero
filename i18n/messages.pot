@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-08-23 19:57+0200\n"
+"POT-Creation-Date: 2021-08-26 18:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,21 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
-
-msgid "MOUSE_LEFT"
-msgstr ""
-
-msgid "MOUSE_RIGHT"
-msgstr ""
-
-msgid "MOUSE_MIDDLE"
-msgstr ""
-
-msgid "MOVE"
-msgstr ""
-
-msgid "FIRE"
-msgstr ""
 
 msgid "LEVEL"
 msgstr ""
@@ -65,7 +50,61 @@ msgstr ""
 msgid "EXIT_GAME"
 msgstr ""
 
-msgid "SETTINGS"
+msgid "RESUME_GAME"
+msgstr ""
+
+msgid "MOVE_UP"
+msgstr ""
+
+msgid "MOVE_DOWN"
+msgstr ""
+
+msgid "MOVE_LEFT"
+msgstr ""
+
+msgid "MOVE_RIGHT"
+msgstr ""
+
+msgid "FIRE"
+msgstr ""
+
+msgid "SKILL_1"
+msgstr ""
+
+msgid "SKILL_2"
+msgstr ""
+
+msgid "AIM_UP"
+msgstr ""
+
+msgid "AIM_DOWN"
+msgstr ""
+
+msgid "AIM_LEFT"
+msgstr ""
+
+msgid "AIM_RIGHT"
+msgstr ""
+
+msgid "PRESS_KEY"
+msgstr ""
+
+msgid "AUDIO"
+msgstr ""
+
+msgid "MASTER"
+msgstr ""
+
+msgid "MUSIC"
+msgstr ""
+
+msgid "SFX"
+msgstr ""
+
+msgid "CONTROLS"
+msgstr ""
+
+msgid "RESTORE_DEFAULTS"
 msgstr ""
 
 msgid "GENERAL"
@@ -83,39 +122,6 @@ msgstr ""
 msgid "LANG_JA_JP"
 msgstr ""
 
-msgid "AUDIO"
-msgstr ""
-
-msgid "MASTER"
-msgstr ""
-
-msgid "MUSIC"
-msgstr ""
-
-msgid "SFX"
-msgstr ""
-
-msgid "INPUTS"
-msgstr ""
-
-msgid "MOVE_UP"
-msgstr ""
-
-msgid "MOVE_DOWN"
-msgstr ""
-
-msgid "MOVE_LEFT"
-msgstr ""
-
-msgid "MOVE_RIGHT"
-msgstr ""
-
-msgid "SKILL_1"
-msgstr ""
-
-msgid "SKILL_2"
-msgstr ""
-
-msgid "RESUME_GAME"
+msgid "BACK"
 msgstr ""
 

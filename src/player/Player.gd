@@ -10,6 +10,7 @@ onready var gun_point_root := $GunPointRoot
 onready var gun_fire_rate := $GunPointRoot/FireRate
 onready var state_machine := $StateMachine
 
+onready var aim_direction := $AimDirection
 onready var move := $StateMachine/Move2D
 onready var knockback_state := $StateMachine/Knockback2D
 onready var skill_select := $SkillSelect
@@ -25,14 +26,17 @@ onready var level_up_sound := $LevelUpSound
 
 onready var heal_particles := $HealParticles
 
-const LEVEL_UP = preload("res://player/LevelUp.tscn")
-const level_up_img = preload("res://player/lvl-up.png")
+const LEVEL_UP = preload("res://src/player/LevelUp.tscn")
+const level_up_img = preload("res://src/player/lvl-up.png")
 
 func _process(delta):
 	gun_point_root.shoot = input.is_pressed("fire")
 	
-	move.motion = _get_motion()
+	move.motion = _get_motion().normalized()
 	move.look_dir = _get_look_direction()
+	
+	var gun_point = gun_point_root.global_position + move.look_dir
+	gun_point_root.look_at(gun_point)
 
 
 func _get_motion() -> Vector2:
@@ -41,10 +45,8 @@ func _get_motion() -> Vector2:
 		input.get_action_strength("move_down") - input.get_action_strength("move_up")
 	)
 
-
 func _get_look_direction() -> Vector2:
-	var mouse_pos = get_global_mouse_position()
-	return global_position.direction_to(mouse_pos).normalized()
+	return aim_direction.get_aim_direction(self)
 
 
 func heal(hp):
