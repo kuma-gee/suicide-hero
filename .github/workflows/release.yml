@@ -21,7 +21,7 @@ jobs:
         with:
           lfs: true
       - run: sh scripts/prepare.sh
-      - run: sh scripts/generate-build.sh ${GITHUB_REF/refs\/tags\//}
+      - run: VERSION=${GITHUB_REF/refs\/tags\//} && sh scripts/generate-build.sh $VERSION
       - run: sh scripts/build.sh $CHANNEL $GAME
       - name: Publish Itch
         if: env.BUTLER_API_KEY && env.GAME && !contains(github.ref, '-pre')
