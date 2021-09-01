@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "LEVEL"
-msgstr ""
+msgstr "レベル"
 
 msgid "HP"
 msgstr ""
@@ -28,13 +28,13 @@ msgid "EXP"
 msgstr ""
 
 msgid "VERSION"
-msgstr ""
+msgstr "バージョン"
 
 msgid "FINAL_LEVEL"
-msgstr ""
+msgstr "最終レベル"
 
 msgid "GAME_OVER"
-msgstr ""
+msgstr "ゲームオーバー"
 
 msgid "GAME_INTRODUCTION"
 msgstr ""
@@ -43,7 +43,7 @@ msgid "PLACEHOLDER"
 msgstr "〇〇"
 
 msgid "START_GAME"
-msgstr ""
+msgstr "ゲームを始める"
 
 msgid "OPTIONS"
 msgstr "設定"
@@ -55,7 +55,7 @@ msgid "EXIT_GAME"
 msgstr "終了"
 
 msgid "RESUME_GAME"
-msgstr ""
+msgstr "続ける"
 
 msgid "MOVE_UP"
 msgstr "上"
@@ -70,49 +70,49 @@ msgid "MOVE_RIGHT"
 msgstr "右"
 
 msgid "FIRE"
-msgstr ""
+msgstr "撃つ"
 
 msgid "SKILL_1"
-msgstr ""
+msgstr "技一"
 
 msgid "SKILL_2"
-msgstr ""
+msgstr "技二"
 
 msgid "AIM_UP"
-msgstr ""
+msgstr "上に狙い"
 
 msgid "AIM_DOWN"
-msgstr ""
+msgstr "下に狙い"
 
 msgid "AIM_LEFT"
-msgstr ""
+msgstr "左に狙い"
 
 msgid "AIM_RIGHT"
-msgstr ""
+msgstr "右に狙い"
 
 msgid "PRESS_KEY"
-msgstr ""
+msgstr "ボタンを押す"
 
 msgid "AUDIO"
-msgstr ""
+msgstr "音声"
 
 msgid "MASTER"
-msgstr ""
+msgstr "マスター音量"
 
 msgid "MUSIC"
 msgstr "音楽"
 
 msgid "SFX"
-msgstr ""
+msgstr "効果音"
 
 msgid "CONTROLS"
 msgstr "操作"
 
 msgid "RESTORE_DEFAULTS"
-msgstr ""
+msgstr "デフォルトに戻す"
 
 msgid "GENERAL"
-msgstr ""
+msgstr "ゲーム設定"
 
 msgid "LANGUAGE"
 msgstr "言語"
@@ -127,7 +127,7 @@ msgid "LANG_JA_JP"
 msgstr "日本語"
 
 msgid "FONT_SIZE"
-msgstr ""
+msgstr "フォントサイズ"
 
 msgid "-"
 msgstr ""
@@ -136,7 +136,7 @@ msgid "+"
 msgstr ""
 
 msgid "BACK_TO_MENU"
-msgstr ""
+msgstr "メニューに戻る"
 
 msgid "BACK"
 msgstr "戻る"
