@@ -57,13 +57,13 @@ __meta__ = {
 script = ExtResource( 3 )
 text = "LANG_DE"
 
-[node name="EN_US" type="Node" parent="CenterContainer/VBoxContainer/MainContainer/VBoxContainer/Languages" index="2"]
+[node name="EN" type="Node" parent="CenterContainer/VBoxContainer/MainContainer/VBoxContainer/Languages" index="2"]
 script = ExtResource( 3 )
-text = "LANG_EN_US"
+text = "LANG_EN"
 
-[node name="JA_JP" type="Node" parent="CenterContainer/VBoxContainer/MainContainer/VBoxContainer/Languages" index="3"]
+[node name="JA" type="Node" parent="CenterContainer/VBoxContainer/MainContainer/VBoxContainer/Languages" index="3"]
 script = ExtResource( 3 )
-text = "LANG_JA_JP"
+text = "LANG_JA"
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/MainContainer/VBoxContainer" index="2"]
 margin_top = 26.0

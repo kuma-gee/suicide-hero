@@ -8,7 +8,8 @@ onready var default_theme = load(ProjectSettings.get_setting("gui/theme/custom")
 
 func _ready():
 	var locale = TranslationServer.get_locale()
-	languages.set_value("LANG_" + locale.to_upper())
+	var split = locale.split("_")
+	languages.set_value("LANG_" + split[0].to_upper())
 	_update_font_label()
 
 func _on_Languages_item_selected(index):
