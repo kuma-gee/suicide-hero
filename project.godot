@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/shared/rpg/AimDirection.gd"
 }, {
+"base": "Reference",
+"class": "ArgumentParser",
+"language": "GDScript",
+"path": "res://addons/godot-css-theme/ArgumentParser.gd"
+}, {
+"base": "Reference",
+"class": "CSSParser",
+"language": "GDScript",
+"path": "res://addons/godot-css-theme/CSSParser.gd"
+}, {
 "base": "Node",
 "class": "Component",
 "language": "GDScript",
@@ -179,6 +189,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/shared/rpg/MoveToward2D.gd"
 }, {
+"base": "Reference",
+"class": "OptParse",
+"language": "GDScript",
+"path": "res://addons/godot-css-theme/optparse.gd"
+}, {
+"base": "Reference",
+"class": "Options",
+"language": "GDScript",
+"path": "res://addons/godot-css-theme/Options.gd"
+}, {
 "base": "GUIMenu",
 "class": "PausedMenu",
 "language": "GDScript",
@@ -304,6 +324,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/skills/StrengthUp.gd"
 }, {
+"base": "Reference",
+"class": "Stylesheet",
+"language": "GDScript",
+"path": "res://addons/godot-css-theme/Stylesheet.gd"
+}, {
+"base": "Reference",
+"class": "ThemeApplier",
+"language": "GDScript",
+"path": "res://addons/godot-css-theme/ThemeApplier.gd"
+}, {
 "base": "Line2D",
 "class": "Trail2D",
 "language": "GDScript",
@@ -351,6 +381,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AimDirection": "",
+"ArgumentParser": "",
+"CSSParser": "",
 "Component": "",
 "Effect": "",
 "Enemy": "",
@@ -384,6 +416,8 @@ _global_script_class_icons={
 "MoveDirection3D": "",
 "MoveEffect": "",
 "MoveToward2D": "",
+"OptParse": "",
+"Options": "",
 "PausedMenu": "",
 "PickupArea": "",
 "PickupMagnet": "",
@@ -409,6 +443,8 @@ _global_script_class_icons={
 "State": "",
 "StateMachine": "",
 "StrengthUp": "",
+"Stylesheet": "",
+"ThemeApplier": "",
 "Trail2D": "",
 "TrailCollision": "",
 "TransitionEffect": "",
@@ -432,6 +468,7 @@ GUI="*res://src/autoload/GUI.tscn"
 InputManager="*res://src/autoload/InputManager.tscn"
 Env="*res://src/autoload/Env.gd"
 Build="*res://src/autoload/Build.gd"
+Events="*res://src/autoload/Events.gd"
 
 [display]
 

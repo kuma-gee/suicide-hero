@@ -20,12 +20,14 @@ func _on_Languages_item_selected(index):
 func _on_DecreaseFont_pressed():
 	var font = default_theme.get("default_font")
 	font.set("size", font.get("size") - font_size_increment)
+	Events.emit_signal("font_size_changed")
 	_update_font_label()
 
 
 func _on_IncreaseFont_pressed():
 	var font = default_theme.get("default_font")
 	font.set("size", font.get("size") + font_size_increment)
+	Events.emit_signal("font_size_changed")
 	_update_font_label()
 
 func _update_font_label():

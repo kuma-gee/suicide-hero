@@ -10,3 +10,5 @@ build/
 *.blend1
 *.kra
 screenshot/output
+
+*.css*
