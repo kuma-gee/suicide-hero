@@ -24,3 +24,6 @@ func get_profile(device = main_device) -> InputProfile:
 		
 	print("Returned null profile")
 	return null
+
+func get_profiles() -> Array:
+	return get_children()

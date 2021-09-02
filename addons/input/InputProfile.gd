@@ -2,18 +2,14 @@ class_name InputProfile extends Node
 
 signal input_changed(action)
 
+export var profile_name := "default"
 export var device := 0
 export var joypad := false
 
 var mappings := {}
 
-func load_inputs(actions: Array) -> void:
-	for action in actions:
-		var input = get_input(action)
-		if input:
-			mappings[action] = InputType.to_type(input)
-
-func apply_profile() -> void:
+func load_mappings(_mappings: Dictionary) -> void:
+	mappings = _mappings
 	for action in mappings.keys():
 		var type = mappings[action]
 		var ev = InputType.to_event(type)
@@ -21,6 +17,9 @@ func apply_profile() -> void:
 			change_input(action, ev)
 		else:
 			print("Failed to load action %s" % action)
+
+func get_profile_name() -> String:
+	return str(device) + ":" + str(joypad)
 
 func is_valid(ev: InputEvent, filter_empty = false) -> bool:
 	return (joypad == _is_joypad_event(ev) and device == ev.device) and \
@@ -39,5 +38,7 @@ func _is_joypad_event(event: InputEvent) -> bool:
 func change_input(action: String, ev: InputEvent) -> void:
 	InputMap.action_erase_event(action, get_input(action))
 	InputMap.action_add_event(action, ev)
+	
+	mappings[action] = InputType.to_type(ev)
 	emit_signal("input_changed", action)
 	

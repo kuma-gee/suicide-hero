@@ -469,6 +469,7 @@ InputManager="*res://src/autoload/InputManager.tscn"
 Env="*res://src/autoload/Env.gd"
 Build="*res://src/autoload/Build.gd"
 Events="*res://src/autoload/Events.gd"
+Settings="*res://src/autoload/Settings.gd"
 
 [display]
 

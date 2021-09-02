@@ -12,97 +12,97 @@ focus_node_path = NodePath("CenterContainer/VBoxContainer/MainContainer/Remappin
 
 [node name="VBoxContainer" parent="CenterContainer" index="0"]
 margin_left = 896.0
-margin_top = 430.0
+margin_top = 438.0
 margin_right = 1024.0
-margin_bottom = 649.0
+margin_bottom = 642.0
 
 [node name="MainContainer" parent="CenterContainer/VBoxContainer" index="0"]
 margin_right = 128.0
-margin_bottom = 180.0
+margin_bottom = 168.0
 
 [node name="Header" parent="CenterContainer/VBoxContainer/MainContainer" index="0" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 128.0
-margin_bottom = 13.0
+margin_bottom = 16.0
 text = "CONTROLS"
 align = 1
 
 [node name="RemappingInputs" parent="CenterContainer/VBoxContainer/MainContainer" index="1" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 20.0
+margin_top = 26.0
 margin_right = 128.0
-margin_bottom = 154.0
+margin_bottom = 142.0
 
 [node name="RebindableAction" parent="CenterContainer/VBoxContainer/MainContainer/RemappingInputs" index="0"]
 margin_right = 62.0
-margin_bottom = 19.0
+margin_bottom = 16.0
 
 [node name="RebindableAction2" parent="CenterContainer/VBoxContainer/MainContainer/RemappingInputs" index="1"]
 margin_left = 66.0
 margin_right = 128.0
-margin_bottom = 19.0
+margin_bottom = 16.0
 
 [node name="RebindableAction3" parent="CenterContainer/VBoxContainer/MainContainer/RemappingInputs" index="2"]
-margin_top = 23.0
+margin_top = 20.0
 margin_right = 62.0
-margin_bottom = 42.0
+margin_bottom = 36.0
 
 [node name="RebindableAction4" parent="CenterContainer/VBoxContainer/MainContainer/RemappingInputs" index="3"]
 margin_left = 66.0
-margin_top = 23.0
+margin_top = 20.0
 margin_right = 128.0
-margin_bottom = 42.0
+margin_bottom = 36.0
 
 [node name="RebindableAction5" parent="CenterContainer/VBoxContainer/MainContainer/RemappingInputs" index="4"]
-margin_top = 46.0
+margin_top = 40.0
 margin_right = 62.0
-margin_bottom = 65.0
+margin_bottom = 56.0
 
 [node name="RebindableAction6" parent="CenterContainer/VBoxContainer/MainContainer/RemappingInputs" index="5"]
 margin_left = 66.0
-margin_top = 46.0
+margin_top = 40.0
 margin_right = 128.0
-margin_bottom = 65.0
+margin_bottom = 56.0
 
 [node name="RebindableAction7" parent="CenterContainer/VBoxContainer/MainContainer/RemappingInputs" index="6"]
-margin_top = 69.0
+margin_top = 60.0
 margin_right = 62.0
-margin_bottom = 88.0
+margin_bottom = 76.0
 
 [node name="RebindableAction8" parent="CenterContainer/VBoxContainer/MainContainer/RemappingInputs" index="7"]
 margin_left = 66.0
-margin_top = 69.0
+margin_top = 60.0
 margin_right = 128.0
-margin_bottom = 88.0
+margin_bottom = 76.0
 
 [node name="RebindableAction9" parent="CenterContainer/VBoxContainer/MainContainer/RemappingInputs" index="8"]
-margin_top = 92.0
+margin_top = 80.0
 margin_right = 62.0
-margin_bottom = 111.0
+margin_bottom = 96.0
 
 [node name="RebindableAction10" parent="CenterContainer/VBoxContainer/MainContainer/RemappingInputs" index="9"]
 margin_left = 66.0
-margin_top = 92.0
+margin_top = 80.0
 margin_right = 128.0
-margin_bottom = 111.0
+margin_bottom = 96.0
 
 [node name="RebindableAction11" parent="CenterContainer/VBoxContainer/MainContainer/RemappingInputs" index="10"]
-margin_top = 115.0
+margin_top = 100.0
 margin_right = 62.0
-margin_bottom = 134.0
+margin_bottom = 116.0
 
 [node name="Defaults" type="Button" parent="CenterContainer/VBoxContainer/MainContainer" index="2"]
-margin_top = 161.0
+margin_top = 152.0
 margin_right = 128.0
-margin_bottom = 180.0
+margin_bottom = 168.0
 text = "RESTORE_DEFAULTS"
 
 [node name="Back" parent="CenterContainer/VBoxContainer" index="1"]
-margin_top = 200.0
+margin_top = 188.0
 margin_right = 128.0
-margin_bottom = 219.0
+margin_bottom = 204.0
 
 [node name="RemappingReader" parent="." index="1" instance=ExtResource( 3 )]
 remapping_inputs_path = NodePath("../CenterContainer/VBoxContainer/MainContainer/RemappingInputs")

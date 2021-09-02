@@ -8,18 +8,18 @@ script = ExtResource( 3 )
 focus_node_path = NodePath("CenterContainer/VBoxContainer/MainContainer/General")
 
 [node name="VBoxContainer" parent="CenterContainer" index="0"]
-margin_left = 931.0
-margin_top = 494.0
-margin_right = 989.0
-margin_bottom = 586.0
+margin_left = 928.0
+margin_top = 488.0
+margin_right = 992.0
+margin_bottom = 592.0
 
 [node name="MainContainer" parent="CenterContainer/VBoxContainer" index="0"]
-margin_right = 58.0
-margin_bottom = 59.0
+margin_right = 64.0
+margin_bottom = 68.0
 
 [node name="General" type="Button" parent="CenterContainer/VBoxContainer/MainContainer" index="0"]
-margin_right = 58.0
-margin_bottom = 13.0
+margin_right = 64.0
+margin_bottom = 16.0
 rect_pivot_offset = Vector2( -1445.83, -770.547 )
 text = "GENERAL"
 __meta__ = {
@@ -27,9 +27,9 @@ __meta__ = {
 }
 
 [node name="Audio" type="Button" parent="CenterContainer/VBoxContainer/MainContainer" index="1"]
-margin_top = 23.0
-margin_right = 58.0
-margin_bottom = 36.0
+margin_top = 26.0
+margin_right = 64.0
+margin_bottom = 42.0
 rect_pivot_offset = Vector2( -1445.83, -770.547 )
 text = "AUDIO"
 __meta__ = {
@@ -37,16 +37,16 @@ __meta__ = {
 }
 
 [node name="Controls" type="Button" parent="CenterContainer/VBoxContainer/MainContainer" index="2"]
-margin_top = 46.0
-margin_right = 58.0
-margin_bottom = 59.0
+margin_top = 52.0
+margin_right = 64.0
+margin_bottom = 68.0
 rect_pivot_offset = Vector2( -1445.83, -770.547 )
 text = "CONTROLS"
 
 [node name="Back" parent="CenterContainer/VBoxContainer" index="1"]
-margin_top = 79.0
-margin_right = 58.0
-margin_bottom = 92.0
+margin_top = 88.0
+margin_right = 64.0
+margin_bottom = 104.0
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MainContainer/General" to="." method="_on_General_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MainContainer/Audio" to="." method="_on_Audio_pressed"]
