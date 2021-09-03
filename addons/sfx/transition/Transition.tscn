@@ -20,7 +20,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/cutoff = 0.0
+shader_param/cutoff = 1.0
 shader_param/smooth_size = 0.2
 shader_param/mask = ExtResource( 1 )
 
@@ -67,3 +67,5 @@ reverse = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Reverse = SubResource( 3 )
 anims/Start = SubResource( 4 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

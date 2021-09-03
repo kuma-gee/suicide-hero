@@ -33,8 +33,8 @@ onready var theme := $Theme
 var current #: GUIMenu
 
 func _ready():
-	var _x = stack.connect("removed", self, "_add_current_menu")
-	var _y = stack.connect("added", self, "_add_current_menu")
+	var _x = stack.connect("removed", self, "_add_current_menu", [false])
+	var _y = stack.connect("added", self, "_add_current_menu", [true])
 
 
 func _unhandled_input(event):
@@ -59,13 +59,15 @@ func back_menu():
 	stack.pop()
 
 
-func _add_current_menu(_value):
+func _add_current_menu(_value, added: bool):
 	var menu = stack.current["menu"]
 
 	if current != null and current.has_method("get_data"):
 		var data = current.get_data()
-		data["menu"] = menu
-		stack.replace(data)
+		var current_data = stack.current
+		for key in data:
+			current_data[key] = data[key]
+		stack.replace(current_data)
 	
 	_remove_all_menus()
 	
@@ -73,7 +75,7 @@ func _add_current_menu(_value):
 		var scene = screen_scene_map[menu]
 		current = scene.instance()
 		theme.add_child(current)
-		if current.has_method("init"):
+		if current.has_method("init") and added:
 			current.init(stack.current)
 	
 	emit_signal("screen_changed", menu)

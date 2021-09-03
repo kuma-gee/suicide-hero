@@ -12,5 +12,3 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 menu_scene = ExtResource( 2 )
-
-[connection signal="pressed" from="." to="." method="_on_BackMenu_pressed"]
