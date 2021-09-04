@@ -36,7 +36,9 @@ func _is_joypad_event(event: InputEvent) -> bool:
 	return event is InputEventJoypadButton or event is InputEventJoypadMotion
 
 func change_input(action: String, ev: InputEvent) -> void:
-	InputMap.action_erase_event(action, get_input(action))
+	var existing = get_input(action)
+	if existing:
+		InputMap.action_erase_event(action, existing)
 	InputMap.action_add_event(action, ev)
 	
 	mappings[action] = InputType.to_type(ev)

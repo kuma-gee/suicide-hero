@@ -27,7 +27,7 @@ func on_focus_exit():
 	modulate.a = 0.5
 
 func set_disabled(disabled: bool) -> void:
-	var value = 0.5 if disabled else 1
+	var value = 0.5 if disabled else 1.0
 	self_modulate.r = value
 	self_modulate.g = value
 	self_modulate.b = value
