@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-01 20:27+0200\n"
+"POT-Creation-Date: 2021-09-04 18:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,27 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
+
+msgid "MOVE"
+msgstr ""
+
+msgid "-"
+msgstr ""
+
+msgid "MOVE_UP"
+msgstr ""
+
+msgid "MOVE_DOWN"
+msgstr ""
+
+msgid "MOVE_LEFT"
+msgstr ""
+
+msgid "MOVE_RIGHT"
+msgstr ""
+
+msgid "FIRE"
+msgstr ""
 
 msgid "LEVEL"
 msgstr ""
@@ -54,21 +75,6 @@ msgid "EXIT_GAME"
 msgstr ""
 
 msgid "RESUME_GAME"
-msgstr ""
-
-msgid "MOVE_UP"
-msgstr ""
-
-msgid "MOVE_DOWN"
-msgstr ""
-
-msgid "MOVE_LEFT"
-msgstr ""
-
-msgid "MOVE_RIGHT"
-msgstr ""
-
-msgid "FIRE"
 msgstr ""
 
 msgid "SKILL_1"
@@ -126,9 +132,6 @@ msgid "LANG_JA"
 msgstr ""
 
 msgid "FONT_SIZE"
-msgstr ""
-
-msgid "-"
 msgstr ""
 
 msgid "+"

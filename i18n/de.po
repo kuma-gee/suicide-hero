@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-01 20:27+0200\n"
+"POT-Creation-Date: 2021-09-04 18:07+0200\n"
 "PO-Revision-Date: 2021-07-30 10:59+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,6 +17,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "MOVE"
+msgstr "Bewegen"
+
+msgid "-"
+msgstr ""
+
+msgid "MOVE_UP"
+msgstr "Oben"
+
+msgid "MOVE_DOWN"
+msgstr "Unten"
+
+msgid "MOVE_LEFT"
+msgstr "Links"
+
+msgid "MOVE_RIGHT"
+msgstr "Rechts"
+
+msgid "FIRE"
+msgstr "Schießen"
 
 msgid "LEVEL"
 msgstr "Level"
@@ -58,21 +79,6 @@ msgstr "Spiel schließen"
 
 msgid "RESUME_GAME"
 msgstr "Spiel fortsetzen"
-
-msgid "MOVE_UP"
-msgstr "Oben"
-
-msgid "MOVE_DOWN"
-msgstr "Unten"
-
-msgid "MOVE_LEFT"
-msgstr "Links"
-
-msgid "MOVE_RIGHT"
-msgstr "Rechts"
-
-msgid "FIRE"
-msgstr "Schießen"
 
 msgid "SKILL_1"
 msgstr "Fähigkeit 1"
@@ -131,9 +137,6 @@ msgstr "Japanisch"
 msgid "FONT_SIZE"
 msgstr "Schriftgröße"
 
-msgid "-"
-msgstr ""
-
 msgid "+"
 msgstr ""
 
@@ -157,9 +160,6 @@ msgstr "Zurück"
 
 #~ msgid "MOUSE_MIDDLE"
 #~ msgstr "Mittlere Maustaste"
-
-#~ msgid "MOVE"
-#~ msgstr "Bewegen"
 
 #~ msgid "SETTINGS"
 #~ msgstr "Einstellungen"

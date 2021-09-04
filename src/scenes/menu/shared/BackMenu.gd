@@ -6,7 +6,7 @@ export var connect_button := true
 
 func _ready():
 	if connect_button:
-		connect("pressed", self, "_on_BackMenu_pressed")
+		var _x = connect("pressed", self, "_on_BackMenu_pressed")
 
 func _on_BackMenu_pressed():
 	back_menu()

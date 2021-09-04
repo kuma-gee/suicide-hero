@@ -9,12 +9,15 @@ var key: int setget _set_key
 
 const start_type_key = InputType.Key.MOUSE_LEFT
 
-func _set_key(k: int) -> void:
-	key = k
+func _set_key(k) -> void:
+	if k is InputEvent:
+		key = InputType.to_type(k)
+	else:
+		key = k
 	_update()
 
 func _update() -> void:
-	if key in InputType.Key.values():
+	if key in InputType.Key.values() or key == 1:
 		var path = _create_path(key)
 		emit_signal("input_texture", path)
 	else:

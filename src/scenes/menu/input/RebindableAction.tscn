@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/scenes/menu/input/RebindableAction.gd" type="Script" id=1]
 [ext_resource path="res://addons/input/InputKey.gd" type="Script" id=2]
+[ext_resource path="res://src/shared/gui/TexButton.tscn" type="PackedScene" id=3]
 
-[node name="RebindableAction" type="Button"]
+[node name="RebindableAction" type="CenterContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -13,14 +14,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextButton" type="Button" parent="."]
+margin_left = 960.0
+margin_top = 532.0
+margin_right = 960.0
+margin_bottom = 548.0
+
+[node name="TexButton" parent="." instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 960.0
+margin_top = 540.0
+margin_right = 960.0
+margin_bottom = 540.0
+
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.05
 one_shot = true
 
 [node name="InputSprite" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[connection signal="pressed" from="." to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="TextButton" to="." method="_on_TextButton_pressed"]
+[connection signal="pressed" from="TexButton" to="." method="_on_TexButton_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="input_text" from="InputSprite" to="." method="_on_InputSprite_input_text"]
 [connection signal="input_texture" from="InputSprite" to="." method="_on_InputSprite_input_texture"]

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-01 20:27+0200\n"
+"POT-Creation-Date: 2021-09-04 18:07+0200\n"
 "PO-Revision-Date: 2021-08-22 21:07+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,6 +17,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "MOVE"
+msgstr "移動"
+
+msgid "-"
+msgstr ""
+
+msgid "MOVE_UP"
+msgstr "上"
+
+msgid "MOVE_DOWN"
+msgstr "下"
+
+msgid "MOVE_LEFT"
+msgstr "左"
+
+msgid "MOVE_RIGHT"
+msgstr "右"
+
+msgid "FIRE"
+msgstr "撃つ"
 
 msgid "LEVEL"
 msgstr "レベル"
@@ -56,21 +77,6 @@ msgstr "終了"
 
 msgid "RESUME_GAME"
 msgstr "続ける"
-
-msgid "MOVE_UP"
-msgstr "上"
-
-msgid "MOVE_DOWN"
-msgstr "下"
-
-msgid "MOVE_LEFT"
-msgstr "左"
-
-msgid "MOVE_RIGHT"
-msgstr "右"
-
-msgid "FIRE"
-msgstr "撃つ"
 
 msgid "SKILL_1"
 msgstr "技一"
@@ -128,9 +134,6 @@ msgstr "日本語"
 
 msgid "FONT_SIZE"
 msgstr "フォントサイズ"
-
-msgid "-"
-msgstr ""
 
 msgid "+"
 msgstr ""
