@@ -2,7 +2,7 @@ extends Control
 
 const label_sprite = preload("res://src/shared/gui/LabelSprite.tscn")
 
-onready var label := $Label
+#@onready var label := $Label
 
 func _ready():
 	var profile = InputManager.get_profile()

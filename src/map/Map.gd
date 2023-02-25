@@ -1,15 +1,15 @@
 extends Node2D
 
-export var max_enemy_value = 50
-export var min_small_enemies = 20
+@export var max_enemy_value = 50
+@export var min_small_enemies = 20
 
-export var player_path: NodePath
-onready var player: Player = get_node(player_path)
+@export var player_path: NodePath
+@onready var player: Player = get_node(player_path)
 
-onready var tilemap := $TileMap
-onready var enemy_spawn_timer := $EnemySpawnTimer
-onready var spawn_positions := $SpawnPositions
-onready var enemies := $Enemies
+@onready var tilemap := $TileMap
+@onready var enemy_spawn_timer := $EnemySpawnTimer
+@onready var spawn_positions := $SpawnPositions
+@onready var enemies := $Enemies
 
 const enemy_level_map = {
 	1: [
@@ -51,7 +51,7 @@ func _on_EnemySpawnTimer_timeout():
 func _spawn_enemy():
 	var pos = _get_random_position()
 	if pos:
-		var node = _get_random_enemy().instance()
+		var node = _get_random_enemy().instantiate()
 		node.player = player
 		enemies.add_child(node)
 		node.global_position = pos

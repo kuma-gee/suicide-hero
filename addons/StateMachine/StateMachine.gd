@@ -1,10 +1,10 @@
 class_name StateMachine extends Node
 
-export var initial_state: NodePath
-onready var state = get_node(initial_state) if initial_state else null
+@export var initial_state: NodePath
+@onready var state = get_node(initial_state) if initial_state else null
 
 func _ready() -> void:
-	yield(owner, "ready")
+	await owner.ready
 	state.enter()
 
 

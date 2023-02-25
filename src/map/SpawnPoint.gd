@@ -1,4 +1,4 @@
-class_name SpawnPoint extends Position2D
+class_name SpawnPoint extends Node2D
 
 var enabled = true
 

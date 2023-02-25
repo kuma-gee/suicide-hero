@@ -1,10 +1,10 @@
 extends Control
 
-onready var _label := $PanelContainer/MarginContainer/Label
-onready var _texture_rect := $MarginContainer/TextureRect
+@onready var _label := $PanelContainer/MarginContainer/Label
+@onready var _texture_rect := $MarginContainer/TextureRect
 
-onready var _label_container := $PanelContainer
-onready var _rect_container := $MarginContainer
+@onready var _label_container := $PanelContainer
+@onready var _rect_container := $MarginContainer
 
 func set_label(t: String):
 	if t.begins_with("res://"):

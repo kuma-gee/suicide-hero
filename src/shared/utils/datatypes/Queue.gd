@@ -2,7 +2,7 @@ class_name Queue extends Node
 
 signal dequed(value)
 
-export var auto_deque = false
+@export var auto_deque = false
 
 var values = []
 

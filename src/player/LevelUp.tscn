@@ -1,42 +1,36 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://cbvu23nvvppo7"]
 
-[ext_resource path="res://addons/sfx/effects/FadeEffect.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://addons/sfx/effects/MoveEffect.gd" type="Script" id=3]
-[ext_resource path="res://src/player/LevelUp.gd" type="Script" id=4]
+[ext_resource type="Script" path="res://addons/sfx/effects/FadeEffect.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cju1mq5hsegm3" path="res://icon.png" id="2"]
+[ext_resource type="Script" path="res://addons/sfx/effects/MoveEffect.gd" id="3"]
+[ext_resource type="Script" path="res://src/player/LevelUp.gd" id="4"]
 
 [node name="LevelUp" type="Node2D"]
-script = ExtResource( 4 )
+script = ExtResource("4")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -32.0
-margin_right = 32.0
-margin_bottom = 32.0
-texture = ExtResource( 2 )
+texture = ExtResource("2")
 stretch_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MoveUp" type="Node" parent="."]
-script = ExtResource( 3 )
+script = ExtResource("3")
 start = true
 duration = 0.5
 
 [node name="FadeIn" type="Node" parent="."]
-script = ExtResource( 1 )
+script = ExtResource("1")
 start = true
 duration = 0.5
 
 [node name="FadeOut" type="Node" parent="."]
-script = ExtResource( 1 )
-duration = 0.5
+script = ExtResource("1")
 type = 1
+duration = 0.5
 
 [connection signal="finished" from="FadeIn" to="FadeOut" method="start"]
 [connection signal="started" from="FadeOut" to="MoveUp" method="start"]

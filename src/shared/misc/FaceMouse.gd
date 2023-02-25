@@ -1,10 +1,10 @@
 class_name FaceMouse extends Node2D
 
-export var bullet: PackedScene
+@export var bullet: PackedScene
 
-onready var gun_point := $GunPoint
-onready var fire_rate_timer := $FireRate
-onready var shot_sound := $ShotSound
+@onready var gun_point := $GunPoint
+@onready var fire_rate_timer := $FireRate
+@onready var shot_sound := $ShotSound
 
 var damage_increase = 0
 var homing = false
@@ -19,7 +19,7 @@ func _process(_delta):
 
 func _shoot() -> void:
 	_can_shoot = false
-	var bullet_node: HitBox2D = bullet.instance()
+	var bullet_node: HitBox2D = bullet.instantiate()
 	bullet_node.damage += damage_increase
 	bullet_node.get_node("HomingArea").monitoring = homing
 	

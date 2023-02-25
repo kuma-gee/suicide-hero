@@ -4,7 +4,7 @@ class_name PlayerManager
 
 signal player_added(player, player_num)
 
-export var max_players = 4
+@export var max_players = 4
 
 var players = []
 

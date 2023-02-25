@@ -3,19 +3,19 @@ class_name Move2D extends State
 signal idle()
 signal run()
 
-export var speed := 200
-export var acceleration := 600
-export var friction := 800
-export var soft_collision_multiplier := 1000
+@export var speed := 200
+@export var acceleration := 600
+@export var friction := 800
+@export var soft_collision_multiplier := 1000
 
-export var kinematic_body_path: NodePath
-onready var kinematic_body: KinematicBody2D = get_node(kinematic_body_path) if kinematic_body_path else owner
+@export var kinematic_body_path: NodePath
+@onready var kinematic_body: CharacterBody2D = get_node(kinematic_body_path) if kinematic_body_path else owner
 
-export var soft_collision_path: NodePath
-onready var soft_collision: SoftCollision2D = get_node(soft_collision_path) if soft_collision_path else null
+@export var soft_collision_path: NodePath
+@onready var soft_collision: SoftCollision2D = get_node(soft_collision_path) if soft_collision_path else null
 
-export var body_path: NodePath
-onready var body := get_node(body_path)
+@export var body_path: NodePath
+@onready var body := get_node(body_path)
 
 var velocity = Vector2.ZERO
 var motion = Vector2.ZERO
@@ -39,7 +39,8 @@ func physics_process(delta: float):
 	else:
 		emit_signal("idle")
 	
-	velocity = kinematic_body.move_and_slide(velocity)
+	kinematic_body.velocity = velocity
+	kinematic_body.move_and_slide()
 
 func _move(velocity: Vector2) -> void:
 	var scale_x = 1

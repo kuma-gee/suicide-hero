@@ -4,7 +4,7 @@ signal damaged(dmg)
 signal hit(pos)
 signal knockback(knockback)
 
-export var invincibility_time = 1
+@export var invincibility_time = 1
 
 var timer = Timer.new()
 var invincible = false

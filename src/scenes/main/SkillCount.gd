@@ -2,7 +2,7 @@ extends Control
 
 var skill: int
 
-onready var texture_label := $TextureLabel
+@onready var texture_label := $TextureLabel
 
 func _ready():
 	var skill_tex: Texture = Skill.skill_map[skill]

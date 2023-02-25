@@ -1,14 +1,14 @@
 extends Node
 
-export var enemy_path: NodePath
-onready var enemy: Enemy = get_node(enemy_path) if enemy_path else owner
+@export var enemy_path: NodePath
+@onready var enemy: Enemy = get_node(enemy_path) if enemy_path else owner
 
-export var skeleton_count := 5
-export var spawn_distance_from_caster := 10
-export var spawn_distance_start := 200
+@export var skeleton_count := 5
+@export var spawn_distance_from_caster := 10
+@export var spawn_distance_start := 200
 
-onready var enemies_node := $Enemies
-onready var spawn_timer := $SpawnTimer
+@onready var enemies_node := $Enemies
+@onready var spawn_timer := $SpawnTimer
 
 const skeleton := preload("res://src/enemy/Skeleton.tscn")
 
@@ -32,14 +32,14 @@ func _process(_delta):
 
 
 func _start_spawn():
-	angle = deg2rad(360.0 / skeleton_count)
+	angle = deg_to_rad(360.0 / skeleton_count)
 	spawn_pos = Vector2.UP * spawn_distance_from_caster
 	spawn_count = 0
 	_spawn()
 
 
 func _spawn():
-	var instance = skeleton.instance()
+	var instance = skeleton.instantiate()
 	enemies_node.add_child(instance)
 	instance.player = enemy.player
 	instance.global_position = enemy.global_position + spawn_pos

@@ -1,13 +1,13 @@
 class_name AimDirection extends Node
 
-export var input_path: NodePath
-onready var input: PlayerInput = get_node(input_path)
+@export var input_path: NodePath
+@onready var input: PlayerInput = get_node(input_path)
 
 var aim_dir: Vector2
 var aim_mouse := true
 
 func _input(event):
-	if event is InputEventMouseMotion and event.speed.length() > 0.1:
+	if event is InputEventMouseMotion and event.velocity.length() > 0.1:
 		aim_mouse = true
 
 func _process(_delta):

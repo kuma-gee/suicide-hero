@@ -6,12 +6,12 @@ signal full_value()
 signal value_changed(value)
 signal max_value_changed(value)
 
-export var start_empty = false
-export var overflow = false
+@export var start_empty = false
+@export var allow_overflow = false
 
-export var max_value := 100 setget set_max_value
+@export var max_value := 100 : set = set_max_value
 
-var value := 0 setget _set_value
+var value := 0 : set = _set_value
 
 func _ready():
 	if not start_empty:
@@ -48,7 +48,7 @@ func _set_value(hp: int) -> void:
 	elif value >= max_value:
 		emit_signal("full_value")
 		
-		if overflow and hp >= max_value:
+		if allow_overflow and hp >= max_value:
 			value = 0
 			emit_signal("overflow")
 			var diff = hp - max_value

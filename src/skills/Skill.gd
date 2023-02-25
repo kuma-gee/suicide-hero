@@ -18,10 +18,10 @@ const skill_map = {
 	Type.FIRERATE: preload("res://src/skills/shot-up.png"),
 }
 
-export var enabled := true
-export(Type) var type: int
-export var max_used := -1
-export var start_level := 1
+@export var enabled := true
+@export var type: Type
+@export var max_used := -1
+@export var start_level := 1
 
 func apply(_player) -> void:
 	pass

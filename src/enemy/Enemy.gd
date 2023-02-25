@@ -1,16 +1,16 @@
-class_name Enemy extends KinematicBody2D
+class_name Enemy extends CharacterBody2D
 
-export(HealthDrop.Size) var heal_size := HealthDrop.Size.SMALL
-export var health_drop: PackedScene
-export var enemy_value = 1
-export var keep_distance = 0
+@export var heal_size := HealthDrop.Size.SMALL
+@export var health_drop: PackedScene
+@export var enemy_value = 1
+@export var keep_distance = 0
 
-onready var health := $Health
+@onready var health := $Health
 
-onready var state_machine := $StateMachine
-onready var move := $StateMachine/Move2D
-onready var knockback_state := $StateMachine/Knockback2D
-onready var sprite := $Body/Sprite
+@onready var state_machine := $StateMachine
+@onready var move := $StateMachine/Move2D
+@onready var knockback_state := $StateMachine/Knockback2D
+@onready var sprite := $Body/Sprite
 
 var player: Node2D
 
@@ -36,7 +36,7 @@ func _on_Health_zero_value():
 
 func _spawn_health_drop():
 	if health_drop != null:
-		var drop: HealthDrop = health_drop.instance()
+		var drop: HealthDrop = health_drop.instantiate()
 		drop.heal_size = heal_size
 		get_tree().current_scene.add_child(drop)
 		drop.global_position = global_position

@@ -1,30 +1,30 @@
-class_name Player extends KinematicBody2D
+class_name Player extends CharacterBody2D
 
 signal skill_selected(skill)
 signal level_up(lvl)
 signal died()
 
-onready var input := $PlayerInput
-onready var gun_point_root := $GunPointRoot
-onready var gun_fire_rate := $GunPointRoot/FireRate
-onready var state_machine := $StateMachine
+@onready var input := $PlayerInput
+@onready var gun_point_root := $GunPointRoot
+@onready var gun_fire_rate := $GunPointRoot/FireRate
+@onready var state_machine := $StateMachine
 
-onready var aim_direction := $AimDirection
-onready var move := $StateMachine/Move2D
-onready var knockback_state := $StateMachine/Knockback2D
-onready var skill_select := $SkillSelect
+@onready var aim_direction := $AimDirection
+@onready var move := $StateMachine/Move2D
+@onready var knockback_state := $StateMachine/Knockback2D
+@onready var skill_select := $SkillSelect
 
-onready var stats := $PlayerStats
-onready var sprite := $Body/Sprite
-onready var anim := $AnimationPlayer
-onready var magnet := $PickupMagnet/CollisionShape2D
+@onready var stats := $PlayerStats
+@onready var sprite := $Body/Sprite
+@onready var anim := $AnimationPlayer
+@onready var magnet := $PickupMagnet/CollisionShape2D
 
-onready var pickup_sound := $PickupArea/PickupSound
-onready var hit_sound := $HurtBox/HitSound
-onready var level_up_sound := $LevelUpSound
-onready var frame_freeze := $HurtBox/FrameFreeze
+@onready var pickup_sound := $PickupArea/PickupSound
+@onready var hit_sound := $HurtBox/HitSound
+@onready var level_up_sound := $LevelUpSound
+@onready var frame_freeze := $HurtBox/FrameFreeze
 
-onready var heal_particles := $HealParticles
+@onready var heal_particles := $HealParticles
 
 const LEVEL_UP = preload("res://src/player/LevelUp.tscn")
 const level_up_img = preload("res://src/player/lvl-up.png")
@@ -51,6 +51,7 @@ func _get_look_direction() -> Vector2:
 
 func heal(hp):
 	stats.health.increase(hp)
+	heal_particles.restart()
 	heal_particles.emitting = true
 
 func increase_damage(dmg) -> void:
@@ -85,7 +86,7 @@ func _on_HurtBox_damaged(dmg):
 	frame_freeze.freeze()
 
 func show_gain(texture: Texture) -> void:
-	var node = LEVEL_UP.instance()
+	var node = LEVEL_UP.instantiate()
 	skill_select.add_child(node)
 	node.set_texture(texture)
 
@@ -104,6 +105,7 @@ func _on_HurtBox_invincibility_timeout():
 
 func _on_PickupArea_area_entered(_area):
 	pickup_sound.play()
+	_area.pickup(self)
 
 
 func _on_PlayerStats_level_up(lvl):

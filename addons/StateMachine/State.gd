@@ -1,6 +1,6 @@
 class_name State extends Node
 
-onready var state_machine: StateMachine = _get_state_machine(self)
+@onready var state_machine: StateMachine = _get_state_machine(self)
 
 func _get_state_machine(node: Node) -> Node:
 	if node != null and not node is StateMachine:

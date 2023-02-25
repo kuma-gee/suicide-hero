@@ -3,17 +3,14 @@ class_name InputKey extends Node
 signal input_text(text)
 signal input_texture(tex)
 
-export var asset_folder = "res://assets/inputs"
+@export var asset_folder = "res://assets/inputs"
 
-var key: int setget _set_key
+var key: int : set = _set_key
 
 const start_type_key = InputType.Key.MOUSE_LEFT
 
-func _set_key(k) -> void:
-	if k is InputEvent:
-		key = InputType.to_type(k)
-	else:
-		key = k
+func _set_key(k: int) -> void:
+	key = k
 	_update()
 
 func _update() -> void:

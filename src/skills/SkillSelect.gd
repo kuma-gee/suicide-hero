@@ -2,7 +2,7 @@ extends Node2D
 
 signal skill_selected(skill)
 
-export var offset = 25
+@export var offset = 25
 
 const skill_select_item = preload("res://src/skills/SkillSelectItem.tscn")
 
@@ -16,8 +16,8 @@ const slot_action = {
 	SkillRight: "skill_2",
 }
 
-onready var skill_queue := $Queue
-onready var selected_sound := $SelectedSound
+@onready var skill_queue := $Queue
+@onready var selected_sound := $SelectedSound
 
 var _current_skills := []
 
@@ -25,10 +25,10 @@ func _unhandled_input(event):
 	if _current_skills.size() == 2:
 		if event.is_action_pressed("skill_1"):
 			_select_skill(_current_skills[0])
-			get_tree().set_input_as_handled()
+			get_viewport().set_input_as_handled()
 		elif event.is_action_pressed("skill_2"):
 			_select_skill(_current_skills[1])
-			get_tree().set_input_as_handled()
+			get_viewport().set_input_as_handled()
 
 
 func _select_skill(skill) -> void:
@@ -54,16 +54,16 @@ func _show_skill_select(skills: Array):
 	add_child(sprite1)
 	sprite1.global_position.x -= offset
 	sprite1.start_autoselect()
-	sprite1.connect("auto_selected", self, "_select_skill", [_current_skills[0]])
+	sprite1.connect("auto_selected", func(): _select_skill(_current_skills[0]))
 	
 	add_child(sprite2)
 	sprite2.global_position.x += offset
 	skill_queue.auto_deque = false
 
-func _create_skill_select(skill: int, slot: int) -> Sprite:
+func _create_skill_select(skill: int, slot: int):
 	if not Skill.skill_map.has(skill): return null
 	
-	var select = skill_select_item.instance()
+	var select = skill_select_item.instantiate()
 	select.texture = Skill.skill_map.get(skill)
 	select.key = _get_skill_key(slot)
 	return select

@@ -16,7 +16,7 @@ func _init(actions = InputMap.get_actions()):
 	input_types = actions
 
 func _ready():
-	pause_mode = Node.PAUSE_MODE_PROCESS
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func handle_input(event: InputEvent):
 	_update_action_strength(event)

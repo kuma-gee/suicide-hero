@@ -11,24 +11,24 @@ func _ready():
 			var label = Label.new()
 			label.text = child.action.to_upper()
 			if last != null:
-				add_child_below_node(last, label)
+				last.add_sibling(label)
 			else:
 				add_child(label)
 				move_child(label, 0)
-			child.connect("rebind", self, "_on_rebind")
+			child.connect("rebind", _on_rebind)
 			last = child
 	
 	_update_profile()
-	var _x = InputManager.connect("device_changed", self, "_update_profile")
+	var _x = InputManager.connect("device_changed", _update_profile)
 
 func _on_rebind(action: String) -> void:
 	emit_signal("remapping", action)
 
 func _update_profile() -> void:
 	if profile:
-		profile.disconnect("input_changed", self, "_on_input_change")
+		profile.disconnect("input_changed", _on_input_change)
 	profile = InputManager.get_profile()
-	var _x = profile.connect("input_changed", self, "_on_input_change")
+	var _x = profile.connect("input_changed", _on_input_change)
 	update()
 
 func _on_input_change(_action: String) -> void:

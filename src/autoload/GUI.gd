@@ -12,7 +12,6 @@ enum {
 	InGame,
 	GameOver,
 	Pause,
-	About,
 }
 
 const screen_scene_map = {
@@ -24,17 +23,16 @@ const screen_scene_map = {
 	Intro: preload("res://src/scenes/menu/Intro.tscn"),
 	GameOver: preload("res://src/scenes/menu/GameOver.tscn"),
 	Pause: preload("res://src/scenes/menu/Pause.tscn"),
-	About: preload("res://src/scenes/menu/About.tscn"),
 }
 
-onready var stack := $MenuStack
-onready var theme := $Theme
+@onready var stack := $MenuStack
+@onready var theme := $Theme
 
 var current #: GUIMenu
 
 func _ready():
-	var _x = stack.connect("removed", self, "_add_current_menu", [false])
-	var _y = stack.connect("added", self, "_add_current_menu", [true])
+	var _x = stack.connect("removed", func(x): _add_current_menu(x, false))
+	var _y = stack.connect("added", func(x): _add_current_menu(x, true))
 
 
 func _unhandled_input(event):
@@ -73,7 +71,7 @@ func _add_current_menu(_value, added: bool):
 	
 	if screen_scene_map.has(menu):
 		var scene = screen_scene_map[menu]
-		current = scene.instance()
+		current = scene.instantiate()
 		theme.add_child(current)
 		if current.has_method("init") and added:
 			current.init(stack.current)

@@ -1,90 +1,68 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://b502joyccnl8a"]
 
-[ext_resource path="res://src/shared/gui/ThemeOverride.gd" type="Script" id=1]
-[ext_resource path="res://src/scenes/menu/MainMenu.gd" type="Script" id=2]
-[ext_resource path="res://src/scenes/menu/shared/MenuBase.tscn" type="PackedScene" id=3]
+[ext_resource type="Script" path="res://src/shared/gui/ThemeOverride.gd" id="1"]
+[ext_resource type="Script" path="res://src/scenes/menu/MainMenu.gd" id="2"]
+[ext_resource type="PackedScene" path="res://src/scenes/menu/shared/MenuBase.tscn" id="3"]
 
-[node name="MainMenu" instance=ExtResource( 3 )]
-script = ExtResource( 2 )
+[node name="MainMenu" instance=ExtResource("3")]
+layout_mode = 3
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
 focus_node_path = NodePath("CenterContainer/VBoxContainer/MainContainer/CenterContainer/VBoxContainer/Start")
 
+[node name="CenterContainer" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="VBoxContainer" parent="CenterContainer" index="0"]
-margin_left = 866.0
-margin_top = 443.0
-margin_right = 1054.0
-margin_bottom = 637.0
+layout_mode = 2
 
 [node name="MainContainer" parent="CenterContainer/VBoxContainer" index="0"]
-margin_right = 188.0
-margin_bottom = 194.0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/MainContainer" index="0"]
-margin_right = 188.0
-margin_bottom = 116.0
-custom_constants/margin_right = 50
-custom_constants/margin_top = 50
-custom_constants/margin_left = 50
-custom_constants/margin_bottom = 50
+layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/MainContainer/MarginContainer" index="0"]
-margin_left = 50.0
-margin_top = 50.0
-margin_right = 138.0
-margin_bottom = 66.0
+layout_mode = 2
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer/MainContainer/MarginContainer/CenterContainer" index="0"]
-margin_right = 88.0
-margin_bottom = 16.0
+layout_mode = 2
 text = "PLACEHOLDER"
 uppercase = true
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("1")
 relative_font_size = 3.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/MainContainer" index="1"]
-margin_top = 126.0
-margin_right = 188.0
-margin_bottom = 194.0
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MainContainer/CenterContainer" index="0"]
-margin_left = 54.0
-margin_right = 134.0
-margin_bottom = 68.0
+layout_mode = 2
 
 [node name="Start" type="Button" parent="CenterContainer/VBoxContainer/MainContainer/CenterContainer/VBoxContainer" index="0"]
-margin_right = 80.0
-margin_bottom = 16.0
+layout_mode = 2
 text = "START_GAME"
 
 [node name="Options" type="Button" parent="CenterContainer/VBoxContainer/MainContainer/CenterContainer/VBoxContainer" index="1"]
-margin_top = 26.0
-margin_right = 80.0
-margin_bottom = 42.0
+layout_mode = 2
 text = "OPTIONS"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="About" type="Button" parent="CenterContainer/VBoxContainer/MainContainer/CenterContainer/VBoxContainer" index="2"]
 visible = false
-margin_top = 46.0
-margin_right = 87.0
-margin_bottom = 65.0
+layout_mode = 2
 text = "ABOUT"
 
 [node name="Exit" type="Button" parent="CenterContainer/VBoxContainer/MainContainer/CenterContainer/VBoxContainer" index="3"]
-margin_top = 52.0
-margin_right = 80.0
-margin_bottom = 68.0
+layout_mode = 2
 text = "EXIT_GAME"
 
 [node name="Back" parent="CenterContainer/VBoxContainer" index="1"]
 visible = false
-margin_top = 133.0
-margin_right = 180.0
-margin_bottom = 152.0
+layout_mode = 2
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MainContainer/CenterContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MainContainer/CenterContainer/VBoxContainer/Options" to="." method="_on_Options_pressed"]

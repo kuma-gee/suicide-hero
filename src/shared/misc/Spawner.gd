@@ -75,7 +75,7 @@ func _instance_scene():
 	var scene = _get_random_scene()
 	if not scene: return
 	
-	return scene.instance()
+	return scene.instantiate()
 
 func _on_Timer_timeout():
 	_can_spawn = true

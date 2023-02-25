@@ -1,51 +1,39 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://dujila3dtyrdn"]
 
-[ext_resource path="res://src/scenes/splashscreen/godot-wild-jam.png" type="Texture" id=1]
-[ext_resource path="res://src/scenes/splashscreen/SplashScreen.gd" type="Script" id=2]
-[ext_resource path="res://src/scenes/menu/Menu.tscn" type="PackedScene" id=3]
-[ext_resource path="res://addons/sfx/effects/FadeEffect.gd" type="Script" id=4]
+[ext_resource type="Script" path="res://src/scenes/splashscreen/SplashScreen.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bf82u5bcvops8" path="res://src/scenes/menu/Menu.tscn" id="3"]
+[ext_resource type="Script" path="res://addons/sfx/effects/FadeEffect.gd" id="4"]
 
 [node name="SplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-next_scene = ExtResource( 3 )
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
+next_scene = ExtResource("3")
 
 [node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.0784314, 0.133333, 0.25098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0.0784314, 0.133333, 0.25098, 1)
 
 [node name="Logo" type="TextureRect" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.77551
-margin_top = 3.77545
-margin_right = 3.77551
-margin_bottom = 3.77539
-texture = ExtResource( 1 )
 stretch_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="FadeIn" type="Node" parent="."]
-script = ExtResource( 4 )
+script = ExtResource("4")
 start = true
 node_path = NodePath("../Logo")
 
 [node name="FadeOut" type="Node" parent="."]
-script = ExtResource( 4 )
+script = ExtResource("4")
+type = 1
 delay = 0.5
 duration = 2.0
 node_path = NodePath("../Logo")
-type = 1
-
-[connection signal="finished" from="FadeIn" to="FadeOut" method="start"]
-[connection signal="finished" from="FadeOut" to="." method="_on_FadeOut_finished"]

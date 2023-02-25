@@ -1,16 +1,16 @@
 extends CanvasLayer
 
-onready var health := $Root/Bottom/PanelContainer/MarginContainer/VBoxContainer/GridContainer/HealthBar
-onready var experience := $Root/Bottom/PanelContainer/MarginContainer/VBoxContainer/GridContainer/ExpBar
-onready var level := $Root/Bottom/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Level
-onready var skills := $Root/Top/MarginContainer/SkillsContainer
+@onready var health := $Root/PanelContainer/MarginContainer/VBoxContainer/GridContainer/HealthBar
+@onready var experience := $Root/PanelContainer/MarginContainer/VBoxContainer/GridContainer/ExpBar
+@onready var level := $Root/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Level
+@onready var skills := $Root/Top/MarginContainer/SkillsContainer
 
 const skill_count := preload("res://src/scenes/main/SkillCount.tscn")
 
 func skill_updated(skill: int, count: int) -> void:
 	var node_name = str(skill)
 	if not skills.has_node(node_name):
-		var node = skill_count.instance()
+		var node = skill_count.instantiate()
 		node.name = node_name
 		node.skill = skill
 		skills.add_child(node)
@@ -20,7 +20,7 @@ func skill_updated(skill: int, count: int) -> void:
 
 func connect_player_stats(stats: PlayerStats) -> void:
 	set_level(stats.level)
-	var _x = stats.connect("level_up", self, "set_level")
+	var _x = stats.connect("level_up", set_level)
 	
 	health.connect_value_fill(stats.health)
 	experience.connect_value_fill(stats.experience)

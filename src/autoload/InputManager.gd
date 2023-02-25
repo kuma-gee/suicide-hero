@@ -2,8 +2,8 @@ extends Node
 
 signal device_changed()
 
-export var main_device := 0
-export var joypad := false setget _set_joypad
+@export var main_device := 0
+@export var joypad := false : set = _set_joypad
 
 func _unhandled_input(event):
 	if not InputType.is_empty(event):

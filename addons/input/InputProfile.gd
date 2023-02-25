@@ -2,9 +2,9 @@ class_name InputProfile extends Node
 
 signal input_changed(action)
 
-export var profile_name := "default"
-export var device := 0
-export var joypad := false
+@export var profile_name := "default"
+@export var device := 0
+@export var joypad := false
 
 var mappings := {}
 
@@ -21,12 +21,15 @@ func load_mappings(_mappings: Dictionary) -> void:
 func get_profile_name() -> String:
 	return str(device) + ":" + str(joypad)
 
+func _valid_device(ev: InputEvent) -> bool:
+	return device == ev.device or (device == 0 and ev.device == -1)
+
 func is_valid(ev: InputEvent, filter_empty = false) -> bool:
-	return (joypad == _is_joypad_event(ev) and device == ev.device) and \
+	return (joypad == _is_joypad_event(ev) and _valid_device(ev)) and \
 		(not filter_empty or not InputType.is_empty(ev))
 
 func get_input(action: String) -> InputEvent:
-	var inputs = InputMap.get_action_list(action)
+	var inputs = InputMap.action_get_events(action)
 	for i in inputs:
 		if is_valid(i):
 			return i

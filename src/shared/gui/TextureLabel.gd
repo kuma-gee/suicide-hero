@@ -1,7 +1,7 @@
 extends CenterContainer
 
-onready var _tex := $TextureRect
-onready var _label_sprite := $LabelSprite
+@onready var _tex := $TextureRect
+@onready var _label_sprite := $LabelSprite
 
 func set_texture(tex):
 	_tex.texture = tex

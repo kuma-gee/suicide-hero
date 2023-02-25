@@ -7,4 +7,4 @@ static func random_int(min_value: int, max_value: int) -> int:
 
 
 static func random_double(min_value: float = 0, max_value: float = 1) -> float:
-	return rand_range(min_value, max_value)
+	return randf_range(min_value, max_value)

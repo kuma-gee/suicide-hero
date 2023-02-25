@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://c2cqvtuc3dlfu"]
 
-[ext_resource path="res://src/autoload/InputManager.gd" type="Script" id=1]
-[ext_resource path="res://addons/input/InputProfile.gd" type="Script" id=2]
+[ext_resource type="Script" path="res://src/autoload/InputManager.gd" id="1"]
+[ext_resource type="Script" path="res://addons/input/InputProfile.gd" id="2"]
 
 [node name="InputManager" type="Node"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="KeyboardProfile" type="Node" parent="."]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="JoypadProfile" type="Node" parent="."]
-script = ExtResource( 2 )
+script = ExtResource("2")
 joypad = true

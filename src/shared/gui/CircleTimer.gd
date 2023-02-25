@@ -1,9 +1,9 @@
-extends TextureProgress
+extends TextureProgressBar
 
 signal timeout
 
-export var time := 1.0
-onready var timer := $Timer
+@export var time := 1.0
+@onready var timer := $Timer
 
 func _ready():
 	hide()

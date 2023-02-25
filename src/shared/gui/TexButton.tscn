@@ -1,15 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://bbaf2bgyxq2pk"]
 
-[ext_resource path="res://src/shared/gui/TexButton.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://src/shared/gui/TexButton.gd" id="1"]
 
 [node name="TexButton" type="TextureButton"]
-self_modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+self_modulate = Color(0.501961, 0.501961, 0.501961, 1)
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("1")
 
 [connection signal="focus_entered" from="." to="." method="_on_TexButton_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_TexButton_focus_exited"]

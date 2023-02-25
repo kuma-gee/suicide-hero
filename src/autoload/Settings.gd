@@ -6,7 +6,7 @@ const INPUT_SECTION = "input"
 
 const CONFIG_FILE = "user://settings.cfg"
 
-onready var default_theme = load(ProjectSettings.get_setting("gui/theme/custom"))
+@onready var default_theme = load(ProjectSettings.get_setting("gui/theme/custom"))
 
 var _config = ConfigFile.new()
 
@@ -25,9 +25,9 @@ func load_settings():
 	_load_input_settings()
 
 func _load_general_settings():
-	var size = _config.get_value(GENERAL_SECTION, "font_size", null)
-	if size != null:
-		set_font_size(size)
+#	var size = _config.get_value(GENERAL_SECTION, "font_size", null)
+#	if size != null:
+#		set_font_size(size)
 		
 	var lang = _config.get_value(GENERAL_SECTION, "language", null)
 	if lang != null:
@@ -58,7 +58,7 @@ func _load_input_settings():
 
 
 func save_general_settings():
-	_config.set_value(GENERAL_SECTION, "font_size", get_font_size())
+#	_config.set_value(GENERAL_SECTION, "font_size", get_font_size())
 	_config.set_value(GENERAL_SECTION, "language", get_language())
 	save_config()
 
@@ -92,11 +92,8 @@ func get_language() -> String:
 	return split[0]
 
 func set_font_size(size: int) -> void:
+	# Not possible anymore?
 	var font = default_theme.get("default_font")
 	font.set("size", size)
 	Events.emit_signal("font_size_changed")
-
-func get_font_size() -> int:
-	var font = default_theme.get("default_font")
-	return font.get("size")
 

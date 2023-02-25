@@ -1,18 +1,20 @@
 extends Node
 
-export var max_enemies = 200
+@export var max_enemies = 200
 
-onready var hud := $HUD
-onready var stats := $Player/PlayerStats
-onready var player := $Player
-onready var map := $Map
-onready var experience_timer := $ExperienceTimer
-onready var skill_manager := $SkillManager
+@onready var hud := $HUD
+@onready var stats := $Player/PlayerStats
+@onready var player := $Player
+@onready var map := $Map
+@onready var experience_timer := $ExperienceTimer
+@onready var skill_manager := $SkillManager
 
 var enemy_eq = ExponentialEquation.new(2, 1, 30, 2)
 var exp_eq = ExponentialEquation.new(0.5, 2, 0.5, 3)
 
 func _ready():
+	GUI.open_menu(GUI.Intro, true)
+	
 	if Env.is_prod():
 		randomize()
 	_on_Player_level_up(1)

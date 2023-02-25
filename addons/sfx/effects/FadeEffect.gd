@@ -5,7 +5,7 @@ enum Type {
 	FADE_OUT,
 }
 
-export(Type) var type: int
+@export var type: int
 
 func _ready():
 	if start:
@@ -20,4 +20,4 @@ func apply_tween(tween: Tween) -> void:
 
 	var end_alpha = 0 if _start.a == 1 else 1
 	var _end = Color(1, 1, 1, end_alpha)
-	.interpolate_property(tween, "modulate", _start, _end)
+	super.interpolate_property(tween, "modulate", _start, _end)

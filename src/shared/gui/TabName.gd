@@ -1,6 +1,6 @@
 extends Tabs
 
-export var text = ""
+@export var text = ""
 
 func _ready():
 	name = text

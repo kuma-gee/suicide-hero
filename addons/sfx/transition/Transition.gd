@@ -2,17 +2,17 @@ extends Control
 
 signal finished
 
-export var playback_speed := 1.0
-export var reverse := false
-export var start := false
+@export var playback_speed := 1.0
+@export var reverse := false
+@export var start := false
 
-onready var anim := $AnimationPlayer
+@onready var anim := $AnimationPlayer
 
 func _ready():
 	if start:
-		start()
+		start_anim()
 		
-func start():
+func start_anim():
 	anim.playback_speed = playback_speed
 	anim.play(_get_anim())
 

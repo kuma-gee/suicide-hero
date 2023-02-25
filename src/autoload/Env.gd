@@ -1,6 +1,6 @@
 extends Node
 
-var version = "dev" setget _set_version
+var version = "dev" : set = _set_version
 
 func _set_version(v: String) -> void:
 	if v == "": return

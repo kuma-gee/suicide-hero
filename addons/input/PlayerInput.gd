@@ -5,12 +5,12 @@ enum Type {
 	KEYBOARD,
 }
 
-export(Type) var type = Type.KEYBOARD
-export var device_id = 0
+@export var type = Type.KEYBOARD
+@export var device_id = 0
 
 func _ready():
 	_update_type()
-	InputManager.connect("device_changed", self, "_update_type")
+	InputManager.connect("device_changed", _update_type)
 
 
 func _update_type():
@@ -30,4 +30,4 @@ func handle_input(event: InputEvent) -> void:
 	if not is_player_event(event):
 		return
 	
-	.handle_input(event)
+	super.handle_input(event)

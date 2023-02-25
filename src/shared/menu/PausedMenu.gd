@@ -3,7 +3,7 @@ extends GUIMenu
 class_name PausedMenu
 
 func _ready():
-	pause_mode = Node.PAUSE_MODE_PROCESS
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	_pause()
 	
 func _exit_tree():

@@ -5,15 +5,15 @@ enum Type {
 	LOCAL,
 }
 
-export var property := "value"
+@export var property := "value"
 
-var value = null setget _set_value
+var value = null : set = _set_value
 
 func _set_value(v):
 	value = v
-	start()
+	start_effect()
 
 func apply_tween(tween: Tween):
 	var start = node.get(property)
 	var end = value
-	.interpolate_property(tween, property, start, end)
+	super.interpolate_property(tween, property, start, end)

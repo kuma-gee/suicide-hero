@@ -5,7 +5,7 @@ signal hit()
 signal knockback(knockback)
 signal invincibility_timeout()
 
-export var invincibility_time := 0.5
+@export var invincibility_time := 0.5
 
 var timer = Timer.new()
 var invincible = false
@@ -14,7 +14,7 @@ func _ready():
 	timer.one_shot = true
 	timer.autostart = false
 	add_child(timer)
-	timer.connect("timeout", self, "_reset_invincibility")
+	timer.connect("timeout", _reset_invincibility)
 
 
 func _reset_invincibility():

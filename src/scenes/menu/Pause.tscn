@@ -1,60 +1,39 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://cq6fwmh8oxcra"]
 
-[ext_resource path="res://src/scenes/menu/Pause.gd" type="Script" id=1]
-[ext_resource path="res://src/scenes/menu/shared/BackMenu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://addons/sfx/transition/Transition.tscn" type="PackedScene" id=3]
+[ext_resource type="Script" path="res://src/scenes/menu/Pause.gd" id="1"]
+[ext_resource type="PackedScene" path="res://src/scenes/menu/shared/BackMenu.tscn" id="2"]
 
 [node name="PauseMenu" type="Control"]
-pause_mode = 2
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+script = ExtResource("1")
 __meta__ = {
 "_edit_use_anchors_": false
 }
 focus_node_path = NodePath("CenterContainer/VBoxContainer/Resume")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.784314 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0, 0, 0, 0.784314)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 912.0
-margin_top = 519.0
-margin_right = 1008.0
-margin_bottom = 561.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
 [node name="Resume" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_right = 96.0
-margin_bottom = 16.0
+layout_mode = 2
 text = "RESUME_GAME"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="BackMenu" parent="CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 26.0
-margin_right = 96.0
-margin_bottom = 42.0
+[node name="BackMenu" parent="CenterContainer/VBoxContainer" instance=ExtResource("2")]
+layout_mode = 2
 connect_button = false
 
-[node name="Transition" parent="." instance=ExtResource( 3 )]
-playback_speed = 1.5
-
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/BackMenu" to="Transition" method="start"]
-[connection signal="finished" from="Transition" to="CenterContainer/VBoxContainer/BackMenu" method="back_menu"]

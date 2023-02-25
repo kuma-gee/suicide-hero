@@ -1,40 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://b7obwq0ws0t8x"]
 
-[ext_resource path="res://src/scenes/menu/input/RebindableAction.gd" type="Script" id=1]
-[ext_resource path="res://addons/input/InputKey.gd" type="Script" id=2]
-[ext_resource path="res://src/shared/gui/TexButton.tscn" type="PackedScene" id=3]
+[ext_resource type="Script" path="res://src/scenes/menu/input/RebindableAction.gd" id="1"]
+[ext_resource type="Script" path="res://addons/input/InputKey.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://bbaf2bgyxq2pk" path="res://src/shared/gui/TexButton.tscn" id="3"]
 
 [node name="RebindableAction" type="CenterContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("1")
 
 [node name="TextButton" type="Button" parent="."]
-margin_left = 960.0
-margin_top = 532.0
-margin_right = 960.0
-margin_bottom = 548.0
+layout_mode = 2
 
-[node name="TexButton" parent="." instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 960.0
-margin_top = 540.0
-margin_right = 960.0
-margin_bottom = 540.0
+[node name="TexButton" parent="." instance=ExtResource("3")]
+layout_mode = 2
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
 
 [node name="InputSprite" type="Node" parent="."]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="pressed" from="TextButton" to="." method="_on_TextButton_pressed"]
 [connection signal="pressed" from="TexButton" to="." method="_on_TexButton_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

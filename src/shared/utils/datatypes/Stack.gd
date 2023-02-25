@@ -6,11 +6,11 @@ signal changed(value)
 signal added(value)
 signal removed(value)
 
-export var min_stack_items = 0
+@export var min_stack_items = 0
 
 var stack = []
 
-var current setget ,_get_current
+var current : get = _get_current
 
 func _get_current():
 	if size() <= 0: return null

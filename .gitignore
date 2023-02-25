@@ -12,3 +12,4 @@ build/
 screenshot/output
 
 *.css*
+.godot

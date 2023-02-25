@@ -1,20 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://dk6od4in5cism"]
 
-[ext_resource path="res://src/shared/gui/LabelSprite.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/shared/gui/ActionKey.gd" type="Script" id=2]
-[ext_resource path="res://addons/input/InputKey.gd" type="Script" id=3]
+[ext_resource type="PackedScene" path="res://src/shared/gui/LabelSprite.tscn" id="1"]
+[ext_resource type="Script" path="res://src/shared/gui/ActionKey.gd" id="2"]
+[ext_resource type="Script" path="res://addons/input/InputKey.gd" id="3"]
 
 [node name="ActionKey" type="MarginContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("2")
 
-[node name="LabelSprite" parent="." instance=ExtResource( 1 )]
-margin_right = 1920.0
-margin_bottom = 1080.0
+[node name="LabelSprite" parent="." instance=ExtResource("1")]
+layout_mode = 2
 
 [node name="InputKey" type="Node" parent="."]
-script = ExtResource( 3 )
+script = ExtResource("3")

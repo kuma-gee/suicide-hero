@@ -13,4 +13,4 @@ func _physics_process(delta):
 		var dir = move_object.global_position.direction_to(target.global_position)
 		move_object.global_position += dir * delta * speed
 	else:
-		._physics_process(delta)
+		super._physics_process(delta)

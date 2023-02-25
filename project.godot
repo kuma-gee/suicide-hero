@@ -6,480 +6,38 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[ {
-"base": "Node",
-"class": "AimDirection",
-"language": "GDScript",
-"path": "res://src/shared/rpg/AimDirection.gd"
-}, {
-"base": "Reference",
-"class": "ArgumentParser",
-"language": "GDScript",
-"path": "res://addons/godot-css-theme/ArgumentParser.gd"
-}, {
-"base": "Reference",
-"class": "CSSParser",
-"language": "GDScript",
-"path": "res://addons/godot-css-theme/CSSParser.gd"
-}, {
-"base": "Node",
-"class": "Component",
-"language": "GDScript",
-"path": "res://src/shared/Component.gd"
-}, {
-"base": "Node",
-"class": "Effect",
-"language": "GDScript",
-"path": "res://addons/sfx/effects/Effect.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "Enemy",
-"language": "GDScript",
-"path": "res://src/enemy/Enemy.gd"
-}, {
-"base": "Reference",
-"class": "EquationFactory",
-"language": "GDScript",
-"path": "res://src/shared/utils/equations/EquationFactory.gd"
-}, {
-"base": "Reference",
-"class": "ExponentialEquation",
-"language": "GDScript",
-"path": "res://src/shared/utils/equations/ExponentialEquation.gd"
-}, {
-"base": "Reference",
-"class": "FaceCamera",
-"language": "GDScript",
-"path": "res://src/shared/misc/FaceCamera.gd"
-}, {
-"base": "Node2D",
-"class": "FaceMouse",
-"language": "GDScript",
-"path": "res://src/shared/misc/FaceMouse.gd"
-}, {
-"base": "Effect",
-"class": "FadeEffect",
-"language": "GDScript",
-"path": "res://addons/sfx/effects/FadeEffect.gd"
-}, {
-"base": "Reference",
-"class": "FireRateUp",
-"language": "GDScript",
-"path": "res://src/skills/FireRateUp.gd"
-}, {
-"base": "Node",
-"class": "FrameFreeze",
-"language": "GDScript",
-"path": "res://src/shared/misc/FrameFreeze.gd"
-}, {
-"base": "Menu",
-"class": "GUIMenu",
-"language": "GDScript",
-"path": "res://src/shared/menu/GUIMenu.gd"
-}, {
-"base": "Area2D",
-"class": "HealthDrop",
-"language": "GDScript",
-"path": "res://src/enemy/HealthDrop.gd"
-}, {
-"base": "Reference",
-"class": "HealthUp",
-"language": "GDScript",
-"path": "res://src/skills/HealthUp.gd"
-}, {
-"base": "Area2D",
-"class": "HitBox2D",
-"language": "GDScript",
-"path": "res://src/shared/rpg/HitBox2D.gd"
-}, {
-"base": "Reference",
-"class": "HitBox3D",
-"language": "GDScript",
-"path": "res://src/shared/rpg/HitBox3D.gd"
-}, {
-"base": "Reference",
-"class": "HomingShot",
-"language": "GDScript",
-"path": "res://src/skills/HomingShot.gd"
-}, {
-"base": "Area2D",
-"class": "HurtBox2D",
-"language": "GDScript",
-"path": "res://src/shared/rpg/HurtBox2D.gd"
-}, {
-"base": "Reference",
-"class": "HurtBox3D",
-"language": "GDScript",
-"path": "res://src/shared/rpg/HurtBox3D.gd"
-}, {
-"base": "Node",
-"class": "InputKey",
-"language": "GDScript",
-"path": "res://addons/input/InputKey.gd"
-}, {
-"base": "Node",
-"class": "InputProfile",
-"language": "GDScript",
-"path": "res://addons/input/InputProfile.gd"
-}, {
-"base": "Node",
-"class": "InputReader",
-"language": "GDScript",
-"path": "res://addons/input/InputReader.gd"
-}, {
-"base": "Node",
-"class": "InputType",
-"language": "GDScript",
-"path": "res://addons/input/InputType.gd"
-}, {
-"base": "State",
-"class": "Knockback2D",
-"language": "GDScript",
-"path": "res://addons/StateMachine/Knockback2D.gd"
-}, {
-"base": "Reference",
-"class": "LinearEquation",
-"language": "GDScript",
-"path": "res://src/shared/utils/equations/LinearEquation.gd"
-}, {
-"base": "Reference",
-"class": "LogarithmEquation",
-"language": "GDScript",
-"path": "res://src/shared/utils/equations/LogarithmEquation.gd"
-}, {
-"base": "Control",
-"class": "Menu",
-"language": "GDScript",
-"path": "res://src/shared/menu/Menu.gd"
-}, {
-"base": "GUIMenu",
-"class": "MenuBase",
-"language": "GDScript",
-"path": "res://src/scenes/menu/shared/MenuBase.gd"
-}, {
-"base": "State",
-"class": "Move",
-"language": "GDScript",
-"path": "res://addons/StateMachine/Move.gd"
-}, {
-"base": "State",
-"class": "Move2D",
-"language": "GDScript",
-"path": "res://addons/StateMachine/Move2D.gd"
-}, {
-"base": "Node",
-"class": "MoveDirection2D",
-"language": "GDScript",
-"path": "res://src/shared/rpg/MoveDirection2D.gd"
-}, {
-"base": "Reference",
-"class": "MoveDirection3D",
-"language": "GDScript",
-"path": "res://src/shared/rpg/MoveDirection3D.gd"
-}, {
-"base": "Effect",
-"class": "MoveEffect",
-"language": "GDScript",
-"path": "res://addons/sfx/effects/MoveEffect.gd"
-}, {
-"base": "Node",
-"class": "MoveToward2D",
-"language": "GDScript",
-"path": "res://src/shared/rpg/MoveToward2D.gd"
-}, {
-"base": "Reference",
-"class": "OptParse",
-"language": "GDScript",
-"path": "res://addons/godot-css-theme/optparse.gd"
-}, {
-"base": "Reference",
-"class": "Options",
-"language": "GDScript",
-"path": "res://addons/godot-css-theme/Options.gd"
-}, {
-"base": "GUIMenu",
-"class": "PausedMenu",
-"language": "GDScript",
-"path": "res://src/shared/menu/PausedMenu.gd"
-}, {
-"base": "Area2D",
-"class": "PickupArea",
-"language": "GDScript",
-"path": "res://src/player/PickupArea.gd"
-}, {
-"base": "Area2D",
-"class": "PickupMagnet",
-"language": "GDScript",
-"path": "res://src/shared/rpg/PickupMagnet.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "Player",
-"language": "GDScript",
-"path": "res://src/player/Player.gd"
-}, {
-"base": "InputReader",
-"class": "PlayerInput",
-"language": "GDScript",
-"path": "res://addons/input/PlayerInput.gd"
-}, {
-"base": "Node",
-"class": "PlayerManager",
-"language": "GDScript",
-"path": "res://addons/input/PlayerManager.gd"
-}, {
-"base": "Node",
-"class": "PlayerStats",
-"language": "GDScript",
-"path": "res://src/player/PlayerStats.gd"
-}, {
-"base": "Node",
-"class": "Queue",
-"language": "GDScript",
-"path": "res://src/shared/utils/datatypes/Queue.gd"
-}, {
-"base": "Node",
-"class": "Random",
-"language": "GDScript",
-"path": "res://src/shared/utils/Random.gd"
-}, {
-"base": "Node2D",
-"class": "RandomMove",
-"language": "GDScript",
-"path": "res://src/shared/misc/RandomMove.gd"
-}, {
-"base": "Reference",
-"class": "RayCastHit3D",
-"language": "GDScript",
-"path": "res://src/shared/misc/RayCastHit3D.gd"
-}, {
-"base": "Control",
-"class": "RebindableAction",
-"language": "GDScript",
-"path": "res://src/scenes/menu/input/RebindableAction.gd"
-}, {
-"base": "Control",
-"class": "RemappingInputs",
-"language": "GDScript",
-"path": "res://src/scenes/menu/input/RemappingInputs.gd"
-}, {
-"base": "UnitTest",
-"class": "SceneTest",
-"language": "GDScript",
-"path": "res://addons/gut/custom/SceneTest.gd"
-}, {
-"base": "Node",
-"class": "SelectOption",
-"language": "GDScript",
-"path": "res://src/shared/gui/SelectOption.gd"
-}, {
-"base": "Node",
-"class": "Skill",
-"language": "GDScript",
-"path": "res://src/skills/Skill.gd"
-}, {
-"base": "Node2D",
-"class": "SkillSelectItem",
-"language": "GDScript",
-"path": "res://src/skills/SkillSelectItem.gd"
-}, {
-"base": "Area2D",
-"class": "SoftCollision2D",
-"language": "GDScript",
-"path": "res://src/shared/rpg/SoftCollision2D.gd"
-}, {
-"base": "Position2D",
-"class": "SpawnPoint",
-"language": "GDScript",
-"path": "res://src/map/SpawnPoint.gd"
-}, {
-"base": "Reference",
-"class": "Spawner",
-"language": "GDScript",
-"path": "res://src/shared/misc/Spawner.gd"
-}, {
-"base": "Reference",
-"class": "SpeedUp",
-"language": "GDScript",
-"path": "res://src/skills/SpeedUp.gd"
-}, {
-"base": "Node",
-"class": "Stack",
-"language": "GDScript",
-"path": "res://src/shared/utils/datatypes/Stack.gd"
-}, {
-"base": "Node",
-"class": "State",
-"language": "GDScript",
-"path": "res://addons/StateMachine/State.gd"
-}, {
-"base": "Node",
-"class": "StateMachine",
-"language": "GDScript",
-"path": "res://addons/StateMachine/StateMachine.gd"
-}, {
-"base": "Reference",
-"class": "StrengthUp",
-"language": "GDScript",
-"path": "res://src/skills/StrengthUp.gd"
-}, {
-"base": "Reference",
-"class": "Stylesheet",
-"language": "GDScript",
-"path": "res://addons/godot-css-theme/Stylesheet.gd"
-}, {
-"base": "Reference",
-"class": "ThemeApplier",
-"language": "GDScript",
-"path": "res://addons/godot-css-theme/ThemeApplier.gd"
-}, {
-"base": "Line2D",
-"class": "Trail2D",
-"language": "GDScript",
-"path": "res://addons/Trail/trail_2d.gd"
-}, {
-"base": "Node",
-"class": "TrailCollision",
-"language": "GDScript",
-"path": "res://addons/Trail/TrailCollision.gd"
-}, {
-"base": "Effect",
-"class": "TransitionEffect",
-"language": "GDScript",
-"path": "res://addons/sfx/effects/TransitionEffect.gd"
-}, {
-"base": "Node",
-"class": "UnitTest",
-"language": "GDScript",
-"path": "res://addons/gut/custom/UnitTest.gd"
-}, {
-"base": "Reference",
-"class": "Utils",
-"language": "GDScript",
-"path": "res://src/shared/utils/Utils.gd"
-}, {
-"base": "Node",
-"class": "ValueFill",
-"language": "GDScript",
-"path": "res://src/shared/misc/ValueFill.gd"
-}, {
-"base": "Reference",
-"class": "VectorSort",
-"language": "GDScript",
-"path": "res://src/shared/utils/sort/VectorSort.gd"
-}, {
-"base": "Reference",
-"class": "VectorUtils",
-"language": "GDScript",
-"path": "res://src/shared/utils/VectorUtils.gd"
-}, {
-"base": "HSlider",
-"class": "VolumeSlider",
-"language": "GDScript",
-"path": "res://src/shared/gui/VolumeSlider.gd"
-} ]
-_global_script_class_icons={
-"AimDirection": "",
-"ArgumentParser": "",
-"CSSParser": "",
-"Component": "",
-"Effect": "",
-"Enemy": "",
-"EquationFactory": "",
-"ExponentialEquation": "",
-"FaceCamera": "",
-"FaceMouse": "",
-"FadeEffect": "",
-"FireRateUp": "",
-"FrameFreeze": "",
-"GUIMenu": "",
-"HealthDrop": "",
-"HealthUp": "",
-"HitBox2D": "",
-"HitBox3D": "",
-"HomingShot": "",
-"HurtBox2D": "",
-"HurtBox3D": "",
-"InputKey": "",
-"InputProfile": "",
-"InputReader": "",
-"InputType": "",
-"Knockback2D": "",
-"LinearEquation": "",
-"LogarithmEquation": "",
-"Menu": "",
-"MenuBase": "",
-"Move": "",
-"Move2D": "",
-"MoveDirection2D": "",
-"MoveDirection3D": "",
-"MoveEffect": "",
-"MoveToward2D": "",
-"OptParse": "",
-"Options": "",
-"PausedMenu": "",
-"PickupArea": "",
-"PickupMagnet": "",
-"Player": "",
-"PlayerInput": "",
-"PlayerManager": "",
-"PlayerStats": "",
-"Queue": "",
-"Random": "",
-"RandomMove": "",
-"RayCastHit3D": "",
-"RebindableAction": "",
-"RemappingInputs": "",
-"SceneTest": "",
-"SelectOption": "",
-"Skill": "",
-"SkillSelectItem": "",
-"SoftCollision2D": "",
-"SpawnPoint": "",
-"Spawner": "",
-"SpeedUp": "",
-"Stack": "",
-"State": "",
-"StateMachine": "",
-"StrengthUp": "",
-"Stylesheet": "",
-"ThemeApplier": "",
-"Trail2D": "",
-"TrailCollision": "",
-"TransitionEffect": "",
-"UnitTest": "",
-"Utils": "",
-"ValueFill": "",
-"VectorSort": "",
-"VectorUtils": "",
-"VolumeSlider": ""
-}
+config_version=5
 
 [application]
 
 config/name="Suicide Hero"
-run/main_scene="res://src/scenes/splashscreen/SplashScreen.tscn"
+run/main_scene="res://src/scenes/menu/Menu.tscn"
+config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
 
 [autoload]
 
+SceneManager="*res://addons/scene-manager/SceneManager.tscn"
 GUI="*res://src/autoload/GUI.tscn"
 InputManager="*res://src/autoload/InputManager.tscn"
 Env="*res://src/autoload/Env.gd"
 Build="*res://src/autoload/Build.gd"
 Events="*res://src/autoload/Events.gd"
 Settings="*res://src/autoload/Settings.gd"
+Debug="*res://addons/debug/Debug.tscn"
 
 [display]
 
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
 window/size/width=1920
 window/size/height=1080
-window/stretch/aspect="keep_width"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/Trail/plugin.cfg" )
+enabled=PackedStringArray()
 
 [gui]
 
@@ -513,121 +71,130 @@ texture={
 
 ui_left={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":-1.0,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
- ]
+]
 }
 ui_right={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
- ]
+]
 }
 ui_up={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":-1.0,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
- ]
+]
 }
 ui_down={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
- ]
+]
 }
 ui_page_up={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_page_down={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_home={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_end={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 about={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777255,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194343,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
 }
 pause={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
- ]
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194305,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
 }
 move_down={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":83,"physical_keycode":0,"key_label":0,"unicode":115,"echo":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
- ]
+]
 }
 move_up={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":87,"physical_keycode":0,"key_label":0,"unicode":119,"echo":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":-1.0,"script":null)
- ]
+]
 }
 move_left={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":65,"physical_keycode":0,"key_label":0,"unicode":97,"echo":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":-1.0,"script":null)
- ]
+]
 }
 move_right={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":68,"physical_keycode":0,"key_label":0,"unicode":100,"echo":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
- ]
+]
 }
 aim_up={
 "deadzone": 0.1,
-"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":3,"axis_value":-1.0,"script":null)
- ]
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":3,"axis_value":-1.0,"script":null)
+]
 }
 aim_down={
 "deadzone": 0.1,
-"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":3,"axis_value":1.0,"script":null)
- ]
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":3,"axis_value":1.0,"script":null)
+]
 }
 aim_right={
 "deadzone": 0.1,
-"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":2,"axis_value":1.0,"script":null)
- ]
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":2,"axis_value":1.0,"script":null)
+]
 }
 aim_left={
 "deadzone": 0.1,
-"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":2,"axis_value":-1.0,"script":null)
- ]
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":2,"axis_value":-1.0,"script":null)
+]
 }
 fire={
 "deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":7,"pressure":0.0,"pressed":false,"script":null)
- ]
+]
 }
 skill_1={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":49,"physical_keycode":0,"key_label":0,"unicode":49,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":4,"pressure":0.0,"pressed":false,"script":null)
- ]
+]
 }
 skill_2={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":50,"physical_keycode":0,"key_label":0,"unicode":50,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":5,"pressure":0.0,"pressed":false,"script":null)
- ]
+]
 }
+dev={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194343,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://i18n/de.po", "res://i18n/en.po", "res://i18n/ja.po")
 
 [layer_names]
 
@@ -644,8 +211,8 @@ skill_2={
 
 [locale]
 
-translations=PoolStringArray( "res://i18n/de.po", "res://i18n/en.po", "res://i18n/ja.po" )
-locale_filter=[ 0, [ "de", "en", "ja" ] ]
+translations=PackedStringArray("res://i18n/de.po", "res://i18n/en.po", "res://i18n/ja.po")
+locale_filter=[0, ["de", "en", "ja"]]
 
 [physics]
 
@@ -653,4 +220,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 environment/default_environment="res://default_env.tres"
