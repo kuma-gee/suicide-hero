@@ -2,31 +2,31 @@ class_name PlayerStats extends Node
 
 signal level_up(lvl)
 
-@export var level = 1
+@export var level := 1
+@export var gain_experience := true
 
 @onready var experience := $Experience
 @onready var health := $Health
 
-var exp_gain_eq = ExponentialEquation.new(2, 20, 5)
-var exp_lvl_eq = LogarithmEquation.new(100, 50)
+#var exp_gain_eq = ExponentialEquation.new(2, 20, 5)
+#var exp_lvl_eq = LogarithmEquation.new(100, 50)
 
-
-func _on_ExperienceTimer_timeout():
+func _process(delta):
 	_gain_experience()
 
 
 func _gain_experience() -> void:
-	var ex = _get_experience(health.get_percentage())
+	var ex = health.get_percentage() * 0.1 #_get_experience()
 	experience.increase(ex)
 	health.reduce(ex)
 
 
-func _get_experience(hp_percentage: float) -> float:
-	if hp_percentage == 0:
-		return 0.0
-	
-	var x = 1 / hp_percentage
-	return exp_gain_eq.y(-x)
+#func _get_experience(hp_percentage: float) -> float:
+#	if hp_percentage == 0:
+#		return 0.0
+#
+#	var x = 1 / hp_percentage
+#	return exp_gain_eq.y(-x)
 
 
 func _on_Experience_overflow():
@@ -35,7 +35,7 @@ func _on_Experience_overflow():
 	emit_signal("level_up", level)
 
 func _update_max_experience() -> void:
-	experience.max_value = exp_lvl_eq.y(level)
+	experience.max_value *= 1.1 #exp_lvl_eq.y(level)
 
 func heal_player(hp: int) -> void:
 	health.increase(hp)

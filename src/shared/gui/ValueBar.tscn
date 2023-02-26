@@ -1,10 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://dicurjh20rfom"]
 
-[ext_resource type="Script" path="res://addons/sfx/effects/TransitionEffect.gd" id="1"]
 [ext_resource type="Script" path="res://src/shared/gui/ValueBar.gd" id="2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60hty"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ifq14"]
 
 [node name="ValueBar" type="Control"]
 layout_mode = 3
@@ -15,20 +16,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2")
 
-[node name="ValueEffect" type="Node" parent="."]
-script = ExtResource("1")
-duration = 0.5
-node_path = NodePath("../ProgressBar")
-
 [node name="ProgressBar" type="ProgressBar" parent="."]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_styles/background = SubResource("StyleBoxFlat_60hty")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ifq14")
 value = 50.0
-
-[node name="MaxValueEffect" type="Node" parent="."]
-script = ExtResource("1")
-property = "max_value"
-duration = 0.5
-node_path = NodePath("../ProgressBar")

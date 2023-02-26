@@ -25,9 +25,13 @@ signal died()
 @onready var frame_freeze := $HurtBox/FrameFreeze
 
 @onready var heal_particles := $HealParticles
+@onready var hp_bar: ValueFillBar = $HpBar
 
 const LEVEL_UP = preload("res://src/player/LevelUp.tscn")
 const level_up_img = preload("res://src/player/lvl-up.png")
+
+func _ready():
+	hp_bar.connect_value_fill(stats.health)
 
 func _process(_delta):
 	gun_point_root.shoot = input.is_pressed("fire")
@@ -75,16 +79,6 @@ func _on_Knockback2D_knockback_finished():
 	state_machine.transition(move)
 
 
-func _on_HurtBox_knockback(knockback):
-	state_machine.transition(knockback_state, {"knockback": knockback})
-
-
-func _on_HurtBox_damaged(dmg):
-	stats.health.reduce(dmg)
-	sprite.modulate.a = 0.75
-	hit_sound.play()
-	frame_freeze.freeze()
-
 func show_gain(texture: Texture) -> void:
 	var node = LEVEL_UP.instantiate()
 	skill_select.add_child(node)
@@ -116,3 +110,14 @@ func _on_PlayerStats_level_up(lvl):
 
 func _on_Health_zero_value():
 	emit_signal("died")
+
+
+func _on_hurt_box_damaged(dmg):
+	stats.health.reduce(dmg)
+	sprite.modulate.a = 0.75
+	hit_sound.play()
+	frame_freeze.freeze()
+
+
+func _on_hurt_box_knockback(knockback):
+	state_machine.transition(knockback_state, {"knockback": knockback})

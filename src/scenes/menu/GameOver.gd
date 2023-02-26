@@ -5,6 +5,7 @@ extends PausedMenu
 
 func _ready():
 	sound.play()
+	super._ready()
 
 
 func init(data) -> void:

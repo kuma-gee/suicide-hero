@@ -23,9 +23,6 @@ player_path = NodePath("../Player")
 
 [node name="HUD" parent="." instance=ExtResource("4")]
 
-[node name="ExperienceTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="SkillManager" type="Node" parent="."]
 script = ExtResource("6")
 player_path = NodePath("../Player")
@@ -33,6 +30,7 @@ player_path = NodePath("../Player")
 [node name="HealthUp" type="Node" parent="SkillManager"]
 script = ExtResource("7")
 increase = 20
+type = 0
 
 [node name="StrengthUp" type="Node" parent="SkillManager"]
 script = ExtResource("8")
@@ -71,6 +69,4 @@ bus = &"Music"
 [connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="level_up" from="Player" to="." method="_on_Player_level_up"]
 [connection signal="skill_selected" from="Player" to="." method="_on_Player_skill_selected"]
-[connection signal="timeout" from="ExperienceTimer" to="." method="_on_ExperienceTimer_timeout"]
-[connection signal="timeout" from="ExperienceTimer" to="Player/PlayerStats" method="_on_ExperienceTimer_timeout"]
 [connection signal="skill_added" from="SkillManager" to="HUD" method="skill_updated"]

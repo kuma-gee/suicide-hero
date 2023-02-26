@@ -9,9 +9,9 @@ signal max_value_changed(value)
 @export var start_empty = false
 @export var allow_overflow = false
 
-@export var max_value := 100 : set = set_max_value
+@export var max_value := 100.0 : set = set_max_value
 
-var value := 0 : set = _set_value
+var value := 0.0 : set = _set_value
 
 func _ready():
 	if not start_empty:
@@ -21,11 +21,11 @@ func _ready():
 	call_deferred("emit_signal", "max_value_changed", max_value)
 	call_deferred("emit_signal", "value_changed", value)
 
-func reduce(v: int) -> void:
+func reduce(v: float) -> void:
 	self.value -= v
 
 
-func increase(v: int) -> void:
+func increase(v: float) -> void:
 	self.value += v
 
 
@@ -37,10 +37,10 @@ func fill() -> void:
 	self.value = max_value
 
 
-func _set_value(hp: int) -> void:
+func _set_value(hp: float) -> void:
 	if value == hp: return
 	
-	value = int(clamp(hp, 0, max_value))
+	value = float(clamp(hp, 0, max_value))
 
 	if value <= 0:
 		value = 0
@@ -58,8 +58,8 @@ func _set_value(hp: int) -> void:
 		
 	emit_signal("value_changed", value)
 
-func set_max_value(hp: int) -> void:
-	max_value = int(clamp(hp, 1, hp))
+func set_max_value(hp: float) -> void:
+	max_value = float(clamp(hp, 1, hp))
 	emit_signal("max_value_changed", max_value)
 
 func get_percentage() -> float:

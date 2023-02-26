@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://v8ybdh5m87am"]
+[gd_scene load_steps=6 format=3 uid="uid://v8ybdh5m87am"]
 
-[ext_resource type="PackedScene" uid="uid://dicurjh20rfom" path="res://src/shared/gui/ValueBar.tscn" id="1"]
 [ext_resource type="Script" path="res://src/scenes/main/HUD.gd" id="2"]
+[ext_resource type="Script" path="res://src/shared/gui/ValueBar.gd" id="2_4btjk"]
+[ext_resource type="Theme" uid="uid://bjubkp85qmjqv" path="res://theme/theme.tres" id="2_rbnft"]
 
-[node name="HUD" type="CanvasLayer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyya0"]
+bg_color = Color(0.105882, 0.160784, 0.243137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4gvg"]
+bg_color = Color(0.141176, 0.431373, 0.529412, 1)
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("experience", "level", "skills")]
 script = ExtResource("2")
+experience = NodePath("Root/ExpBar")
+level = NodePath("Root/Level")
+skills = NodePath("Root/Top/MarginContainer/SkillsContainer")
 
 [node name="Root" type="Control" parent="."]
 layout_mode = 3
@@ -14,59 +24,45 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("2_rbnft")
 
-[node name="Top" type="HBoxContainer" parent="Root"]
-layout_mode = 0
+[node name="ExpBar" type="ProgressBar" parent="Root"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_eyya0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_v4gvg")
+max_value = 50.0
+value = 20.0
+show_percentage = false
+script = ExtResource("2_4btjk")
+
+[node name="Level" type="Label" parent="Root"]
+layout_mode = 2
+offset_left = 938.0
+offset_right = 960.0
+offset_bottom = 12.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 8
+text = "Level"
+
+[node name="Top" type="VBoxContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Root/Top"]
 layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="SkillsContainer" type="GridContainer" parent="Root/Top/MarginContainer"]
 layout_mode = 2
 columns = 10
-
-[node name="PanelContainer" type="PanelContainer" parent="Root"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -68.0
-offset_right = -757.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="Root/PanelContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Root/PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Root/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Level" type="Label" parent="Root/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="GridContainer" type="GridContainer" parent="Root/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-columns = 2
-
-[node name="Level" type="Label" parent="Root/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-text = "HP"
-
-[node name="HealthBar" parent="Root/PanelContainer/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("1")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color(0.223529, 0.686275, 0.207843, 1)
-
-[node name="Label" type="Label" parent="Root/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-text = "EXP"
-
-[node name="ExpBar" parent="Root/PanelContainer/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("1")]
-layout_mode = 2
-color = Color(0.756863, 0.756863, 0.411765, 1)

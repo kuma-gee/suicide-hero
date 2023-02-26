@@ -1,9 +1,8 @@
 extends CanvasLayer
 
-@onready var health := $Root/PanelContainer/MarginContainer/VBoxContainer/GridContainer/HealthBar
-@onready var experience := $Root/PanelContainer/MarginContainer/VBoxContainer/GridContainer/ExpBar
-@onready var level := $Root/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Level
-@onready var skills := $Root/Top/MarginContainer/SkillsContainer
+@export var experience: ProgressBar
+@export var level: Label
+@export var skills: Container
 
 const skill_count := preload("res://src/scenes/main/SkillCount.tscn")
 
@@ -20,10 +19,9 @@ func skill_updated(skill: int, count: int) -> void:
 
 func connect_player_stats(stats: PlayerStats) -> void:
 	set_level(stats.level)
-	var _x = stats.connect("level_up", set_level)
+	stats.connect("level_up", set_level)
 	
-	health.connect_value_fill(stats.health)
 	experience.connect_value_fill(stats.experience)
 
 func set_level(lvl: int) -> void:
-	level.text = tr("LEVEL") + ": " + str(lvl)
+	level.text = tr("LEVEL") + " " + str(lvl)
