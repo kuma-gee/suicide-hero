@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2ks6w7bacyti"]
+[gd_scene load_steps=5 format=3 uid="uid://b2ks6w7bacyti"]
 
 [ext_resource type="TileSet" uid="uid://cbankqtbdlcdh" path="res://src/map/tileset.tres" id="1"]
 [ext_resource type="Script" path="res://src/map/Map.gd" id="2"]
-[ext_resource type="PackedScene" path="res://src/map/SpawnPoint.tscn" id="3"]
 [ext_resource type="Script" path="res://src/map/InfiniteMap.gd" id="3_chqxh"]
-[ext_resource type="PackedScene" uid="uid://cohurr4o6pbg1" path="res://src/map/Controls.tscn" id="4"]
 [ext_resource type="Script" path="res://src/map/TileMapDebug.gd" id="6_t135l"]
 
 [node name="Map" type="Node2D"]
@@ -28,37 +26,3 @@ script = ExtResource("3_chqxh")
 script = ExtResource("6_t135l")
 enable = true
 tilemap = NodePath("../TileMap")
-
-[node name="EnemySpawnTimer" type="Timer" parent="."]
-
-[node name="SpawnPositions" type="Node2D" parent="."]
-
-[node name="SpawnPoint" parent="SpawnPositions" instance=ExtResource("3")]
-position = Vector2(-435.578, -377.595)
-
-[node name="SpawnPoint5" parent="SpawnPositions" instance=ExtResource("3")]
-position = Vector2(0.962463, -377.595)
-
-[node name="SpawnPoint6" parent="SpawnPositions" instance=ExtResource("3")]
-position = Vector2(0.962463, 413.523)
-
-[node name="SpawnPoint2" parent="SpawnPositions" instance=ExtResource("3")]
-position = Vector2(438.406, -377.595)
-
-[node name="SpawnPoint7" parent="SpawnPositions" instance=ExtResource("3")]
-position = Vector2(438.406, 0.146027)
-
-[node name="SpawnPoint3" parent="SpawnPositions" instance=ExtResource("3")]
-position = Vector2(-435.578, 412.951)
-
-[node name="SpawnPoint8" parent="SpawnPositions" instance=ExtResource("3")]
-position = Vector2(-435.578, -3.99008)
-
-[node name="SpawnPoint4" parent="SpawnPositions" instance=ExtResource("3")]
-position = Vector2(441.235, 412.951)
-
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="Control" parent="." instance=ExtResource("4")]
-
-[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
