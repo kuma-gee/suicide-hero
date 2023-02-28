@@ -12,6 +12,7 @@ enum {
 	InGame,
 	GameOver,
 	Pause,
+	SkillSelect,
 }
 
 const screen_scene_map = {

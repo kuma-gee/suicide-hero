@@ -3,13 +3,12 @@ extends Node2D
 @export var max_enemy_value = 50
 @export var min_small_enemies = 20
 
-@export var player_path: NodePath
-@onready var player: Player = get_node(player_path)
-
 @onready var tilemap := $TileMap
 @onready var enemy_spawn_timer := $EnemySpawnTimer
 @onready var spawn_positions := $SpawnPositions
 @onready var enemies := $Enemies
+
+var player: Player
 
 const enemy_level_map = {
 	1: [
@@ -29,6 +28,12 @@ const enemy_level_map = {
 
 var _total_small_enemies: int
 var _total_stronger_enemies: int
+
+func get_player_spawn():
+	return tilemap.get_center_position()
+
+func _process(delta):
+	tilemap.update_for_position(player.global_position)
 
 func _get_total_enemy_value() -> int:
 	var result := 0

@@ -1,10 +1,10 @@
 class_name TrailCollision extends Node
 
-export var trail_path: NodePath
-onready var trail: Trail2D = get_node(trail_path) if trail_path else get_parent().get_parent()
+@export var trail_path: NodePath
+@onready var trail: Trail2D = get_node(trail_path) if trail_path else get_parent().get_parent()
 
-export var collision_parent_path: NodePath
-onready var collision_parent: Node2D = get_node(collision_parent_path)
+@export var collision_parent_path: NodePath
+@onready var collision_parent: Node2D = get_node(collision_parent_path)
 
 func _process(delta):
 	update_collision_shape()
@@ -51,7 +51,7 @@ func _create_points(points: Array) -> Array:
 		if is_last:
 			dir *= -1
 		
-		var point_dir = VectorUtils.orthogonal(dir).normalized() * -1
-		var point = curr_point + point_dir * (trail.width / 2)
-		result.append(point)
+		#var point_dir = VectorUtils.orthogonal(dir).normalized() * -1
+		#var point = curr_point + point_dir * (trail.width / 2)
+		#result.append(point)
 	return result

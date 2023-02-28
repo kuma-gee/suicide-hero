@@ -42,13 +42,17 @@ show_percentage = false
 script = ExtResource("2_4btjk")
 
 [node name="Level" type="Label" parent="Root"]
-layout_mode = 2
-offset_left = 938.0
-offset_right = 960.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -74.0
 offset_bottom = 12.0
+grow_horizontal = 0
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 8
 text = "Level"
+horizontal_alignment = 2
 
 [node name="Top" type="VBoxContainer" parent="Root"]
 layout_mode = 1

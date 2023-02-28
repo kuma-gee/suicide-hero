@@ -1,91 +1,111 @@
+class_name InfiniteMap
 extends TileMap
 
 @export var layer := 0
-@export var grid_dividor := 3
+@export var atlas := Vector2i(0, 8)
 
-@onready var tile_size_on_grid = _calc_tile_size_on_grid()
+var grid_dividor := 3
+var tile_size_on_grid: Vector2i
+var tile_center: Vector2i
 
-var _grid_center = Vector2i.ZERO
+var _current_center_offset = Vector2i.ZERO
+var _logger = Logger.new("InfiniteMap")
+
+# For Debugging
+var tile_pos
+var grid_pos
+var grid_dir
 
 func _ready():
-    print("Grid Size: %s" % tile_size_on_grid)
+	var rect = get_used_rect()
+	
+	tile_size_on_grid = rect.size / grid_dividor
+	tile_center = rect.position + tile_size_on_grid
+	
+	_logger.debug("Tilemap Rect: %s" % rect)
+	_logger.debug("Tile Size: %s, Tile Center: %s" % [tile_size_on_grid, tile_center])
+	
+	var x_remainder = rect.size.x % grid_dividor
+	var y_remainder = rect.size.y % grid_dividor 
+	if x_remainder != 0 or y_remainder != 0:
+		_logger.warn("TileMap size is not divisible by %s. Unexpected behaviour might occur" % grid_dividor)
+		_logger.warn("Remove %s tiles from the X-axis and %s tiles from the Y-axis" % [x_remainder, y_remainder])
 
-    update_for_position(tile_size_on_grid / 2)
-    update_for_position(tile_size_on_grid)
+func get_center_position():
+	return map_to_local(tile_center + tile_size_on_grid / 2)
 
+func update_for_position(pos: Vector2):
+	tile_pos = local_to_map(pos)
+	grid_pos = _tile_to_grid(tile_pos)
 
-func _calc_tile_size_on_grid():
-    var rect = get_used_rect()
-    return rect.size / grid_dividor
+	grid_dir = grid_pos - _current_center_offset
+	var is_outside_grid = grid_dir.length() > 0
 
+	if is_outside_grid:
+		_logger.debug("Tile Position %s in grid %s moving in %s" % [tile_pos, grid_pos, grid_dir])
 
-func update_for_position(position: Vector2):
-    var tile_pos = local_to_map(position)
-    var grid_pos = _tile_to_grid(tile_pos)
+		for neighbor_dir in _get_grid_dirs_to_fill(grid_dir):
+			var target_grid = grid_pos + neighbor_dir
+			var source_grid = target_grid - grid_dir * Vector2i(grid_dividor, grid_dividor)
+			_cut_grid_tiles(source_grid, target_grid)
 
-    print("Tile Position %s in grid: %s" % [tile_pos, grid_pos])
-
-    var grid_dir = grid_pos - _grid_center
-    print("Grid Direction: %s" % grid_dir)
-
-    var is_outside_grid = grid_dir.length() > 0
-
-    if is_outside_grid:
-        print("Position outside of grid. Moving tiles")
-
-        for neighbor_dir in _get_grid_dirs_to_fill(grid_dir):
-            var target_grid = grid_pos + neighbor_dir
-            var opposite_neighbor_dir = Vector2i(neighbor_dir.x % grid_dividor, neighbor_dir.y % grid_dividor)
-            print("Neighbor %s - Opposite %s" % [neighbor_dir, opposite_neighbor_dir])
-
-            var source_grid = grid_pos + opposite_neighbor_dir
-            print("Cutting tiles from %s to %s" % [source_grid, target_grid])
-            _cut_grid_tiles(source_grid, target_grid)
-
-        _grid_center = grid_pos
-        print("New origin offset: %s" % offset)
-
+		_current_center_offset = grid_pos
+		
 
 func _get_grid_dirs_to_fill(grid_dir: Vector2i):
-    var neighbors = [
-        Vector2i.LEFT,
-        Vector2i.RIGHT,
-        Vector2i.UP,
-        Vector2i.DOWN,
-        Vector2i(1, 1),
-        Vector2i(-1, -1),
-        Vector2i(1, -1),
-        Vector2i(-1, 1),
-    ]
+	var neighbors = [
+		Vector2i.LEFT,
+		Vector2i.RIGHT,
+		Vector2i.UP,
+		Vector2i.DOWN,
+		Vector2i(1, 1),
+		Vector2i(-1, -1),
+		Vector2i(1, -1),
+		Vector2i(-1, 1),
+	]
 
-    var result = []
-    for n in neighbors:
-        var dot = grid_dir.dot(n)
-        var is_straight = rad_to_deg(grid_dir.angle()) % 90 == 0
+	var result = []
+	for n in neighbors:
+		var dot = Vector2(grid_dir).dot(n)
+		var is_straight = int(rad_to_deg(Vector2(grid_dir).angle())) % 90 == 0
 
-        if dot > 0 or (not is_straight and dot == 0):
-            result.append(n)
+		if dot > 0 or (not is_straight and dot == 0):
+			result.append(n)
 
-    return result
+	return result
 
 
 func _cut_grid_tiles(source_grid: Vector2i, target_grid: Vector2i):
-    var source_top_left = _grid_to_tile(source_grid)
-    var target_top_left = _grid_to_tile(target_grid)
+	var source_top_left = _grid_to_tile(source_grid)
+	var target_top_left = _grid_to_tile(target_grid)
 
-    for x in range(0, tile_size_on_grid.x):
-        for y in range(0, tile_size_on_grid.y):
-            var offset = Vector2i(x, y)
-            var source_cell = source_top_left + offset
-            var target_cell = target_top_left + offset
+	for x in range(0, tile_size_on_grid.x):
+		for y in range(0, tile_size_on_grid.y):
+			var offset = Vector2i(x, y)
+			var source_cell = source_top_left + offset
+			var target_cell = target_top_left + offset
 
-            var source_id = get_cell_source_id(layer, source_cell)
-            set_cell(layer, target_cell, source_id)
+			# Currently there can be a bug when copying the cells from the source
+			# For now used fixed atlas coordinate
+			var source_id = get_cell_source_id(layer, source_cell)
+			set_cell(layer, target_cell, source_id, atlas)
+			erase_cell(layer, source_cell)
 
 
 func _grid_to_tile(grid_pos: Vector2i):
-    return Vector2i(tile_size_on_grid.x * grid_pos.x, tile_size_on_grid.y * grid_pos.y)
+	var pos = Vector2i(
+		tile_size_on_grid.x * grid_pos.x,
+		tile_size_on_grid.y * grid_pos.y
+	)
+	
+	return pos + tile_center
 
 
 func _tile_to_grid(tile_pos: Vector2i):
-    return tile_pos.snapped(tile_size_on_grid) / tile_size_on_grid
+	var pos = tile_pos - tile_center
+	if pos.x < 0 and pos.x % tile_size_on_grid.x != 0:
+		pos.x -= (tile_size_on_grid.x + pos.x % tile_size_on_grid.x)
+	if pos.y < 0 and pos.y % tile_size_on_grid.y != 0:
+		pos.y -= (tile_size_on_grid.y + pos.y % tile_size_on_grid.y) 
+	
+	return pos / tile_size_on_grid

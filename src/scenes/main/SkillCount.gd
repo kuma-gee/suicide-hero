@@ -6,6 +6,7 @@ var skill: int
 
 func _ready():
 	var skill_tex: Texture = Skill.skill_map[skill]
+	print("Skill %s: %s" % [skill, skill_tex])
 	texture_label.set_texture(skill_tex)
 	texture_label.set_label(str(1))
 

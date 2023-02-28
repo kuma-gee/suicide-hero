@@ -34,7 +34,7 @@ func _ready():
 	hp_bar.connect_value_fill(stats.health)
 
 func _process(_delta):
-	gun_point_root.shoot = input.is_pressed("fire")
+	gun_point_root.shoot = true
 	
 	move.motion = _get_motion().normalized()
 	move.look_dir = _get_look_direction()

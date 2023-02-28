@@ -1,17 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://cq6fwmh8oxcra"]
 
 [ext_resource type="Script" path="res://src/scenes/menu/Pause.gd" id="1"]
-[ext_resource type="PackedScene" path="res://src/scenes/menu/shared/BackMenu.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cs3gnbfhomu6r" path="res://src/scenes/menu/shared/BackMenu.tscn" id="2"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1")
-__meta__ = {
-"_edit_use_anchors_": false
-}
 focus_node_path = NodePath("CenterContainer/VBoxContainer/Resume")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -34,6 +33,5 @@ text = "RESUME_GAME"
 
 [node name="BackMenu" parent="CenterContainer/VBoxContainer" instance=ExtResource("2")]
 layout_mode = 2
-connect_button = false
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]

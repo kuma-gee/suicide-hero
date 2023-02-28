@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqfvtiauyf1gv"]
+[gd_scene load_steps=12 format=3 uid="uid://dqfvtiauyf1gv"]
 
 [ext_resource type="Script" path="res://src/player/Main.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://dbdxrkf7cbaae" path="res://src/player/Player.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://b2ks6w7bacyti" path="res://src/map/Map.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://v8ybdh5m87am" path="res://src/scenes/main/HUD.tscn" id="4"]
 [ext_resource type="Script" path="res://src/skills/SpeedUp.gd" id="5"]
@@ -17,20 +16,15 @@
 script = ExtResource("1")
 
 [node name="Map" parent="." instance=ExtResource("3")]
-player_path = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("2")]
 
 [node name="HUD" parent="." instance=ExtResource("4")]
 
 [node name="SkillManager" type="Node" parent="."]
 script = ExtResource("6")
-player_path = NodePath("../Player")
 
 [node name="HealthUp" type="Node" parent="SkillManager"]
 script = ExtResource("7")
 increase = 20
-type = 0
 
 [node name="StrengthUp" type="Node" parent="SkillManager"]
 script = ExtResource("8")
@@ -66,7 +60,4 @@ volume_db = -20.0
 autoplay = true
 bus = &"Music"
 
-[connection signal="died" from="Player" to="." method="_on_Player_died"]
-[connection signal="level_up" from="Player" to="." method="_on_Player_level_up"]
-[connection signal="skill_selected" from="Player" to="." method="_on_Player_skill_selected"]
 [connection signal="skill_added" from="SkillManager" to="HUD" method="skill_updated"]
