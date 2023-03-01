@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/shared/rpg/HitBox2D.gd" id="1"]
 [ext_resource type="Script" path="res://src/shared/rpg/HurtBox2D.gd" id="2"]
-[ext_resource type="SpriteFrames" uid="uid://dxo4mffocl203" path="res://src/enemy/sprites/TinyZombie.tres" id="3_wxcbm"]
+[ext_resource type="SpriteFrames" uid="uid://dipg6ef50wy3d" path="res://src/enemy/sprites/Skeleton.tres" id="3_ynpot"]
 [ext_resource type="Script" path="res://addons/StateMachine/Move2D.gd" id="4"]
 [ext_resource type="Script" path="res://addons/StateMachine/StateMachine.gd" id="5"]
 [ext_resource type="PackedScene" uid="uid://d3ki6uubra8xe" path="res://src/enemy/HealthDrop.tscn" id="6"]
@@ -32,9 +32,9 @@ health_drop = ExtResource("6")
 shape = SubResource("1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body"]
-sprite_frames = ExtResource("3_wxcbm")
+sprite_frames = ExtResource("3_ynpot")
 autoplay = "default"
-frame_progress = 0.966412
+frame_progress = 0.0752486
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("7")

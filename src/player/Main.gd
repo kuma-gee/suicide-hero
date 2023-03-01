@@ -5,7 +5,6 @@ extends Node
 @onready var hud := $HUD
 @onready var map := $Map
 @onready var skill_manager := $SkillManager
-@onready var enemy_manager: EnemyManager = $EnemyManager
 @onready var camera := $Camera2D
 @onready var player := $Player
 
@@ -23,7 +22,6 @@ func _ready():
 	player.global_position = map.get_player_spawn()
 	map.player = player
 	skill_manager.player = player
-	enemy_manager.player = player
 	
 	_on_player_level_up(1)
 	hud.connect_player_stats(player.stats)

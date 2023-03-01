@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://cngnfs5ewkwc0"]
+
+[ext_resource type="Script" path="res://src/enemy/resource/EnemyResource.gd" id="1_4etx4"]
+[ext_resource type="SpriteFrames" uid="uid://bkcsb1klh7rvp" path="res://src/enemy/sprites/Orc.tres" id="2_smydm"]
+
+[resource]
+script = ExtResource("1_4etx4")
+sprites = ExtResource("2_smydm")
+health = 40
+attack = 10
+speed = 100

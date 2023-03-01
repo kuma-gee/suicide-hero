@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://b2gxin1nl7wmv"]
+
+[ext_resource type="Texture2D" uid="uid://dlbw2pt4dh2r4" path="res://src/enemy/sprites/goblin.png" id="1_px7p3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qr8q"]
+atlas = ExtResource("1_px7p3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjx4p"]
+atlas = ExtResource("1_px7p3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w3gm"]
+atlas = ExtResource("1_px7p3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmpaw"]
+atlas = ExtResource("1_px7p3")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qr8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjx4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0w3gm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmpaw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]

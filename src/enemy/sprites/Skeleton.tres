@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dipg6ef50wy3d"]
+
+[ext_resource type="Texture2D" uid="uid://1f6t7hwnwlb0" path="res://src/enemy/sprites/skeleton.png" id="1_uyfdn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc3mf"]
+atlas = ExtResource("1_uyfdn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_niet2"]
+atlas = ExtResource("1_uyfdn")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhs0h"]
+atlas = ExtResource("1_uyfdn")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upue4"]
+atlas = ExtResource("1_uyfdn")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc3mf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_niet2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhs0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upue4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]

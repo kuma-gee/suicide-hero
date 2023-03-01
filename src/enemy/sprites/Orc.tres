@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bkcsb1klh7rvp"]
+
+[ext_resource type="Texture2D" uid="uid://8abkuxvy7h6l" path="res://src/enemy/sprites/orc.png" id="1_u31vr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq105"]
+atlas = ExtResource("1_u31vr")
+region = Rect2(0, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbcks"]
+atlas = ExtResource("1_u31vr")
+region = Rect2(16, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auibx"]
+atlas = ExtResource("1_u31vr")
+region = Rect2(32, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjx1g"]
+atlas = ExtResource("1_u31vr")
+region = Rect2(48, 0, 16, 20)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dq105")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbcks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auibx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjx1g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

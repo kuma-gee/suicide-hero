@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://pwtlvoglk8lf"]
+
+[ext_resource type="Texture2D" uid="uid://ppuid8bxoly" path="res://src/enemy/sprites/imp.png" id="1_o580j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa3pb"]
+atlas = ExtResource("1_o580j")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq8t0"]
+atlas = ExtResource("1_o580j")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orhdq"]
+atlas = ExtResource("1_o580j")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbrmb"]
+atlas = ExtResource("1_o580j")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa3pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wq8t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orhdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbrmb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
