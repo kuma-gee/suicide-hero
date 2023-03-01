@@ -52,6 +52,8 @@ func _get_motion() -> Vector2:
 func _get_look_direction() -> Vector2:
 	return aim_direction.get_aim_direction(self)
 
+func get_level():
+    return stats.level
 
 func heal(hp):
 	stats.health.increase(hp)
