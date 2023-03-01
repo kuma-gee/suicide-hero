@@ -53,7 +53,7 @@ func _get_look_direction() -> Vector2:
 	return aim_direction.get_aim_direction(self)
 
 func get_level():
-    return stats.level
+	return stats.level
 
 func heal(hp):
 	stats.health.increase(hp)
@@ -116,10 +116,11 @@ func _on_Health_zero_value():
 
 func _on_hurt_box_damaged(dmg):
 	stats.health.reduce(dmg)
-	sprite.modulate.a = 0.75
-	hit_sound.play()
-	frame_freeze.freeze()
+#	sprite.modulate.a = 0.75
+#	hit_sound.play()
+#	frame_freeze.freeze()
 
 
 func _on_hurt_box_knockback(knockback):
-	state_machine.transition(knockback_state, {"knockback": knockback})
+	pass
+	#state_machine.transition(knockback_state, {"knockback": knockback})

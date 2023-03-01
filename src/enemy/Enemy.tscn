@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/shared/rpg/HitBox2D.gd" id="1"]
 [ext_resource type="Script" path="res://src/shared/rpg/HurtBox2D.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://oo6lnte2f7yu" path="res://src/enemy/tiny_zombie.png" id="3"]
+[ext_resource type="SpriteFrames" uid="uid://dxo4mffocl203" path="res://src/enemy/sprites/TinyZombie.tres" id="3_wxcbm"]
 [ext_resource type="Script" path="res://addons/StateMachine/Move2D.gd" id="4"]
 [ext_resource type="Script" path="res://addons/StateMachine/StateMachine.gd" id="5"]
 [ext_resource type="PackedScene" uid="uid://d3ki6uubra8xe" path="res://src/enemy/HealthDrop.tscn" id="6"]
@@ -31,10 +31,10 @@ health_drop = ExtResource("6")
 [node name="Body" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
 
-[node name="Sprite" type="Sprite2D" parent="Body"]
-texture = ExtResource("3")
-offset = Vector2(-0.5, -5)
-hframes = 8
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body"]
+sprite_frames = ExtResource("3_wxcbm")
+autoplay = "default"
+frame_progress = 0.966412
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("7")
@@ -81,7 +81,7 @@ initial_state = NodePath("Move2D")
 script = ExtResource("4")
 speed = 100
 acceleration = 500
-soft_collision_multiplier = 800
+soft_collision_multiplier = 400
 kinematic_body_path = NodePath("../..")
 soft_collision_path = NodePath("../../SoftCollision2D")
 body_path = NodePath("../../Body")
@@ -89,12 +89,7 @@ body_path = NodePath("../../Body")
 [node name="Knockback2D" type="Node" parent="StateMachine"]
 script = ExtResource("10")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
 [connection signal="zero_value" from="Health" to="." method="_on_Health_zero_value"]
 [connection signal="damaged" from="HurtBox" to="." method="_on_HurtBox_damaged"]
-[connection signal="hit" from="HurtBox" to="." method="_on_HurtBox_hit"]
-[connection signal="invincibility_timeout" from="HurtBox" to="." method="_on_HurtBox_invincibility_timeout"]
 [connection signal="knockback" from="HurtBox" to="." method="_on_HurtBox_knockback"]
-[connection signal="run" from="StateMachine/Move2D" to="AnimationPlayer" method="play" binds= ["Run"]]
-[connection signal="knockback_finished" from="StateMachine/Knockback2D" to="." method="_on_Knockback2D_knockback_finished"]
+[connection signal="knockback_finished" from="StateMachine/Knockback2D" to="." method="_on_knockback_2d_knockback_finished"]

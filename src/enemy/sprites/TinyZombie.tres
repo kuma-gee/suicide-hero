@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dxo4mffocl203"]
+
+[ext_resource type="Texture2D" uid="uid://oo6lnte2f7yu" path="res://src/enemy/tiny_zombie.png" id="1_wtwjw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlvid"]
+atlas = ExtResource("1_wtwjw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uln2m"]
+atlas = ExtResource("1_wtwjw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyw31"]
+atlas = ExtResource("1_wtwjw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2i6t"]
+atlas = ExtResource("1_wtwjw")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlvid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uln2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyw31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2i6t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]

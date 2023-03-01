@@ -195,6 +195,8 @@ script = ExtResource("9")
 [node name="Move2D" type="Node" parent="StateMachine"]
 script = ExtResource("7")
 speed = 150
+acceleration = 1200
+friction = 1200
 kinematic_body_path = NodePath("../..")
 body_path = NodePath("../../Body")
 

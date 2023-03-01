@@ -36,6 +36,9 @@ func is_full_value() -> bool:
 func fill() -> void:
 	self.value = max_value
 
+func init_health(hp: float):
+	max_value = hp
+	value = hp
 
 func _set_value(hp: float) -> void:
 	if value == hp: return

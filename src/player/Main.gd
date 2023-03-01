@@ -5,12 +5,14 @@ extends Node
 @onready var hud := $HUD
 @onready var map := $Map
 @onready var skill_manager := $SkillManager
+@onready var enemy_manager: EnemyManager = $EnemyManager
+@onready var camera := $Camera2D
+@onready var player := $Player
 
 const PLAYER = preload("res://src/player/Player.tscn")
 
 var enemy_eq = ExponentialEquation.new(2, 1, 30, 2)
 var exp_eq = ExponentialEquation.new(0.5, 2, 0.5, 3)
-var player: Player
 
 func _ready():
 	GUI.open_menu(GUI.Intro, true)
@@ -18,16 +20,12 @@ func _ready():
 	if Env.is_prod():
 		randomize()
 		
-	player = PLAYER.instantiate()
-	player.died.connect(_on_Player_died)
-	player.level_up.connect(_on_Player_level_up)
-	player.skill_selected.connect(_on_Player_skill_selected)
 	player.global_position = map.get_player_spawn()
 	map.player = player
 	skill_manager.player = player
-	add_child(player)
+	enemy_manager.player = player
 	
-	_on_Player_level_up(1)
+	_on_player_level_up(1)
 	hud.connect_player_stats(player.stats)
 
 func _unhandled_input(event):
@@ -35,16 +33,16 @@ func _unhandled_input(event):
 		GUI.open_menu(GUI.Pause)
 
 
-func _on_Player_skill_selected(skill):
+func _on_player_skill_selected(skill):
 	skill_manager.add_skill(skill)
 
 
-func _on_Player_died():
+func _on_player_died():
 	GUI.open({"menu": GUI.GameOver, "score": player.stats.level})
 
 
-func _on_Player_level_up(lvl):
-	map.max_enemy_value = min(enemy_eq.y(lvl-1), max_enemies)
+func _on_player_level_up(lvl):
+#	map.max_enemy_value = min(enemy_eq.y(lvl-1), max_enemies)
 	
 	if lvl != 1:
 		var skills = skill_manager.get_random_skills(lvl)

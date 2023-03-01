@@ -30,7 +30,7 @@ const TRANSITION_MAP = {
 	Transition.RADIAL: "radial.png",
 }
 
-const DEFAULT_SPEED = 1
+const DEFAULT_SPEED = 0.5
 
 @export var disable_inputs = true
 

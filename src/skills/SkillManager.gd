@@ -2,7 +2,8 @@ extends Node
 
 signal skill_added(skill, skill_count)
 
-var player: Player
+@export var player: Player
+
 var skills = {}
 
 func _ready():

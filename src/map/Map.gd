@@ -2,10 +2,10 @@ extends Node2D
 
 #@export var max_enemy_value = 50
 #@export var min_small_enemies = 20
+@export var player: Player
 
 @onready var tilemap := $TileMap
 
-var player: Player
 
 #const enemy_level_map = {
 #	1: [
