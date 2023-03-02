@@ -1,48 +1,57 @@
 extends Node
 
-signal skill_added(skill, skill_count)
+signal skill_updated(skill_res, level)
 
 @export var player: Player
 
+@export var max_weapons := 3
+@export var max_items := 3
+
 var skills = {}
 
+var _logger = Logger.new("SkillManager")
+
+# TODO: group by this type
+var _weapons = []
+var _items = []
+
+var _current_skill_pool := []
+var _skill_type_node_map = {}
+
 func _ready():
-	for child in get_children():
-		var skill: Skill = child
-		skill.name = str(skill.type)
+    for child in get_children():
+        if child is Skill:
+            _skill_type_node_map[child.type] = child
+            _add_skill_to_pool(child)
+
+func _add_skill_to_pool(skill: Skill):
+    var new_skill = skill.get_skill_for_level()
+    if new_skill:
+        _current_skill_pool.append(new_skill)
+        _current_skill_pool.shuffle()
 
 
-func add_skill(skill: int) -> void:
-	if not skills.has(skill):
-		skills[skill] = 0
+func add_skill(res: SkillResource) -> void:
+	if not _skill_type_node_map.has(res.type):
+        return
 	
-	var skill_node = get_node(str(skill))
-	if skill_node:
-		skill_node.apply(player)
-		skills[skill] += 1
-		emit_signal("skill_added", skill, skills[skill])
+	var skill = _skill_type_node_map[res.type]
+    _current_skill_pool.erase(res)
+
+	if skill:
+		skill.apply(player, res)
+        _add_skill_to_pool(skill)
+        
+		emit_signal("skill_updated", res, skill.level)
+    else:
+        _logger.info("No skill found for %s" % res)
 
 
-func get_random_skills(lvl: int) -> Array:
-	var available_skills = _get_allowed_skills(lvl)
-	if available_skills.size() == 0: return []
+func get_random_skills(count: int) -> Array:
+    var result = []
+    for i in range(0, count):
+        var skill = _current_skill_pool[randi() % _current_skill_pool.size()]
+        result.append(skill)
 
-	var skill1 = Random.random_int(0, available_skills.size())
-	var skill2 = skill1
-	if available_skills.size() >= 2:
-		while skill2 == skill1:
-			skill2 = Random.random_int(0, available_skills.size())
-
-	return [available_skills[skill1], available_skills[skill2]] 
+    return skill;
 	
-
-
-func _get_allowed_skills(lvl: int) -> Array:
-	var result = []
-	for child in get_children():
-		var skill: Skill = child
-		if skills.has(skill.type) and skills[skill.type] >= skill.max_used:
-			remove_child(child)
-		elif skill.enabled and lvl >= skill.start_level:
-			result.append(child.type)
-	return result

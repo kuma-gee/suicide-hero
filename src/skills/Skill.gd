@@ -1,27 +1,29 @@
 class_name Skill extends Node
 
-enum Type {
-	HEALTH,
-	SPEED,
-	STRENGTH,
-	MAGNET,
-	HOMING,
-	FIRERATE,
-}
+@export var type := Type.STAT_UP
+@export var skills: Array[SkillResource]
 
-const skill_map = {
-	Type.HEALTH: preload("res://src/skills/hp-up.png"),
-	Type.SPEED: preload("res://src/skills/speed-up.png"),
-	Type.STRENGTH: preload("res://src/skills/strength-up.png"),
-	Type.MAGNET: preload("res://src/skills/pickup-up.png"),
-	Type.HOMING: preload("res://src/skills/homing-shots.png"),
-	Type.FIRERATE: preload("res://src/skills/shot-up.png"),
-}
+var level = 0
 
-@export var enabled := true
-@export var type: Type
-@export var max_used := -1
-@export var start_level := 1
-
-func apply(_player) -> void:
+func apply(_player: Player, _res: Resource) -> void:
 	pass
+
+# TODO: get one or mulitple ??
+func get_skills_for_level() -> Array[SkillResource]:
+    var result = []
+    for skill in skills:
+        if level == skill.level:
+            result.append(skill)
+    return result
+
+# Skill 1
+#   SkillResource LV1
+#   SkillResource LV2
+#   SkillResource LV3
+#   SkillResource LV4
+# Skill 2
+#   SkillResource LV1
+#   SkillResource LV2
+# Skill 3
+#   SkillResource LV0
+#   SkillResource LV0

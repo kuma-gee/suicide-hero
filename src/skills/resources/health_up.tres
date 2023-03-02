@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="SkillResource" load_steps=3 format=3 uid="uid://dvdbeyxfhsawn"]
-
-[ext_resource type="Script" path="res://src/skills/resources/skill_resource.gd" id="1_07c5k"]
-[ext_resource type="Texture2D" uid="uid://csexnfskvec72" path="res://src/skills/hp-up.png" id="1_hv78p"]
-
-[resource]
-script = ExtResource("1_07c5k")
-image = ExtResource("1_hv78p")
