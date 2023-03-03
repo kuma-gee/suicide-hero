@@ -24,5 +24,4 @@ func connect_player_stats(stats: PlayerStats) -> void:
 	experience.connect_value_fill(stats.experience)
 
 func set_level(lvl: int) -> void:
-	print(lvl)
 	level.text = tr("LEVEL") + " " + str(lvl)

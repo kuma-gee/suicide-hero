@@ -8,6 +8,9 @@ var pierce = false
 func set_damage(dmg: int):
 	hitbox.damage = dmg
 
+func set_knockback(force: int):
+	hitbox.knockback_force = force
+
 func _process(delta):
 	velocity = Vector2.RIGHT.rotated(global_rotation) * speed
 	move_and_slide()

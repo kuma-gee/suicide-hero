@@ -4,10 +4,11 @@ extends Node2D
 @export var firerate_timer: Timer
 @export var shoot_sound: AudioStreamPlayer
 
-var firerate := 0.1
-var damage := 10
+var firerate := .1
+var damage := 1
 var count := 3
 var pierce := true
+var knockback_force = 50
 
 var _can_fire = true
 
@@ -41,6 +42,7 @@ func _create_arrow(angle):
 	node.global_rotation = global_rotation + angle
 	node.set_damage(damage)
 	node.pierce = pierce
+	node.set_knockback(knockback_force)
 	return node
 
 func _on_fire_rate_timeout():
