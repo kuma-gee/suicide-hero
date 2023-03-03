@@ -1,19 +1,17 @@
-[gd_scene load_steps=33 format=3 uid="uid://dbdxrkf7cbaae"]
+[gd_scene load_steps=31 format=3 uid="uid://dbdxrkf7cbaae"]
 
 [ext_resource type="Texture2D" uid="uid://c3k3w13gv6d5g" path="res://src/player/sprite.png" id="1"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2"]
 [ext_resource type="Script" path="res://addons/input/PlayerInput.gd" id="3"]
+[ext_resource type="Script" path="res://src/player/Weapons.gd" id="3_biiwg"]
 [ext_resource type="Script" path="res://src/shared/rpg/PickupMagnet.gd" id="4"]
-[ext_resource type="PackedScene" uid="uid://dbtfbe10gf0nk" path="res://src/player/Bullet.tscn" id="5"]
-[ext_resource type="Script" path="res://src/shared/misc/FaceMouse.gd" id="6"]
+[ext_resource type="PackedScene" uid="uid://bem0mqv77cqhl" path="res://src/weapon/bow.tscn" id="5_3dhd2"]
 [ext_resource type="Script" path="res://addons/StateMachine/Move2D.gd" id="7"]
 [ext_resource type="Script" path="res://src/shared/rpg/HurtBox2D.gd" id="8"]
 [ext_resource type="Script" path="res://addons/StateMachine/Knockback2D.gd" id="9"]
 [ext_resource type="Script" path="res://addons/StateMachine/StateMachine.gd" id="10"]
 [ext_resource type="Script" path="res://src/player/PickupArea.gd" id="11"]
-[ext_resource type="PackedScene" uid="uid://iicbctjsbyrj" path="res://src/skills/SkillSelect.tscn" id="12"]
 [ext_resource type="PackedScene" path="res://src/player/PlayerStats.tscn" id="13"]
-[ext_resource type="AudioStream" uid="uid://cuev4lglpljhx" path="res://src/player/SFX_shot11.wav" id="14"]
 [ext_resource type="AudioStream" uid="uid://b6lsk3lt5ltwr" path="res://src/player/SFX_collect&bonus1.wav" id="15"]
 [ext_resource type="AudioStream" uid="uid://d1uwr3ixrkb72" path="res://src/player/SFX_hit&damage8.wav" id="16"]
 [ext_resource type="AudioStream" uid="uid://1ryktaluqmkp" path="res://src/player/SFX_powerUp7.wav" id="18"]
@@ -78,6 +76,9 @@ _data = {
 "Run": SubResource("3")
 }
 
+[sub_resource type="RectangleShape2D" id="7"]
+size = Vector2(13.3731, 5.681)
+
 [sub_resource type="RectangleShape2D" id="4"]
 size = Vector2(12.6422, 18.2859)
 
@@ -86,9 +87,6 @@ radius = 14.2087
 
 [sub_resource type="CircleShape2D" id="6"]
 radius = 14.0
-
-[sub_resource type="RectangleShape2D" id="7"]
-size = Vector2(13.3731, 5.681)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x23uv"]
 bg_color = Color(0.576471, 0.152941, 0.188235, 1)
@@ -105,10 +103,32 @@ libraries = {
 "": SubResource("AnimationLibrary_8vnvk")
 }
 
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource("7")
+
+[node name="Sprite" type="Sprite2D" parent="Body"]
+texture = ExtResource("1")
+offset = Vector2(0, -11)
+hframes = 9
+frame = 8
+
+[node name="StartWeaponFire" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Weapons" type="Node" parent="."]
+script = ExtResource("3_biiwg")
+
+[node name="Bow" parent="Weapons" instance=ExtResource("5_3dhd2")]
+position = Vector2(6, -7)
+
 [node name="GunPointRoot" type="Node2D" parent="."]
 position = Vector2(0, -5.05109)
-script = ExtResource("6")
-bullet = ExtResource("5")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="GunPointRoot"]
+position = Vector2(6, -1.94891)
+remote_path = NodePath("../../Weapons/Bow")
 
 [node name="GunPoint" type="Marker2D" parent="GunPointRoot"]
 position = Vector2(20, 0)
@@ -117,21 +137,12 @@ position = Vector2(20, 0)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("20")
 
-[node name="FireRate" type="Timer" parent="GunPointRoot"]
-wait_time = 0.5
-one_shot = true
-
-[node name="ShotSound" type="AudioStreamPlayer" parent="GunPointRoot"]
-stream = ExtResource("14")
-volume_db = -5.0
-bus = &"SFX"
-
 [node name="HurtBox" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -6.24334)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("8")
-invincibility_time = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("4")
@@ -145,6 +156,7 @@ script = ExtResource("21")
 duration = 0.1
 
 [node name="PickupArea" type="Area2D" parent="." node_paths=PackedStringArray("player")]
+visible = false
 position = Vector2(0, -5.35467)
 collision_layer = 0
 collision_mask = 32
@@ -160,6 +172,7 @@ volume_db = -10.0
 bus = &"SFX"
 
 [node name="PickupMagnet" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -5.19131)
 collision_layer = 0
 collision_mask = 32
@@ -168,15 +181,6 @@ speed = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupMagnet"]
 shape = SubResource("6")
-
-[node name="Body" type="CollisionShape2D" parent="."]
-shape = SubResource("7")
-
-[node name="Sprite" type="Sprite2D" parent="Body"]
-texture = ExtResource("1")
-offset = Vector2(0, -11)
-hframes = 9
-frame = 8
 
 [node name="AimDirection" type="Node" parent="."]
 script = ExtResource("19")
@@ -199,10 +203,6 @@ acceleration = 1200
 friction = 1200
 kinematic_body_path = NodePath("../..")
 body_path = NodePath("../../Body")
-
-[node name="SkillSelect" parent="." instance=ExtResource("12")]
-position = Vector2(0, -26.2165)
-offset = 20
 
 [node name="PlayerStats" parent="." instance=ExtResource("13")]
 
@@ -228,7 +228,7 @@ value = 50.0
 show_percentage = false
 script = ExtResource("22_3xeme")
 
-[connection signal="timeout" from="GunPointRoot/FireRate" to="GunPointRoot" method="_on_FireRate_timeout"]
+[connection signal="timeout" from="StartWeaponFire" to="Weapons" method="start_fire"]
 [connection signal="damaged" from="HurtBox" to="." method="_on_hurt_box_damaged"]
 [connection signal="knockback" from="HurtBox" to="." method="_on_hurt_box_knockback"]
 [connection signal="area_entered" from="PickupArea" to="." method="_on_PickupArea_area_entered"]
@@ -238,7 +238,6 @@ script = ExtResource("22_3xeme")
 [connection signal="knockback_start" from="StateMachine/Knockback2D" to="AnimationPlayer" method="play" binds= ["Hit"]]
 [connection signal="idle" from="StateMachine/Move2D" to="AnimationPlayer" method="play" binds= ["Idle"]]
 [connection signal="run" from="StateMachine/Move2D" to="AnimationPlayer" method="play" binds= ["Run"]]
-[connection signal="skill_selected" from="SkillSelect" to="." method="_on_SkillSelect_skill_selected"]
 [connection signal="level_up" from="PlayerStats" to="." method="_on_PlayerStats_level_up"]
 [connection signal="zero_value" from="PlayerStats/Health" to="." method="_on_Health_zero_value"]
 

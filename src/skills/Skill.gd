@@ -1,20 +1,22 @@
 class_name Skill extends Node
 
-@export var type := Type.STAT_UP
-@export var skills: Array[SkillResource]
+@export var type := SkillResource.Type.STAT_UP
 
 var level = 0
+
+func get_skills():
+	return []
 
 func apply(_player: Player, _res: Resource) -> void:
 	pass
 
 # TODO: get one or mulitple ??
 func get_skills_for_level() -> Array[SkillResource]:
-    var result = []
-    for skill in skills:
-        if level == skill.level:
-            result.append(skill)
-    return result
+	var result = []
+	for skill in get_skills():
+		if level == skill.level:
+			result.append(skill)
+	return result
 
 # Skill 1
 #   SkillResource LV1

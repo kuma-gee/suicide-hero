@@ -23,6 +23,7 @@ func _ready():
 		health.init_health(resource.health)
 		hitbox.damage = resource.attack
 		move.speed = resource.speed
+		sprite.play("default")
 	
 
 func _process(delta):

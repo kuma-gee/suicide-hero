@@ -1,16 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqfvtiauyf1gv"]
+[gd_scene load_steps=7 format=3 uid="uid://dqfvtiauyf1gv"]
 
 [ext_resource type="Script" path="res://src/player/Main.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://b2ks6w7bacyti" path="res://src/map/Map.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://v8ybdh5m87am" path="res://src/scenes/main/HUD.tscn" id="4"]
-[ext_resource type="Script" path="res://src/skills/SpeedUp.gd" id="5"]
 [ext_resource type="Script" path="res://src/skills/SkillManager.gd" id="6"]
-[ext_resource type="Script" path="res://src/skills/HealthUp.gd" id="7"]
-[ext_resource type="Script" path="res://src/skills/StrengthUp.gd" id="8"]
 [ext_resource type="AudioStream" uid="uid://oq3tt0cscewe" path="res://src/scenes/main/Retro Battle Theme 5.ogg" id="9"]
-[ext_resource type="Script" path="res://src/skills/MagnetUp.gd" id="10"]
-[ext_resource type="Script" path="res://src/skills/HomingShot.gd" id="11"]
-[ext_resource type="Script" path="res://src/skills/FireRateUp.gd" id="12"]
 [ext_resource type="PackedScene" uid="uid://dbdxrkf7cbaae" path="res://src/player/Player.tscn" id="13_mgg0h"]
 
 [node name="Main" type="Node"]
@@ -22,41 +16,8 @@ player = NodePath("../Player")
 
 [node name="HUD" parent="." instance=ExtResource("4")]
 
-[node name="SkillManager" type="Node" parent="." node_paths=PackedStringArray("player")]
+[node name="SkillManager" type="Node" parent="."]
 script = ExtResource("6")
-player = NodePath("../Player")
-
-[node name="HealthUp" type="Node" parent="SkillManager"]
-script = ExtResource("7")
-increase = 20
-
-[node name="StrengthUp" type="Node" parent="SkillManager"]
-script = ExtResource("8")
-type = 2
-
-[node name="SpeedUp" type="Node" parent="SkillManager"]
-script = ExtResource("5")
-increase = 10
-type = 1
-
-[node name="MagnetUp" type="Node" parent="SkillManager"]
-script = ExtResource("10")
-increase = 15
-type = 3
-max_used = 4
-start_level = 3
-
-[node name="HomingShot" type="Node" parent="SkillManager"]
-script = ExtResource("11")
-type = 4
-max_used = 1
-start_level = 3
-
-[node name="FireRateUp" type="Node" parent="SkillManager"]
-script = ExtResource("12")
-increase = 0.1
-type = 5
-max_used = 2
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9")
@@ -96,7 +57,3 @@ position = Vector2(-1, -338)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
-
-[connection signal="died" from="Player" to="." method="_on_player_died"]
-[connection signal="level_up" from="Player" to="." method="_on_player_level_up"]
-[connection signal="skill_selected" from="Player" to="." method="_on_player_skill_selected"]

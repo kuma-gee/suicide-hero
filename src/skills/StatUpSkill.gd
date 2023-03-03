@@ -5,19 +5,23 @@ extends Skill
 
 var _logger = Logger.new("StatUpSkill")
 
-func apply(player: Player, resource: StatIncreaseResource):
-    if resource == null:
-        _logger.debug("Called without resource to apply")
-        return
+func get_skills():
+	return skills
 
-    if resource.health != 0:
-        player.stats.health.max_value += increase
+func apply(player: Player, resource: Resource):
+	if resource == null:
+		_logger.debug("Called without resource to apply")
+		return
 
-    if resource.speed != 0:
-        player.increase_speed(increase)
+	var res = resource as StatIncreaseResource
+	if resource.health != 0:
+		player.stats.health.max_value *= res.health
 
-    if resource.pickup != 0:
-        player.increase_magnet(increase)
+	if resource.speed != 0:
+		player.increase_speed(res.speed)
 
-    if resource.attack != 0:
-        player.increase_damage(increase)
+	if resource.pickup != 0:
+		player.increase_magnet(res.pickup)
+
+	if resource.attack != 0:
+		player.increase_damage(res.attack)

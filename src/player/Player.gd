@@ -6,13 +6,12 @@ signal died()
 
 @onready var input := $PlayerInput
 @onready var gun_point_root := $GunPointRoot
-@onready var gun_fire_rate := $GunPointRoot/FireRate
 @onready var state_machine := $StateMachine
 
 @onready var aim_direction := $AimDirection
 @onready var move := $StateMachine/Move2D
 @onready var knockback_state := $StateMachine/Knockback2D
-@onready var skill_select := $SkillSelect
+#@onready var skill_select := $SkillSelect
 
 @onready var stats := $PlayerStats
 @onready var sprite := $Body/Sprite
@@ -34,8 +33,6 @@ func _ready():
 	hp_bar.connect_value_fill(stats.health)
 
 func _process(_delta):
-	gun_point_root.shoot = true
-	
 	move.motion = _get_motion().normalized()
 	move.look_dir = _get_look_direction()
 	
@@ -74,7 +71,8 @@ func enable_homing() -> void:
 	gun_point_root.homing = true
 
 func increase_firerate(decrease: float) -> void:
-	gun_fire_rate.wait_time -= decrease
+	pass
+#	gun_fire_rate.wait_time -= decrease
 
 
 func _on_Knockback2D_knockback_finished():
@@ -83,16 +81,17 @@ func _on_Knockback2D_knockback_finished():
 
 func show_gain(texture: Texture) -> void:
 	var node = LEVEL_UP.instantiate()
-	skill_select.add_child(node)
-	node.set_texture(texture)
+#	skill_select.add_child(node)
+#	node.set_texture(texture)
 
 func skills(skill1: int, skill2: int):
-	skill_select.select_skills(skill1, skill2)
+	pass
+#	skill_select.select_skills(skill1, skill2)
 
 
 func _on_SkillSelect_skill_selected(skill):
 	emit_signal("skill_selected", skill)
-	show_gain(Skill.skill_map[skill])
+#	show_gain(Skill.skill_map[skill])
 
 
 func _on_HurtBox_invincibility_timeout():

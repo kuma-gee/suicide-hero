@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bem0mqv77cqhl"]
+
+[ext_resource type="Texture2D" uid="uid://fvvu71p3cad3" path="res://assets/weapon_bow.png" id="1_ekb8s"]
+[ext_resource type="Script" path="res://src/weapon/bow.gd" id="1_l1xy4"]
+[ext_resource type="PackedScene" uid="uid://eq31jc4rsja7" path="res://src/weapon/arrow.tscn" id="2_65f2n"]
+[ext_resource type="AudioStream" uid="uid://bhnnbne0x7vjt" path="res://sound/弓矢を放つ.mp3" id="5_kfohv"]
+
+[node name="Bow" type="Node2D" node_paths=PackedStringArray("firerate_timer", "shoot_sound")]
+script = ExtResource("1_l1xy4")
+arrow = ExtResource("2_65f2n")
+firerate_timer = NodePath("FireRate")
+shoot_sound = NodePath("Shoot")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ekb8s")
+
+[node name="FireRate" type="Timer" parent="."]
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_kfohv")
+volume_db = -7.856
+pitch_scale = 2.82
+bus = &"SFX"
+
+[connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]
