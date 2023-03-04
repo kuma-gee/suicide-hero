@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://dbdxrkf7cbaae"]
+[gd_scene load_steps=32 format=3 uid="uid://dtsn1ovrh6cex"]
 
 [ext_resource type="Texture2D" uid="uid://c3k3w13gv6d5g" path="res://src/player/sprite.png" id="1"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2"]
+[ext_resource type="Shader" path="res://src/player/Hit.gdshader" id="2_pbxs3"]
 [ext_resource type="Script" path="res://addons/input/PlayerInput.gd" id="3"]
-[ext_resource type="Script" path="res://src/player/Weapons.gd" id="3_biiwg"]
 [ext_resource type="Script" path="res://src/shared/rpg/PickupMagnet.gd" id="4"]
+[ext_resource type="Script" path="res://src/player/SkillApplier.gd" id="4_hqema"]
 [ext_resource type="PackedScene" uid="uid://bem0mqv77cqhl" path="res://src/weapon/bow.tscn" id="5_3dhd2"]
 [ext_resource type="Script" path="res://addons/StateMachine/Move2D.gd" id="7"]
 [ext_resource type="Script" path="res://src/shared/rpg/HurtBox2D.gd" id="8"]
@@ -18,7 +19,6 @@
 [ext_resource type="Script" path="res://src/shared/rpg/AimDirection.gd" id="19"]
 [ext_resource type="Texture2D" uid="uid://dp8evii6gtoxf" path="res://src/player/crosshair.png" id="20"]
 [ext_resource type="PackedScene" uid="uid://8ht4hoky2uf3" path="res://src/player/heal_particles.tscn" id="20_axojp"]
-[ext_resource type="Script" path="res://src/shared/misc/FrameFreeze.gd" id="21"]
 [ext_resource type="Script" path="res://src/shared/gui/ValueBar.gd" id="22_3xeme"]
 
 [sub_resource type="Animation" id="1"]
@@ -79,6 +79,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="7"]
 size = Vector2(13.3731, 5.681)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5n43v"]
+shader = ExtResource("2_pbxs3")
+shader_parameter/amount = 0.0
+
 [sub_resource type="RectangleShape2D" id="4"]
 size = Vector2(12.6422, 18.2859)
 
@@ -107,6 +111,7 @@ libraries = {
 shape = SubResource("7")
 
 [node name="Sprite" type="Sprite2D" parent="Body"]
+material = SubResource("ShaderMaterial_5n43v")
 texture = ExtResource("1")
 offset = Vector2(0, -11)
 hframes = 9
@@ -117,18 +122,24 @@ wait_time = 2.0
 one_shot = true
 autostart = true
 
-[node name="Weapons" type="Node" parent="."]
-script = ExtResource("3_biiwg")
+[node name="SkillManager" type="Node2D" parent="."]
+script = ExtResource("4_hqema")
 
-[node name="Bow" parent="Weapons" instance=ExtResource("5_3dhd2")]
+[node name="Bow" parent="SkillManager" instance=ExtResource("5_3dhd2")]
 position = Vector2(6, -7)
+
+[node name="PlayerStats" parent="SkillManager" instance=ExtResource("13")]
+
+[node name="Experience" parent="SkillManager/PlayerStats" index="0"]
+allow_overflow = true
+max_value = 50.0
 
 [node name="GunPointRoot" type="Node2D" parent="."]
 position = Vector2(0, -5.05109)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="GunPointRoot"]
 position = Vector2(6, -1.94891)
-remote_path = NodePath("../../Weapons/Bow")
+remote_path = NodePath("../../SkillManager/Bow")
 
 [node name="GunPoint" type="Marker2D" parent="GunPointRoot"]
 position = Vector2(20, 0)
@@ -150,10 +161,6 @@ shape = SubResource("4")
 [node name="HitSound" type="AudioStreamPlayer" parent="HurtBox"]
 stream = ExtResource("16")
 bus = &"SFX"
-
-[node name="FrameFreeze" type="Node" parent="HurtBox"]
-script = ExtResource("21")
-duration = 0.1
 
 [node name="PickupArea" type="Area2D" parent="." node_paths=PackedStringArray("player")]
 visible = false
@@ -187,6 +194,7 @@ script = ExtResource("19")
 input_path = NodePath("../PlayerInput")
 
 [node name="PlayerInput" type="Node" parent="."]
+process_mode = 3
 script = ExtResource("3")
 
 [node name="StateMachine" type="Node" parent="."]
@@ -203,12 +211,6 @@ acceleration = 1200
 friction = 1200
 kinematic_body_path = NodePath("../..")
 body_path = NodePath("../../Body")
-
-[node name="PlayerStats" parent="." instance=ExtResource("13")]
-
-[node name="Experience" parent="PlayerStats" index="0"]
-allow_overflow = true
-max_value = 50.0
 
 [node name="HealParticles" parent="." instance=ExtResource("20_axojp")]
 
@@ -228,7 +230,9 @@ value = 50.0
 show_percentage = false
 script = ExtResource("22_3xeme")
 
-[connection signal="timeout" from="StartWeaponFire" to="Weapons" method="start_fire"]
+[connection signal="timeout" from="StartWeaponFire" to="SkillManager" method="start_fire"]
+[connection signal="level_up" from="SkillManager/PlayerStats" to="." method="_on_PlayerStats_level_up"]
+[connection signal="zero_value" from="SkillManager/PlayerStats/Health" to="." method="_on_Health_zero_value"]
 [connection signal="damaged" from="HurtBox" to="." method="_on_hurt_box_damaged"]
 [connection signal="knockback" from="HurtBox" to="." method="_on_hurt_box_knockback"]
 [connection signal="area_entered" from="PickupArea" to="." method="_on_PickupArea_area_entered"]
@@ -238,7 +242,5 @@ script = ExtResource("22_3xeme")
 [connection signal="knockback_start" from="StateMachine/Knockback2D" to="AnimationPlayer" method="play" binds= ["Hit"]]
 [connection signal="idle" from="StateMachine/Move2D" to="AnimationPlayer" method="play" binds= ["Idle"]]
 [connection signal="run" from="StateMachine/Move2D" to="AnimationPlayer" method="play" binds= ["Run"]]
-[connection signal="level_up" from="PlayerStats" to="." method="_on_PlayerStats_level_up"]
-[connection signal="zero_value" from="PlayerStats/Health" to="." method="_on_Health_zero_value"]
 
-[editable path="PlayerStats"]
+[editable path="SkillManager/PlayerStats"]

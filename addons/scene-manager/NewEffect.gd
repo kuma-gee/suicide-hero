@@ -73,7 +73,6 @@ func _create_tween():
 		tween.kill()
 	tween = get_tree().create_tween()
 	setup()
-	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.play()
 	tween.finished.connect(_on_tween_completed)
 

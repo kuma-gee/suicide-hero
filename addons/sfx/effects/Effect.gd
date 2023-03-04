@@ -1,4 +1,5 @@
-class_name Effect extends Node
+class_name Effect
+extends Node
 
 signal started()
 signal finished()

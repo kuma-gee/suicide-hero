@@ -1,18 +1,36 @@
 extends Node2D
 
+@export var skill: UpgradeResource.Skill
 @export var arrow: PackedScene
 @export var firerate_timer: Timer
 @export var shoot_sound: AudioStreamPlayer
+@export var upgrades: Array[BowUpgradeResource] = []
 
-var firerate := .1
-var damage := 1
-var count := 3
-var pierce := true
-var knockback_force = 50
+var firerate := 1.0
+var damage := 5
+var count := 1
+var pierce := false
+var knockback_force = 0
 
 var _can_fire = true
+var _level = 0
+var _logger = Logger.new("Bow")
 
-func fire():
+func get_upgrade():
+	return upgrades[_level]
+
+func apply(res: BowUpgradeResource):
+	if res:
+		firerate *= res.firerate
+		damage *= res.damage
+		count = res.count
+		pierce = res.pierce
+		knockback_force = res.knockback_force
+		_level += 1
+		_logger.info("Upgrading Bow to level %s" % _level)
+
+
+func activate():
 	if not _can_fire: return
 	
 	_can_fire = false

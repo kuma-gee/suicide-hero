@@ -8,10 +8,21 @@ signal hit()
 var nodes = []
 
 func _ready():
-	var _x = connect("area_entered", enter)
-	var _y = connect("body_entered", enter)
+	area_entered.connect(enter)
+	body_entered.connect(enter)
+	area_exited.connect(exit)
+	body_exited.connect(exit)
+
 
 func enter(node) -> void:
 	if node is HurtBox2D:
-		node.damage(damage, global_position, knockback_force)
-		hit.emit()
+		nodes.append(node)
+
+func exit(node) -> void:
+	if node in nodes:
+		nodes.erase(node)
+
+func _process(delta):
+	for node in nodes:
+		if node.damage(damage, global_position, knockback_force):
+			hit.emit()

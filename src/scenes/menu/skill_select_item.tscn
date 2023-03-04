@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsedb6v6j3e0s"]
+
+[ext_resource type="Script" path="res://src/scenes/menu/skill_select_item.gd" id="1_envrx"]
+[ext_resource type="Texture2D" uid="uid://cju1mq5hsegm3" path="res://icon.png" id="1_f45us"]
+
+[node name="SkillSelectItem" type="Button" node_paths=PackedStringArray("texture", "name_label", "desc_label")]
+custom_minimum_size = Vector2(350, 100)
+script = ExtResource("1_envrx")
+texture = NodePath("MarginContainer/HBoxContainer/Icon")
+name_label = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Name")
+desc_label = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Text")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("1_f45us")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "SKILL"
+
+[node name="Text" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Super cool skill that is super strong
+And super long description that describes asdasjdaskdas"
+autowrap_mode = 2

@@ -1,6 +1,5 @@
 class_name Player extends CharacterBody2D
 
-signal skill_selected(skill)
 signal level_up(lvl)
 signal died()
 
@@ -11,23 +10,19 @@ signal died()
 @onready var aim_direction := $AimDirection
 @onready var move := $StateMachine/Move2D
 @onready var knockback_state := $StateMachine/Knockback2D
-#@onready var skill_select := $SkillSelect
 
-@onready var stats := $PlayerStats
+@onready var stats := $SkillManager/PlayerStats
 @onready var sprite := $Body/Sprite
 @onready var anim := $AnimationPlayer
 @onready var magnet := $PickupMagnet/CollisionShape2D
 
 @onready var pickup_sound := $PickupArea/PickupSound
-@onready var hit_sound := $HurtBox/HitSound
 @onready var level_up_sound := $LevelUpSound
-@onready var frame_freeze := $HurtBox/FrameFreeze
 
 @onready var heal_particles := $HealParticles
 @onready var hp_bar: ValueFillBar = $HpBar
 
-const LEVEL_UP = preload("res://src/player/LevelUp.tscn")
-const level_up_img = preload("res://src/player/lvl-up.png")
+@onready var skill_manager: SkillManager = $SkillManager
 
 func _ready():
 	hp_bar.connect_value_fill(stats.health)
@@ -57,45 +52,9 @@ func heal(hp):
 	heal_particles.restart()
 	heal_particles.emitting = true
 
-func increase_damage(dmg) -> void:
-	gun_point_root.damage_increase += dmg
-
-func increase_speed(speed) -> void:
-	move.speed += speed
-
-func increase_magnet(size) -> void:
-	var circle = magnet.shape as CircleShape2D
-	circle.radius += size
-
-func enable_homing() -> void:
-	gun_point_root.homing = true
-
-func increase_firerate(decrease: float) -> void:
-	pass
-#	gun_fire_rate.wait_time -= decrease
-
 
 func _on_Knockback2D_knockback_finished():
 	state_machine.transition(move)
-
-
-func show_gain(texture: Texture) -> void:
-	var node = LEVEL_UP.instantiate()
-#	skill_select.add_child(node)
-#	node.set_texture(texture)
-
-func skills(skill1: int, skill2: int):
-	pass
-#	skill_select.select_skills(skill1, skill2)
-
-
-func _on_SkillSelect_skill_selected(skill):
-	emit_signal("skill_selected", skill)
-#	show_gain(Skill.skill_map[skill])
-
-
-func _on_HurtBox_invincibility_timeout():
-	sprite.modulate.a = 1
 
 
 func _on_PickupArea_area_entered(_area):
@@ -104,9 +63,11 @@ func _on_PickupArea_area_entered(_area):
 
 
 func _on_PlayerStats_level_up(lvl):
-	emit_signal("level_up", lvl)
-	show_gain(level_up_img)
+	level_up.emit(lvl)
 	level_up_sound.play()
+	
+	var skills = skill_manager.get_random_skills(3)
+	GUI.open({"menu": GUI.SkillSelect, "skills": skills})
 
 
 func _on_Health_zero_value():
@@ -115,11 +76,9 @@ func _on_Health_zero_value():
 
 func _on_hurt_box_damaged(dmg):
 	stats.health.reduce(dmg)
-#	sprite.modulate.a = 0.75
-#	hit_sound.play()
-#	frame_freeze.freeze()
 
 
 func _on_hurt_box_knockback(knockback):
 	pass
 	#state_machine.transition(knockback_state, {"knockback": knockback})
+

@@ -24,6 +24,7 @@ const screen_scene_map = {
 	Intro: preload("res://src/scenes/menu/Intro.tscn"),
 	GameOver: preload("res://src/scenes/menu/GameOver.tscn"),
 	Pause: preload("res://src/scenes/menu/Pause.tscn"),
+	SkillSelect: preload("res://src/scenes/menu/skill_select.tscn")
 }
 
 @onready var stack := $MenuStack
@@ -57,6 +58,8 @@ func back_menu():
 	
 	stack.pop()
 
+func clear():
+	open_menu(InGame, true)
 
 func _add_current_menu(_value, added: bool):
 	var menu = stack.current["menu"]

@@ -1,15 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj3bll6mtjvr1"]
+[gd_scene load_steps=3 format=3 uid="uid://dj3bll6mtjvr1"]
 
 [ext_resource type="Script" path="res://src/scenes/menu/skill_select.gd" id="1_u87ld"]
+[ext_resource type="Theme" uid="uid://bjubkp85qmjqv" path="res://theme/theme.tres" id="1_wv20j"]
 
-[node name="SkillSelect" type="Control"]
+[node name="SkillSelect" type="Control" node_paths=PackedStringArray("container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_wv20j")
 script = ExtResource("1_u87ld")
+container = NodePath("CenterContainer/VBoxContainer")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.588235)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

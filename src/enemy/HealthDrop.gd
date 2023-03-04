@@ -9,7 +9,6 @@ enum Size {
 var heal_size = Size.SMALL
 
 @onready var move := $MoveToward2D
-@onready var trail := $Trail2D
 
 func pickup(player: Player):
 	player.heal(_get_heal_amount())
