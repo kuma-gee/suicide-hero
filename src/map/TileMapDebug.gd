@@ -26,7 +26,7 @@ func _draw():
 	if tilemap.grid_pos != null:
 		draw_circle(_grid_to_local(tilemap.grid_pos, true), 5, Color.CYAN)
 #		_draw_rect(tilemap.grid_pos, Color(0, 0, 1, 0.5))
-		print("%s -> %s" % [tilemap.tile_pos, tilemap.grid_pos])
+#		print("%s -> %s" % [tilemap.tile_pos, tilemap.grid_pos])
 
 		if tilemap.grid_dir != null:
 			_draw_dir(tilemap.grid_pos, tilemap.grid_dir, Color.DARK_GREEN)

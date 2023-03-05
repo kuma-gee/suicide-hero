@@ -2,6 +2,8 @@ class_name PickupMagnet extends Area2D
 
 @export var speed = 300
 
+@onready var shape = $CollisionShape2D
+
 var items = []
 
 func _physics_process(delta):
@@ -22,3 +24,10 @@ func _on_PickupMagnet_area_entered(area):
 
 func _on_PickupMagnet_area_exited(area):
 	items.erase(area)
+
+func set_range(value: float):
+	var circle = shape.shape as CircleShape2D
+	circle.radius = value
+
+func get_range():
+	return shape.shape.radius

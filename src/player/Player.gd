@@ -14,7 +14,6 @@ signal died()
 @onready var stats := $SkillManager/PlayerStats
 @onready var sprite := $Body/Sprite
 @onready var anim := $AnimationPlayer
-@onready var magnet := $PickupMagnet/CollisionShape2D
 
 @onready var pickup_sound := $PickupArea/PickupSound
 @onready var level_up_sound := $LevelUpSound
@@ -23,6 +22,8 @@ signal died()
 @onready var hp_bar: ValueFillBar = $HpBar
 
 @onready var skill_manager: SkillManager = $SkillManager
+
+var _logger = Logger.new("Player")
 
 func _ready():
 	hp_bar.connect_value_fill(stats.health)
@@ -67,6 +68,7 @@ func _on_PlayerStats_level_up(lvl):
 	level_up_sound.play()
 	
 	var skills = skill_manager.get_random_skills(3)
+	_logger.info("Random skills: %s" % [skills])
 	GUI.open({"menu": GUI.SkillSelect, "skills": skills})
 
 

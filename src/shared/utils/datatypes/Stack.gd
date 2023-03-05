@@ -24,7 +24,7 @@ func pop():
 
 func push(value):
 	stack.push_back(value)
-	emit_signal("added", value)
+	added.emit(value)
 
 func clear():
 	stack.clear()

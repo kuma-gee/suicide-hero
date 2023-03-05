@@ -14,6 +14,7 @@ signal max_value_changed(value)
 var value := 0.0 : set = _set_value
 
 func _ready():
+	await owner.ready
 	if not start_empty:
 		value = max_value
 	
@@ -35,10 +36,6 @@ func is_full_value() -> bool:
 
 func fill() -> void:
 	self.value = max_value
-
-func init_health(hp: float):
-	max_value = hp
-	value = hp
 
 func _set_value(hp: float) -> void:
 	if value == hp: return

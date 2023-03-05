@@ -2,7 +2,8 @@ class_name UpgradeResource
 extends Resource
 
 enum Skill {
-	BOW
+	BOW,
+	STAT,
 }
 
 @export var description: SkillDescriptionResource

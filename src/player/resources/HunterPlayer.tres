@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=2 format=3 uid="uid://c0xotwapnvy48"]
+
+[ext_resource type="Script" path="res://src/player/resources/PlayerResource.gd" id="1_ndehc"]
+
+[resource]
+script = ExtResource("1_ndehc")
+health = 70
+speed = 1.2
+pickup = 1.0
+attack = 1.0

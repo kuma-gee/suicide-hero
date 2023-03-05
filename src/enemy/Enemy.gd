@@ -20,7 +20,7 @@ var resource: EnemyResource
 func _ready():
 	if resource:
 		sprite.sprite_frames = resource.sprites
-		health.init_health(resource.health)
+		health.max_value = resource.health
 		hitbox.damage = resource.attack
 		move.speed = resource.speed
 		sprite.play("default")
@@ -37,6 +37,7 @@ func _process(delta):
 		move.look_dir = move.motion
 
 func _on_HurtBox_damaged(dmg):
+	print("Enemy hit: %s / %s -> %s" % [health.value, health.max_value, health.value - dmg])
 	health.reduce(dmg)
 
 

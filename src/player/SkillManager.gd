@@ -2,6 +2,7 @@ class_name SkillManager
 extends Node
 
 var fire = false
+var _player_res: PlayerResource
 
 func _ready():
 	Events.skill_selected.connect(apply)
@@ -11,7 +12,7 @@ func _process(delta):
 	
 	for child in get_children():
 		if child.has_method("activate"):
-			child.activate()
+			child.activate(_player_res)
 
 func start_fire():
 	fire = true
@@ -35,3 +36,7 @@ func get_random_skills(count: int):
 			break
 	
 	return result
+
+
+func _on_player_stats_player_stat_changed(res):
+	_player_res = res

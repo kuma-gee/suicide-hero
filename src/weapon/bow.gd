@@ -4,11 +4,11 @@ extends Node2D
 @export var arrow: PackedScene
 @export var firerate_timer: Timer
 @export var shoot_sound: AudioStreamPlayer
-@export var upgrades: Array[BowUpgradeResource] = []
+@export var upgrade: BowUpgradeResource
 
-var firerate := 1.0
-var damage := 5
-var count := 1
+var firerate := 0.2
+var damage := 10
+var count := 3
 var pierce := false
 var knockback_force = 0
 
@@ -17,20 +17,23 @@ var _level = 0
 var _logger = Logger.new("Bow")
 
 func get_upgrade():
-	return upgrades[_level]
+	return upgrade
 
-func apply(res: BowUpgradeResource):
-	if res:
-		firerate *= res.firerate
-		damage *= res.damage
-		count = res.count
-		pierce = res.pierce
-		knockback_force = res.knockback_force
+func apply(res: UpgradeResource):
+	var bow = res as BowUpgradeResource
+	if bow:
+		firerate *= bow.firerate
+		damage *= bow.damage
+		count += bow.count
+		pierce = bow.pierce
+		knockback_force = bow.knockback_force
+		upgrade = bow.next_upgrade
 		_level += 1
+	
 		_logger.info("Upgrading Bow to level %s" % _level)
 
 
-func activate():
+func activate(player: PlayerResource):
 	if not _can_fire: return
 	
 	_can_fire = false
@@ -39,6 +42,7 @@ func activate():
 	for i in range(0, count):
 		var angle = angles[i]
 		var arrow_node = _create_arrow(angle)
+		arrow_node.set_damage(damage * player.attack)
 		get_tree().current_scene.add_child(arrow_node)
 	shoot_sound.play()
 	
@@ -58,7 +62,6 @@ func _create_arrow(angle):
 	var node = arrow.instantiate()
 	node.global_transform = global_transform
 	node.global_rotation = global_rotation + angle
-	node.set_damage(damage)
 	node.pierce = pierce
 	node.set_knockback(knockback_force)
 	return node

@@ -38,7 +38,7 @@ frame_progress = 0.0752486
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("7")
-max_value = 20.0
+max_value = 50.0
 
 [node name="HurtBox" type="Area2D" parent="."]
 position = Vector2(0, -3.11814)
