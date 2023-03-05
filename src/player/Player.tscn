@@ -88,14 +88,14 @@ size = Vector2(13.3731, 5.681)
 shader = ExtResource("2_pbxs3")
 shader_parameter/amount = 0.0
 
-[sub_resource type="CircleShape2D" id="6"]
-radius = 14.0
-
 [sub_resource type="RectangleShape2D" id="4"]
 size = Vector2(12.6422, 18.2859)
 
 [sub_resource type="CircleShape2D" id="5"]
 radius = 14.2087
+
+[sub_resource type="CircleShape2D" id="6"]
+radius = 12.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x23uv"]
 bg_color = Color(0.576471, 0.152941, 0.188235, 1)
@@ -134,7 +134,7 @@ script = ExtResource("4_246k3")
 position = Vector2(6, -7)
 
 [node name="PlayerStats" parent="SkillManager" node_paths=PackedStringArray("pickup_magnet", "move_state") instance=ExtResource("13")]
-pickup_magnet = NodePath("PickupMagnet")
+pickup_magnet = NodePath("../../PickupMagnet")
 move_state = NodePath("../../StateMachine/Move2D")
 upgrades = Array[Resource("res://src/skills/resources/StatUpgradeResource.gd")]([ExtResource("8_kveu2"), ExtResource("9_rlr83"), ExtResource("10_wyxlg"), ExtResource("11_cho5m")])
 player_res = ExtResource("8_phl3t")
@@ -142,16 +142,6 @@ player_res = ExtResource("8_phl3t")
 [node name="Experience" parent="SkillManager/PlayerStats" index="0"]
 allow_overflow = true
 max_value = 50.0
-
-[node name="PickupMagnet" type="Area2D" parent="SkillManager/PlayerStats"]
-position = Vector2(0, -5.19131)
-collision_layer = 0
-collision_mask = 32
-script = ExtResource("4")
-speed = 500
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SkillManager/PlayerStats/PickupMagnet"]
-shape = SubResource("6")
 
 [node name="GunPointRoot" type="Node2D" parent="."]
 position = Vector2(0, -5.05109)
@@ -198,6 +188,16 @@ stream = ExtResource("15")
 volume_db = -10.0
 bus = &"SFX"
 
+[node name="PickupMagnet" type="Area2D" parent="."]
+position = Vector2(0, -5.19131)
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("4")
+speed = 500
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupMagnet"]
+shape = SubResource("6")
+
 [node name="AimDirection" type="Node" parent="."]
 script = ExtResource("19")
 input_path = NodePath("../PlayerInput")
@@ -243,11 +243,11 @@ script = ExtResource("22_3xeme")
 [connection signal="level_up" from="SkillManager/PlayerStats" to="." method="_on_PlayerStats_level_up"]
 [connection signal="player_stat_changed" from="SkillManager/PlayerStats" to="SkillManager" method="_on_player_stats_player_stat_changed"]
 [connection signal="zero_value" from="SkillManager/PlayerStats/Health" to="." method="_on_Health_zero_value"]
-[connection signal="area_entered" from="SkillManager/PlayerStats/PickupMagnet" to="SkillManager/PlayerStats/PickupMagnet" method="_on_PickupMagnet_area_entered"]
-[connection signal="area_exited" from="SkillManager/PlayerStats/PickupMagnet" to="SkillManager/PlayerStats/PickupMagnet" method="_on_PickupMagnet_area_exited"]
 [connection signal="damaged" from="HurtBox" to="." method="_on_hurt_box_damaged"]
 [connection signal="knockback" from="HurtBox" to="." method="_on_hurt_box_knockback"]
 [connection signal="area_entered" from="PickupArea" to="." method="_on_PickupArea_area_entered"]
+[connection signal="area_entered" from="PickupMagnet" to="PickupMagnet" method="_on_PickupMagnet_area_entered"]
+[connection signal="area_exited" from="PickupMagnet" to="PickupMagnet" method="_on_PickupMagnet_area_exited"]
 [connection signal="knockback_finished" from="StateMachine/Knockback2D" to="." method="_on_Knockback2D_knockback_finished"]
 [connection signal="knockback_start" from="StateMachine/Knockback2D" to="AnimationPlayer" method="play" binds= ["Hit"]]
 [connection signal="idle" from="StateMachine/Move2D" to="AnimationPlayer" method="play" binds= ["Idle"]]

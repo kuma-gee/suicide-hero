@@ -1,22 +1,23 @@
-[gd_resource type="Resource" script_class="BowUpgradeResource" load_steps=3 format=3 uid="uid://cn3rnwfb32nev"]
+[gd_resource type="Resource" script_class="BowUpgradeResource" load_steps=6 format=3 uid="uid://cn3rnwfb32nev"]
 
 [ext_resource type="Script" path="res://src/skills/resources/BowUpgradeResource.gd" id="1_8wcyn"]
+[ext_resource type="Texture2D" uid="uid://cju1mq5hsegm3" path="res://icon.png" id="1_c0ly6"]
+[ext_resource type="Script" path="res://src/skills/resources/SkillDescriptionResource.gd" id="2_v62rn"]
+[ext_resource type="Resource" uid="uid://ba6e4tc6y360n" path="res://src/skills/resources/BowLV5.tres" id="3_54epw"]
 
-[sub_resource type="Resource" id="Resource_1jp5e"]
-script = ExtResource("1_8wcyn")
-firerate = 1.0
-damage = 1.0
-count = 0
-pierce = false
-knockback_force = 0
-speed = 0.0
+[sub_resource type="Resource" id="Resource_w2hc6"]
+script = ExtResource("2_v62rn")
+text = "FIRERATE 20% and COUNT +1"
+name = "BOW LV4"
+icon = ExtResource("1_c0ly6")
 
 [resource]
 script = ExtResource("1_8wcyn")
-firerate = 1.1
-damage = 1.0
-count = 2
+firerate = 0.2
+damage = 0.0
+count = 1
 pierce = false
 knockback_force = 0
 speed = 0.0
-next_upgrade = SubResource("Resource_1jp5e")
+next_upgrade = ExtResource("3_54epw")
+description = SubResource("Resource_w2hc6")

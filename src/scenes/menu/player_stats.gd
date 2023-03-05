@@ -15,5 +15,4 @@ func _ready():
 	attack.text = "+ %s%%" % _to_percentage(res.attack)
 	
 func _to_percentage(value: float):
-	var v = ceil(value * 100)
-	return floor(v - 100)
+	return roundf(value * 100)

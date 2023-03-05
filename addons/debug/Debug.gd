@@ -39,6 +39,10 @@ var _commands = {
 		"desc": "Set zoom of camera. Call without arguments to reset to original zoom",
 		"action": func(x): _zoom_cmd(x)
 	},
+	"/upgrade": {
+		"desc": "Apply an upgrade to a skill",
+		"action": func(x): _upgrade_cmd(x)
+	}
 }
 
 func _ready():
@@ -131,7 +135,17 @@ func _zoom_cmd(args: Array[String] = []):
 		else:
 			print_line("Invalid zoom value for camera: %s" % args[0])
 
-func _light_cmd(args: Array[String] = []):
-	for light in get_tree().get_nodes_in_group("Light"):
-		light.visible = not light.visible
-	_zoom_cmd(["0.2"])
+func _upgrade_cmd(args: Array[String] = []):
+	var player = get_tree().get_first_node_in_group("Player")
+	if player != null:
+		if args.size() >= 1:
+			var skill = player.skill_manager.find_child(args[0])
+			if skill != null:
+				var upgrade = skill.get_upgrade()
+				while upgrade != null:
+					player.skill_manager.apply(upgrade)
+					upgrade = skill.get_upgrade()
+		else:
+			print_line("No skill specified")
+	else:
+		print_line("No player found")

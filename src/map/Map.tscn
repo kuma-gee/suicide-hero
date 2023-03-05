@@ -30,7 +30,7 @@ enable = true
 tilemap = NodePath("../TileMap")
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 0.2
 autostart = true
 
 [node name="NewEnemyTimer" type="Timer" parent="."]

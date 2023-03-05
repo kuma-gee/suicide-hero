@@ -3,6 +3,7 @@ extends Node
 
 var fire = false
 var _player_res: PlayerResource
+var _logger = Logger.new("SkillManager")
 
 func _ready():
 	Events.skill_selected.connect(apply)
@@ -18,6 +19,8 @@ func start_fire():
 	fire = true
 
 func apply(skill: UpgradeResource):
+	_logger.info("Applying %s" % tr(skill.description.name))
+	
 	for child in get_children():
 		if child.has_method("apply"):
 			child.apply(skill)

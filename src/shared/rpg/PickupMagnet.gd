@@ -5,6 +5,8 @@ class_name PickupMagnet extends Area2D
 @onready var shape = $CollisionShape2D
 
 var items = []
+var _min_pickup := 10
+var _max_pickup := 60
 
 func _physics_process(delta):
 	for item in items:
@@ -25,9 +27,9 @@ func _on_PickupMagnet_area_entered(area):
 func _on_PickupMagnet_area_exited(area):
 	items.erase(area)
 
-func set_range(value: float):
+func set_range(percentage: float):
+	var extra_radius = (_max_pickup - _min_pickup) * percentage
 	var circle = shape.shape as CircleShape2D
-	circle.radius = value
-
-func get_range():
-	return shape.shape.radius
+	circle.radius = _min_pickup + extra_radius
+	
+	print("%s - %s - %s" % [circle.radius, extra_radius, percentage])

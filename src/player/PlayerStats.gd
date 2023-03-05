@@ -17,14 +17,12 @@ signal level_up(lvl)
 
 var _original_health: int
 var _original_speed: float
-var _original_range: float
 
 func _ready():
 	health.max_value = player_res.health
 	
 	_original_health = player_res.health
 	_original_speed = move_state.speed
-	_original_range = pickup_magnet.get_range()
 	player_stat_changed.emit(player_res)
 
 func _process(delta):
@@ -55,9 +53,9 @@ func apply(res: UpgradeResource):
 		player_res.speed += stat.speed
 		player_res.pickup += stat.pickup
 		
-		pickup_magnet.set_range(_original_range * player_res.pickup)
+		pickup_magnet.set_range(player_res.pickup)
 		health.max_value = player_res.health
-		move_state.speed = _original_speed * player_res.speed
+		move_state.speed = _original_speed * (1 + player_res.speed)
 		player_stat_changed.emit(player_res)
 
 func get_upgrade():
