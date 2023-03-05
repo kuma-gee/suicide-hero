@@ -6,6 +6,7 @@ extends UpgradeResource
 @export var count := 0
 @export var pierce := false
 @export var knockback_force = 0
+@export var speed := 0.0
 
 @export var next_upgrade: BowUpgradeResource
 

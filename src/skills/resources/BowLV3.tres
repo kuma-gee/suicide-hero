@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BowUpgradeResource" load_steps=3 format=3 uid="uid://kx3sx3ge5idn"]
+
+[ext_resource type="Script" path="res://src/skills/resources/BowUpgradeResource.gd" id="1_dgmr7"]
+[ext_resource type="Resource" uid="uid://cn3rnwfb32nev" path="res://src/skills/resources/BowLV4.tres" id="1_fchow"]
+
+[resource]
+script = ExtResource("1_dgmr7")
+firerate = 1.0
+damage = 1.1
+count = 0
+pierce = true
+knockback_force = 0
+speed = 0.0
+next_upgrade = ExtResource("1_fchow")

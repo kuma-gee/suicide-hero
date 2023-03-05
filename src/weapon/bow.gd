@@ -6,11 +6,12 @@ extends Node2D
 @export var shoot_sound: AudioStreamPlayer
 @export var upgrade: BowUpgradeResource
 
-var firerate := 0.2
-var damage := 10
+var firerate := 1.0
+var damage := 5
 var count := 1
 var pierce := false
 var knockback_force = 0
+var speed := 1.0
 
 var _can_fire = true
 var _level = 0
@@ -25,8 +26,9 @@ func apply(res: UpgradeResource):
 		firerate *= bow.firerate
 		damage *= bow.damage
 		count += bow.count
-		pierce = bow.pierce
-		knockback_force = bow.knockback_force
+		if bow.pierce:
+			pierce = true
+		knockback_force += bow.knockback_force
 		upgrade = bow.next_upgrade
 		_level += 1
 	

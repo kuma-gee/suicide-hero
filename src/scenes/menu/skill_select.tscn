@@ -27,10 +27,6 @@ color = Color(0, 0, 0, 0.588235)
 
 [node name="PlayerStats" parent="." instance=ExtResource("3_ye41m")]
 layout_mode = 1
-anchors_preset = 9
-anchor_right = 0.0
-offset_right = 51.0
-grow_horizontal = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

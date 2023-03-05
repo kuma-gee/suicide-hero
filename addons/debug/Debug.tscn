@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://cib1n1b248gx6"]
 
 [ext_resource type="Script" path="res://addons/debug/Debug.gd" id="1"]
-[ext_resource type="Theme" uid="uid://cvvavdkxk7llv" path="res://theme/theme.tres" id="2_6fu5f"]
+[ext_resource type="Theme" uid="uid://bjubkp85qmjqv" path="res://theme/theme.tres" id="2_6fu5f"]
 
 [node name="Debug" type="CanvasLayer" node_paths=PackedStringArray("lines", "scroll", "input")]
+process_mode = 3
 layer = 100
 script = ExtResource("1")
 lines = NodePath("MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer")

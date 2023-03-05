@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cutwa6uptaxi5"]
+[gd_scene load_steps=37 format=3 uid="uid://cutwa6uptaxi5"]
 
 [ext_resource type="Texture2D" uid="uid://c3k3w13gv6d5g" path="res://src/player/sprite.png" id="1"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://src/shared/rpg/PickupMagnet.gd" id="4"]
 [ext_resource type="Script" path="res://src/player/SkillManager.gd" id="4_246k3"]
 [ext_resource type="PackedScene" uid="uid://bem0mqv77cqhl" path="res://src/weapon/bow.tscn" id="5_3dhd2"]
-[ext_resource type="Resource" uid="uid://bva3empru0vxh" path="res://src/skills/resources/BowLV1.tres" id="6_8gjay"]
 [ext_resource type="Script" path="res://addons/StateMachine/Move2D.gd" id="7"]
 [ext_resource type="Script" path="res://src/shared/rpg/HurtBox2D.gd" id="8"]
 [ext_resource type="Resource" uid="uid://bl2jc5an0bv7m" path="res://src/skills/resources/StatUpAttackLV1.tres" id="8_kveu2"]
@@ -133,7 +132,6 @@ script = ExtResource("4_246k3")
 
 [node name="Bow" parent="SkillManager" instance=ExtResource("5_3dhd2")]
 position = Vector2(6, -7)
-upgrade = ExtResource("6_8gjay")
 
 [node name="PlayerStats" parent="SkillManager" node_paths=PackedStringArray("pickup_magnet", "move_state") instance=ExtResource("13")]
 pickup_magnet = NodePath("PickupMagnet")

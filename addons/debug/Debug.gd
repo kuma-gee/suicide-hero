@@ -39,10 +39,6 @@ var _commands = {
 		"desc": "Set zoom of camera. Call without arguments to reset to original zoom",
 		"action": func(x): _zoom_cmd(x)
 	},
-	"/light": {
-		"desc": "Toggle light on/off",
-		"action": func(x): _light_cmd(x)
-	}
 }
 
 func _ready():
@@ -53,12 +49,14 @@ func _ready():
 	_version_cmd()
 	_logging_cmd()
 
-
 func _unhandled_input(event):
 	if event.is_action_pressed("dev"):
 		visible = !visible
 		if visible:
 			input.grab_focus()
+			get_tree().paused = true
+		else:
+			get_tree().paused = false
 
 
 func print_line(str: String):
