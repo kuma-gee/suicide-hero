@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj3bll6mtjvr1"]
+[gd_scene load_steps=4 format=3 uid="uid://dj3bll6mtjvr1"]
 
 [ext_resource type="Script" path="res://src/scenes/menu/skill_select.gd" id="1_u87ld"]
 [ext_resource type="Theme" uid="uid://bjubkp85qmjqv" path="res://theme/theme.tres" id="1_wv20j"]
+[ext_resource type="PackedScene" uid="uid://ums25xh0nbch" path="res://src/scenes/menu/player_stats.tscn" id="3_ye41m"]
 
 [node name="SkillSelect" type="Control" node_paths=PackedStringArray("container")]
 layout_mode = 3
@@ -23,6 +24,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.588235)
+
+[node name="PlayerStats" parent="." instance=ExtResource("3_ye41m")]
+layout_mode = 1
+anchors_preset = 9
+anchor_right = 0.0
+offset_right = 51.0
+grow_horizontal = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

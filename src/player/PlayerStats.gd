@@ -31,7 +31,7 @@ func _process(delta):
 	_gain_experience()
 
 func _gain_experience() -> void:
-	var ex = health.value * 0.001
+	var ex = health.value * 0.005
 	experience.increase(ex)
 	health.reduce(ex)
 
@@ -54,11 +54,6 @@ func apply(res: UpgradeResource):
 		player_res.attack += stat.attack
 		player_res.speed += stat.speed
 		player_res.pickup += stat.pickup
-		
-		print(player_res.health)
-		print(player_res.attack)
-		print(player_res.speed)
-		print(player_res.pickup)
 		
 		pickup_magnet.set_range(_original_range * player_res.pickup)
 		health.max_value = player_res.health

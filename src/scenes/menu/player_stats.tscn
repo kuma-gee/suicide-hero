@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://ums25xh0nbch"]
+
+[ext_resource type="Script" path="res://src/scenes/menu/player_stats.gd" id="1_vpbuy"]
+
+[node name="PlayerStats" type="MarginContainer" node_paths=PackedStringArray("health", "speed", "pickup", "attack")]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 51.0
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_vpbuy")
+health = NodePath("CenterContainer/VBoxContainer/Health")
+speed = NodePath("CenterContainer/VBoxContainer/Speed")
+pickup = NodePath("CenterContainer/VBoxContainer/Pickup")
+attack = NodePath("CenterContainer/VBoxContainer/Attack")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="GridContainer" parent="CenterContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="HealthLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "HEALTH"
+
+[node name="Health" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SpeedLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "SPEED"
+
+[node name="Speed" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PickupLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "PICKUP"
+
+[node name="Pickup" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AttackLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "ATTACK"
+
+[node name="Attack" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2

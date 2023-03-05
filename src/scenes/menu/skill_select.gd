@@ -15,6 +15,8 @@ func init(data) -> void:
 			skill_node.set_description(skill.description if skill.description else EMPTY)
 			skill_node.pressed.connect(func(): _on_skill_select(skill))
 			container.add_child(skill_node)
+	
+	
 
 
 func _on_skill_select(skill: UpgradeResource):

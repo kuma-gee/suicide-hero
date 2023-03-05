@@ -48,6 +48,12 @@ func _get_look_direction() -> Vector2:
 func get_level():
 	return stats.level
 
+func get_stats() -> PlayerResource:
+	return stats.player_res
+
+func get_current_health() -> int:
+	return stats.health.value
+
 func heal(hp):
 	stats.health.increase(hp)
 	heal_particles.restart()
