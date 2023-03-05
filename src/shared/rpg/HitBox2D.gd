@@ -24,5 +24,5 @@ func exit(node) -> void:
 
 func _process(delta):
 	for node in nodes:
-		if node.damage(damage, global_position, knockback_force):
-			hit.emit()
+		node.damage(damage, global_position, knockback_force)
+		hit.emit()

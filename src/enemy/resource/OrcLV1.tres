@@ -8,4 +8,4 @@ script = ExtResource("1_4etx4")
 sprites = ExtResource("2_smydm")
 health = 40
 attack = 10
-speed = 100
+speed = 40

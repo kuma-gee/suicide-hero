@@ -1,15 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2ks6w7bacyti"]
+[gd_scene load_steps=6 format=3 uid="uid://b2ks6w7bacyti"]
 
 [ext_resource type="TileSet" uid="uid://cbankqtbdlcdh" path="res://src/map/tileset.tres" id="1"]
 [ext_resource type="Script" path="res://src/map/Map.gd" id="2"]
 [ext_resource type="Resource" uid="uid://chhrakbyuxqho" path="res://src/enemy/resource/SkeletonLV1.tres" id="2_2uk0b"]
 [ext_resource type="Script" path="res://src/map/InfiniteMap.gd" id="3_chqxh"]
-[ext_resource type="Resource" uid="uid://dxvwnvo62s7co" path="res://src/enemy/resource/TinyZombieLV1.tres" id="3_vq8sq"]
 [ext_resource type="Script" path="res://src/map/TileMapDebug.gd" id="6_t135l"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("2")
-enemies = Array[Resource("res://src/enemy/resource/EnemyResource.gd")]([ExtResource("2_2uk0b"), ExtResource("3_vq8sq"), null, null, null])
+enemies = Array[Resource("res://src/enemy/resource/EnemyResource.gd")]([ExtResource("2_2uk0b")])
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1")
@@ -31,6 +30,7 @@ enable = true
 tilemap = NodePath("../TileMap")
 
 [node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
 autostart = true
 
 [node name="NewEnemyTimer" type="Timer" parent="."]

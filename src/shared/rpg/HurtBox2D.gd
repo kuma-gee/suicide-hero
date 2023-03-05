@@ -5,7 +5,7 @@ signal hit()
 signal knockback(knockback)
 signal invincibility_timeout()
 
-@export var invincibility_time := 0.5
+@export var invincibility_time := 0.0
 
 var timer = Timer.new()
 var invincible = false
@@ -31,7 +31,8 @@ func damage(dmg: int, pos := Vector2.ZERO, knockback_force := 0) -> bool:
 	if knockback_force != 0:
 		var knockback_vector = pos.direction_to(global_position)
 		emit_signal("knockback", knockback_vector * knockback_force)
-		
-	invincible = true
-	timer.start(invincibility_time)
+	
+	if invincibility_time > 0:
+		invincible = true
+		timer.start(invincibility_time)
 	return true

@@ -46,7 +46,8 @@ func _get_possible_spawn_points():
 
 
 func _on_new_enemy_timer_timeout():
-	_add_enemy_to_pool()
+	if enemies.size() > 0:
+		_add_enemy_to_pool()
 
 func _add_enemy_to_pool():
 	_enemy_pool.append(enemies.pop_front())

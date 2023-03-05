@@ -8,4 +8,4 @@ script = ExtResource("1_xseeb")
 sprites = ExtResource("2_k61fi")
 health = 5
 attack = 5
-speed = 150
+speed = 80

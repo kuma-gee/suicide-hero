@@ -8,7 +8,7 @@ extends Node2D
 
 var firerate := 0.2
 var damage := 10
-var count := 3
+var count := 1
 var pierce := false
 var knockback_force = 0
 

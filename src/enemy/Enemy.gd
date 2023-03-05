@@ -17,6 +17,8 @@ class_name Enemy extends CharacterBody2D
 var player: Node2D
 var resource: EnemyResource
 
+var _logger = Logger.new("Enemy")
+
 func _ready():
 	if resource:
 		sprite.sprite_frames = resource.sprites
@@ -24,6 +26,8 @@ func _ready():
 		hitbox.damage = resource.attack
 		move.speed = resource.speed
 		sprite.play("default")
+	else:
+		_logger.warn("No enemy resource for %s " % self)
 	
 
 func _process(delta):
@@ -37,7 +41,7 @@ func _process(delta):
 		move.look_dir = move.motion
 
 func _on_HurtBox_damaged(dmg):
-	print("Enemy hit: %s / %s -> %s" % [health.value, health.max_value, health.value - dmg])
+#	print("Enemy hit: %s / %s -> %s" % [health.value, health.max_value, health.value - dmg])
 	health.reduce(dmg)
 
 
