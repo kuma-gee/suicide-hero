@@ -10,3 +10,6 @@ extends Resource
 
 # @export var armor: int;
 # @export var dodge: float;
+
+func get_attack_multiplier():
+    return 1 + attack
