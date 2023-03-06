@@ -36,6 +36,7 @@ func activate(player: PlayerResource) -> void:
 		node.rotation = angle_step * i
 		node.max_hits = res.max_hits
 		node.set_damage(res.damage * player.get_attack_multiplier(), res.knockback)
+		node.scale = Vector2(res.scale, res.scale)
 		add_child(node)
 	
 	_logger.debug("Spawning %s knifes in angle of %s" % [res.amount, rad_to_deg(angle_step)])

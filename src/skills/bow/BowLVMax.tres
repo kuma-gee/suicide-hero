@@ -10,3 +10,4 @@ count = 3
 pierce = true
 knockback_force = 80
 speed = 400
+scale = 1.3

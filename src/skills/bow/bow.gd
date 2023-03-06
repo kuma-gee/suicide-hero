@@ -39,6 +39,7 @@ func activate(player: PlayerResource):
 		arrow_node.pierce = _current_upgrade.pierce
 		arrow_node.speed = _current_upgrade.speed
 		arrow_node.set_knockback(_current_upgrade.knockback_force)
+		arrow_node.scale = Vector2(_current_upgrade.scale, _current_upgrade.scale)
 		get_tree().current_scene.add_child(arrow_node)
 	shoot_sound.play()
 	

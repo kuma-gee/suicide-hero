@@ -8,3 +8,4 @@ extends UpgradeResource
 @export var offset := 50
 @export var max_hits := 5
 @export var knockback := 0
+@export var scale := 1.0
