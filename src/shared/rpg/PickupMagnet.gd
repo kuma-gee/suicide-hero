@@ -1,12 +1,15 @@
 class_name PickupMagnet extends Area2D
 
-@export var speed = 300
+@export var speed = 100
 
 @onready var shape = $CollisionShape2D
 
 var items = []
-var _min_pickup := 10
-var _max_pickup := 60
+var _min_pickup := 30
+var _max_pickup := 100
+
+func _ready():
+	set_range(0)
 
 func _physics_process(delta):
 	for item in items:
