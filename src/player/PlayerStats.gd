@@ -59,4 +59,5 @@ func apply(res: UpgradeResource):
 		player_stat_changed.emit(player_res)
 
 func get_upgrade():
+	if upgrades.is_empty(): return null
 	return upgrades.pick_random()

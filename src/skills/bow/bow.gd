@@ -19,7 +19,7 @@ func get_upgrade():
 func apply(res: UpgradeResource):
 	var bow = res as BowUpgradeResource
 	if bow:
-        _current_upgrade = bow
+		_current_upgrade = bow
 		upgrade = bow.next_upgrade
 		_level += 1
 	

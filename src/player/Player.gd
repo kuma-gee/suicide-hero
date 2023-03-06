@@ -75,7 +75,8 @@ func _on_PlayerStats_level_up(lvl):
 	
 	var skills = skill_manager.get_random_skills(3)
 	_logger.info("Random skills: %s" % [skills])
-	GUI.open({"menu": GUI.SkillSelect, "skills": skills})
+	if skills.size() > 0:
+		GUI.open({"menu": GUI.SkillSelect, "skills": skills})
 
 
 func _on_Health_zero_value():

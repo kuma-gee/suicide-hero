@@ -1,18 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://c2j6q8cyljml7"]
 
-[ext_resource path="res://src/player/PlayerStats.gd" type="Script" id=1]
-[ext_resource path="res://src/shared/misc/ValueFill.gd" type="Script" id=2]
+[ext_resource type="Script" path="res://src/player/PlayerStats.gd" id="1"]
+[ext_resource type="Script" path="res://src/shared/misc/ValueFill.gd" id="2"]
 
 [node name="PlayerStats" type="Node"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="Experience" type="Node" parent="."]
-script = ExtResource( 2 )
+script = ExtResource("2")
 start_empty = true
-overflow = true
 max_value = 50
 
 [node name="Health" type="Node" parent="."]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [connection signal="overflow" from="Experience" to="." method="_on_Experience_overflow"]

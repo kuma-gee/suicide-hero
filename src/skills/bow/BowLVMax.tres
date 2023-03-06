@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BowUpgradeResource" load_steps=2 format=3 uid="uid://dhmjac3qmywnf"]
+
+[ext_resource type="Script" path="res://src/skills/bow/BowUpgradeResource.gd" id="1_e84tn"]
+
+[resource]
+script = ExtResource("1_e84tn")
+firerate = 0.2
+damage = 20
+count = 3
+pierce = true
+knockback_force = 80
+speed = 400

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="KnifeUpgradeResource" load_steps=2 format=3 uid="uid://bcenj58ysveuq"]
+
+[ext_resource type="Script" path="res://src/skills/knife_circle/knife_upgrade_resource.gd" id="1_meloc"]
+
+[resource]
+script = ExtResource("1_meloc")
+respawn_time = 10.0
+amount = 10
+speed = 0.8
+damage = 15
+offset = 50
+max_hits = 30
+knockback = 50

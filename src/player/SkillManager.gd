@@ -31,12 +31,13 @@ func get_random_skills(count: int):
 	
 	var result = []
 	for skill in skills:
-		var upgrade = skill.get_upgrade()
-		if upgrade:
-			result.append(upgrade)
+		if skill.has_method("get_upgrade"):
+			var upgrade = skill.get_upgrade()
+			if upgrade:
+				result.append(upgrade)
 		
-		if result.size() >= count:
-			break
+			if result.size() >= count:
+				break
 	
 	return result
 

@@ -12,4 +12,4 @@ extends Resource
 # @export var dodge: float;
 
 func get_attack_multiplier():
-    return 1 + attack
+	return 1 + attack
