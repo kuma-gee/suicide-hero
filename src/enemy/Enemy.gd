@@ -4,6 +4,7 @@ class_name Enemy extends CharacterBody2D
 @export var health_drop: PackedScene
 @export var enemy_value = 1
 @export var soft_collision_multiplier := 400
+@export var hit_label: PackedScene
 
 @onready var health := $Health
 
@@ -43,6 +44,10 @@ func _process(delta):
 func _on_HurtBox_damaged(dmg):
 #	print("Enemy hit: %s / %s -> %s" % [health.value, health.max_value, health.value - dmg])
 	health.reduce(dmg)
+	var label = hit_label.instantiate()
+	label.position = global_position
+	label.set_label(str(dmg))
+	get_tree().current_scene.add_child(label)
 
 
 func _on_Health_zero_value():
