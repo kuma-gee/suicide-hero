@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SpikeUpgradeResource" load_steps=2 format=3 uid="uid://vkqtfaq2ynni"]
+
+[ext_resource type="Script" path="res://src/skills/spike/spike_upgrade_resource.gd" id="1_bv0qo"]
+
+[resource]
+script = ExtResource("1_bv0qo")
+lifetime = 10.0
+firerate = 5.0
+throw_amount = 3
+throw_force = 400
+damage = 15
+spike_amount = 10
+spike_spread_radius = 60

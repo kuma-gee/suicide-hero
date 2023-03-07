@@ -6,7 +6,7 @@ extends Node2D
 var max_hits := 3
 var _hits := 0
 
-func set_damage(dmg: int, knockback: int):
+func set_damage(dmg: int):
 	hitbox.damage = dmg
 
 func set_knockback(knockback: int):

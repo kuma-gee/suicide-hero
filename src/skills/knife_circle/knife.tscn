@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cy32cgmausqfc"]
 
-[ext_resource type="Script" path="res://src/skills/knife_circle/knife.gd" id="1_a7wa1"]
+[ext_resource type="Script" path="res://src/skills/shared/damaging_item.gd" id="1_ncpc0"]
 [ext_resource type="Texture2D" uid="uid://c8hvmcy8l0pki" path="res://assets/weapon_knife.png" id="2_ur353"]
 [ext_resource type="Script" path="res://src/shared/rpg/HitBox2D.gd" id="3_bevj1"]
 
@@ -8,7 +8,7 @@
 size = Vector2(8, 14)
 
 [node name="Knife" type="Node2D" node_paths=PackedStringArray("hitbox")]
-script = ExtResource("1_a7wa1")
+script = ExtResource("1_ncpc0")
 hitbox = NodePath("HitBox2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
