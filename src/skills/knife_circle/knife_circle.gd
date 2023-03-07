@@ -15,8 +15,8 @@ var _logger = Logger.new("KnifeCircle")
 func get_upgrade():
 	return null
 
-func apply(res: UpgradeResource):
-	var upgrade = res as KnifeUpgradeResource
+func apply(r: UpgradeResource):
+	var upgrade = r as KnifeUpgradeResource
 	if upgrade :
 		res = upgrade
 		_logger.debug("Upgrading Knife Circle")
@@ -35,7 +35,8 @@ func activate(player: PlayerResource) -> void:
 		node.position += offset.rotated(angle)
 		node.rotation = angle_step * i
 		node.max_hits = res.max_hits
-		node.set_damage(res.damage * player.get_attack_multiplier(), res.knockback)
+		node.set_damage(res.damage * player.get_attack_multiplier())
+		node.set_knockback(res.knockback)
 		node.scale = Vector2(res.scale, res.scale)
 		add_child(node)
 	
