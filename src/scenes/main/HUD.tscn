@@ -1,18 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://v8ybdh5m87am"]
+[gd_scene load_steps=6 format=3 uid="uid://v8ybdh5m87am"]
 
 [ext_resource type="Script" path="res://src/scenes/main/HUD.gd" id="2"]
 [ext_resource type="Script" path="res://src/shared/gui/ValueBar.gd" id="2_4btjk"]
 [ext_resource type="Theme" uid="uid://bjubkp85qmjqv" path="res://theme/theme.tres" id="2_rbnft"]
-[ext_resource type="Texture2D" uid="uid://6jieq2fpbwia" path="res://src/scenes/menu/bar.png" id="3_lwutl"]
-[ext_resource type="Texture2D" uid="uid://deqkfhc3a3kcr" path="res://src/scenes/menu/bar_fill.png" id="4_u2hcy"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_efgrj"]
-texture = ExtResource("3_lwutl")
-axis_stretch_horizontal = 1
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctarg"]
+bg_color = Color(0.0980392, 0.254902, 0.411765, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xidhh"]
-texture = ExtResource("4_u2hcy")
-axis_stretch_horizontal = 1
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opor1"]
+bg_color = Color(0.219608, 0.596078, 0.741176, 1)
 
 [node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("experience", "level", "skills")]
 script = ExtResource("2")
@@ -31,15 +27,15 @@ mouse_filter = 2
 theme = ExtResource("2_rbnft")
 
 [node name="ExpBar" type="ProgressBar" parent="Root"]
-custom_minimum_size = Vector2(0, 16)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
 size_flags_vertical = 1
-theme_override_styles/background = SubResource("StyleBoxTexture_efgrj")
-theme_override_styles/fill = SubResource("StyleBoxTexture_xidhh")
+theme_override_styles/background = SubResource("StyleBoxFlat_ctarg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_opor1")
 max_value = 50.0
 value = 24.0
 show_percentage = false
