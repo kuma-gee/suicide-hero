@@ -1,6 +1,14 @@
 class_name SkillManager
 extends Node
 
+enum Type {
+	WEAPON,
+	ITEM
+}
+
+@export var max_weapons := 4
+@export var max_items := 4
+
 # var fire = false
 var _logger = Logger.new("SkillManager")
 
