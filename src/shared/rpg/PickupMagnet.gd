@@ -34,5 +34,3 @@ func set_range(percentage: float):
 	var extra_radius = (_max_pickup - _min_pickup) * percentage
 	var circle = shape.shape as CircleShape2D
 	circle.radius = _min_pickup + extra_radius
-	
-	print("%s - %s - %s" % [circle.radius, extra_radius, percentage])

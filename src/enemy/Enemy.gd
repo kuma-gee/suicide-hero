@@ -52,10 +52,12 @@ func _process(delta):
 func _on_HurtBox_damaged(dmg):
 #	print("Enemy hit: %s / %s -> %s" % [health.value, health.max_value, health.value - dmg])
 	health.reduce(dmg)
-	var label = hit_label.instantiate()
-	label.position = global_position
-	label.set_label(dmg)
-	get_tree().current_scene.add_child(label)
+	
+	if dmg > 0:
+		var label = hit_label.instantiate()
+		label.position = global_position
+		label.set_label(dmg)
+		get_tree().current_scene.add_child(label)
 
 
 func _on_Health_zero_value():

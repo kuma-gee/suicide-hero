@@ -18,7 +18,7 @@ func apply(res: UpgradeResource):
 	var upgrade = res as SpikeUpgradeResource
 	if upgrade :
 		resource = upgrade
-		firerate.set_firerate(resource.firerate)
+		firerate.update_firerate(resource.firerate)
 		_logger.debug("Upgrading Spike Throw")
 
 

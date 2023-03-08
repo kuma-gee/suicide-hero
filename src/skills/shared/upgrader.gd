@@ -1,11 +1,14 @@
 class_name Upgrader
 extends Node
 
+signal upgraded(res)
+
 @export var upgrades: Array[UpgradeResource]
 @export var level = -1
 
 var resource: UpgradeResource :
 	get: return _get_res_for_lvl(level)
+
 
 func _get_res_for_lvl(lvl: int):
 	if lvl < 0 or lvl >= upgrades.size(): return null
@@ -16,6 +19,7 @@ func get_next_upgrade():
 
 func upgrade():
 	level += 1
+	upgraded.emit(self.resource)
 
 func is_active():
 	return resource != null

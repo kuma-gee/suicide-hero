@@ -1,16 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://bem0mqv77cqhl"]
+[gd_scene load_steps=9 format=3 uid="uid://bem0mqv77cqhl"]
 
 [ext_resource type="Script" path="res://src/skills/bow/bow.gd" id="1_04msa"]
 [ext_resource type="Texture2D" uid="uid://fvvu71p3cad3" path="res://assets/weapon_bow.png" id="1_ekb8s"]
 [ext_resource type="PackedScene" uid="uid://eq31jc4rsja7" path="res://src/skills/bow/arrow.tscn" id="2_65f2n"]
 [ext_resource type="Script" path="res://src/skills/shared/fire_rate.gd" id="4_0yt8a"]
 [ext_resource type="AudioStream" uid="uid://bhnnbne0x7vjt" path="res://sound/弓矢を放つ.mp3" id="5_kfohv"]
+[ext_resource type="Script" path="res://src/skills/shared/upgrader.gd" id="6_agdcb"]
+[ext_resource type="Resource" uid="uid://cdxm0u21vxok2" path="res://src/skills/bow/BowLV1.tres" id="7_5s5eg"]
+[ext_resource type="Resource" uid="uid://dhmjac3qmywnf" path="res://src/skills/bow/BowLVMax.tres" id="8_kvdi3"]
 
-[node name="Bow" type="Node2D" node_paths=PackedStringArray("firerate", "shoot_sound")]
+[node name="Bow" type="Node2D" node_paths=PackedStringArray("firerate", "shoot_sound", "upgrader")]
 script = ExtResource("1_04msa")
 arrow = ExtResource("2_65f2n")
 firerate = NodePath("FireRate")
 shoot_sound = NodePath("Shoot")
+upgrader = NodePath("Upgrader")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ekb8s")
@@ -23,3 +27,8 @@ stream = ExtResource("5_kfohv")
 volume_db = -7.856
 pitch_scale = 2.82
 bus = &"SFX"
+
+[node name="Upgrader" type="Node" parent="."]
+script = ExtResource("6_agdcb")
+upgrades = Array[Resource("res://src/skills/UpgradeResource.gd")]([ExtResource("7_5s5eg"), ExtResource("8_kvdi3")])
+level = 0

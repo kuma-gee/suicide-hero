@@ -28,7 +28,7 @@ func _on_spawn_timer_timeout():
 	enemy.resource = _enemy_pool[randi() % _enemy_pool.size()]
 	enemy.global_position = random_point.global_position
 	enemy.player = player
-	_logger.debug("Spawn enemy at %s" % random_point.global_position)
+	_logger.trace("Spawn enemy at %s" % random_point.global_position)
 	add_child(enemy)
 
 # TODO: get spawn around player

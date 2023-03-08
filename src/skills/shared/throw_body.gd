@@ -1,6 +1,8 @@
 class_name ThrowBody
 extends CharacterBody2D
 
+signal stopped
+
 @export var speed := 300
 @export var deaccel := 600
 @export var min_random_speed := 0.5
@@ -13,3 +15,6 @@ func _ready():
 func _physics_process(delta):
 	velocity = velocity.move_toward(Vector2.ZERO, deaccel * delta)
 	move_and_slide()
+	
+	if velocity.length() == 0:
+		stopped.emit()

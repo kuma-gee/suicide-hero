@@ -70,16 +70,6 @@ func _on_PickupArea_area_entered(_area):
 	_area.pickup(self)
 
 
-func _on_PlayerStats_level_up(lvl):
-	level_up.emit(lvl)
-	level_up_sound.play()
-	
-	var skills = skill_manager.get_random_skills(3)
-	_logger.info("Random skills: %s" % [skills])
-	if skills.size() > 0:
-		GUI.open({"menu": GUI.SkillSelect, "skills": skills})
-
-
 func _on_Health_zero_value():
 	emit_signal("died")
 
@@ -88,9 +78,9 @@ func _on_hurt_box_damaged(dmg):
 	stats.health.reduce(dmg)
 
 
-# func _on_hurt_box_knockback(knockback):
-# 	pass
-#   state_machine.transition(knockback_state, {"knockback": knockback})
-#
-# func _on_Knockback2D_knockback_finished():
-# 	state_machine.transition(move)
+func _on_player_stats_level_up(lvl):
+	level_up_sound.play()
+	
+	var skills = skill_manager.get_random_skills(3)
+	if skills.size() > 0:
+		GUI.open({"menu": GUI.SkillSelect, "skills": skills})

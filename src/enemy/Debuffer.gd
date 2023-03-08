@@ -15,4 +15,4 @@ func get_movement_multiplier():
 func set_movement(key, val):
 	_movement[key] = val
 	debuff_changed.emit()
-	_logger.debug("Updating movement debuff of %s: %s" % [key, val])
+	_logger.trace("Updating movement debuff of %s: %s" % [key, val])

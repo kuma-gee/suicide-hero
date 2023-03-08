@@ -26,6 +26,7 @@ size = Vector2(9.41358, 9.51338)
 radius = 8.15895
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4o6ee"]
+size = Vector2(18, 18)
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 16

@@ -26,7 +26,6 @@ func _ready():
 # 	fire = true
 
 func apply(skill: UpgradeResource):
-	_logger.info("Applying %s" % tr(skill.description.name))
 	
 	for child in get_children():
 		if child.has_method("apply"):

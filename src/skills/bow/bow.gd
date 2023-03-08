@@ -4,45 +4,42 @@ extends Node2D
 @export var arrow: PackedScene
 @export var firerate: FireRateTimer
 @export var shoot_sound: AudioStreamPlayer
-
-@export var resource := BowUpgradeResource.new()
+@export var upgrader: Upgrader
 @export var player: Player = owner
 
-var _level = 0
 var _logger = Logger.new("Bow")
-
 
 func _ready():
 	firerate.timeout.connect(_shoot)
+	upgrader.upgraded.connect(_on_upgrade)
+	_on_upgrade(_res())
 
 
 func get_upgrade():
-	return null
+	return upgrader.get_next_upgrade()
 
+func _res() -> BowUpgradeResource:
+	return upgrader.resource as BowUpgradeResource
 
 func apply(res: UpgradeResource):
-	var bow = res as BowUpgradeResource
-	if bow:
-		resource = bow
-		_level += 1
-		firerate.set_firerate(res.firerate)
-	
-		_logger.info("Upgrading Bow to level %s" % _level)
+	if res is BowUpgradeResource:
+		upgrader.upgrade()
 
+func _on_upgrade(res: BowUpgradeResource):
+	firerate.update_firerate(res.firerate)
 
 func _shoot():
-	if resource == null: return
-
-	var arrow_count = resource.count
+	var res = _res()
+	var arrow_count = res.count
 	var angles = _calc_angle(arrow_count)
 	for i in range(0, arrow_count):
 		var angle = angles[i]
 		var arrow_node = _create_arrow(angle)
-		arrow_node.set_damage(resource.damage * player.get_attack_multiplier())
-		arrow_node.pierce = resource.pierce
-		arrow_node.speed = resource.speed
-		arrow_node.set_knockback(resource.knockback_force)
-		arrow_node.scale = Vector2(resource.scale, resource.scale)
+		arrow_node.set_damage(res.damage * player.get_attack_multiplier())
+		arrow_node.pierce = res.pierce
+		arrow_node.speed = res.speed
+		arrow_node.set_knockback(res.knockback_force)
+		arrow_node.scale = Vector2(res.scale, res.scale)
 		get_tree().current_scene.add_child(arrow_node)
 
 	shoot_sound.play()

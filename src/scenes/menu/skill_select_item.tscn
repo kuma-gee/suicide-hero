@@ -9,6 +9,7 @@ script = ExtResource("1_envrx")
 texture = NodePath("MarginContainer/HBoxContainer/Icon")
 name_label = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Name")
 desc_label = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Text")
+default_icon = ExtResource("1_f45us")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

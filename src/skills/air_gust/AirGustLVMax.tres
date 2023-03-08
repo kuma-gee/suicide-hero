@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="AirGustUpgradeResource" load_steps=2 format=3 uid="uid://dqiwyp3qe67ur"]
+[gd_resource type="Resource" script_class="AirGustUpgradeResource" load_steps=4 format=3 uid="uid://dqiwyp3qe67ur"]
 
+[ext_resource type="Script" path="res://src/skills/SkillDescriptionResource.gd" id="1_17p5a"]
 [ext_resource type="Script" path="res://src/skills/air_gust/air_gust_upgrade_resource.gd" id="1_dtpmx"]
+
+[sub_resource type="Resource" id="Resource_vxmlk"]
+script = ExtResource("1_17p5a")
+text = "AIR_GUST_LV_MAX_TEXT"
+name = "AIR_GUST_LV_MAX"
 
 [resource]
 script = ExtResource("1_dtpmx")
-slow_movement = 0.3
-slow_radius = 20
+slow_movement = 0.4
+slow_radius = 80
 gust_amount = 2
-firerate = 4.0
+firerate = 3.0
 knockback = 100
+description = SubResource("Resource_vxmlk")

@@ -11,10 +11,8 @@ func _ready():
 	area_entered.connect(_on_area_enter)
 	area_exited.connect(_on_area_exit)
 	firerate.timeout.connect(_shoot_gust)
-	collision.disabled = not upgrader.is_active()
-	
-	if upgrader.is_active():
-		_update_slow_radius(upgrader.resource.slow_radius)
+	upgrader.upgraded.connect(_on_upgrade)
+	collision.disabled = true
 
 
 func _on_area_enter(area: Area2D):
@@ -52,20 +50,23 @@ func get_upgrade():
 func apply(res: UpgradeResource) -> void:
 	if res is AirGustUpgradeResource:
 		upgrader.upgrade()
-		collision.disabled = false
 		
-		_update_slow_radius(upgrader.resource.slow_radius)
-		firerate.set_firerate(upgrader.resource.firerate)
-		_update_debuff()
+func _on_upgrade(res: AirGustUpgradeResource):
+	collision.disabled = false
+	_update_slow_radius(upgrader.resource.slow_radius)
+	firerate.update_firerate(upgrader.resource.firerate)
+	_update_debuff()
 
 func _shoot_gust():
-	var res = upgrader.resource
+	var res = upgrader.resource as AirGustUpgradeResource
 	for i in range(0, res.gust_amount):
 		var dir = Vector2.UP.rotated(TAU * randf())
 		var node = gust.instantiate()
 
 		node.knockback = res.knockback
 		node.dir = dir
-
+		
 		node.global_position = global_position
 		get_tree().current_scene.add_child(node)
+		
+		# TODO: add small delay

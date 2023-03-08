@@ -22,8 +22,8 @@ func _ready():
 	tile_size_on_grid = rect.size / grid_dividor
 	tile_center = rect.position + tile_size_on_grid
 	
-	_logger.debug("Tilemap Rect: %s" % rect)
-	_logger.debug("Tile Size: %s, Tile Center: %s" % [tile_size_on_grid, tile_center])
+	_logger.trace("Tilemap Rect: %s" % rect)
+	_logger.trace("Tile Size: %s, Tile Center: %s" % [tile_size_on_grid, tile_center])
 	
 	var x_remainder = rect.size.x % grid_dividor
 	var y_remainder = rect.size.y % grid_dividor 
@@ -42,7 +42,7 @@ func update_for_position(pos: Vector2):
 	var is_outside_grid = grid_dir.length() > 0
 
 	if is_outside_grid:
-		_logger.debug("Tile Position %s in grid %s moving in %s" % [tile_pos, grid_pos, grid_dir])
+		_logger.trace("Tile Position %s in grid %s moving in %s" % [tile_pos, grid_pos, grid_dir])
 
 		for neighbor_dir in _get_grid_dirs_to_fill(grid_dir):
 			var target_grid = grid_pos + neighbor_dir
