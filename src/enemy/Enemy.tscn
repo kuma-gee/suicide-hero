@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://bxl1xfwui17lx"]
+[gd_scene load_steps=20 format=3 uid="uid://bxl1xfwui17lx"]
 
 [ext_resource type="Script" path="res://src/shared/rpg/HitBox2D.gd" id="1"]
 [ext_resource type="Script" path="res://src/shared/rpg/HurtBox2D.gd" id="2"]
 [ext_resource type="SpriteFrames" uid="uid://dipg6ef50wy3d" path="res://src/enemy/sprites/Skeleton.tres" id="3_ynpot"]
 [ext_resource type="Script" path="res://addons/StateMachine/Move2D.gd" id="4"]
+[ext_resource type="Shader" path="res://src/hit_flash.gdshader" id="4_15ol5"]
 [ext_resource type="Script" path="res://addons/StateMachine/StateMachine.gd" id="5"]
 [ext_resource type="PackedScene" uid="uid://d3ki6uubra8xe" path="res://src/enemy/HealthDrop.tscn" id="6"]
 [ext_resource type="Script" path="res://src/shared/misc/ValueFill.gd" id="7"]
@@ -15,6 +16,10 @@
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(8.72286, 3.42736)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_14g8p"]
+shader = ExtResource("4_15ol5")
+shader_parameter/amount = 0.0
 
 [sub_resource type="RectangleShape2D" id="2"]
 size = Vector2(10.0817, 9.95882)
@@ -38,6 +43,7 @@ hit_label = ExtResource("11_5rayn")
 shape = SubResource("1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Body"]
+material = SubResource("ShaderMaterial_14g8p")
 sprite_frames = ExtResource("3_ynpot")
 autoplay = "default"
 frame_progress = 0.0752486
