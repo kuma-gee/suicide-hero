@@ -13,8 +13,8 @@ func _process(delta):
 	var dir = Vector2.UP
 	position += dir.rotated(deg_to_rad(rand_angle)) * move_speed * delta
 
-func set_label(str: String):
-	text = str
+func set_label(dmg: int):
+	text = str(dmg)
 
 func _on_life_time_timeout():
 	queue_free()

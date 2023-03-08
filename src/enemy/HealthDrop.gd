@@ -6,9 +6,7 @@ enum Size {
 	LARGE,
 }
 
-var heal_size = Size.SMALL
-
-@onready var move := $MoveToward2D
+var heal_size := Size.SMALL
 
 func pickup(player: Player):
 	player.heal(_get_heal_amount())
@@ -20,6 +18,3 @@ func _get_heal_amount() -> int:
 		Size.MEDIUM: return 25
 		Size.LARGE: return 50
 		_: return 0
-
-func set_target(target) -> void:
-	move.target = target

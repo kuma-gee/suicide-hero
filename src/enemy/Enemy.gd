@@ -1,7 +1,8 @@
 class_name Enemy extends CharacterBody2D
 
-@export var heal_size := HealthDrop.Size.SMALL
+@export var health_drop_chance := 0.5
 @export var health_drop: PackedScene
+
 @export var enemy_value = 1
 @export var soft_collision_multiplier := 400
 @export var hit_label: PackedScene
@@ -53,20 +54,21 @@ func _on_HurtBox_damaged(dmg):
 	health.reduce(dmg)
 	var label = hit_label.instantiate()
 	label.position = global_position
-	label.set_label(str(dmg))
+	label.set_label(dmg)
 	get_tree().current_scene.add_child(label)
 
 
 func _on_Health_zero_value():
-	call_deferred("_spawn_health_drop")
+	call_deferred("_maybe_drop_item")
 	queue_free()
 
-func _spawn_health_drop():
-	if health_drop != null:
+func _maybe_drop_item():
+	var rand = randf()
+
+	if rand <= health_drop_chance:
 		var drop: HealthDrop = health_drop.instantiate()
-		drop.heal_size = heal_size
-		get_tree().current_scene.add_child(drop)
 		drop.global_position = global_position
+		get_tree().current_scene.add_child(drop)
 
 
 func _on_HurtBox_knockback(knockback):
