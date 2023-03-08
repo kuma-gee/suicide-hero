@@ -4,8 +4,12 @@ extends Skill
 @export var spike: PackedScene
 @export var resource: SpikeUpgradeResource
 @export var firerate: FireRateTimer
+@export var player: Player = owner
 
 var _logger = Logger.new("SpikeThrow")
+
+func _ready():
+    firerate.timeout.connect(_throw_spikes)
 
 func get_upgrade():
 	return null
@@ -14,17 +18,18 @@ func apply(res: UpgradeResource):
 	var upgrade = res as SpikeUpgradeResource
 	if upgrade :
 		resource = upgrade
+        firerate.set_firerate(resource.firerate)
 		_logger.debug("Upgrading Spike Throw")
 
 
-func activate(res: PlayerResource):
-	if not firerate.can_fire(resource.firerate): return
+func _throw_spikes():
+    if resource == null: return
 
 	for i in range(0, resource.throw_amount):
 		var dir = Vector2.UP.rotated(TAU * randf())
 		
 		var node = spike.instantiate()
-		node.damage = resource.damage * res.get_attack_multiplier()
+		node.damage = resource.damage * player.get_attack_multiplier()
 		node.amount = resource.spike_amount
 		node.radius = resource.spike_spread_radius
 		node.lifetime = resource.lifetime

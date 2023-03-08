@@ -1,6 +1,5 @@
 class_name PlayerStats extends Node
 
-signal player_stat_changed(res: PlayerStats)
 signal level_up(lvl)
 
 @export var level := 1
@@ -13,7 +12,7 @@ signal level_up(lvl)
 @onready var health := $Health
 
 @export var upgrades: Array[StatUpgradeResource]
-@export var player_res: PlayerResource
+@export var player: Player = owner
 
 var _original_health: int
 var _original_speed: float
@@ -48,15 +47,14 @@ func heal_player(hp: int) -> void:
 func apply(res: UpgradeResource):
 	var stat = res as StatUpgradeResource
 	if stat:
-		player_res.health *= 1 + stat.health # player health is not saved in percentage
-		player_res.attack += stat.attack
-		player_res.speed += stat.speed
-		player_res.pickup += stat.pickup
+		player.res.health *= 1 + stat.health # player health is not saved in percentage
+		player.res.attack += stat.attack
+		player.res.speed += stat.speed
+		player.res.pickup += stat.pickup
 		
 		pickup_magnet.set_range(player_res.pickup)
 		health.max_value = player_res.health
 		move_state.speed = _original_speed * (1 + player_res.speed)
-		player_stat_changed.emit(player_res)
 
 func get_upgrade():
 	if upgrades.is_empty(): return null

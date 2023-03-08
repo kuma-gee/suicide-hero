@@ -5,11 +5,10 @@ extends Skill
 @export var knife: PackedScene
 
 @export var res: KnifeUpgradeResource
+@export var player: Player = owner
 
 @onready var _initial_child_count = get_child_count()
 
-var _is_spawned = false
-var _waiting_timer = false 
 var _logger = Logger.new("KnifeCircle")
 
 func get_upgrade():
@@ -19,12 +18,14 @@ func apply(r: UpgradeResource):
 	var upgrade = r as KnifeUpgradeResource
 	if upgrade :
 		res = upgrade
+        _spawn_knifes()
 		_logger.debug("Upgrading Knife Circle")
 
-func activate(player: PlayerResource) -> void:
-	if _is_spawned or res == null: return
+func _has_no_knifes():
+    return get_child_count() == _initial_child_count
 
-	_is_spawned = true
+func _spawn_knifes() -> void:
+	if not _has_no_knifes() or res == null: return
 
 	var angle_step = TAU / res.amount
 	var dir = Vector2.UP
@@ -47,11 +48,9 @@ func _process(_delta):
 
 	global_rotation += TAU * _delta * res.speed
 
-	if get_child_count() == _initial_child_count:
-		_waiting_timer = true
+    if _has_no_knifes():
 		timer.start(res.respawn_time)
 		_logger.debug("Start countdown for new knifes: %ss" % res.respawn_time)
 
 func _on_timer_timeout():
-	_is_spawned = false
-	_waiting_timer = false
+    _spawn_knifes()

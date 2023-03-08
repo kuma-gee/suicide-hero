@@ -3,6 +3,8 @@ class_name Player extends CharacterBody2D
 signal level_up(lvl)
 signal died()
 
+@export var res: PlayerResource
+
 @onready var input := $PlayerInput
 @onready var gun_point_root := $GunPointRoot
 @onready var state_machine := $StateMachine
@@ -49,7 +51,10 @@ func get_level():
 	return stats.level
 
 func get_stats() -> PlayerResource:
-	return stats.player_res
+	return res
+
+func get_attack_multiplier() -> float:
+    return res.get_attack_multiplier()
 
 func get_current_health() -> int:
 	return stats.health.value
@@ -58,10 +63,6 @@ func heal(hp):
 	stats.health.increase(hp)
 	heal_particles.restart()
 	heal_particles.emitting = true
-
-
-func _on_Knockback2D_knockback_finished():
-	state_machine.transition(move)
 
 
 func _on_PickupArea_area_entered(_area):
@@ -87,7 +88,9 @@ func _on_hurt_box_damaged(dmg):
 	stats.health.reduce(dmg)
 
 
-func _on_hurt_box_knockback(knockback):
-	pass
-	#state_machine.transition(knockback_state, {"knockback": knockback})
-
+# func _on_hurt_box_knockback(knockback):
+# 	pass
+#   state_machine.transition(knockback_state, {"knockback": knockback})
+#
+# func _on_Knockback2D_knockback_finished():
+# 	state_machine.transition(move)
