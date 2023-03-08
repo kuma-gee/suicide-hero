@@ -3,14 +3,14 @@ extends Area2D
 
 signal debuff_changed()
 
-var movement := {} : get = _get_movement
+var _movement := {}
 
-func _get_movement():
+func get_movement_multiplier():
     var sum = 0
-    for x in movement.values():
+    for x in _movement.values():
         sum += x
     return 1 - sum
 
 func set_movement(key, val):
-    movement[key] = val
+    _movement[key] = val
     debuff_changed.emit()

@@ -14,6 +14,7 @@ class_name Enemy extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $Body/AnimatedSprite2D 
 @onready var hitbox: HitBox2D = $HitBox
+@onready var debuffer: Debuffer = $Debuffer
 
 var player: Node2D
 var resource: EnemyResource
@@ -21,6 +22,8 @@ var resource: EnemyResource
 var _logger = Logger.new("Enemy")
 
 func _ready():
+	debuffer.debuff_changed.connect(_update_debuffer)
+
 	if resource:
 		sprite.sprite_frames = resource.sprites
 		health.max_value = resource.health
@@ -29,6 +32,10 @@ func _ready():
 		sprite.play("default")
 	else:
 		_logger.warn("No enemy resource for %s " % self)
+
+func _update_debuffer():
+	move.speed = resource.speed * debuffer.get_movement_multiplier()
+	# TODO: show icon if debuff active
 	
 
 func _process(delta):
