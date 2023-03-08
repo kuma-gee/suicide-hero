@@ -33,7 +33,7 @@ func _throw_spikes():
 		node.amount = resource.spike_amount
 		node.radius = resource.spike_spread_radius
 		node.lifetime = resource.lifetime
-		node.force = resource.throw_force
+		node.speed = resource.throw_force
 		
 		node.dir = dir
 		node.global_position = global_position
