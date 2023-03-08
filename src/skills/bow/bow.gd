@@ -13,7 +13,7 @@ var _logger = Logger.new("Bow")
 
 
 func _ready():
-    firerate.timeout.connect(_shoot)
+	firerate.timeout.connect(_shoot)
 
 
 func get_upgrade():
@@ -25,13 +25,13 @@ func apply(res: UpgradeResource):
 	if bow:
 		resource = bow
 		_level += 1
-        firerate.set_firerate(res.firerate)
+		firerate.set_firerate(res.firerate)
 	
 		_logger.info("Upgrading Bow to level %s" % _level)
 
 
 func _shoot():
-    if resource == null: return
+	if resource == null: return
 
 	var arrow_count = resource.count
 	var angles = _calc_angle(arrow_count)

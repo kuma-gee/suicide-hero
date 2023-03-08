@@ -11,10 +11,10 @@ func _ready():
 	# timeout.connect(_on_timer_timeout)
 
 func set_firerate(time: float):
-    wait_time = time
-    if is_stopped():
-        start()
-        _logger.debug("Starting firerate timer with %s" % time)
+	wait_time = time
+	if is_stopped():
+		start()
+		_logger.debug("Starting firerate timer with %s" % time)
 	
 # func can_fire(firerate) -> bool:
 # 	if not _can_fire: return false

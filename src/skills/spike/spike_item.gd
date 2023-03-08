@@ -20,7 +20,7 @@ func _ready():
 func _process(_delta):
 	for spike_dest in _spikes:
 		var spike = _spikes[spike_dest]
-		var vel = velocity.length() / force
+		var vel = velocity.length() / speed
 		var pos = spike_dest * (1-vel)
 		spike.position = pos
 

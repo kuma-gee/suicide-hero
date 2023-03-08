@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2j6q8cyljml7"]
 
-[ext_resource type="Script" path="res://src/player/PlayerStats.gd" id="1"]
+[ext_resource type="Script" path="res://src/skills/stat_up/PlayerStats.gd" id="1_p1kil"]
 [ext_resource type="Script" path="res://src/shared/misc/ValueFill.gd" id="2"]
 
 [node name="PlayerStats" type="Node"]
-script = ExtResource("1")
+script = ExtResource("1_p1kil")
 
 [node name="Experience" type="Node" parent="."]
 script = ExtResource("2")

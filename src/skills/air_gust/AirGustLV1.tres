@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AirGustUpgradeResource" load_steps=2 format=3 uid="uid://cwcvhrj18acqe"]
+
+[ext_resource type="Script" path="res://src/skills/air_gust/air_gust_upgrade_resource.gd" id="1_b0c48"]
+
+[resource]
+script = ExtResource("1_b0c48")
+slow_movement = 0.5
+slow_radius = 50
+gust_amount = 0
+firerate = 10.0
+knockback = 50

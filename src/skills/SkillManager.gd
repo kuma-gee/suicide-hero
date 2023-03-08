@@ -1,5 +1,5 @@
 class_name SkillManager
-extends Node
+extends Node2D
 
 enum Type {
 	WEAPON,

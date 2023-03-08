@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bxl1xfwui17lx"]
+[gd_scene load_steps=18 format=3 uid="uid://bxl1xfwui17lx"]
 
 [ext_resource type="Script" path="res://src/shared/rpg/HitBox2D.gd" id="1"]
 [ext_resource type="Script" path="res://src/shared/rpg/HurtBox2D.gd" id="2"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://src/shared/rpg/SoftCollision2D.gd" id="9"]
 [ext_resource type="Script" path="res://addons/StateMachine/Knockback2D.gd" id="10"]
 [ext_resource type="PackedScene" uid="uid://y448hdwnou37" path="res://src/hit_label.tscn" id="11_5rayn"]
+[ext_resource type="Script" path="res://src/enemy/Debuffer.gd" id="12_oa62r"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(8.72286, 3.42736)
@@ -23,6 +24,8 @@ size = Vector2(9.41358, 9.51338)
 
 [sub_resource type="CircleShape2D" id="4"]
 radius = 8.15895
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4o6ee"]
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 16
@@ -43,6 +46,7 @@ script = ExtResource("7")
 max_value = 50.0
 
 [node name="HurtBox" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -3.11814)
 collision_layer = 8
 collision_mask = 0
@@ -53,6 +57,7 @@ invincibility_time = 0.5
 shape = SubResource("2")
 
 [node name="HitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1")
@@ -64,6 +69,7 @@ position = Vector2(0, -2.89542)
 shape = SubResource("3")
 
 [node name="SoftCollision2D" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -3.04734)
 collision_layer = 64
 collision_mask = 64
@@ -87,6 +93,14 @@ body_path = NodePath("../../Body")
 
 [node name="Knockback2D" type="Node" parent="StateMachine"]
 script = ExtResource("10")
+
+[node name="Debuffer" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("12_oa62r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Debuffer"]
+shape = SubResource("RectangleShape2D_4o6ee")
 
 [connection signal="zero_value" from="Health" to="." method="_on_Health_zero_value"]
 [connection signal="damaged" from="HurtBox" to="." method="_on_HurtBox_damaged"]

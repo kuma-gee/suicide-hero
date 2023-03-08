@@ -5,8 +5,7 @@ extends Node
 @export var level = -1
 
 var resource: UpgradeResource :
-	get():
-		return _get_res_for_lvl(level)
+	get: return _get_res_for_lvl(level)
 
 func _get_res_for_lvl(lvl: int):
 	if lvl < 0 or lvl >= upgrades.size(): return null

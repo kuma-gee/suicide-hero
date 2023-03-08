@@ -4,6 +4,8 @@ signal level_up(lvl)
 signal died()
 
 @export var res: PlayerResource
+@export var skill_manager: SkillManager
+@export var stats: PlayerStats 
 
 @onready var input := $PlayerInput
 @onready var gun_point_root := $GunPointRoot
@@ -13,7 +15,6 @@ signal died()
 @onready var move := $StateMachine/Move2D
 @onready var knockback_state := $StateMachine/Knockback2D
 
-@onready var stats := $SkillManager/PlayerStats
 @onready var sprite := $Body/Sprite
 @onready var anim := $AnimationPlayer
 
@@ -23,7 +24,6 @@ signal died()
 @onready var heal_particles := $HealParticles
 @onready var hp_bar: ValueFillBar = $HpBar
 
-@onready var skill_manager: SkillManager = $SkillManager
 
 var _logger = Logger.new("Player")
 
@@ -54,7 +54,7 @@ func get_stats() -> PlayerResource:
 	return res
 
 func get_attack_multiplier() -> float:
-    return res.get_attack_multiplier()
+	return res.get_attack_multiplier()
 
 func get_current_health() -> int:
 	return stats.health.value

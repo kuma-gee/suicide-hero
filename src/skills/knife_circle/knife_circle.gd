@@ -18,11 +18,11 @@ func apply(r: UpgradeResource):
 	var upgrade = r as KnifeUpgradeResource
 	if upgrade :
 		res = upgrade
-        _spawn_knifes()
+		_spawn_knifes()
 		_logger.debug("Upgrading Knife Circle")
 
 func _has_no_knifes():
-    return get_child_count() == _initial_child_count
+	return get_child_count() == _initial_child_count
 
 func _spawn_knifes() -> void:
 	if not _has_no_knifes() or res == null: return
@@ -44,13 +44,13 @@ func _spawn_knifes() -> void:
 	_logger.debug("Spawning %s knifes in angle of %s" % [res.amount, rad_to_deg(angle_step)])
 
 func _process(_delta):
-	if not _is_spawned or _waiting_timer: return
-
-	global_rotation += TAU * _delta * res.speed
-
-    if _has_no_knifes():
+	if res == null: return
+	
+	if _has_no_knifes(): 
 		timer.start(res.respawn_time)
 		_logger.debug("Start countdown for new knifes: %ss" % res.respawn_time)
+	else:
+		global_rotation += TAU * _delta * res.speed
 
 func _on_timer_timeout():
-    _spawn_knifes()
+	_spawn_knifes()

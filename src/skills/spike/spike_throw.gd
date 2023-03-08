@@ -9,7 +9,7 @@ extends Node2D
 var _logger = Logger.new("SpikeThrow")
 
 func _ready():
-    firerate.timeout.connect(_throw_spikes)
+	firerate.timeout.connect(_throw_spikes)
 
 func get_upgrade():
 	return null
@@ -18,12 +18,12 @@ func apply(res: UpgradeResource):
 	var upgrade = res as SpikeUpgradeResource
 	if upgrade :
 		resource = upgrade
-        firerate.set_firerate(resource.firerate)
+		firerate.set_firerate(resource.firerate)
 		_logger.debug("Upgrading Spike Throw")
 
 
 func _throw_spikes():
-    if resource == null: return
+	if resource == null: return
 
 	for i in range(0, resource.throw_amount):
 		var dir = Vector2.UP.rotated(TAU * randf())

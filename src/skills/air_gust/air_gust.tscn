@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://ojjg673tv5pu"]
+
+[ext_resource type="Script" path="res://src/skills/air_gust/air_gust.gd" id="1_v7gji"]
+[ext_resource type="Script" path="res://src/skills/shared/upgrader.gd" id="2_te7f6"]
+[ext_resource type="PackedScene" uid="uid://l01avqt2k7k2" path="res://src/skills/air_gust/air_gust_item.tscn" id="2_wrvb0"]
+[ext_resource type="Script" path="res://src/skills/shared/fire_rate.gd" id="3_q3evw"]
+[ext_resource type="Resource" uid="uid://cwcvhrj18acqe" path="res://src/skills/air_gust/AirGustLV1.tres" id="4_hqa57"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s681d"]
+
+[node name="AirGust" type="Area2D" node_paths=PackedStringArray("firerate", "upgrader")]
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("1_v7gji")
+firerate = NodePath("FireRateTimer")
+gust = ExtResource("2_wrvb0")
+upgrader = NodePath("Upgrader")
+
+[node name="Upgrader" type="Node" parent="."]
+script = ExtResource("2_te7f6")
+upgrades = Array[Resource("res://src/skills/UpgradeResource.gd")]([ExtResource("4_hqa57")])
+level = 0
+
+[node name="FireRateTimer" type="Timer" parent="."]
+script = ExtResource("3_q3evw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s681d")

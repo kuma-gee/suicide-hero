@@ -18,11 +18,10 @@ var _original_health: int
 var _original_speed: float
 
 func _ready():
-	health.max_value = player_res.health
+	health.max_value = player.res.health
 	
-	_original_health = player_res.health
+	_original_health = player.res.health
 	_original_speed = move_state.speed
-	player_stat_changed.emit(player_res)
 
 func _process(delta):
 	_gain_experience()
@@ -52,9 +51,9 @@ func apply(res: UpgradeResource):
 		player.res.speed += stat.speed
 		player.res.pickup += stat.pickup
 		
-		pickup_magnet.set_range(player_res.pickup)
-		health.max_value = player_res.health
-		move_state.speed = _original_speed * (1 + player_res.speed)
+		pickup_magnet.set_range(player.res.pickup)
+		health.max_value = player.res.health
+		move_state.speed = _original_speed * (1 + player.res.speed)
 
 func get_upgrade():
 	if upgrades.is_empty(): return null

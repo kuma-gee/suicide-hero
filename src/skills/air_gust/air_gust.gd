@@ -11,7 +11,10 @@ func _ready():
 	area_entered.connect(_on_area_enter)
 	area_exited.connect(_on_area_exit)
 	firerate.timeout.connect(_shoot_gust)
-	collision.disabled = true
+	collision.disabled = not upgrader.is_active()
+	
+	if upgrader.is_active():
+		_update_slow_radius(upgrader.resource.slow_radius)
 
 
 func _on_area_enter(area: Area2D):
@@ -41,10 +44,6 @@ func _update_slow_radius(radius: int):
 	var shape = collision.shape as CircleShape2D
 	shape.radius = radius
 	# TODO: sprites/animation
-
-func _get_res_for_lvl(lvl: int):
-	if lvl < 0 or lvl >= upgrades.size(): return null
-	return upgrades[lvl]
 	
 
 func get_upgrade():
@@ -54,7 +53,8 @@ func apply(res: UpgradeResource) -> void:
 	if res is AirGustUpgradeResource:
 		upgrader.upgrade()
 		collision.disabled = false
-
+		
+		_update_slow_radius(upgrader.resource.slow_radius)
 		firerate.set_firerate(upgrader.resource.firerate)
 		_update_debuff()
 
