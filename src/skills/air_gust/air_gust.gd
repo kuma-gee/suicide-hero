@@ -11,6 +11,7 @@ func _ready():
 	area_entered.connect(_on_area_enter)
 	area_exited.connect(_on_area_exit)
 	firerate.timeout.connect(_shoot_gust)
+	collision.disabled = true
 
 
 func _on_area_enter(area: Area2D):
@@ -49,6 +50,7 @@ func apply(res: UpgradeResource) -> void:
 	var upgrade = res as AirGustUpgradeResource
 	if upgrade:
 		resource = upgrade
+		collision.disabled = false
 		firerate.set_firerate(resource.firerate)
 		_update_debuff()
 

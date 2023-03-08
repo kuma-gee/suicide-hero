@@ -1,5 +1,5 @@
 class_name Bow
-extends Skill
+extends Node2D
 
 @export var arrow: PackedScene
 @export var firerate: FireRateTimer

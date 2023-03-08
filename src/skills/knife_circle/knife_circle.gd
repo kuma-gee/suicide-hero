@@ -1,5 +1,5 @@
 class_name KnifeCircle
-extends Skill
+extends Node2D
 
 @export var timer: Timer
 @export var knife: PackedScene
