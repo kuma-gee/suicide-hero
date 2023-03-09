@@ -20,6 +20,3 @@ func get_next_upgrade():
 func upgrade():
 	level += 1
 	upgraded.emit(self.resource)
-
-func is_active():
-	return resource != null

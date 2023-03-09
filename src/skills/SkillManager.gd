@@ -26,7 +26,6 @@ func _ready():
 # 	fire = true
 
 func apply(skill: UpgradeResource):
-	
 	for child in get_children():
 		if child.has_method("apply"):
 			child.apply(skill)
@@ -45,5 +44,13 @@ func get_random_skills(count: int):
 		
 			if result.size() >= count:
 				break
+	
+	return result
+
+func get_active_skills():
+	var result = []
+	for child in get_children():
+		if child.upgrader.resource != null:
+			result.append(child)
 	
 	return result

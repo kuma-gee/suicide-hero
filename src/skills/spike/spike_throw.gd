@@ -2,8 +2,8 @@ class_name SpikeThrow
 extends Node2D
 
 @export var spike: PackedScene
-@export var resource: SpikeUpgradeResource
 @export var firerate: FireRateTimer
+@export var upgrader: Upgrader
 @export var player: Player = owner
 
 var _logger = Logger.new("SpikeThrow")
@@ -12,17 +12,18 @@ func _ready():
 	firerate.timeout.connect(_throw_spikes)
 
 func get_upgrade():
-	return null
+	return upgrader.get_next_upgrade()
 
 func apply(res: UpgradeResource):
 	var upgrade = res as SpikeUpgradeResource
-	if upgrade :
-		resource = upgrade
-		firerate.update_firerate(resource.firerate)
+	if upgrade:
+		upgrader.upgrade()
+		firerate.update_firerate(upgrade.firerate)
 		_logger.debug("Upgrading Spike Throw")
 
 
 func _throw_spikes():
+	var resource = upgrader.resource as SpikeUpgradeResource
 	if resource == null: return
 
 	for i in range(0, resource.throw_amount):

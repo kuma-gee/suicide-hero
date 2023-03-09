@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="StatUpgradeResource" load_steps=5 format=3 uid="uid://c57i3w6kmcc0w"]
 
-[ext_resource type="Script" path="res://src/skills/resources/StatUpgradeResource.gd" id="1_hi4w7"]
+[ext_resource type="Script" path="res://src/skills/stat_up/StatUpgradeResource.gd" id="1_hi4w7"]
 [ext_resource type="Texture2D" uid="uid://cju1mq5hsegm3" path="res://icon.png" id="1_ifkn7"]
-[ext_resource type="Script" path="res://src/skills/resources/SkillDescriptionResource.gd" id="1_pio2v"]
+[ext_resource type="Script" path="res://src/skills/SkillDescriptionResource.gd" id="1_pio2v"]
 
 [sub_resource type="Resource" id="Resource_ibjxb"]
 script = ExtResource("1_pio2v")

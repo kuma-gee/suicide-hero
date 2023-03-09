@@ -16,6 +16,7 @@ func _ready():
 	timer.start(lifetime)
 	
 	_spikes = _create_spikes_with_destination()
+	super._ready()
 
 func _process(_delta):
 	for spike_dest in _spikes:
@@ -31,7 +32,7 @@ func _create_spikes_with_destination() -> Dictionary:
 		var max_dir = Vector2.UP.rotated(TAU * randf()) * radius
 		var dest = max_dir * randf()
 		var node = spike_sprite.instantiate() as DamagingItem
-		node.set_damage(damage)
+		node.damage = damage
 		add_child(node)
 		result[dest] = node
 	

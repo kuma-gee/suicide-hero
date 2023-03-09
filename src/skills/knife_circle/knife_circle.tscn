@@ -1,14 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://b05hkwesf7odk"]
+[gd_scene load_steps=6 format=3 uid="uid://b05hkwesf7odk"]
 
 [ext_resource type="Script" path="res://src/skills/knife_circle/knife_circle.gd" id="1_kvgj3"]
 [ext_resource type="PackedScene" uid="uid://cy32cgmausqfc" path="res://src/skills/knife_circle/knife.tscn" id="2_a73d5"]
+[ext_resource type="Script" path="res://src/skills/shared/upgrader.gd" id="3_grsu7"]
+[ext_resource type="Resource" uid="uid://xy6i5svddfoc" path="res://src/skills/knife_circle/KnifeCircleLV1.tres" id="4_ysbfx"]
+[ext_resource type="Resource" uid="uid://bcenj58ysveuq" path="res://src/skills/knife_circle/KnifeCircleLVMax.tres" id="5_npu00"]
 
-[node name="KnifeCircle" type="Node2D" node_paths=PackedStringArray("timer")]
+[node name="KnifeCircle" type="Node2D" node_paths=PackedStringArray("timer", "upgrader")]
 script = ExtResource("1_kvgj3")
 timer = NodePath("Timer")
 knife = ExtResource("2_a73d5")
+upgrader = NodePath("Upgrader")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Upgrader" type="Node" parent="."]
+script = ExtResource("3_grsu7")
+upgrades = Array[Resource("res://src/skills/UpgradeResource.gd")]([ExtResource("4_ysbfx"), ExtResource("5_npu00")])
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

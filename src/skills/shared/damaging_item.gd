@@ -5,11 +5,11 @@ extends Node2D
 
 var max_hits := 3
 var _hits := 0
+var damage := 0
+var knockback := 0
 
-func set_damage(dmg: int):
-	hitbox.damage = dmg
-
-func set_knockback(knockback: int):
+func _ready():
+	hitbox.damage = damage
 	hitbox.knockback_force = knockback
 
 
