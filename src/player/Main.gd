@@ -14,6 +14,7 @@ func _ready():
 	map.player = player
 	
 	hud.connect_player_stats(player.stats)
+	hud.connect_skill_stats(player.skill_manager)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
