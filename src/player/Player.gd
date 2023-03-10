@@ -4,8 +4,9 @@ signal level_up(lvl)
 signal died()
 
 @export var res: PlayerResource
-@export var skill_manager: SkillManager
 @export var stats: PlayerStats 
+
+@export var initial_skill: UpgradeResource
 
 @onready var input := $PlayerInput
 @onready var gun_point_root := $GunPointRoot
@@ -18,6 +19,7 @@ signal died()
 @onready var sprite := $Body/Sprite
 @onready var anim := $AnimationPlayer
 
+@onready var pickup_magnet := $PickupMagnet
 @onready var pickup_sound := $PickupArea/PickupSound
 @onready var level_up_sound := $LevelUpSound
 
@@ -29,6 +31,7 @@ var _logger = Logger.new("Player")
 
 func _ready():
 	hp_bar.connect_value_fill(stats.health)
+	SkillManager.apply(initial_skill)
 
 func _process(_delta):
 	move.motion = _get_motion().normalized()
@@ -75,12 +78,22 @@ func _on_Health_zero_value():
 
 
 func _on_hurt_box_damaged(dmg):
-	stats.health.reduce(dmg)
+	stats.damage_player(dmg)
 
 
 func _on_player_stats_level_up(lvl):
 	level_up_sound.play()
+	SkillManager.show_next_skills()
+
+func add_skill(node: Node2D):
+	add_child(node)
+
+func apply(stat: StatUpgradeResource):
+	res.health *= 1 + stat.health # player health is not saved in percentage
+	res.attack += stat.attack
+	res.speed += stat.speed
+	res.pickup += stat.pickup
 	
-	var skills = skill_manager.get_random_skills(3)
-	if skills.size() > 0:
-		GUI.open({"menu": GUI.SkillSelect, "skills": skills})
+	pickup_magnet.set_range(res.pickup)
+	health.max_value = res.health
+	move_state.speed_multiplier = res.speed

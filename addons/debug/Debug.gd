@@ -39,7 +39,7 @@ var _commands = {
 		"desc": "Set zoom of camera. Call without arguments to reset to original zoom",
 		"action": func(x): _zoom_cmd(x)
 	},
-	"/upgrade": {
+	"/up": {
 		"desc": "Apply an upgrade to a skill",
 		"action": func(x): _upgrade_cmd(x)
 	}

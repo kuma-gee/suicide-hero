@@ -3,15 +3,15 @@ extends Area2D
 
 @export var firerate: FireRateTimer
 @export var gust: PackedScene
-@export var upgrader: Upgrader
 
 @onready var collision: CollisionShape2D = $CollisionShape2D
+
+var _res: AirGustUpgradeResource
 
 func _ready():
 	area_entered.connect(_on_area_enter)
 	area_exited.connect(_on_area_exit)
 	firerate.timeout.connect(_shoot_gust)
-	upgrader.upgraded.connect(_on_upgrade)
 	collision.disabled = true
 
 
@@ -43,18 +43,11 @@ func _update_slow_radius(radius: int):
 	shape.radius = radius
 	# TODO: sprites/animation
 	
-
-func get_upgrade():
-	return upgrader.get_next_upgrade()
-
-func apply(res: UpgradeResource) -> void:
-	if res is AirGustUpgradeResource:
-		upgrader.upgrade()
-		
-func _on_upgrade(res: AirGustUpgradeResource):
+func apply(res: AirGustUpgradeResource) -> void:
+	_res = res
+	firerate.update_firerate(res.firerate)
 	collision.disabled = false
 	_update_slow_radius(upgrader.resource.slow_radius)
-	firerate.update_firerate(upgrader.resource.firerate)
 	_update_debuff()
 
 func _shoot_gust():

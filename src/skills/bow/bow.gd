@@ -4,28 +4,15 @@ extends Node2D
 @export var arrow: PackedScene
 @export var firerate: FireRateTimer
 @export var shoot_sound: AudioStreamPlayer
-@export var upgrader: Upgrader
 @export var player: Player = owner
 
-var _logger = Logger.new("Bow")
+var _res: BowUpgradeResource
 
 func _ready():
 	firerate.timeout.connect(_shoot)
-	upgrader.upgraded.connect(_on_upgrade)
-	_on_upgrade(_res())
 
-
-func get_upgrade():
-	return upgrader.get_next_upgrade()
-
-func _res() -> BowUpgradeResource:
-	return upgrader.resource as BowUpgradeResource
-
-func apply(res: UpgradeResource):
-	if res is BowUpgradeResource:
-		upgrader.upgrade()
-
-func _on_upgrade(res: BowUpgradeResource):
+func apply(res: BowUpgradeResource):
+	_res = res
 	firerate.update_firerate(res.firerate)
 
 func _shoot():

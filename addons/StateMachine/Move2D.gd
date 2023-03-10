@@ -17,9 +17,10 @@ signal run()
 @export var body_path: NodePath
 @onready var body := get_node(body_path)
 
-var velocity = Vector2.ZERO
-var motion = Vector2.ZERO
-var look_dir = Vector2.ZERO
+var velocity := Vector2.ZERO
+var motion := Vector2.ZERO
+var look_dir := Vector2.ZERO
+var speed_multiplier := 0.0
 
 func enter(msg := {}):
 	velocity = Vector2.ZERO
@@ -27,7 +28,7 @@ func enter(msg := {}):
 func physics_process(delta: float):
 	var dir = motion
 	var accel = acceleration if dir.length() > 0.01 else friction
-	velocity = velocity.move_toward(dir * speed, accel  * delta)
+	velocity = velocity.move_toward(dir * speed * (1 + speed_multiplier), accel  * delta)
 	
 	if soft_collision:
 		velocity += soft_collision.get_push_vector() * delta * soft_collision_multiplier
