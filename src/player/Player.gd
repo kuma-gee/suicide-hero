@@ -4,7 +4,7 @@ signal level_up(lvl)
 signal died()
 
 @export var res: PlayerResource
-@export var stats: PlayerStats 
+@export var stats: PlayerStats
 
 @export var initial_skill: UpgradeResource
 
@@ -12,6 +12,7 @@ signal died()
 @onready var gun_point_root := $GunPointRoot
 @onready var state_machine := $StateMachine
 
+@onready var hand := $GunPointRoot/Hand
 @onready var aim_direction := $AimDirection
 @onready var move := $StateMachine/Move2D
 @onready var knockback_state := $StateMachine/Knockback2D
@@ -30,6 +31,7 @@ signal died()
 var _logger = Logger.new("Player")
 
 func _ready():
+	stats.health.max_value = res.health
 	hp_bar.connect_value_fill(stats.health)
 	SkillManager.apply(initial_skill)
 
@@ -86,7 +88,10 @@ func _on_player_stats_level_up(lvl):
 	SkillManager.show_next_skills()
 
 func add_skill(node: Node2D):
-	add_child(node)
+	if node is Bow:
+		hand.add_child(node)
+	else:
+		add_child(node)
 
 func apply(stat: StatUpgradeResource):
 	res.health *= 1 + stat.health # player health is not saved in percentage
@@ -95,5 +100,5 @@ func apply(stat: StatUpgradeResource):
 	res.pickup += stat.pickup
 	
 	pickup_magnet.set_range(res.pickup)
-	health.max_value = res.health
-	move_state.speed_multiplier = res.speed
+	stats.health.max_value = res.health
+	move.speed_multiplier = res.speed

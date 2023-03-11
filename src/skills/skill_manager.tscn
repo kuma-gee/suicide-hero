@@ -1,0 +1,14 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddpia4fuxyll6"]
+
+[ext_resource type="Script" path="res://src/skills/SkillManager.gd" id="1_3qdjn"]
+[ext_resource type="Resource" uid="uid://cwcvhrj18acqe" path="res://src/skills/air_gust/AirGustLV1.tres" id="2_g0c8d"]
+[ext_resource type="Resource" uid="uid://xy6i5svddfoc" path="res://src/skills/knife_circle/KnifeCircleLV1.tres" id="3_rajqg"]
+[ext_resource type="Resource" uid="uid://c48ut2n575nyu" path="res://src/skills/spike/SpikeLV1.tres" id="4_s84ph"]
+[ext_resource type="Resource" uid="uid://bl2jc5an0bv7m" path="res://src/skills/stat_up/StatUpAttackLV1.tres" id="5_13e1q"]
+[ext_resource type="Resource" uid="uid://b4xyt602xowet" path="res://src/skills/stat_up/StatUpHealthLV1.tres" id="6_gcd3u"]
+[ext_resource type="Resource" uid="uid://c57i3w6kmcc0w" path="res://src/skills/stat_up/StatUpPickupLV1.tres" id="7_0hh5l"]
+[ext_resource type="Resource" uid="uid://b0b1tcay0jbvo" path="res://src/skills/stat_up/StatUpSpeedLV1.tres" id="8_vm15x"]
+
+[node name="SkillManager" type="Node"]
+script = ExtResource("1_3qdjn")
+_skill_pool = Array[Resource("res://src/skills/UpgradeResource.gd")]([ExtResource("2_g0c8d"), ExtResource("3_rajqg"), ExtResource("4_s84ph"), ExtResource("5_13e1q"), ExtResource("6_gcd3u"), ExtResource("7_0hh5l"), ExtResource("8_vm15x")])

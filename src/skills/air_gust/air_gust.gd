@@ -30,7 +30,7 @@ func _update_debuff():
 
 func _apply_debuff(area: Area2D):
 	if area is Debuffer:
-		area.set_movement("AirGust", upgrader.resource.slow_movement)
+		area.set_movement("AirGust", _res.slow_movement)
 
 
 func _remove_debuff(area: Area2D):
@@ -45,18 +45,17 @@ func _update_slow_radius(radius: int):
 	
 func apply(res: AirGustUpgradeResource) -> void:
 	_res = res
-	firerate.update_firerate(res.firerate)
+	firerate.update_firerate(_res.firerate)
 	collision.disabled = false
-	_update_slow_radius(upgrader.resource.slow_radius)
+	_update_slow_radius(_res.slow_radius)
 	_update_debuff()
 
 func _shoot_gust():
-	var res = upgrader.resource as AirGustUpgradeResource
-	for i in range(0, res.gust_amount):
+	for i in range(0, _res.gust_amount):
 		var dir = Vector2.UP.rotated(TAU * randf())
 		var node = gust.instantiate()
 
-		node.knockback = res.knockback
+		node.knockback = _res.knockback
 		node.dir = dir
 		
 		node.global_position = global_position

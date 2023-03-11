@@ -4,8 +4,8 @@ extends Node2D
 @export var arrow: PackedScene
 @export var firerate: FireRateTimer
 @export var shoot_sound: AudioStreamPlayer
-@export var player: Player = owner
 
+var player: Player
 var _res: BowUpgradeResource
 
 func _ready():
@@ -16,17 +16,16 @@ func apply(res: BowUpgradeResource):
 	firerate.update_firerate(res.firerate)
 
 func _shoot():
-	var res = _res()
-	var arrow_count = res.count
+	var arrow_count = _res.count
 	var angles = _calc_angle(arrow_count)
 	for i in range(0, arrow_count):
 		var angle = angles[i]
 		var arrow_node = _create_arrow(angle)
-		arrow_node.set_damage(res.damage * player.get_attack_multiplier())
-		arrow_node.pierce = res.pierce
-		arrow_node.speed = res.speed
-		arrow_node.set_knockback(res.knockback_force)
-		arrow_node.scale = Vector2(res.scale, res.scale)
+		arrow_node.set_damage(_res.damage * player.get_attack_multiplier())
+		arrow_node.pierce = _res.pierce
+		arrow_node.speed = _res.speed
+		arrow_node.set_knockback(_res.knockback_force)
+		arrow_node.scale = Vector2(_res.scale, _res.scale)
 		get_tree().current_scene.add_child(arrow_node)
 
 	shoot_sound.play()

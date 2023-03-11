@@ -40,7 +40,7 @@ msgid "FIRE"
 msgstr "Fire"
 
 msgid "LEVEL"
-msgstr "Level"
+msgstr "LV"
 
 msgid "HP"
 msgstr "HP"

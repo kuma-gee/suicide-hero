@@ -8,11 +8,6 @@ signal level_up(lvl)
 @onready var experience := $Experience
 @onready var health := $Health
 
-@export var player: Player = owner
-
-func _ready():
-	health.max_value = player.res.health
-
 func _process(delta):
 	_gain_experience()
 

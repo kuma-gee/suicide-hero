@@ -3,8 +3,8 @@ extends Node2D
 
 @export var spike: PackedScene
 @export var firerate: FireRateTimer
-@export var player: Player = owner
 
+var player: Player
 var _logger = Logger.new("SpikeThrow")
 var _res: SpikeUpgradeResource
 
@@ -15,9 +15,12 @@ func apply(res: SpikeUpgradeResource):
 	_res = res
 	firerate.update_firerate(res.firerate)
 	_logger.debug("Upgrading Spike Throw")
+	_throw_spikes()
 
 
 func _throw_spikes():
+	_logger.debug("Throwing spikes")
+	
 	for i in range(0, _res.throw_amount):
 		var dir = Vector2.UP.rotated(TAU * randf())
 		

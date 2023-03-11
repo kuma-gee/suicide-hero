@@ -1,5 +1,4 @@
-class_name SkillManager
-extends Node2D
+extends Node
 
 signal weapons_updated(weapons)
 
@@ -28,8 +27,6 @@ const SKILL_NODE_MAP = {
 @export var max_weapons := 4
 @export var max_items := 4
 
-@export var stats: PlayerStats
-
 @export var _skill_pool: Array[UpgradeResource] = []
 
 var _current_skills = {}
@@ -40,7 +37,7 @@ var _logger = Logger.new("SkillManager")
 func _ready():
 	Events.skill_selected.connect(apply)
 
-func apply(skill: UpgradeResource):
+func apply(res: UpgradeResource):
 	if res is BowUpgradeResource:
 		_upgrade_skill(Skill.BOW, res)
 	elif res is AirGustUpgradeResource:
@@ -59,6 +56,8 @@ func _upgrade_skill(skill: int, res: UpgradeResource):
 			var skill_node = SKILL_NODE_MAP[skill].instantiate()
 			var player = get_tree().get_first_node_in_group("Player")
 			player.add_skill(skill_node)
+			if "player" in skill_node:
+				skill_node.player = player
 			_skill_nodes[skill] = skill_node
 		else:
 			_logger.warn("No skill node for %s" % Skill.find_key(skill))
@@ -66,9 +65,13 @@ func _upgrade_skill(skill: int, res: UpgradeResource):
 
 
 	_skill_nodes[skill].apply(res)
-	_current_skills[skill] = (_current_skills[skill] or 0) + 1
-	_update_weapons_changed()
+	
+	if not skill in _current_skills:
+		_current_skills[skill] = 0
+	_current_skills[skill] += 1
 
+	_update_weapons_changed()
+	
 	_skill_pool.erase(res)
 	if res.next_upgrade:
 		_skill_pool.append(res.next_upgrade)

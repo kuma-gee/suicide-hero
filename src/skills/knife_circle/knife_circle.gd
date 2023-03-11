@@ -8,6 +8,7 @@ extends Node2D
 
 @onready var _initial_child_count = get_child_count()
 
+var _knifes: Array[Node2D] = []
 var _logger = Logger.new("KnifeCircle")
 var _res: KnifeUpgradeResource
 
@@ -19,8 +20,12 @@ func apply(res: KnifeUpgradeResource):
 func _has_no_knifes():
 	return get_child_count() == _initial_child_count
 
+func _despawn_knifes():
+	for knife in _knifes:
+		knife.queue_free()
+
 func _spawn_knifes() -> void:
-	if not _has_no_knifes(): return
+	_despawn_knifes()
 
 	var angle_step = TAU / _res.amount
 	var dir = Vector2.UP
@@ -36,6 +41,7 @@ func _spawn_knifes() -> void:
 		node.scale = Vector2(_res.scale, _res.scale)
 		add_child(node)
 	
+	timer.stop()
 	_logger.debug("Spawning %s knifes in angle of %s" % [_res.amount, rad_to_deg(angle_step)])
 
 func _process(_delta):

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=9 format=3 uid="uid://bjubkp85qmjqv"]
 
-[ext_resource type="FontFile" uid="uid://bkv1gejhjf0bp" path="res://theme/jackeyfont.ttf" id="1_381gb"]
+[ext_resource type="FontFile" uid="uid://7au4lkl0tru7" path="res://theme/jackeyfont.ttf" id="1_381gb"]
 
 [sub_resource type="StyleBoxEmpty" id="1"]
 

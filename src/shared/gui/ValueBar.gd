@@ -1,13 +1,15 @@
 class_name ValueFillBar
-extends ProgressBar
+extends Range
 
 func connect_value_fill(v: ValueFill) -> void:
-	var _x = v.connect("max_value_changed", _set_max_value)
-	var _y = v.connect("value_changed", _set_value)
+	v.max_value_changed.connect(_set_max_value)
+	v.value_changed.connect(_set_value)
 
 func _set_value(v) -> void:
 	value = v
+	changed.emit()
 
 func _set_max_value(v) -> void:
 	max_value = v
+	changed.emit()
 

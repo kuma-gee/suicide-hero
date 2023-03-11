@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="KnifeUpgradeResource" load_steps=4 format=3 uid="uid://xy6i5svddfoc"]
+[gd_resource type="Resource" script_class="KnifeUpgradeResource" load_steps=5 format=3 uid="uid://xy6i5svddfoc"]
 
 [ext_resource type="Script" path="res://src/skills/SkillDescriptionResource.gd" id="1_jh0k7"]
 [ext_resource type="Script" path="res://src/skills/knife_circle/knife_upgrade_resource.gd" id="1_n7odp"]
+[ext_resource type="Resource" uid="uid://bcenj58ysveuq" path="res://src/skills/knife_circle/KnifeCircleLVMax.tres" id="2_dykdt"]
 
 [sub_resource type="Resource" id="Resource_df2hk"]
 script = ExtResource("1_jh0k7")
@@ -10,7 +11,7 @@ name = "KNIFE_CIRCLE_LV1"
 
 [resource]
 script = ExtResource("1_n7odp")
-respawn_time = 7.0
+respawn_time = 20.0
 amount = 3
 speed = 0.5
 damage = 5
@@ -19,3 +20,4 @@ max_hits = 5
 knockback = 0
 scale = 1.0
 description = SubResource("Resource_df2hk")
+next_upgrade = ExtResource("2_dykdt")

@@ -7,11 +7,10 @@
 [ext_resource type="Resource" uid="uid://c48ut2n575nyu" path="res://src/skills/spike/SpikeLV1.tres" id="5_susyw"]
 [ext_resource type="Resource" uid="uid://vkqtfaq2ynni" path="res://src/skills/spike/SpikeLVMax.tres" id="6_ij82p"]
 
-[node name="SpikeThrow" type="Node2D" node_paths=PackedStringArray("firerate", "upgrader")]
+[node name="SpikeThrow" type="Node2D" node_paths=PackedStringArray("firerate")]
 script = ExtResource("1_nhn5w")
 spike = ExtResource("2_78nqw")
 firerate = NodePath("Timer")
-upgrader = NodePath("Upgrader")
 
 [node name="Timer" type="Timer" parent="."]
 script = ExtResource("5_cbhpl")

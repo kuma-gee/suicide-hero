@@ -1,15 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2j6q8cyljml7"]
+[gd_scene load_steps=3 format=3 uid="uid://c2j6q8cyljml7"]
 
-[ext_resource type="Script" path="res://src/skills/stat_up/PlayerStats.gd" id="1_p1kil"]
+[ext_resource type="Script" path="res://src/player/PlayerStats.gd" id="1_rxi8y"]
 [ext_resource type="Script" path="res://src/shared/misc/ValueFill.gd" id="2"]
-[ext_resource type="Resource" uid="uid://bl2jc5an0bv7m" path="res://src/skills/stat_up/StatUpAttackLV1.tres" id="4_m4w45"]
-[ext_resource type="Resource" uid="uid://b4xyt602xowet" path="res://src/skills/stat_up/StatUpHealthLV1.tres" id="5_tckw1"]
-[ext_resource type="Resource" uid="uid://c57i3w6kmcc0w" path="res://src/skills/stat_up/StatUpPickupLV1.tres" id="6_v60i8"]
-[ext_resource type="Resource" uid="uid://b0b1tcay0jbvo" path="res://src/skills/stat_up/StatUpSpeedLV1.tres" id="7_365ug"]
 
 [node name="PlayerStats" type="Node"]
-script = ExtResource("1_p1kil")
-upgrades = Array[Resource("res://src/skills/stat_up/StatUpgradeResource.gd")]([ExtResource("4_m4w45"), ExtResource("5_tckw1"), ExtResource("6_v60i8"), ExtResource("7_365ug")])
+script = ExtResource("1_rxi8y")
 
 [node name="Experience" type="Node" parent="."]
 script = ExtResource("2")

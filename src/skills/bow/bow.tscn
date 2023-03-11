@@ -9,12 +9,11 @@
 [ext_resource type="Resource" uid="uid://cdxm0u21vxok2" path="res://src/skills/bow/BowLV1.tres" id="7_5s5eg"]
 [ext_resource type="Resource" uid="uid://dhmjac3qmywnf" path="res://src/skills/bow/BowLVMax.tres" id="8_kvdi3"]
 
-[node name="Bow" type="Node2D" node_paths=PackedStringArray("firerate", "shoot_sound", "upgrader")]
+[node name="Bow" type="Node2D" node_paths=PackedStringArray("firerate", "shoot_sound")]
 script = ExtResource("1_04msa")
 arrow = ExtResource("2_65f2n")
 firerate = NodePath("FireRate")
 shoot_sound = NodePath("Shoot")
-upgrader = NodePath("Upgrader")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ekb8s")

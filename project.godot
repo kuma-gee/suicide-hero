@@ -25,6 +25,7 @@ Build="*res://src/autoload/Build.gd"
 Events="*res://src/autoload/Events.gd"
 Settings="*res://src/autoload/Settings.gd"
 Debug="*res://addons/debug/Debug.tscn"
+SkillManager="*res://src/skills/skill_manager.tscn"
 
 [display]
 
