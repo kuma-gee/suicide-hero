@@ -1,5 +1,7 @@
 extends Node2D
 
+signal enemy_killed()
+
 @export var spawn_positions: Node2D
 @export var player: Player
 
@@ -28,6 +30,7 @@ func _on_spawn_timer_timeout():
 	enemy.resource = _enemy_pool[randi() % _enemy_pool.size()]
 	enemy.global_position = random_point.global_position
 	enemy.player = player
+	enemy.died.connect(func(): enemy_killed.emit())
 	_logger.trace("Spawn enemy at %s" % random_point.global_position)
 	add_child(enemy)
 

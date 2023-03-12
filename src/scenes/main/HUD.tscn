@@ -32,13 +32,14 @@ shader_parameter/shine_color = Color(1, 1, 1, 1)
 shader_parameter/shine_size = 0.05
 shader_parameter/shine_speed = 5.0
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("experience", "hp_bar", "level", "hp_label")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("experience", "hp_bar", "level", "hp_label", "kill_label")]
 layer = 6
 script = ExtResource("2")
 experience = NodePath("Root/ExpBar")
 hp_bar = NodePath("Root/HpBar")
 level = NodePath("Root/ExpBar/MarginContainer/Level")
 hp_label = NodePath("Root/HpBar/MarginContainer/Label")
+kill_label = NodePath("Root/Top/MarginContainer/HBoxContainer/Kills/Label")
 unknown_icon = ExtResource("2_ckgrj")
 weapon_icons = Array[NodePath]([NodePath("Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer"), NodePath("Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer2"), NodePath("Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer3")])
 
@@ -222,6 +223,7 @@ size_flags_horizontal = 3
 
 [node name="Kills" type="HBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="TextureRect" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/Kills"]
 layout_mode = 2
@@ -230,7 +232,6 @@ stretch_mode = 2
 
 [node name="Label" type="Label" parent="Root/Top/MarginContainer/HBoxContainer/Kills"]
 layout_mode = 2
-size_flags_vertical = 0
 text = "_0000000_"
 label_settings = ExtResource("16_ay5du")
 vertical_alignment = 1

@@ -1,5 +1,7 @@
 class_name Enemy extends CharacterBody2D
 
+signal died()
+
 @export var health_drop_chance := 0.5
 @export var health_drop: PackedScene
 
@@ -62,6 +64,7 @@ func _on_HurtBox_damaged(dmg):
 
 func _on_Health_zero_value():
 	call_deferred("_maybe_drop_item")
+	died.emit()
 	queue_free()
 
 func _maybe_drop_item():

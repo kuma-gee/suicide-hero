@@ -5,6 +5,8 @@ extends Node
 @onready var camera := $Camera2D
 @onready var player := $Player
 
+var killed_enemies := 0
+
 func _ready():
 	if Env.is_prod():
 		randomize()
@@ -14,6 +16,7 @@ func _ready():
 	map.player = player
 	
 	hud.connect_player_stats(player.stats)
+	_update_kill_count()
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
@@ -22,3 +25,11 @@ func _unhandled_input(event):
 
 func _on_player_died():
 	GUI.open({"menu": GUI.GameOver, "score": player.stats.level})
+
+
+func _on_map_enemy_killed():
+	killed_enemies += 1
+	_update_kill_count()
+	
+func _update_kill_count():
+	hud.update_kills(killed_enemies)

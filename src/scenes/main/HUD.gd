@@ -4,6 +4,7 @@ extends CanvasLayer
 @export var hp_bar: TextureProgressBar
 @export var level: Label
 @export var hp_label: Label
+@export var kill_label: Label
 
 @export var unknown_icon: Texture2D
 @export var weapon_icons: Array[NodePath]
@@ -37,3 +38,6 @@ func _set_weapons(weapons: Array):
 		var icon = get_node(weapon_icons[i])
 		if icon:
 			icon.set_icon(tex if tex else unknown_icon)
+
+func update_kills(kills: int):
+	kill_label.text = "%s" % kills

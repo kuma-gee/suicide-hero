@@ -53,3 +53,5 @@ position = Vector2(-1, -338)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
+
+[connection signal="enemy_killed" from="Map" to="." method="_on_map_enemy_killed"]
