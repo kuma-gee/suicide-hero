@@ -5,8 +5,7 @@ extends CanvasLayer
 @export var level: Label
 @export var hp_label: Label
 
-@export var default_weapon_icon: Texture2D
-
+@export var unknown_icon: Texture2D
 @export var weapon_icons: Array[NodePath]
 
 const SKILL_SPRITE_MAP = {
@@ -37,4 +36,4 @@ func _set_weapons(weapons: Array):
 		var tex = SKILL_SPRITE_MAP[weapons[i]]
 		var icon = get_node(weapon_icons[i])
 		if icon:
-			icon.texture = tex if tex else default_weapon_icon
+			icon.set_icon(tex if tex else unknown_icon)
