@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://v8ybdh5m87am"]
+[gd_scene load_steps=19 format=3 uid="uid://v8ybdh5m87am"]
 
 [ext_resource type="Script" path="res://src/scenes/main/HUD.gd" id="2"]
 [ext_resource type="Script" path="res://src/shared/gui/ValueBar.gd" id="2_4btjk"]
@@ -9,9 +9,20 @@
 [ext_resource type="Texture2D" uid="uid://84x4ch3kh8nw" path="res://assets/ui/HP_BG_0.png" id="4_xhp68"]
 [ext_resource type="Texture2D" uid="uid://p2ey2kpkm58o" path="res://assets/ui/HP_Over_0.png" id="5_ek01r"]
 [ext_resource type="Texture2D" uid="uid://rvfwns6f26ph" path="res://assets/ui/Exp_BG_0.png" id="7_b2lgn"]
+[ext_resource type="Shader" path="res://src/scenes/main/shine.gdshader" id="7_tj5oy"]
 [ext_resource type="Texture2D" uid="uid://2u430demcfkc" path="res://assets/ui/Exp_Over_0.png" id="8_yu7af"]
+[ext_resource type="Texture2D" uid="uid://tdwtyite40pj" path="res://assets/ui/Exp_FG_0.png" id="10_vnwv2"]
 [ext_resource type="Texture2D" uid="uid://bd3gqmn54e4nj" path="res://assets/ui/Skill_Border_0.png" id="11_hp2h3"]
 [ext_resource type="Texture2D" uid="uid://bxg4gxww1avrb" path="res://assets/ui/Skill_Weapon_0.png" id="12_o04el"]
+[ext_resource type="Texture2D" uid="uid://dc0igslcgtkqf" path="res://assets/ui/UI_Time_0.png" id="15_0ocwq"]
+[ext_resource type="Texture2D" uid="uid://bm0cyiwn8tp7l" path="res://assets/ui/UI_Kills_0.png" id="16_a1tw7"]
+[ext_resource type="Script" path="res://src/scenes/main/Stopwatch.gd" id="16_oxuds"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qe3mc"]
+shader = ExtResource("7_tj5oy")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/shine_size = 0.05
+shader_parameter/shine_speed = 5.0
 
 [node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("experience", "hp_bar", "level", "hp_label")]
 layer = 6
@@ -21,7 +32,7 @@ hp_bar = NodePath("Root/HpBar")
 level = NodePath("Root/ExpBar/MarginContainer/Level")
 hp_label = NodePath("Root/HpBar/MarginContainer/Label")
 default_weapon_icon = ExtResource("2_s437p")
-weapon_icons = Array[NodePath]([NodePath("Root/Top/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer/TextureRect2"), NodePath("Root/Top/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer2/TextureRect2"), NodePath("Root/Top/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer3/TextureRect2")])
+weapon_icons = Array[NodePath]([NodePath("Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer/TextureRect2"), NodePath("Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer2/TextureRect2"), NodePath("Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer3/TextureRect2")])
 
 [node name="Root" type="Control" parent="."]
 layout_mode = 3
@@ -65,18 +76,17 @@ theme_override_font_sizes/font_size = 6
 text = "__HP__"
 
 [node name="ExpBar" type="TextureProgressBar" parent="Root"]
+material = SubResource("ShaderMaterial_qe3mc")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 16.0
 grow_horizontal = 2
 step = 0.1
-value = 10.0
+value = 80.0
 texture_under = ExtResource("7_b2lgn")
 texture_over = ExtResource("8_yu7af")
-texture_progress = ExtResource("7_b2lgn")
-tint_under = Color(0.341176, 0.239216, 0.0862745, 1)
-tint_progress = Color(0.929412, 0.878431, 0.317647, 1)
+texture_progress = ExtResource("10_vnwv2")
 script = ExtResource("2_4btjk")
 
 [node name="MarginContainer" type="MarginContainer" parent="Root/ExpBar"]
@@ -95,68 +105,114 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "LV 1"
+vertical_alignment = 1
 script = ExtResource("4_m4ajh")
 relative_font_size = 0.8
 
 [node name="Top" type="VBoxContainer" parent="Root"]
 layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-grow_vertical = 2
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 89.0
+grow_horizontal = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Root/Top"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Root/Top/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Root/Top/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("4_usqf3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Weapons" type="HBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Weapons" type="HBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="CenterContainer" type="CenterContainer" parent="Root/Top/MarginContainer/HBoxContainer/VBoxContainer/Weapons"]
+[node name="CenterContainer" type="CenterContainer" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer"]
+[node name="TextureRect" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer"]
 layout_mode = 2
 texture = ExtResource("11_hp2h3")
 
-[node name="TextureRect2" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer"]
+[node name="TextureRect2" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer"]
 layout_mode = 2
 texture = ExtResource("12_o04el")
 
-[node name="CenterContainer2" type="CenterContainer" parent="Root/Top/MarginContainer/HBoxContainer/VBoxContainer/Weapons"]
+[node name="CenterContainer2" type="CenterContainer" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer2"]
 layout_mode = 2
 texture = ExtResource("11_hp2h3")
 
-[node name="TextureRect2" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer2"]
+[node name="TextureRect2" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer2"]
 layout_mode = 2
 texture = ExtResource("12_o04el")
 
-[node name="CenterContainer3" type="CenterContainer" parent="Root/Top/MarginContainer/HBoxContainer/VBoxContainer/Weapons"]
+[node name="CenterContainer3" type="CenterContainer" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer3"]
+[node name="TextureRect" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer3"]
 layout_mode = 2
 texture = ExtResource("11_hp2h3")
 
-[node name="TextureRect2" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer3"]
+[node name="TextureRect2" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons/CenterContainer3"]
 layout_mode = 2
 texture = ExtResource("12_o04el")
+
+[node name="Control" type="Control" parent="Root/Top/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Timer" type="HBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/Timer"]
+layout_mode = 2
+texture = ExtResource("15_0ocwq")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Root/Top/MarginContainer/HBoxContainer/Timer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "_00:00_"
+vertical_alignment = 1
+script = ExtResource("16_oxuds")
+
+[node name="Control2" type="Control" parent="Root/Top/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Kills" type="HBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/Kills"]
+layout_mode = 2
+texture = ExtResource("16_a1tw7")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Root/Top/MarginContainer/HBoxContainer/Kills"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "_0000000_"
+vertical_alignment = 1
