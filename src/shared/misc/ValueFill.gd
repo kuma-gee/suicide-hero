@@ -14,7 +14,6 @@ signal max_value_changed(value)
 var value := 0.0 : set = _set_value
 
 func _ready():
-	await owner.ready
 	if not start_empty:
 		value = max_value
 	

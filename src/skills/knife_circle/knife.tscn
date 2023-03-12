@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy32cgmausqfc"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://src/skills/shared/damaging_item.gd" id="1_ncpc0"]
-[ext_resource type="Texture2D" uid="uid://c8hvmcy8l0pki" path="res://assets/weapon_knife.png" id="2_ur353"]
+[ext_resource type="Texture2D" uid="uid://c8hvmcy8l0pki" path="res://assets/main/weapon_knife.png" id="2_ur353"]
 [ext_resource type="Script" path="res://src/shared/rpg/HitBox2D.gd" id="3_bevj1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tgwb"]

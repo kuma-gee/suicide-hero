@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://eq31jc4rsja7"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://src/skills/bow/arrow.gd" id="1_a6lkb"]
-[ext_resource type="Texture2D" uid="uid://dqlmucdvsel3c" path="res://assets/weapon_arrow.png" id="1_uyhtd"]
+[ext_resource type="Texture2D" uid="uid://dqlmucdvsel3c" path="res://assets/main/weapon_arrow.png" id="1_uyhtd"]
 [ext_resource type="Script" path="res://src/shared/rpg/HitBox2D.gd" id="3_ucd84"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e13ie"]

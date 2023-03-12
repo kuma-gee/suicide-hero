@@ -74,6 +74,8 @@ func _upgrade_skill(skill: int, res: UpgradeResource):
 	
 	_skill_pool.erase(res)
 	if res.next_upgrade:
+		if res.next_upgrade.description.icon == null:
+			res.next_upgrade.description.icon = res.description.icon
 		_skill_pool.append(res.next_upgrade)
 
 func _update_weapons_changed():

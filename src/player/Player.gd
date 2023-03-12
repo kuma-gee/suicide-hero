@@ -32,6 +32,8 @@ var _logger = Logger.new("Player")
 
 func _ready():
 	stats.health.max_value = res.health
+	stats.health.value = res.health
+	
 	hp_bar.connect_value_fill(stats.health)
 	SkillManager.apply(initial_skill)
 

@@ -1,5 +1,5 @@
 class_name WeaponSlot
-extends CenterContainer
+extends Control
 
 @export var default_icon: Texture2D
 

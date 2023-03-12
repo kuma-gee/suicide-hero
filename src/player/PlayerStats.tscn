@@ -9,7 +9,6 @@ script = ExtResource("1_rxi8y")
 [node name="Experience" type="Node" parent="."]
 script = ExtResource("2")
 start_empty = true
-max_value = 50
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2")

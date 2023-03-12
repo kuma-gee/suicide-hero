@@ -23,8 +23,12 @@ func connect_player_stats(stats: PlayerStats) -> void:
 	_set_level(stats.level)
 	stats.connect("level_up", _set_level)
 	experience.connect_value_fill(stats.experience)
+	
 	hp_bar.connect_value_fill(stats.health)
-	hp_bar.changed.connect(func(): hp_label.text = "%s / %s" % [hp_bar.value, hp_bar.max_value])
+	hp_bar.changed.connect(func(): _update_hp_label(stats.health))
+
+func _update_hp_label(value: ValueFill):
+	hp_label.text = "%s / %s" % [floor(value.value), value.max_value]
 
 func _set_level(lvl: int) -> void:
 	level.text = tr("LEVEL") + " " + str(lvl)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bem0mqv77cqhl"]
+[gd_scene load_steps=9 format=3 uid="uid://b5ys8sn5todet"]
 
 [ext_resource type="Script" path="res://src/skills/bow/bow.gd" id="1_04msa"]
-[ext_resource type="Texture2D" uid="uid://fvvu71p3cad3" path="res://assets/weapon_bow.png" id="1_ekb8s"]
-[ext_resource type="PackedScene" uid="uid://eq31jc4rsja7" path="res://src/skills/bow/arrow.tscn" id="2_65f2n"]
+[ext_resource type="PackedScene" path="res://src/skills/bow/arrow.tscn" id="2_65f2n"]
+[ext_resource type="Texture2D" uid="uid://fvvu71p3cad3" path="res://assets/main/weapon_bow.png" id="3_frq26"]
 [ext_resource type="Script" path="res://src/skills/shared/fire_rate.gd" id="4_0yt8a"]
 [ext_resource type="AudioStream" uid="uid://bhnnbne0x7vjt" path="res://sound/弓矢を放つ.mp3" id="5_kfohv"]
 [ext_resource type="Script" path="res://src/skills/shared/upgrader.gd" id="6_agdcb"]
@@ -16,7 +16,7 @@ firerate = NodePath("FireRate")
 shoot_sound = NodePath("Shoot")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ekb8s")
+texture = ExtResource("3_frq26")
 
 [node name="FireRate" type="Timer" parent="."]
 script = ExtResource("4_0yt8a")
