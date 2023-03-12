@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="BowUpgradeResource" load_steps=5 format=3 uid="uid://dhmjac3qmywnf"]
+[gd_resource type="Resource" script_class="BowUpgradeResource" load_steps=4 format=3 uid="uid://dhmjac3qmywnf"]
 
-[ext_resource type="Texture2D" uid="uid://cju1mq5hsegm3" path="res://icon.png" id="1_dm5jk"]
 [ext_resource type="Script" path="res://src/skills/bow/BowUpgradeResource.gd" id="1_e84tn"]
 [ext_resource type="Script" path="res://src/skills/SkillDescriptionResource.gd" id="1_juvk7"]
 
@@ -8,7 +7,6 @@
 script = ExtResource("1_juvk7")
 text = "BOW_LV_MAX_TEXT"
 name = "BOW_LV_MAX"
-icon = ExtResource("1_dm5jk")
 
 [resource]
 script = ExtResource("1_e84tn")

@@ -1,15 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsedb6v6j3e0s"]
+[gd_scene load_steps=4 format=3 uid="uid://bsedb6v6j3e0s"]
 
 [ext_resource type="Script" path="res://src/scenes/menu/skill_select_item.gd" id="1_envrx"]
-[ext_resource type="Texture2D" uid="uid://cju1mq5hsegm3" path="res://icon.png" id="1_f45us"]
+[ext_resource type="Texture2D" uid="uid://bd3gqmn54e4nj" path="res://assets/ui/Skill_Border_0.png" id="2_1iywb"]
+[ext_resource type="Texture2D" uid="uid://chgy2ckm5bpsl" path="res://assets/ui/Skill_Unknown_0.png" id="2_g0f25"]
 
 [node name="SkillSelectItem" type="Button" node_paths=PackedStringArray("texture", "name_label", "desc_label")]
 custom_minimum_size = Vector2(350, 100)
 script = ExtResource("1_envrx")
-texture = NodePath("MarginContainer/HBoxContainer/Icon")
+texture = NodePath("MarginContainer/HBoxContainer/CenterContainer/Icon")
 name_label = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Name")
 desc_label = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Text")
-default_icon = ExtResource("1_f45us")
+default_icon = ExtResource("2_g0f25")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -29,11 +30,22 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 20
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Border" type="TextureRect" parent="MarginContainer/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("1_f45us")
+texture = ExtResource("2_1iywb")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("2_1iywb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2

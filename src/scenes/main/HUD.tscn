@@ -20,9 +20,9 @@
 [ext_resource type="LabelSettings" uid="uid://jfl0ncoejmfd" path="res://theme/label.tres" id="16_ay5du"]
 [ext_resource type="Script" path="res://src/scenes/main/Stopwatch.gd" id="16_oxuds"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_i6wus"]
+[sub_resource type="LabelSettings" id="LabelSettings_u73kh"]
 line_spacing = 0.0
-font_size = 6
+font_size = 8
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
@@ -56,9 +56,9 @@ theme = ExtResource("2_rbnft")
 [node name="HpBar" type="TextureProgressBar" parent="Root"]
 layout_mode = 0
 offset_left = 39.0
-offset_top = 8.0
+offset_top = 10.0
 offset_right = 176.0
-offset_bottom = 15.0
+offset_bottom = 20.0
 value = 50.0
 texture_under = ExtResource("4_xhp68")
 texture_over = ExtResource("5_ek01r")
@@ -83,14 +83,14 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 6
 text = "__HP__"
-label_settings = SubResource("LabelSettings_i6wus")
+label_settings = SubResource("LabelSettings_u73kh")
 
 [node name="ExpBar" type="TextureProgressBar" parent="Root"]
 material = SubResource("ShaderMaterial_qe3mc")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 16.0
+offset_bottom = 20.0
 grow_horizontal = 2
 step = 0.1
 value = 80.0
@@ -129,7 +129,7 @@ grow_horizontal = 2
 [node name="MarginContainer" type="MarginContainer" parent="Root/Top"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 

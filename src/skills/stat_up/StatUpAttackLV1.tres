@@ -1,14 +1,12 @@
-[gd_resource type="Resource" script_class="StatUpgradeResource" load_steps=5 format=3 uid="uid://bl2jc5an0bv7m"]
+[gd_resource type="Resource" script_class="StatUpgradeResource" load_steps=4 format=3 uid="uid://bl2jc5an0bv7m"]
 
 [ext_resource type="Script" path="res://src/skills/SkillDescriptionResource.gd" id="1_fk8r8"]
-[ext_resource type="Texture2D" uid="uid://cju1mq5hsegm3" path="res://icon.png" id="1_oblkq"]
 [ext_resource type="Script" path="res://src/skills/stat_up/StatUpgradeResource.gd" id="3_6mr2m"]
 
 [sub_resource type="Resource" id="Resource_tkw7b"]
 script = ExtResource("1_fk8r8")
 text = "ATTACK 10%"
 name = "ATTACK_LV1"
-icon = ExtResource("1_oblkq")
 
 [resource]
 script = ExtResource("3_6mr2m")
