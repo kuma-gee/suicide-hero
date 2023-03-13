@@ -36,7 +36,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="NewEnemyTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
 autostart = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

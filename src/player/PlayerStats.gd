@@ -12,7 +12,7 @@ func _process(delta):
 	_gain_experience()
 
 func _gain_experience() -> void:
-	var ex = health.value * 0.005
+	var ex = health.value * 0.001
 	experience.increase(ex)
 	health.reduce(ex)
 

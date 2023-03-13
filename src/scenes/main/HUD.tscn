@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://v8ybdh5m87am"]
+[gd_scene load_steps=18 format=3 uid="uid://v8ybdh5m87am"]
 
 [ext_resource type="Script" path="res://src/scenes/main/HUD.gd" id="2"]
 [ext_resource type="Script" path="res://src/shared/gui/ValueBar.gd" id="2_4btjk"]
 [ext_resource type="Texture2D" uid="uid://chgy2ckm5bpsl" path="res://assets/ui/Skill_Unknown_0.png" id="2_ckgrj"]
 [ext_resource type="Theme" uid="uid://bjubkp85qmjqv" path="res://theme/theme.tres" id="2_rbnft"]
 [ext_resource type="Script" path="res://src/shared/gui/ThemeOverride.gd" id="4_m4ajh"]
-[ext_resource type="Texture2D" uid="uid://cju1mq5hsegm3" path="res://icon.png" id="4_usqf3"]
 [ext_resource type="Shader" path="res://src/scenes/main/shine.gdshader" id="7_tj5oy"]
 [ext_resource type="Texture2D" uid="uid://dc0igslcgtkqf" path="res://assets/ui/UI_Time_0.png" id="15_0ocwq"]
 [ext_resource type="Texture2D" uid="uid://bm0cyiwn8tp7l" path="res://assets/ui/UI_Kills_0.png" id="16_a1tw7"]
@@ -48,7 +47,7 @@ level = NodePath("Root/ExpBar/MarginContainer/Level")
 hp_label = NodePath("Root/HpBar/MarginContainer/Label")
 kill_label = NodePath("Root/Top/MarginContainer/HBoxContainer/Kills/Label")
 unknown_icon = ExtResource("2_ckgrj")
-weapon_container = NodePath("Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Weapons")
+weapon_container = NodePath("Root/Top/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Weapons")
 
 [node name="Root" type="Control" parent="."]
 layout_mode = 3
@@ -147,22 +146,10 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/margin_top = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-texture = ExtResource("4_usqf3")
-expand_mode = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Weapons" type="HBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Weapons" type="HBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 theme_override_constants/separation = 5
