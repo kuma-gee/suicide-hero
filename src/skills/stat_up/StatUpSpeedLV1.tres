@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="StatUpgradeResource" load_steps=4 format=3 uid="uid://b0b1tcay0jbvo"]
+[gd_resource type="Resource" script_class="StatUpgradeResource" load_steps=5 format=3 uid="uid://b0b1tcay0jbvo"]
 
+[ext_resource type="Texture2D" uid="uid://dtjcbqlk2yqds" path="res://assets/ui/Skill_StatUp_Speed_0.png" id="1_14w4w"]
 [ext_resource type="Script" path="res://src/skills/SkillDescriptionResource.gd" id="1_kaiof"]
 [ext_resource type="Script" path="res://src/skills/stat_up/StatUpgradeResource.gd" id="1_yf65w"]
 
@@ -7,6 +8,7 @@
 script = ExtResource("1_kaiof")
 text = "Speed 10%"
 name = "SPEED_LV1"
+icon = ExtResource("1_14w4w")
 
 [resource]
 script = ExtResource("1_yf65w")

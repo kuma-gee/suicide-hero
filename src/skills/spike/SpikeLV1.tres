@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="SpikeUpgradeResource" load_steps=5 format=3 uid="uid://c48ut2n575nyu"]
+[gd_resource type="Resource" script_class="SpikeUpgradeResource" load_steps=6 format=3 uid="uid://c48ut2n575nyu"]
 
+[ext_resource type="Texture2D" uid="uid://c60m42wd1dgfp" path="res://assets/ui/Skill_SpikeThrow_0.png" id="1_4l6rb"]
 [ext_resource type="Script" path="res://src/skills/SkillDescriptionResource.gd" id="1_lsq64"]
 [ext_resource type="Script" path="res://src/skills/spike/spike_upgrade_resource.gd" id="1_y1yr1"]
 [ext_resource type="Resource" uid="uid://vkqtfaq2ynni" path="res://src/skills/spike/SpikeLVMax.tres" id="2_xw51m"]
@@ -8,6 +9,7 @@
 script = ExtResource("1_lsq64")
 text = "SPIKE_THROW_LV1_TEXT"
 name = "SPIKE_THROW_LV1"
+icon = ExtResource("1_4l6rb")
 
 [resource]
 script = ExtResource("1_y1yr1")

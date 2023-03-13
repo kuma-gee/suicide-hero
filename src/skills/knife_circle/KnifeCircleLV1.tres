@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="KnifeUpgradeResource" load_steps=5 format=3 uid="uid://xy6i5svddfoc"]
+[gd_resource type="Resource" script_class="KnifeUpgradeResource" load_steps=6 format=3 uid="uid://xy6i5svddfoc"]
 
+[ext_resource type="Texture2D" uid="uid://bk45e2qvltm66" path="res://assets/ui/Skill_KnifeCircle_0.png" id="1_2i12x"]
 [ext_resource type="Script" path="res://src/skills/SkillDescriptionResource.gd" id="1_jh0k7"]
 [ext_resource type="Script" path="res://src/skills/knife_circle/knife_upgrade_resource.gd" id="1_n7odp"]
 [ext_resource type="Resource" uid="uid://bcenj58ysveuq" path="res://src/skills/knife_circle/KnifeCircleLVMax.tres" id="2_dykdt"]
@@ -8,6 +9,7 @@
 script = ExtResource("1_jh0k7")
 text = "KNIFE_CIRCLE_LV1_TEXT"
 name = "KNIFE_CIRCLE_LV1"
+icon = ExtResource("1_2i12x")
 
 [resource]
 script = ExtResource("1_n7odp")

@@ -1,5 +1,5 @@
 class_name SkillSelectItem
-extends Button
+extends BaseButton
 
 @export var texture: TextureRect
 @export var name_label: Label

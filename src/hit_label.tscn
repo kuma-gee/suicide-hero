@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://y448hdwnou37"]
+[gd_scene load_steps=4 format=3 uid="uid://y448hdwnou37"]
 
 [ext_resource type="Script" path="res://src/hit_label.gd" id="1_fguli"]
+[ext_resource type="FontFile" uid="uid://7au4lkl0tru7" path="res://theme/jackeyfont.ttf" id="1_gejrf"]
 [ext_resource type="LabelSettings" uid="uid://jfl0ncoejmfd" path="res://theme/label.tres" id="1_xgj2l"]
 
 [node name="HitLabel" type="Label"]
 offset_right = 40.0
 offset_bottom = 13.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 12
+theme_override_fonts/font = ExtResource("1_gejrf")
 text = "10"
 label_settings = ExtResource("1_xgj2l")
 script = ExtResource("1_fguli")
