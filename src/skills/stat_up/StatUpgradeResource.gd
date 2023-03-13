@@ -10,3 +10,7 @@ extends UpgradeResource
 
 # @export var armor: int
 # @export var dodge: float
+
+
+func get_skill():
+	return SkillManager.Skill.STATS

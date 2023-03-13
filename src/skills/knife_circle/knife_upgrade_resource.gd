@@ -9,3 +9,7 @@ extends UpgradeResource
 @export var max_hits := 5
 @export var knockback := 0
 @export var scale := 1.0
+
+
+func get_skill():
+	return SkillManager.Skill.KNIFE_CIRCLE

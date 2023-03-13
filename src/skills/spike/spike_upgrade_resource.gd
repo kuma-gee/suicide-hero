@@ -9,3 +9,6 @@ extends UpgradeResource
 @export var damage := 5
 @export var spike_amount := 4
 @export var spike_spread_radius := 20
+
+func get_skill():
+	return SkillManager.Skill.SPIKE_THROW

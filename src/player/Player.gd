@@ -5,6 +5,7 @@ signal died()
 
 @export var res: PlayerResource
 @export var stats: PlayerStats
+@export var multiplier_root: Node
 
 @export var initial_skill: UpgradeResource
 
@@ -79,6 +80,7 @@ func _on_Health_zero_value():
 
 
 func _on_hurt_box_damaged(dmg):
+	var hurt_damage_mult = 1 + item_hurt_mult
 	stats.damage_player(dmg)
 
 

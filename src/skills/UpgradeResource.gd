@@ -3,3 +3,9 @@ extends Resource
 
 @export var description: SkillDescriptionResource
 @export var next_upgrade: UpgradeResource
+
+func get_skill():
+	return null
+
+func get_type():
+	return null

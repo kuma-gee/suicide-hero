@@ -7,3 +7,6 @@ extends UpgradeResource
 @export var gust_amount := 0
 @export var firerate := 10.0
 @export var knockback := 50
+
+func get_skill():
+	return SkillManager.Skill.AIR_GUST
