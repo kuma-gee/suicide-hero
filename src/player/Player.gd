@@ -24,9 +24,8 @@ signal died()
 @onready var pickup_sound := $PickupArea/PickupSound
 @onready var level_up_sound := $LevelUpSound
 
-@onready var heal_particles := $HealParticles
 @onready var hp_bar: ValueFillBar = $HpBar
-
+@onready var multiplier: Multiplier = $Multiplier
 
 var _logger = Logger.new("Player")
 
@@ -61,15 +60,13 @@ func get_stats() -> PlayerResource:
 	return res
 
 func get_attack_multiplier() -> float:
-	return res.get_attack_multiplier()
+	return multiplier.get_attack()
 
 func get_current_health() -> int:
 	return stats.health.value
 
 func heal(hp):
 	stats.health.increase(hp)
-	heal_particles.restart()
-	heal_particles.emitting = true
 
 
 func _on_PickupArea_area_entered(_area):
@@ -103,4 +100,4 @@ func apply(stat: StatUpgradeResource):
 	
 	pickup_magnet.set_range(res.pickup)
 	stats.health.max_value = res.health
-	move.speed_multiplier = res.speed
+	move.speed_multiplier = multiplier.get_speed()

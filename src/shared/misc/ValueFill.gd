@@ -59,6 +59,8 @@ func _set_value(hp: float) -> void:
 
 func set_max_value(hp: float) -> void:
 	max_value = float(clamp(hp, 1, hp))
+	if value > max_value:
+		self.value = max_value
 	emit_signal("max_value_changed", max_value)
 
 func get_percentage() -> float:

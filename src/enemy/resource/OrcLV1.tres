@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_4etx4")
 sprites = ExtResource("2_smydm")
-health = 40
-attack = 10
-speed = 40
+health = 50
+attack = 15
+speed = 30
