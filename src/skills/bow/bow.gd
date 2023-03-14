@@ -11,6 +11,9 @@ var _res: BowUpgradeResource
 func _ready():
 	firerate.timeout.connect(_shoot)
 
+func get_resource():
+	return _res
+
 func apply(res: BowUpgradeResource):
 	_res = res
 	firerate.update_firerate(res.firerate)

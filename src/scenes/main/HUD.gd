@@ -8,15 +8,9 @@ extends CanvasLayer
 
 @export var unknown_icon: Texture2D
 @export var weapon_container: Control
+@export var item_container: Control
 
 const WEAPON_SLOT = preload("res://src/scenes/menu/weapon_slot.tscn")
-
-const SKILL_SPRITE_MAP = {
-	SkillManager.Skill.BOW: preload("res://assets/ui/Skill_Bow_0.png"),
-	SkillManager.Skill.AIR_GUST: null, # TODO: get from skill description
-	SkillManager.Skill.KNIFE_CIRCLE: null,
-	SkillManager.Skill.SPIKE_THROW: null,
-}
 
 func _ready():
 	connect_skill_stats()
@@ -41,12 +35,17 @@ func connect_skill_stats() -> void:
 		var slot = WEAPON_SLOT.instantiate()
 		weapon_container.add_child(slot)
 
+	for i in range(0, SkillManager.max_items):
+		var slot = WEAPON_SLOT.instantiate()
+		item_container.add_child(slot)
+
 func _set_weapons(weapons: Array):
 	for i in range(0, weapons.size()):
-		var tex = SKILL_SPRITE_MAP[weapons[i]]
+		var desc = SkillManager.get_active_description(weapons[i])
 		var icon = weapon_container.get_child(i)
 		if icon:
-			icon.set_icon(tex if tex else unknown_icon)
+			var tex = desc.icon if desc else unknown_icon
+			icon.set_icon(tex)
 
 func update_kills(kills: int):
 	kill_label.text = "%s" % kills

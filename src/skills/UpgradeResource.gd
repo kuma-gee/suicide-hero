@@ -6,6 +6,3 @@ extends Resource
 
 func get_skill():
 	return null
-
-func get_type():
-	return null

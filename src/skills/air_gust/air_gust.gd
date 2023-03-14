@@ -42,6 +42,9 @@ func _update_slow_radius(radius: int):
 	var shape = collision.shape as CircleShape2D
 	shape.radius = radius
 	# TODO: sprites/animation
+
+func get_resource():
+	return _res
 	
 func apply(res: AirGustUpgradeResource) -> void:
 	_res = res

@@ -5,7 +5,6 @@ signal died()
 
 @export var res: PlayerResource
 @export var stats: PlayerStats
-@export var multiplier_root: Node
 
 @export var initial_skill: UpgradeResource
 
@@ -29,6 +28,7 @@ signal died()
 @onready var multiplier: Multiplier = $Multiplier
 
 var _logger = Logger.new("Player")
+var _multiplier := {}
 
 func _ready():
 	stats.health.max_value = res.health
@@ -61,7 +61,20 @@ func get_stats() -> PlayerResource:
 	return res
 
 func get_attack_multiplier() -> float:
-	return multiplier.get_attack()
+	return _combine_multipier(func(x): x.attack)
+
+func _get_speed_multiplier() -> float:
+	return _combine_multipier(func(x): x.move_speed)
+
+func _get_damage_multiplier() -> float:
+	return _combine_multipier(func(x): x.damage)
+
+func _combine_multipier(map: Callable) -> float:
+	var result = 0.0
+	for skill in _multiplier:
+		result += map.call(_multiplier[skill])
+	return 1.0 + result
+
 
 func get_current_health() -> int:
 	return stats.health.value
@@ -80,19 +93,21 @@ func _on_Health_zero_value():
 
 
 func _on_hurt_box_damaged(dmg):
-	var hurt_damage_mult = 1 + item_hurt_mult
-	stats.damage_player(dmg)
+	stats.damage_player(dmg * _get_damage_multiplier())
 
 
 func _on_player_stats_level_up(lvl):
 	level_up_sound.play()
 	SkillManager.show_next_skills()
 
-func add_skill(node: Node2D):
+func add_skill(node: Node):
 	if node is Bow:
 		hand.add_child(node)
 	else:
 		add_child(node)
+
+func add_multiplier(skill: SkillManager.Skill, value: Multiplier):
+	multiplier[skill] = value
 
 func apply(stat: StatUpgradeResource):
 	res.health *= 1 + stat.health # player health is not saved in percentage
@@ -102,4 +117,4 @@ func apply(stat: StatUpgradeResource):
 	
 	pickup_magnet.set_range(res.pickup)
 	stats.health.max_value = res.health
-	move.speed_multiplier = multiplier.get_speed()
+	move.speed_multiplier = _get_speed_multiplier()

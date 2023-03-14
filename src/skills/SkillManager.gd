@@ -24,7 +24,8 @@ const SKILL_NODE_MAP = {
 	Skill.BOW: preload("res://src/skills/bow/bow.tscn"),
 	Skill.AIR_GUST: preload("res://src/skills/air_gust/air_gust.tscn"),
 	Skill.SPIKE_THROW: preload("res://src/skills/spike/spike_throw.tscn"),
-	Skill.KNIFE_CIRCLE: preload("res://src/skills/knife_circle/knife_circle.tscn")
+	Skill.KNIFE_CIRCLE: preload("res://src/skills/knife_circle/knife_circle.tscn"),
+	Skill.SPIKED_GLOVES: preload("res://src/skills/spiked_gloves/spiked_globes.gd"), # TODO: check, does gd work?
 }
 
 const WEAPON_TYPES = [
@@ -53,18 +54,19 @@ func _ready():
 	Events.skill_selected.connect(apply)
 
 func apply(res: UpgradeResource):
-	var type = res.get_type()
+	var type = res.get_skill()
+	var player = get_tree().get_first_node_in_group("Player")
+
 	if type != Skill.STATS:
-		_upgrade_skill(type, res)
+		_upgrade_skill(res, player)
 	else:
-		var player = get_tree().get_first_node_in_group("Player")
 		player.apply(res)
 	
-func _upgrade_skill(skill: int, res: UpgradeResource):
+func _upgrade_skill(res: UpgradeResource, player: Player):
+	var skill = res.get_skill()
 	if not skill in _skill_nodes:
 		if skill in SKILL_NODE_MAP:
 			var skill_node = SKILL_NODE_MAP[skill].instantiate()
-			var player = get_tree().get_first_node_in_group("Player")
 			player.add_skill(skill_node)
 			if "player" in skill_node:
 				skill_node.player = player
@@ -73,9 +75,11 @@ func _upgrade_skill(skill: int, res: UpgradeResource):
 			_logger.warn("No skill node for %s" % Skill.find_key(skill))
 			return
 
+	var node = _skill_nodes[skill]
+	node.apply(res)
+	if node.has_method("apply_player"):
+		node.apply_player(player)
 
-	_skill_nodes[skill].apply(res)
-	
 	if not skill in _current_skills:
 		_current_skills[skill] = 0
 	_current_skills[skill] += 1
@@ -88,10 +92,18 @@ func _upgrade_skill(skill: int, res: UpgradeResource):
 			res.next_upgrade.description.icon = res.description.icon
 		_skill_pool.append(res.next_upgrade)
 
+
 func _update_skills_changed():
 	weapons_updated.emit(_active_weapons())
 	items_updated.emit(_active_items())
 
+func get_active_description(skill: int):
+	if skill in _skill_nodes:
+		var node = _skill_nodes[skill]
+		if node.has_method("get_resource"):
+			return node.get_resource().description
+
+	return null
 
 func show_next_skills():
 	var skills = _get_random_skills(3)
@@ -122,7 +134,7 @@ func is_weapon_type(res: UpgradeResource):
 	return res.get_skill() in WEAPON_TYPES
 
 func is_item_type(res: UpgradeResource):
-	return res.get_type() in ITEM_TYPES
+	return res.get_skill() in ITEM_TYPES
 
 func _active_weapons():
 	var result = []

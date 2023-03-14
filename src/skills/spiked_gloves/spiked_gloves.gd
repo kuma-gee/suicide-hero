@@ -1,8 +1,17 @@
 class_name SpikedGloves
 extends Node
 
-@export var damage_received := 0.2
-@export var damage_boost := 0.2
+var multiplier = Multiplier.new()
+var _res: SpikedGlovesUpgradeResource
 
-func apply(player: Player):
-	pass
+func apply(res: SpikedGlovesUpgradeResource):
+	_res = res
+	multiplier.attack = res.damage_boost
+	multiplier.damage = res.damage_received
+
+
+func apply_player(player: Player):
+	player.add_multiplier(SkillManager.Skill.SPIKED_GLOVES, multiplier)
+
+func get_resource():
+	return _res

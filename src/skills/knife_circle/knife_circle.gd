@@ -12,6 +12,9 @@ var _knifes: Array[Node2D] = []
 var _logger = Logger.new("KnifeCircle")
 var _res: KnifeUpgradeResource
 
+func get_resource():
+	return _res
+
 func apply(res: KnifeUpgradeResource):
 	_res = res
 	_spawn_knifes()

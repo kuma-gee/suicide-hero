@@ -11,6 +11,9 @@ var _res: SpikeUpgradeResource
 func _ready():
 	firerate.timeout.connect(_throw_spikes)
 
+func get_resource():
+	return _res
+
 func apply(res: SpikeUpgradeResource):
 	_res = res
 	firerate.update_firerate(res.firerate)
