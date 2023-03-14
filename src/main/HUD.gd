@@ -10,7 +10,7 @@ extends CanvasLayer
 @export var weapon_container: Control
 @export var item_container: Control
 
-const WEAPON_SLOT = preload("res://src/scenes/menu/weapon_slot.tscn")
+const WEAPON_SLOT = preload("res://src/main/weapon_slot.tscn")
 
 func _ready():
 	connect_skill_stats()

@@ -16,4 +16,5 @@ health = 0.0
 speed = 0.0
 pickup = 0.0
 attack = 0.1
+attack_speed = 0.0
 description = SubResource("Resource_tkw7b")

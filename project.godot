@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Suicide Hero"
-run/main_scene="res://src/scenes/menu/Menu.tscn"
+run/main_scene="res://src/menu/Menu.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
 
@@ -194,7 +194,7 @@ dev={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://i18n/de.po", "res://i18n/en.po", "res://i18n/ja.po")
+locale/translations=PackedStringArray("res://i18n/en.po")
 
 [layer_names]
 

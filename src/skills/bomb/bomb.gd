@@ -19,12 +19,12 @@ func apply(res: UpgradeResource):
 	var upgrade = res as BombUpgradeResource
 	if upgrade :
 		resource = upgrade
-        firerate.update_firerate(resource.firerate)
+		firerate.update_firerate(resource.firerate)
 		_logger.debug("Upgrading Bombs")
 
 
 func _throw_bombs():
-    if resource == null: return
+	if resource == null: return
 
 	for i in range(0, resource.throw_amount):
 		var dir = Vector2.UP.rotated(TAU * randf())

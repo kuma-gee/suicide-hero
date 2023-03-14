@@ -1,13 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://3t60yhavdcup"]
 
-[ext_resource type="PackedScene" path="res://src/scenes/menu/shared/MenuBase.tscn" id="1"]
-[ext_resource type="Script" path="res://src/scenes/menu/options/Options.gd" id="3"]
+[ext_resource type="PackedScene" path="res://src/menu/shared/MenuBase.tscn" id="1"]
+[ext_resource type="Script" path="res://src/menu/options/Options.gd" id="3"]
 
 [node name="Options" instance=ExtResource("1")]
 layout_mode = 3
 anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("3")
-focus_node_path = NodePath("CenterContainer/VBoxContainer/MainContainer/General")
+focus_node_path = NodePath("")
 
 [node name="CenterContainer" parent="." index="0"]
 layout_mode = 1
@@ -21,21 +23,16 @@ layout_mode = 2
 [node name="MainContainer" parent="CenterContainer/VBoxContainer" index="0"]
 layout_mode = 2
 
-[node name="General" type="Button" parent="CenterContainer/VBoxContainer/MainContainer" index="0"]
-layout_mode = 2
-text = "GENERAL"
-
-[node name="Audio" type="Button" parent="CenterContainer/VBoxContainer/MainContainer" index="1"]
+[node name="Audio" type="Button" parent="CenterContainer/VBoxContainer/MainContainer" index="0"]
 layout_mode = 2
 text = "AUDIO"
 
-[node name="Controls" type="Button" parent="CenterContainer/VBoxContainer/MainContainer" index="2"]
+[node name="Controls" type="Button" parent="CenterContainer/VBoxContainer/MainContainer" index="1"]
 layout_mode = 2
 text = "CONTROLS"
 
 [node name="Back" parent="CenterContainer/VBoxContainer" index="1"]
 layout_mode = 2
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/MainContainer/General" to="." method="_on_General_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MainContainer/Audio" to="." method="_on_Audio_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MainContainer/Controls" to="." method="_on_Controls_pressed"]

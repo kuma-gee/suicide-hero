@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs3gnbfhomu6r"]
+[gd_scene load_steps=2 format=3 uid="uid://cs3gnbfhomu6r"]
 
-[ext_resource type="Script" path="res://src/scenes/menu/shared/BackMenu.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://bf82u5bcvops8" path="res://src/scenes/menu/Menu.tscn" id="2"]
+[ext_resource type="Script" path="res://src/menu/shared/BackMenu.gd" id="1_65o3e"]
 
 [node name="BackMenu" type="Button"]
 text = "BACK_TO_MENU"
-script = ExtResource("1")
-menu_scene = ExtResource("2")
+script = ExtResource("1_65o3e")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

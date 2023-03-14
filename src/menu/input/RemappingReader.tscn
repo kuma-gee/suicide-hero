@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://byfbrlsvlnguw"]
 
-[ext_resource type="Script" path="res://src/scenes/menu/input/RemappingReader.gd" id="1"]
+[ext_resource type="Script" path="res://src/menu/input/RemappingReader.gd" id="1"]
 
 [node name="RemappingReader" type="PopupPanel"]
 visible = true

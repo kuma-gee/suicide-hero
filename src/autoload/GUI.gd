@@ -5,10 +5,8 @@ signal screen_changed(screen)
 enum {
 	Main,
 	Options,
-	GeneralOptions,
 	AudioOptions,
 	ControlOptions,
-	Intro,
 	InGame,
 	GameOver,
 	Pause,
@@ -16,15 +14,13 @@ enum {
 }
 
 const screen_scene_map = {
-	Main: preload("res://src/scenes/menu/MainMenu.tscn"),
-	Options: preload("res://src/scenes/menu/options/Options.tscn"),
-	GeneralOptions: preload("res://src/scenes/menu/options/General.tscn"),
-	AudioOptions: preload("res://src/scenes/menu/options/Audio.tscn"),
-	ControlOptions: preload("res://src/scenes/menu/options/Controls.tscn"),
-	Intro: preload("res://src/scenes/menu/Intro.tscn"),
-	GameOver: preload("res://src/scenes/menu/GameOver.tscn"),
-	Pause: preload("res://src/scenes/menu/Pause.tscn"),
-	SkillSelect: preload("res://src/scenes/menu/skill_select.tscn")
+	Main: preload("res://src/menu/MainMenu.tscn"),
+	Options: preload("res://src/menu/options/Options.tscn"),
+	AudioOptions: preload("res://src/menu/options/Audio.tscn"),
+	ControlOptions: preload("res://src/menu/options/Controls.tscn"),
+	GameOver: preload("res://src/menu/GameOver.tscn"),
+	Pause: preload("res://src/menu/Pause.tscn"),
+	SkillSelect: preload("res://src/menu/skill_select.tscn")
 }
 
 @onready var stack := $MenuStack

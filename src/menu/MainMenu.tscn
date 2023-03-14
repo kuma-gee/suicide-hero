@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b502joyccnl8a"]
+[gd_scene load_steps=5 format=3 uid="uid://b502joyccnl8a"]
 
 [ext_resource type="Script" path="res://src/shared/gui/ThemeOverride.gd" id="1"]
-[ext_resource type="Script" path="res://src/scenes/menu/MainMenu.gd" id="2"]
-[ext_resource type="PackedScene" path="res://src/scenes/menu/shared/MenuBase.tscn" id="3"]
+[ext_resource type="Script" path="res://src/menu/MainMenu.gd" id="2"]
+[ext_resource type="PackedScene" path="res://src/menu/shared/MenuBase.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dqfvtiauyf1gv" path="res://src/main/Main.tscn" id="3_rg884"]
 
 [node name="MainMenu" instance=ExtResource("3")]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchors_preset = 15
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2")
+main = ExtResource("3_rg884")
 focus_node_path = NodePath("CenterContainer/VBoxContainer/MainContainer/CenterContainer/VBoxContainer/Start")
 
 [node name="CenterContainer" parent="." index="0"]

@@ -1,15 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://v8ybdh5m87am"]
+[gd_scene load_steps=17 format=3 uid="uid://v8ybdh5m87am"]
 
-[ext_resource type="Script" path="res://src/scenes/main/HUD.gd" id="2"]
+[ext_resource type="Script" path="res://src/main/HUD.gd" id="1_q7s4b"]
 [ext_resource type="Script" path="res://src/shared/gui/ValueBar.gd" id="2_4btjk"]
-[ext_resource type="Texture2D" uid="uid://chgy2ckm5bpsl" path="res://assets/ui/Skill_Unknown_0.png" id="2_ckgrj"]
 [ext_resource type="Theme" uid="uid://bjubkp85qmjqv" path="res://theme/theme.tres" id="2_rbnft"]
+[ext_resource type="Shader" path="res://src/main/shine.gdshader" id="4_ei83d"]
 [ext_resource type="Script" path="res://src/shared/gui/ThemeOverride.gd" id="4_m4ajh"]
-[ext_resource type="Shader" path="res://src/scenes/main/shine.gdshader" id="7_tj5oy"]
+[ext_resource type="Script" path="res://src/main/Stopwatch.gd" id="8_wuba7"]
 [ext_resource type="Texture2D" uid="uid://dc0igslcgtkqf" path="res://assets/ui/UI_Time_0.png" id="15_0ocwq"]
 [ext_resource type="Texture2D" uid="uid://bm0cyiwn8tp7l" path="res://assets/ui/UI_Kills_0.png" id="16_a1tw7"]
 [ext_resource type="LabelSettings" uid="uid://jfl0ncoejmfd" path="res://theme/label.tres" id="16_ay5du"]
-[ext_resource type="Script" path="res://src/scenes/main/Stopwatch.gd" id="16_oxuds"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5gdc4"]
 load_path = "res://.godot/imported/HP_BG_0.png-3b88dd60ed82819d6e81b7d97bcf0acd.ctex"
@@ -24,10 +23,10 @@ outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qe3mc"]
-shader = ExtResource("7_tj5oy")
+shader = ExtResource("4_ei83d")
 shader_parameter/shine_color = Color(1, 1, 1, 1)
-shader_parameter/shine_size = 0.05
-shader_parameter/shine_speed = 5.0
+shader_parameter/shine_size = 0.1
+shader_parameter/shine_speed = 1.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2xx8h"]
 load_path = "res://.godot/imported/Exp_BG_0.png-e1bc82f5a8dedd81e6066a469faf0ad7.ctex"
@@ -38,16 +37,16 @@ load_path = "res://.godot/imported/Exp_Over_0.png-541eb56e13a2168f12fce019ae7a34
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5olx5"]
 load_path = "res://.godot/imported/Exp_FG_0.png-2d460a7cb326f1b77d4348940ea10be7.ctex"
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("experience", "hp_bar", "level", "hp_label", "kill_label", "weapon_container")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("experience", "hp_bar", "level", "hp_label", "kill_label", "weapon_container", "item_container")]
 layer = 6
-script = ExtResource("2")
+script = ExtResource("1_q7s4b")
 experience = NodePath("Root/ExpBar")
 hp_bar = NodePath("Root/HpBar")
 level = NodePath("Root/ExpBar/MarginContainer/Level")
 hp_label = NodePath("Root/HpBar/MarginContainer/Label")
 kill_label = NodePath("Root/Top/MarginContainer/HBoxContainer/Kills/Label")
-unknown_icon = ExtResource("2_ckgrj")
 weapon_container = NodePath("Root/Top/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Weapons")
+item_container = NodePath("Root/Top/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Items")
 
 [node name="Root" type="Control" parent="."]
 layout_mode = 3
@@ -154,6 +153,11 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 theme_override_constants/separation = 5
 
+[node name="Items" type="HBoxContainer" parent="Root/Top/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_constants/separation = 5
+
 [node name="Control" type="Control" parent="Root/Top/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -173,7 +177,7 @@ size_flags_vertical = 1
 text = "_00:00_"
 label_settings = ExtResource("16_ay5du")
 vertical_alignment = 1
-script = ExtResource("16_oxuds")
+script = ExtResource("8_wuba7")
 
 [node name="Control2" type="Control" parent="Root/Top/MarginContainer/HBoxContainer"]
 layout_mode = 2

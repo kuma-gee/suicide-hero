@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsedb6v6j3e0s"]
 
-[ext_resource type="Script" path="res://src/scenes/menu/skill_select_item.gd" id="1_envrx"]
 [ext_resource type="Texture2D" uid="uid://dhur2166wor7t" path="res://assets/ui/UI_Select_Normal_0.png" id="1_r1frh"]
 [ext_resource type="Texture2D" uid="uid://bd3gqmn54e4nj" path="res://assets/ui/Skill_Border_0.png" id="2_1iywb"]
 [ext_resource type="Texture2D" uid="uid://3bwh63e4kmd8" path="res://assets/ui/UI_Select_Hover_0.png" id="2_7hc7n"]
 [ext_resource type="Texture2D" uid="uid://chgy2ckm5bpsl" path="res://assets/ui/Skill_Unknown_0.png" id="2_g0f25"]
+[ext_resource type="Script" path="res://src/menu/skill_select_item.gd" id="3_ttvap"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d8vlh"]
 texture = ExtResource("1_r1frh")
@@ -18,7 +18,7 @@ modulate_color = Color(1, 1, 1, 0.588235)
 custom_minimum_size = Vector2(350, 100)
 theme_override_styles/normal = SubResource("StyleBoxTexture_d8vlh")
 theme_override_styles/hover = SubResource("StyleBoxTexture_f4ouw")
-script = ExtResource("1_envrx")
+script = ExtResource("3_ttvap")
 texture = NodePath("MarginContainer/HBoxContainer/CenterContainer/Icon")
 name_label = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Name")
 desc_label = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Text")

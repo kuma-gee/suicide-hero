@@ -1,5 +1,7 @@
 extends MenuBase
 
+@export var main: PackedScene
+
 @onready var title := $CenterContainer/VBoxContainer/MainContainer/MarginContainer/CenterContainer/Title
 @onready var exit := $CenterContainer/VBoxContainer/MainContainer/CenterContainer/VBoxContainer/Exit
 
@@ -9,7 +11,7 @@ func _ready():
 		exit.hide()
 		
 func _on_Start_pressed():
-	SceneManager.change_scene("res://src/scenes/main/Main.tscn")
+	SceneManager.change_scene(main)
 
 
 func _on_Exit_pressed():

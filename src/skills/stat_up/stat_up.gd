@@ -1,9 +1,9 @@
-class StatUp
+class_name StatUp
 extends Node
 
 var multiplier = Multiplier.new()
 
-func apply(res: StatUpgradeResource):
+func apply(stat: StatUpgradeResource):
 	multiplier.health += stat.health
 	multiplier.attack += stat.attack
 	multiplier.attack_speed += stat.attack_speed

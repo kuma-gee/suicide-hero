@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dj3bll6mtjvr1"]
 
-[ext_resource type="Script" path="res://src/scenes/menu/skill_select.gd" id="1_u87ld"]
 [ext_resource type="Theme" uid="uid://bjubkp85qmjqv" path="res://theme/theme.tres" id="1_wv20j"]
-[ext_resource type="PackedScene" uid="uid://ums25xh0nbch" path="res://src/scenes/menu/player_stats.tscn" id="3_ye41m"]
-[ext_resource type="PackedScene" uid="uid://bsedb6v6j3e0s" path="res://src/scenes/menu/skill_select_item.tscn" id="4_yffi8"]
+[ext_resource type="Script" path="res://src/menu/skill_select.gd" id="2_brq6x"]
+[ext_resource type="PackedScene" uid="uid://ums25xh0nbch" path="res://src/menu/player_stats.tscn" id="3_ye41m"]
+[ext_resource type="PackedScene" uid="uid://bsedb6v6j3e0s" path="res://src/menu/skill_select_item.tscn" id="4_yffi8"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x3whr"]
 emission_shape = 3
@@ -22,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_wv20j")
-script = ExtResource("1_u87ld")
+script = ExtResource("2_brq6x")
 container = NodePath("CenterContainer/VBoxContainer")
 select_item = ExtResource("4_yffi8")
 

@@ -1,9 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://cutwa6uptaxi5"]
+[gd_scene load_steps=29 format=3 uid="uid://cutwa6uptaxi5"]
 
 [ext_resource type="Texture2D" uid="uid://c3k3w13gv6d5g" path="res://src/player/sprite.png" id="1"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2"]
-[ext_resource type="Resource" uid="uid://c0xotwapnvy48" path="res://src/player/resources/HunterPlayer.tres" id="2_g438s"]
-[ext_resource type="Shader" path="res://src/player/Hit.gdshader" id="2_pbxs3"]
 [ext_resource type="Script" path="res://addons/input/PlayerInput.gd" id="3"]
 [ext_resource type="Resource" uid="uid://cdxm0u21vxok2" path="res://src/skills/bow/BowLV1.tres" id="3_d5f18"]
 [ext_resource type="Script" path="res://src/shared/rpg/PickupMagnet.gd" id="4"]
@@ -79,10 +77,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="7"]
 size = Vector2(13.3731, 5.681)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5n43v"]
-shader = ExtResource("2_pbxs3")
-shader_parameter/amount = 0.0
-
 [sub_resource type="RectangleShape2D" id="4"]
 size = Vector2(12.6422, 18.2859)
 
@@ -101,7 +95,6 @@ bg_color = Color(0.223529, 0.705882, 0.309804, 1)
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("stats") groups=["Player"]]
 collision_layer = 2
 script = ExtResource("2")
-res = ExtResource("2_g438s")
 stats = NodePath("PlayerStats")
 initial_skill = ExtResource("3_d5f18")
 
@@ -111,9 +104,8 @@ initial_skill = ExtResource("3_d5f18")
 allow_overflow = true
 max_value = 50.0
 
-[node name="Multiplier" type="Node" parent="." node_paths=PackedStringArray("player")]
+[node name="Multiplier" type="Node" parent="."]
 script = ExtResource("4_bvovg")
-player = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -124,7 +116,6 @@ libraries = {
 shape = SubResource("7")
 
 [node name="Sprite" type="Sprite2D" parent="Body"]
-material = SubResource("ShaderMaterial_5n43v")
 texture = ExtResource("1")
 offset = Vector2(0, -11)
 hframes = 9

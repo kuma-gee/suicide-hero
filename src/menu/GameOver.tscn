@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvndxmgkdrfi"]
 
-[ext_resource type="Script" path="res://src/scenes/menu/GameOver.gd" id="1"]
-[ext_resource type="AudioStream" uid="uid://wgj7uqgo8uoo" path="res://src/scenes/menu/SFX_wrong&malus4.wav" id="2"]
-[ext_resource type="PackedScene" uid="uid://cs3gnbfhomu6r" path="res://src/scenes/menu/shared/BackMenu.tscn" id="3"]
+[ext_resource type="Script" path="res://src/menu/GameOver.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://wgj7uqgo8uoo" path="res://src/menu/SFX_wrong&malus4.wav" id="2"]
+[ext_resource type="PackedScene" uid="uid://cs3gnbfhomu6r" path="res://src/menu/shared/BackMenu.tscn" id="3"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3

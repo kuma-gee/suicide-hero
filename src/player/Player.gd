@@ -24,7 +24,6 @@ signal attack_speed_changed()
 @onready var level_up_sound := $LevelUpSound
 
 @onready var hp_bar: ValueFillBar = $HpBar
-@onready var multiplier: Multiplier = $Multiplier
 
 var _logger = Logger.new("Player")
 var _multiplier := {}
@@ -53,14 +52,30 @@ func _get_look_direction() -> Vector2:
 func get_level():
 	return stats.level
 
-func get_multiplier() -> Multiplier:
-	return _multiplier
-
 func get_attack_multiplier() -> float:
-	return _multiplier.get_attack()
+	return 1.0 + _combine_multipier(func(x): x.attack)
 
+# Firerate has to be reduced
 func get_attack_speed_multiplier() -> float:
-	return _multiplier.get_attack_speed()
+	return 1.0 - _combine_multipier(func(x): x.attack_speed)
+
+func get_move_speed_multiplier() -> float:
+	return 1.0 + _combine_multipier(func(x): x.move_speed)
+
+func get_pickup_multiplier() -> float:
+	return 1.0 + _combine_multipier(func(x): x.pickup)
+
+func get_damage_multiplier() -> float:
+	return 1.0 + _combine_multipier(func(x): x.damage)
+
+func get_health_multiplier() -> float:
+	return 1.0 + _combine_multipier(func(x): x.health)
+
+func _combine_multipier(map: Callable) -> float:
+	var result = 0.0
+	for skill in _multiplier:
+		result *=  1 + map.call(_multiplier[skill])
+	return result
 
 func get_current_health() -> int:
 	return stats.health.value
@@ -80,7 +95,7 @@ func _on_Health_zero_value():
 
 
 func _on_hurt_box_damaged(dmg):
-	stats.damage_player(dmg * _get_damage_multiplier())
+	stats.damage_player(dmg * get_damage_multiplier())
 
 
 func _on_player_stats_level_up(lvl):
@@ -94,9 +109,9 @@ func add_skill(node: Node):
 		add_child(node)
 
 func add_multiplier(skill: int, value: Multiplier):
-	multiplier[skill] = value
+	_multiplier[skill] = value
 
 	if skill == SkillManager.Skill.STATS:
-		pickup_magnet.set_range(_multiplier.get_pickup() - 1.0)
-		stats.health.multiply(_multiplier.get_health())
-		move.speed_multiplier = _multiplier.get_move_speed()
+		pickup_magnet.set_range(get_pickup_multiplier() - 1.0)
+		stats.health.multiply(get_health_multiplier())
+		move.speed_multiplier = get_move_speed_multiplier()

@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://ums25xh0nbch"]
 
-[ext_resource type="Script" path="res://src/scenes/menu/player_stats.gd" id="1_vpbuy"]
+[ext_resource type="Script" path="res://src/menu/player_stats.gd" id="1_irocl"]
 
-[node name="PlayerStats" type="MarginContainer" node_paths=PackedStringArray("health", "speed", "pickup", "attack")]
+[node name="PlayerStats" type="MarginContainer" node_paths=PackedStringArray("health", "speed", "pickup", "attack", "attack_speed", "damage")]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 51.0
@@ -11,11 +11,13 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
-script = ExtResource("1_vpbuy")
+script = ExtResource("1_irocl")
 health = NodePath("CenterContainer/VBoxContainer/Health")
 speed = NodePath("CenterContainer/VBoxContainer/Speed")
 pickup = NodePath("CenterContainer/VBoxContainer/Pickup")
 attack = NodePath("CenterContainer/VBoxContainer/Attack")
+attack_speed = NodePath("CenterContainer/VBoxContainer/AttackSpeed")
+damage = NodePath("CenterContainer/VBoxContainer/Damage")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -50,4 +52,18 @@ layout_mode = 2
 text = "ATTACK"
 
 [node name="Attack" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AttackSpeedLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "ATTACK_SPEED"
+
+[node name="AttackSpeed" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DamageLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "DAMAGE"
+
+[node name="Damage" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2

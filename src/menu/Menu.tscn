@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bf82u5bcvops8"]
 
-[ext_resource type="Script" path="res://src/scenes/menu/Menu.gd" id="1"]
-[ext_resource type="AudioStream" uid="uid://cqb2rxhdk1k6b" path="res://src/scenes/menu/SlightlyAcross.ogg" id="2"]
+[ext_resource type="Script" path="res://src/menu/Menu.gd" id="1_1ledo"]
+[ext_resource type="AudioStream" uid="uid://s522p2sm8son" path="res://src/menu/SlightlyAcross.ogg" id="2"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1")
+script = ExtResource("1_1ledo")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0

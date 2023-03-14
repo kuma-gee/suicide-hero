@@ -25,7 +25,7 @@ const SKILL_NODE_MAP = {
 	Skill.AIR_GUST: preload("res://src/skills/air_gust/air_gust.tscn"),
 	Skill.SPIKE_THROW: preload("res://src/skills/spike/spike_throw.tscn"),
 	Skill.KNIFE_CIRCLE: preload("res://src/skills/knife_circle/knife_circle.tscn"),
-	Skill.SPIKED_GLOVES: preload("res://src/skills/spiked_gloves/spiked_globes.gd"), # TODO: check, does gd work?
+	Skill.SPIKED_GLOVES: preload("res://src/skills/spiked_gloves/spiked_gloves.gd"), # TODO: check, does gd work?
 	Skill.STATS: preload("res://src/skills/stat_up/stat_up.gd"),
 }
 
@@ -64,9 +64,9 @@ func _upgrade_skill(res: UpgradeResource, player: Player):
 	if not skill in _skill_nodes:
 		if skill in SKILL_NODE_MAP:
 			var skill_node = SKILL_NODE_MAP[skill].instantiate()
-			player.add_skill(skill_node)
 			if "player" in skill_node:
 				skill_node.player = player
+			player.add_skill(skill_node)
 			_skill_nodes[skill] = skill_node
 		else:
 			_logger.warn("No skill node for %s" % Skill.find_key(skill))
@@ -118,14 +118,14 @@ func _get_random_skills(count: int):
 func _available_skills():
 	var result = []
 	for skill in _skill_pool:
-		if _active_weapons().size() >= max_weapons and _is_weapon_type(skill):
+		if _active_weapons().size() >= max_weapons and is_weapon_type(skill):
 			continue
 
-		if _active_items().size() >= max_items and _is_item_type(skill):
+		if _active_items().size() >= max_items and is_item_type(skill):
 			continue
 		
-		result.append(skilll)
-	return skill
+		result.append(skill)
+	return result
 
 func is_weapon_type(res: UpgradeResource):
 	return res.get_skill() in WEAPON_TYPES

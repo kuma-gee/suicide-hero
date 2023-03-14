@@ -16,4 +16,5 @@ health = 0.0
 speed = 0.0
 pickup = 0.2
 attack = 0.0
+attack_speed = 0.0
 description = SubResource("Resource_ibjxb")
