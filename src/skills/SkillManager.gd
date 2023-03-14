@@ -26,6 +26,7 @@ const SKILL_NODE_MAP = {
 	Skill.SPIKE_THROW: preload("res://src/skills/spike/spike_throw.tscn"),
 	Skill.KNIFE_CIRCLE: preload("res://src/skills/knife_circle/knife_circle.tscn"),
 	Skill.SPIKED_GLOVES: preload("res://src/skills/spiked_gloves/spiked_globes.gd"), # TODO: check, does gd work?
+	Skill.STATS: preload("res://src/skills/stat_up/stat_up.gd"),
 }
 
 const WEAPON_TYPES = [
@@ -56,11 +57,7 @@ func _ready():
 func apply(res: UpgradeResource):
 	var type = res.get_skill()
 	var player = get_tree().get_first_node_in_group("Player")
-
-	if type != Skill.STATS:
-		_upgrade_skill(res, player)
-	else:
-		player.apply(res)
+	_upgrade_skill(res, player)
 	
 func _upgrade_skill(res: UpgradeResource, player: Player):
 	var skill = res.get_skill()

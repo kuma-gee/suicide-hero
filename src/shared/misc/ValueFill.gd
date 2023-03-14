@@ -11,6 +11,8 @@ signal max_value_changed(value)
 
 @export var max_value := 100.0 : set = set_max_value
 
+@onready var _original_max := max_value
+
 var value := 0.0 : set = _set_value
 
 func _ready():
@@ -20,6 +22,9 @@ func _ready():
 	# use deferred so the values are initialized before emitting
 	call_deferred("emit_signal", "max_value_changed", max_value)
 	call_deferred("emit_signal", "value_changed", value)
+
+func multiply(p: float) -> void:
+	self.max_value = self._original_max * p
 
 func reduce(v: float) -> void:
 	self.value -= v

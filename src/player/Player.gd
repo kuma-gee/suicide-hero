@@ -4,9 +4,7 @@ signal level_up(lvl)
 signal died()
 signal attack_speed_changed()
 
-@export var res: PlayerResource
 @export var stats: PlayerStats
-
 @export var initial_skill: UpgradeResource
 
 @onready var input := $PlayerInput
@@ -32,9 +30,6 @@ var _logger = Logger.new("Player")
 var _multiplier := {}
 
 func _ready():
-	stats.health.max_value = res.health
-	stats.health.value = res.health
-	
 	hp_bar.connect_value_fill(stats.health)
 	SkillManager.apply(initial_skill)
 
@@ -58,31 +53,18 @@ func _get_look_direction() -> Vector2:
 func get_level():
 	return stats.level
 
-func get_stats() -> PlayerResource:
-	return res
+func get_multiplier() -> Multiplier:
+	return _multiplier
 
 func get_attack_multiplier() -> float:
-	return 1.0 + _combine_multipier(res.attack, func(x): x.attack)
+	return _multiplier.get_attack()
 
-# Firerate has to be reduced
 func get_attack_speed_multiplier() -> float:
-	return 1.0 - _combine_multipier(res.attack_speed, func(x): x.attack_speed)
-
-func _get_speed_multiplier() -> float:
-	return 1.0 + _combine_multipier(res.speed, func(x): x.move_speed)
-
-func _get_damage_multiplier() -> float:
-	return 1.0 + _combine_multipier(func(x): x.damage)
-
-func _combine_multipier(base: float, map: Callable) -> float:
-	var result = base
-	for skill in _multiplier:
-		result *=  1 + map.call(_multiplier[skill])
-	return result
-
+	return _multiplier.get_attack_speed()
 
 func get_current_health() -> int:
 	return stats.health.value
+
 
 func heal(hp):
 	stats.health.increase(hp)
@@ -111,16 +93,10 @@ func add_skill(node: Node):
 	else:
 		add_child(node)
 
-func add_multiplier(skill: SkillManager.Skill, value: Multiplier):
+func add_multiplier(skill: int, value: Multiplier):
 	multiplier[skill] = value
 
-func apply(stat: StatUpgradeResource):
-	res.health *= 1 + stat.health # player health is not saved in percentage
-	res.attack += stat.attack
-	res.speed += stat.speed
-	res.pickup += stat.pickup
-	res.attack_speed += stat.attack_speed
-	
-	pickup_magnet.set_range(res.pickup)
-	stats.health.max_value = res.health
-	move.speed_multiplier = _get_speed_multiplier()
+	if skill == SkillManager.Skill.STATS:
+		pickup_magnet.set_range(_multiplier.get_pickup() - 1.0)
+		stats.health.multiply(_multiplier.get_health())
+		move.speed_multiplier = _multiplier.get_move_speed()
