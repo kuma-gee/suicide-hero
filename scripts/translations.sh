@@ -7,7 +7,7 @@ pybabel extract -F babelrc -k text -k action -k LineEdit/placeholder_text -k tr 
 
 cd i18n
 
-LANGS=(en de ja)
+LANGS=(en)
 
 for LANG in "${LANGS[@]}"; do
     # msginit --no-translator --input=messages.pot --locale="$LANG"

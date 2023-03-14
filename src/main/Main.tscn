@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dqfvtiauyf1gv"]
 
-[ext_resource type="Script" path="res://src/player/Main.gd" id="1"]
+[ext_resource type="Script" path="res://src/main/Main.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://b2ks6w7bacyti" path="res://src/map/Map.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://v8ybdh5m87am" path="res://src/scenes/main/HUD.tscn" id="4"]
 [ext_resource type="AudioStream" uid="uid://oq3tt0cscewe" path="res://src/scenes/main/Retro Battle Theme 5.ogg" id="9"]
