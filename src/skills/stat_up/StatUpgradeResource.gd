@@ -5,6 +5,7 @@ extends UpgradeResource
 @export var speed: float
 @export var pickup: float
 @export var attack: float
+@export var attack_speed: float
 
 # @export var crit: float
 

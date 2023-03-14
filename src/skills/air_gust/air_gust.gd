@@ -6,9 +6,11 @@ extends Area2D
 
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
+var player: Player
 var _res: AirGustUpgradeResource
 
 func _ready():
+	player.attack_speed_changed.connect(_update_firerate)
 	area_entered.connect(_on_area_enter)
 	area_exited.connect(_on_area_exit)
 	firerate.timeout.connect(_shoot_gust)
@@ -48,10 +50,13 @@ func get_resource():
 	
 func apply(res: AirGustUpgradeResource) -> void:
 	_res = res
-	firerate.update_firerate(_res.firerate)
+	_update_firerate()
 	collision.disabled = false
 	_update_slow_radius(_res.slow_radius)
 	_update_debuff()
+
+func _update_firerate():
+	firerate.update_firerate(_res.firerate * player.get_attack_speed_multiplier())
 
 func _shoot_gust():
 	for i in range(0, _res.gust_amount):

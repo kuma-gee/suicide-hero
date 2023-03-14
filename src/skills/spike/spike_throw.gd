@@ -9,6 +9,7 @@ var _logger = Logger.new("SpikeThrow")
 var _res: SpikeUpgradeResource
 
 func _ready():
+	player.attack_speed_changed.connect(_update_firerate)
 	firerate.timeout.connect(_throw_spikes)
 
 func get_resource():
@@ -16,9 +17,12 @@ func get_resource():
 
 func apply(res: SpikeUpgradeResource):
 	_res = res
-	firerate.update_firerate(res.firerate)
+	_update_firerate()
 	_logger.debug("Upgrading Spike Throw")
 	_throw_spikes()
+
+func _update_firerate():
+	firerate.update_firerate(_res.firerate * player.get_attack_speed_multiplier())
 
 
 func _throw_spikes():

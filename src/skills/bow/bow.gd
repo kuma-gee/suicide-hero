@@ -9,6 +9,7 @@ var player: Player
 var _res: BowUpgradeResource
 
 func _ready():
+	player.attack_speed_changed.connect(_update_firerate)
 	firerate.timeout.connect(_shoot)
 
 func get_resource():
@@ -16,7 +17,10 @@ func get_resource():
 
 func apply(res: BowUpgradeResource):
 	_res = res
-	firerate.update_firerate(res.firerate)
+	_update_firerate()
+
+func _update_firerate():
+	firerate.update_firerate(_res.firerate * player.get_attack_speed_multiplier())
 
 func _shoot():
 	var arrow_count = _res.count

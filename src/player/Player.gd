@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 signal level_up(lvl)
 signal died()
+signal attack_speed_changed()
 
 @export var res: PlayerResource
 @export var stats: PlayerStats
@@ -61,19 +62,23 @@ func get_stats() -> PlayerResource:
 	return res
 
 func get_attack_multiplier() -> float:
-	return _combine_multipier(func(x): x.attack)
+	return 1.0 + _combine_multipier(res.attack, func(x): x.attack)
+
+# Firerate has to be reduced
+func get_attack_speed_multiplier() -> float:
+	return 1.0 - _combine_multipier(res.attack_speed, func(x): x.attack_speed)
 
 func _get_speed_multiplier() -> float:
-	return _combine_multipier(func(x): x.move_speed)
+	return 1.0 + _combine_multipier(res.speed, func(x): x.move_speed)
 
 func _get_damage_multiplier() -> float:
-	return _combine_multipier(func(x): x.damage)
+	return 1.0 + _combine_multipier(func(x): x.damage)
 
-func _combine_multipier(map: Callable) -> float:
-	var result = 0.0
+func _combine_multipier(base: float, map: Callable) -> float:
+	var result = base
 	for skill in _multiplier:
-		result += map.call(_multiplier[skill])
-	return 1.0 + result
+		result *=  1 + map.call(_multiplier[skill])
+	return result
 
 
 func get_current_health() -> int:
@@ -114,6 +119,7 @@ func apply(stat: StatUpgradeResource):
 	res.attack += stat.attack
 	res.speed += stat.speed
 	res.pickup += stat.pickup
+	res.attack_speed += stat.attack_speed
 	
 	pickup_magnet.set_range(res.pickup)
 	stats.health.max_value = res.health
