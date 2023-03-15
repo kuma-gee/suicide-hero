@@ -9,14 +9,18 @@ enum Type {
 }
 
 enum Skill {
+	# Weapons
 	BOW,
 	AIR_GUST,
 	SPIKE_THROW,
 	KNIFE_CIRCLE,
 
+	# Items
 	SPIKED_GLOVES,
 	VAMPIRE_FANGS,
+	INVISIBLE_CLOAK,
 
+	# Passives
 	STATS
 }
 
@@ -49,6 +53,7 @@ var _skill_nodes = {
 	Skill.SPIKED_GLOVES: SpikedGloves.new(),
 	Skill.VAMPIRE_FANGS: VampireFangs.new(),
 	Skill.STATS: StatUp.new()
+	Skill.INVISIBLE_CLOAK: InvisibleCloak.new()
 }
 
 var _logger = Logger.new("SkillManager")
@@ -61,6 +66,8 @@ func apply(res: UpgradeResource):
 	var player = get_tree().get_first_node_in_group("Player")
 	_upgrade_skill(res, player)
 	
+	# TODO: effect on skill apply
+
 func _upgrade_skill(res: UpgradeResource, player: Player):
 	var skill = res.get_skill()
 	if not skill in _skill_nodes:

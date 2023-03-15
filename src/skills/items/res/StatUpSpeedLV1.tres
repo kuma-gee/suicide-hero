@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dtjcbqlk2yqds" path="res://assets/ui/Skill_StatUp_Speed_0.png" id="1_14w4w"]
 [ext_resource type="Script" path="res://src/skills/SkillDescriptionResource.gd" id="1_kaiof"]
-[ext_resource type="Script" path="res://src/skills/stat_up/StatUpgradeResource.gd" id="1_yf65w"]
+[ext_resource type="Script" path="res://src/skills/stat_upgrade_resource.gd" id="1_yf65w"]
 
 [sub_resource type="Resource" id="Resource_rd4fo"]
 script = ExtResource("1_kaiof")

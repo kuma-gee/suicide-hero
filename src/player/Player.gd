@@ -68,6 +68,9 @@ func get_crit_chance() -> float:
 func get_life_steal() -> float:
 	return _combine_multipier(func(x): x.life_steal)
 
+func get_dodge_chance() -> float:
+	return _combine_multipier(func(x): x.dodge_chance)
+
 func _combine_multipier(map: Callable) -> float:
 	var result = 0.0
 	for skill in _multiplier:
@@ -92,6 +95,10 @@ func _on_Health_zero_value():
 
 
 func _on_hurt_box_damaged(dmg):
+	if randf() <= get_dodge_chance():
+		# TODO: show dodge/miss label
+		return
+
 	stats.damage_player(dmg * get_damage_multiplier())
 
 
