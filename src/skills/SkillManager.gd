@@ -14,6 +14,7 @@ enum Skill {
 	AIR_GUST,
 	SPIKE_THROW,
 	KNIFE_CIRCLE,
+	BOMB,
 
 	# Items
 	SPIKED_GLOVES,
@@ -29,6 +30,7 @@ const SKILL_SCENES = {
 	Skill.AIR_GUST: preload("res://src/skills/air_gust/air_gust.tscn"),
 	Skill.SPIKE_THROW: preload("res://src/skills/spike/spike_throw.tscn"),
 	Skill.KNIFE_CIRCLE: preload("res://src/skills/knife_circle/knife_circle.tscn"),
+	Skill.BOMB: preload("res://src/skills/bomb/bomb.tscn")
 }
 
 const WEAPON_TYPES = [
@@ -36,6 +38,7 @@ const WEAPON_TYPES = [
 	Skill.AIR_GUST,
 	Skill.SPIKE_THROW,
 	Skill.KNIFE_CIRCLE,
+	Skill.BOMB,
 ]
 
 const ITEM_TYPES = [

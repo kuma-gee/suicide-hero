@@ -1,6 +1,6 @@
 extends ThrowBody
 
-@export var hitbox: HitBox2D
+@export var hitbox: PlayerHitBox
 @export var explosion_timer: Timer
 
 var radius := 0
@@ -16,4 +16,4 @@ func _ready():
 	explosion_timer.start()
 
 func _explode():
-	pass # TOD
+	pass # TODO
