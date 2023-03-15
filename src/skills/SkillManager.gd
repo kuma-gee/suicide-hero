@@ -8,6 +8,15 @@ enum Type {
 	ITEM,
 }
 
+# Make sure all weapons are in here
+const WEAPON_TYPES = [
+	Skill.BOW,
+	Skill.AIR_GUST,
+	Skill.SPIKE_THROW,
+	Skill.KNIFE_CIRCLE,
+	Skill.BOMB,
+]
+
 enum Skill {
 	# Weapons
 	BOW,
@@ -16,14 +25,21 @@ enum Skill {
 	KNIFE_CIRCLE,
 	BOMB,
 
+	# Passives
+	STATS,
+
 	# Items
 	SPIKED_GLOVES,
 	VAMPIRE_FANGS,
 	INVISIBLE_CLOAK,
-
-	# Passives
-	STATS
 }
+
+# Make sure all items are in here
+const ITEM_TYPES = [
+	Skill.SPIKED_GLOVES,
+	Skill.VAMPIRE_FANGS,
+	Skill.INVISIBLE_CLOAK
+]
 
 const SKILL_SCENES = {
 	Skill.BOW: preload("res://src/skills/weapons/bow.tscn"),
@@ -33,24 +49,12 @@ const SKILL_SCENES = {
 	Skill.BOMB: preload("res://src/skills/weapons/bomb.tscn")
 }
 
-const WEAPON_TYPES = [
-	Skill.BOW,
-	Skill.AIR_GUST,
-	Skill.SPIKE_THROW,
-	Skill.KNIFE_CIRCLE,
-	Skill.BOMB,
-]
-
-const ITEM_TYPES = [
-	Skill.SPIKED_GLOVES,
-	Skill.VAMPIRE_FANGS,
-]
-
 @export var max_weapons := 4
 @export var max_items := 4
 
 @export var _skill_pool: Array[UpgradeResource] = []
 
+var _pool: Array[UpgradeResource] = []
 var _current_skills = {}
 var _skill_nodes = {
 	Skill.SPIKED_GLOVES: SpikedGloves.new(),
@@ -64,8 +68,7 @@ var _logger = Logger.new("SkillManager")
 func _ready():
 	Events.skill_selected.connect(apply)
 	for x in _skill_pool:
-		if !is_instance_valid(x):
-			_skill_pool.erase(x)
+		if x: _pool.append(x)
 
 func apply(res: UpgradeResource):
 	var type = res.get_skill()
@@ -98,11 +101,11 @@ func _upgrade_skill(res: UpgradeResource, player: Player):
 
 	_update_skills_changed()
 	
-	_skill_pool.erase(res)
+	_pool.erase(res)
 	if res.next_upgrade:
 		if res.next_upgrade.description.icon == null:
 			res.next_upgrade.description.icon = res.description.icon
-		_skill_pool.append(res.next_upgrade)
+		_pool.append(res.next_upgrade)
 
 
 func _update_skills_changed():
@@ -132,21 +135,19 @@ func _get_random_skills(count: int):
 
 func _available_skills():
 	var result = []
-	for skill in _skill_pool:
-		if _active_weapons().size() >= max_weapons and is_weapon_type(skill):
-			continue
+	var weapons = _active_weapons()
+	var items = _active_items()
+	for res in _pool:
+		var s = res.get_skill()
+		if not s in weapons and not s in items:
+			if weapons.size() >= max_weapons and s in WEAPON_TYPES:
+				continue
 
-		if _active_items().size() >= max_items and is_item_type(skill):
-			continue
+			if items.size() >= max_items and s in ITEM_TYPES:
+				continue
 		
-		result.append(skill)
+		result.append(res)
 	return result
-
-func is_weapon_type(res: UpgradeResource):
-	return res.get_skill() in WEAPON_TYPES
-
-func is_item_type(res: UpgradeResource):
-	return res.get_skill() in ITEM_TYPES
 
 func _active_weapons():
 	var result = []

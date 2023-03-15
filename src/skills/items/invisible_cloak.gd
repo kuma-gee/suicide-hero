@@ -9,3 +9,6 @@ func apply(res: InvisibleCloakUpgradeResource):
 
 func apply_player(player: Player):
 	player.add_multiplier(SkillManager.Skill.INVISIBLE_CLOAK, _multiplier)
+
+func get_resource():
+	return _res

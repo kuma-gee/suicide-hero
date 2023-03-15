@@ -11,6 +11,7 @@ extends CanvasLayer
 @export var item_container: Control
 
 const WEAPON_SLOT = preload("res://src/main/weapon_slot.tscn")
+const ITEM_SLOT = preload("res://src/main/item_slot.tscn")
 
 func _ready():
 	connect_skill_stats()
@@ -30,19 +31,20 @@ func _set_level(lvl: int) -> void:
 	level.text = "LV %s" % lvl
 
 func connect_skill_stats() -> void:
-	SkillManager.weapons_updated.connect(_set_weapons)
+	SkillManager.weapons_updated.connect(func(x): _set_skill_icons(x, weapon_container))
 	for i in range(0, SkillManager.max_weapons):
 		var slot = WEAPON_SLOT.instantiate()
 		weapon_container.add_child(slot)
 
+	SkillManager.items_updated.connect(func(x): _set_skill_icons(x, item_container))
 	for i in range(0, SkillManager.max_items):
-		var slot = WEAPON_SLOT.instantiate()
+		var slot = ITEM_SLOT.instantiate()
 		item_container.add_child(slot)
 
-func _set_weapons(weapons: Array):
-	for i in range(0, weapons.size()):
-		var desc = SkillManager.get_active_description(weapons[i])
-		var icon = weapon_container.get_child(i)
+func _set_skill_icons(skills: Array, container: Control):
+	for i in range(0, skills.size()):
+		var desc = SkillManager.get_active_description(skills[i])
+		var icon = container.get_child(i) as SkillSlot
 		if icon:
 			var tex = desc.icon if desc else unknown_icon
 			icon.set_icon(tex)

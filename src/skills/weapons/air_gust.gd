@@ -10,7 +10,6 @@ var player: Player
 var _res: AirGustUpgradeResource
 
 func _ready():
-	player.attack_speed_changed.connect(_update_firerate)
 	area_entered.connect(_on_area_enter)
 	area_exited.connect(_on_area_exit)
 	firerate.timeout.connect(_shoot_gust)

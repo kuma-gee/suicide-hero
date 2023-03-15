@@ -9,7 +9,6 @@ var player: Player
 var _res: BowUpgradeResource
 
 func _ready():
-	player.attack_speed_changed.connect(_update_firerate)
 	firerate.timeout.connect(_shoot)
 
 func get_resource():
@@ -29,7 +28,6 @@ func _shoot():
 		var angle = angles[i]
 		var arrow_node = _create_arrow(angle)
 		arrow_node.set_damage(_res.damage)
-		arrow_node.set_crit(player.get_crit_chance())
 		arrow_node.pierce = _res.pierce
 		arrow_node.speed = _res.speed
 		arrow_node.set_knockback(_res.knockback_force)

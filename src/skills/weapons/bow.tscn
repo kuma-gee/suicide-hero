@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cw1l3nsc613j0"]
 
 [ext_resource type="Script" path="res://src/skills/weapons/bow.gd" id="1_ht2q5"]
-[ext_resource type="PackedScene" path="res://src/skills/weapons/sprites/bow_arrow.tscn" id="2_wcxkj"]
+[ext_resource type="PackedScene" uid="uid://cojexgoao8ku1" path="res://src/skills/weapons/sprites/bow_arrow.tscn" id="2_wcxkj"]
 [ext_resource type="Texture2D" uid="uid://fvvu71p3cad3" path="res://assets/main/weapon_bow.png" id="3_0qd1f"]
 [ext_resource type="Script" path="res://src/skills/shared/fire_rate.gd" id="4_cuax7"]
 [ext_resource type="AudioStream" uid="uid://bhnnbne0x7vjt" path="res://sound/弓矢を放つ.mp3" id="5_4xhb6"]

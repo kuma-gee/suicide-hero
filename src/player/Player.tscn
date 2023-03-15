@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c3k3w13gv6d5g" path="res://src/player/sprite.png" id="1"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2"]
-[ext_resource type="Resource" uid="uid://41jiv6qqxtp2" path="res://src/skills/res/BombLV1.tres" id="2_pgx3e"]
+[ext_resource type="Resource" uid="uid://bgb0urp3ugclu" path="res://src/skills/res/BowLV1.tres" id="2_6q520"]
 [ext_resource type="Script" path="res://addons/input/PlayerInput.gd" id="3"]
 [ext_resource type="Script" path="res://src/shared/rpg/PickupMagnet.gd" id="4"]
 [ext_resource type="Script" path="res://addons/StateMachine/Move2D.gd" id="7"]
@@ -93,7 +93,7 @@ bg_color = Color(0.223529, 0.705882, 0.309804, 1)
 collision_layer = 2
 script = ExtResource("2")
 stats = NodePath("PlayerStats")
-initial_skill = ExtResource("2_pgx3e")
+initial_skill = ExtResource("2_6q520")
 
 [node name="PlayerStats" parent="." instance=ExtResource("13")]
 
@@ -190,7 +190,7 @@ stream = ExtResource("18")
 volume_db = -5.0
 bus = &"SFX"
 
-[node name="HpBar" type="ProgressBar" parent="."]
+[node name="HpBar" type="ProgressBar" parent="." node_paths=PackedStringArray("value_fill")]
 offset_left = -12.0
 offset_top = -25.0
 offset_right = 11.0
@@ -200,6 +200,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_3fwjg")
 value = 50.0
 show_percentage = false
 script = ExtResource("22_3xeme")
+value_fill = NodePath("../PlayerStats/Health")
 
 [connection signal="level_up" from="PlayerStats" to="." method="_on_player_stats_level_up"]
 [connection signal="zero_value" from="PlayerStats/Health" to="." method="_on_Health_zero_value"]

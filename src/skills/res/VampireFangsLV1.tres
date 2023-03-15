@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="VampireFangsUpgradeResource" load_steps=5 format=3 uid="uid://cj7yggo6kynw2"]
+
+[ext_resource type="Script" path="res://src/skills/upgrade/vampire_fangs_upgrade_resource.gd" id="1_8syi4"]
+[ext_resource type="Script" path="res://src/skills/upgrade/SkillDescriptionResource.gd" id="1_b24vd"]
+[ext_resource type="Texture2D" uid="uid://8sbke8h6i4pg" path="res://assets/ui/Skill_VampireFangs_0.png" id="1_xpf0q"]
+
+[sub_resource type="Resource" id="Resource_ir0hx"]
+script = ExtResource("1_b24vd")
+text = "VAMPIRE_FANGS_LV1_TEXT"
+name = "VAMPIRE_FANGS_LV1"
+icon = ExtResource("1_xpf0q")
+
+[resource]
+script = ExtResource("1_8syi4")
+life_steal = 0.05
+description = SubResource("Resource_ir0hx")

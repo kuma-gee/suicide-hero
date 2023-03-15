@@ -1,26 +1,26 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://cojexgoao8ku1"]
 
-[ext_resource type="Script" path="res://src/skills/weapons/sprites/bow_arrow.gd" id="1_a6lkb"]
-[ext_resource type="Texture2D" uid="uid://dqlmucdvsel3c" path="res://assets/main/weapon_arrow.png" id="1_uyhtd"]
-[ext_resource type="Script" path="res://src/player/PlayerHitBox.gd" id="3_8jhcm"]
+[ext_resource type="Script" path="res://src/skills/weapons/sprites/bow_arrow.gd" id="1_hs2vr"]
+[ext_resource type="Texture2D" uid="uid://dqlmucdvsel3c" path="res://assets/main/weapon_arrow.png" id="2_o8lv1"]
+[ext_resource type="Script" path="res://src/player/PlayerHitBox.gd" id="3_d6wxo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e13ie"]
 size = Vector2(22, 8)
 
 [node name="Arrow" type="CharacterBody2D" node_paths=PackedStringArray("hitbox")]
-script = ExtResource("1_a6lkb")
+script = ExtResource("1_hs2vr")
 hitbox = NodePath("HitBox2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(11, 0)
 rotation = 1.5708
-texture = ExtResource("1_uyhtd")
+texture = ExtResource("2_o8lv1")
 
 [node name="HitBox2D" type="Area2D" parent="."]
 position = Vector2(11, 0)
 collision_layer = 0
 collision_mask = 8
-script = ExtResource("3_8jhcm")
+script = ExtResource("3_d6wxo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2D"]
 shape = SubResource("RectangleShape2D_e13ie")

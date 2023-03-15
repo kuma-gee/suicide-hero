@@ -1,13 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1oyuffilffxp"]
+[gd_scene load_steps=4 format=3 uid="uid://b1oyuffilffxp"]
 
 [ext_resource type="Script" path="res://src/main/WeaponSlot.gd" id="1_66lnk"]
-[ext_resource type="Texture2D" uid="uid://chgy2ckm5bpsl" path="res://assets/ui/Skill_Unknown_0.png" id="2_h8fe6"]
 [ext_resource type="Texture2D" uid="uid://bxg4gxww1avrb" path="res://assets/ui/Skill_Weapon_0.png" id="2_xjkr0"]
 [ext_resource type="Texture2D" uid="uid://bd3gqmn54e4nj" path="res://assets/ui/Skill_Border_0.png" id="3_ck4qq"]
 
 [node name="CenterContainer" type="MarginContainer"]
 script = ExtResource("1_66lnk")
-default_icon = ExtResource("2_h8fe6")
 
 [node name="Border" type="TextureRect" parent="."]
 layout_mode = 2

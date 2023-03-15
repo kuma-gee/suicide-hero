@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed := 500
-@export var hitbox: HitBox2D
+@export var hitbox: PlayerHitBox
 
 var pierce = false
 

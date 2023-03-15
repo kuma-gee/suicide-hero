@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="KnifeUpgradeResource" load_steps=4 format=3]
+[gd_resource type="Resource" script_class="KnifeUpgradeResource" load_steps=4 format=3 uid="uid://dt6jetyohrggg"]
 
 [ext_resource type="Script" path="res://src/skills/upgrade/SkillDescriptionResource.gd" id="1_g3xba"]
 [ext_resource type="Script" path="res://src/skills/upgrade/knife_upgrade_resource.gd" id="1_meloc"]

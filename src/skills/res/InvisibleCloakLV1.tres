@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="InvisibleCloakUpgradeResource" load_steps=5 format=3 uid="uid://c7ne6bxnlv8e5"]
+
+[ext_resource type="Script" path="res://src/skills/upgrade/invisible_cloak_upgrade_resource.gd" id="1_guwge"]
+[ext_resource type="Texture2D" uid="uid://bwjx33il7f21a" path="res://assets/ui/Skill_InvisibleCloak_0.png" id="1_tv6xw"]
+[ext_resource type="Script" path="res://src/skills/upgrade/SkillDescriptionResource.gd" id="1_xkq1j"]
+
+[sub_resource type="Resource" id="Resource_fhh8w"]
+script = ExtResource("1_xkq1j")
+text = "INVISIBLE_CLOAK_LV1_TEXT"
+name = "INVISIBLE_CLOAK_LV1"
+icon = ExtResource("1_tv6xw")
+
+[resource]
+script = ExtResource("1_guwge")
+dodge_chance = 0.1
+description = SubResource("Resource_fhh8w")
