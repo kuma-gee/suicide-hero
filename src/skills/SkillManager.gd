@@ -20,13 +20,11 @@ enum Skill {
 	STATS
 }
 
-const SKILL_NODE_MAP = {
+const SKILL_SCENES = {
 	Skill.BOW: preload("res://src/skills/bow/bow.tscn"),
 	Skill.AIR_GUST: preload("res://src/skills/air_gust/air_gust.tscn"),
 	Skill.SPIKE_THROW: preload("res://src/skills/spike/spike_throw.tscn"),
 	Skill.KNIFE_CIRCLE: preload("res://src/skills/knife_circle/knife_circle.tscn"),
-	Skill.SPIKED_GLOVES: preload("res://src/skills/spiked_gloves/spiked_gloves.gd"), # TODO: check, does gd work?
-	Skill.STATS: preload("res://src/skills/stat_up/stat_up.gd"),
 }
 
 const WEAPON_TYPES = [
@@ -47,7 +45,11 @@ const ITEM_TYPES = [
 @export var _skill_pool: Array[UpgradeResource] = []
 
 var _current_skills = {}
-var _skill_nodes = {}
+var _skill_nodes = {
+	Skill.SPIKED_GLOVES: SpikedGloves.new(),
+	Skill.VAMPIRE_FANGS: VampireFangs.new(),
+	Skill.STATS: StatUp.new()
+}
 
 var _logger = Logger.new("SkillManager")
 
@@ -62,8 +64,8 @@ func apply(res: UpgradeResource):
 func _upgrade_skill(res: UpgradeResource, player: Player):
 	var skill = res.get_skill()
 	if not skill in _skill_nodes:
-		if skill in SKILL_NODE_MAP:
-			var skill_node = SKILL_NODE_MAP[skill].instantiate()
+		if skill in SKILL_SCENES:
+			var skill_node = SKILL_SCENES[skill].instantiate()
 			if "player" in skill_node:
 				skill_node.player = player
 			player.add_skill(skill_node)

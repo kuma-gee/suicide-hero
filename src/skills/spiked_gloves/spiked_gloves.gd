@@ -1,5 +1,4 @@
 class_name SpikedGloves
-extends Node
 
 var multiplier = Multiplier.new()
 var _res: SpikedGlovesUpgradeResource

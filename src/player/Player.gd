@@ -65,6 +65,9 @@ func get_pickup_increase() -> float:
 func get_crit_chance() -> float:
 	return _combine_multipier(func(x): x.crit_chance)
 
+func get_life_steal() -> float:
+	return _combine_multipier(func(x): x.life_steal)
+
 func _combine_multipier(map: Callable) -> float:
 	var result = 0.0
 	for skill in _multiplier:

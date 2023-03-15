@@ -9,3 +9,4 @@ var move_speed := 0.0
 var damage:= 0.0
 
 var crit_chance := 0.0
+var life_steal := 0.0

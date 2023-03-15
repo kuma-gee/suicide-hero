@@ -1,5 +1,4 @@
 class_name StatUp
-extends Node
 
 var multiplier = Multiplier.new()
 
