@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="BowUpgradeResource" load_steps=6 format=3 uid="uid://bgb0urp3ugclu"]
+
+[ext_resource type="Texture2D" uid="uid://cr1ikcoy7ht7b" path="res://assets/ui/Skill_Bow_0.png" id="1_llhki"]
+[ext_resource type="Script" path="res://src/skills/upgrade/SkillDescriptionResource.gd" id="2_ompot"]
+[ext_resource type="Resource" path="res://src/skills/res/BowLVMax.tres" id="3_n5gtw"]
+[ext_resource type="Script" path="res://src/skills/upgrade/BowUpgradeResource.gd" id="4_xtah5"]
+
+[sub_resource type="Resource" id="Resource_eyuxe"]
+script = ExtResource("2_ompot")
+text = "BOW_LV1_TEXT"
+name = "BOW_LV1"
+icon = ExtResource("1_llhki")
+
+[resource]
+script = ExtResource("4_xtah5")
+firerate = 1.0
+damage = 5
+count = 1
+pierce = false
+knockback_force = 0
+speed = 300
+scale = 1.0
+description = SubResource("Resource_eyuxe")
+next_upgrade = ExtResource("3_n5gtw")

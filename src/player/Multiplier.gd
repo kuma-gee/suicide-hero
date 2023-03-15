@@ -1,5 +1,4 @@
 class_name Multiplier
-extends Object
 
 var health := 0.0
 var pickup := 0.0

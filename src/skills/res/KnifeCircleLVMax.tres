@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="KnifeUpgradeResource" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/skills/upgrade/SkillDescriptionResource.gd" id="1_g3xba"]
+[ext_resource type="Script" path="res://src/skills/upgrade/knife_upgrade_resource.gd" id="1_meloc"]
+
+[sub_resource type="Resource" id="Resource_1x0al"]
+script = ExtResource("1_g3xba")
+text = "KNIFE_CIRCLE_LV_MAX_TEXT"
+name = "KNIFE_CIRCLE_LV_MAX"
+
+[resource]
+script = ExtResource("1_meloc")
+respawn_time = 10.0
+amount = 10
+speed = 0.8
+damage = 15
+offset = 50
+max_hits = 30
+knockback = 50
+scale = 2.0
+description = SubResource("Resource_1x0al")

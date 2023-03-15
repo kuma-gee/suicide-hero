@@ -15,7 +15,7 @@ func _ready():
 	health.text = "%s%%" % _from_multiplier(player.get_health_multiplier())
 	speed.text = "%s%%" % _from_multiplier(player.get_move_speed_multiplier())
 	attack.text = "%s%%" % _from_multiplier(player.get_attack_multiplier())
-	attack_speed.text = "%s%%" % _from_multiplier(player.get_attack_speed_multiplier())
+	attack_speed.text = "%s%%" % _from_multiplier((-1 * (player.get_attack_speed_multiplier() - 1.0)) + 1)
 	damage.text = "%s%%" % _from_multiplier(player.get_damage_multiplier())
 	
 	pickup.text = "%s%%" % _from_percentage(player.get_pickup_increase())
@@ -27,6 +27,6 @@ func _from_multiplier(value: float):
 
 
 func _from_percentage(value: float):
-	var x = roundf((value) * 100)
-	var prefix = "-" if x < 0 else "+"
-	return "%s %s" % [prefix, x]
+	var x = roundf(value * 100)
+	var prefix = "" if x < 0 else "+"
+	return "%s%s" % [prefix, x]

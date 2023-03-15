@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="StatUpgradeResource" load_steps=5 format=3 uid="uid://nm4mxoa1gucq"]
+
+[ext_resource type="Texture2D" uid="uid://dtjcbqlk2yqds" path="res://assets/ui/Skill_StatUp_Speed_0.png" id="1_14w4w"]
+[ext_resource type="Script" path="res://src/skills/upgrade/SkillDescriptionResource.gd" id="1_kaiof"]
+[ext_resource type="Script" path="res://src/skills/upgrade/stat_upgrade_resource.gd" id="1_yf65w"]
+
+[sub_resource type="Resource" id="Resource_rd4fo"]
+script = ExtResource("1_kaiof")
+text = "Speed 10%"
+name = "SPEED_LV1"
+icon = ExtResource("1_14w4w")
+
+[resource]
+script = ExtResource("1_yf65w")
+health = 0.0
+speed = 0.1
+pickup = 0.0
+attack = 0.0
+attack_speed = 0.0
+crit = 0.0
+description = SubResource("Resource_rd4fo")

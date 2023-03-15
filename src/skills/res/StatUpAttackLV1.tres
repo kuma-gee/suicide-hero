@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="StatUpgradeResource" load_steps=5 format=3 uid="uid://g334wa4s3ibn"]
+
+[ext_resource type="Texture2D" uid="uid://u17jn2wqhi2n" path="res://assets/ui/Skill_StatUp_Attack_0.png" id="1_4pvlr"]
+[ext_resource type="Script" path="res://src/skills/upgrade/SkillDescriptionResource.gd" id="1_fk8r8"]
+[ext_resource type="Script" path="res://src/skills/upgrade/stat_upgrade_resource.gd" id="3_6mr2m"]
+
+[sub_resource type="Resource" id="Resource_tkw7b"]
+script = ExtResource("1_fk8r8")
+text = "ATTACK 10%"
+name = "ATTACK_LV1"
+icon = ExtResource("1_4pvlr")
+
+[resource]
+script = ExtResource("3_6mr2m")
+health = 0.0
+speed = 0.0
+pickup = 0.0
+attack = 0.1
+attack_speed = 0.0
+crit = 0.0
+description = SubResource("Resource_tkw7b")

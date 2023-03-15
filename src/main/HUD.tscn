@@ -25,8 +25,8 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qe3mc"]
 shader = ExtResource("4_ei83d")
 shader_parameter/shine_color = Color(1, 1, 1, 1)
-shader_parameter/shine_size = 0.1
-shader_parameter/shine_speed = 1.0
+shader_parameter/shine_size = 0.01
+shader_parameter/shine_speed = 5.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2xx8h"]
 load_path = "res://.godot/imported/Exp_BG_0.png-e1bc82f5a8dedd81e6066a469faf0ad7.ctex"

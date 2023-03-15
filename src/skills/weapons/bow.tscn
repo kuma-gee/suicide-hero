@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw1l3nsc613j0"]
+
+[ext_resource type="Script" path="res://src/skills/weapons/bow.gd" id="1_ht2q5"]
+[ext_resource type="PackedScene" path="res://src/skills/weapons/sprites/bow_arrow.tscn" id="2_wcxkj"]
+[ext_resource type="Texture2D" uid="uid://fvvu71p3cad3" path="res://assets/main/weapon_bow.png" id="3_0qd1f"]
+[ext_resource type="Script" path="res://src/skills/shared/fire_rate.gd" id="4_cuax7"]
+[ext_resource type="AudioStream" uid="uid://bhnnbne0x7vjt" path="res://sound/弓矢を放つ.mp3" id="5_4xhb6"]
+
+[node name="Bow" type="Node2D" node_paths=PackedStringArray("firerate", "shoot_sound")]
+script = ExtResource("1_ht2q5")
+arrow = ExtResource("2_wcxkj")
+firerate = NodePath("FireRate")
+shoot_sound = NodePath("Shoot")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_0qd1f")
+
+[node name="FireRate" type="Timer" parent="."]
+script = ExtResource("4_cuax7")
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4xhb6")
+volume_db = -7.856
+pitch_scale = 2.82
+bus = &"SFX"

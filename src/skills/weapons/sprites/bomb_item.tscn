@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://cq2rkkdycrl45"]
+
+[ext_resource type="Script" path="res://src/skills/weapons/sprites/bomb_item.gd" id="1_vmn2q"]
+[ext_resource type="Script" path="res://src/player/PlayerHitBox.gd" id="2_gso7i"]
+[ext_resource type="Texture2D" uid="uid://cju1mq5hsegm3" path="res://icon.png" id="3_uxasn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5fex5"]
+radius = 60.0
+
+[sub_resource type="Animation" id="Animation_15ptn"]
+resource_name = "explode"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerHitBox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ppsxe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerHitBox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k1gxr"]
+_data = {
+"RESET": SubResource("Animation_ppsxe"),
+"explode": SubResource("Animation_15ptn")
+}
+
+[node name="BombItem" type="CharacterBody2D" node_paths=PackedStringArray("hitbox", "explosion_timer", "collision", "anim")]
+script = ExtResource("1_vmn2q")
+hitbox = NodePath("PlayerHitBox")
+explosion_timer = NodePath("Timer")
+collision = NodePath("PlayerHitBox/CollisionShape2D")
+anim = NodePath("AnimationPlayer")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="PlayerHitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_gso7i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitBox"]
+shape = SubResource("CircleShape2D_5fex5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_uxasn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k1gxr")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

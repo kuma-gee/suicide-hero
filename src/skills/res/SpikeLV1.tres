@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SpikeUpgradeResource" load_steps=6 format=3 uid="uid://ucp20pu3fdp7"]
+
+[ext_resource type="Texture2D" uid="uid://c60m42wd1dgfp" path="res://assets/ui/Skill_SpikeThrow_0.png" id="1_4l6rb"]
+[ext_resource type="Script" path="res://src/skills/upgrade/SkillDescriptionResource.gd" id="1_lsq64"]
+[ext_resource type="Script" path="res://src/skills/upgrade/spike_upgrade_resource.gd" id="1_y1yr1"]
+[ext_resource type="Resource" uid="uid://cv6y8278f3bn4" path="res://src/skills/res/SpikeLVMax.tres" id="2_xw51m"]
+
+[sub_resource type="Resource" id="Resource_oh505"]
+script = ExtResource("1_lsq64")
+text = "SPIKE_THROW_LV1_TEXT"
+name = "SPIKE_THROW_LV1"
+icon = ExtResource("1_4l6rb")
+
+[resource]
+script = ExtResource("1_y1yr1")
+lifetime = 10.0
+firerate = 10.0
+throw_amount = 1
+throw_force = 200
+damage = 5
+spike_amount = 4
+spike_spread_radius = 20
+description = SubResource("Resource_oh505")
+next_upgrade = ExtResource("2_xw51m")

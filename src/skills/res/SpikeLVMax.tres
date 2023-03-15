@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SpikeUpgradeResource" load_steps=4 format=3 uid="uid://cv6y8278f3bn4"]
+
+[ext_resource type="Script" path="res://src/skills/upgrade/spike_upgrade_resource.gd" id="1_bv0qo"]
+[ext_resource type="Script" path="res://src/skills/upgrade/SkillDescriptionResource.gd" id="1_q0xid"]
+
+[sub_resource type="Resource" id="Resource_3q3oq"]
+script = ExtResource("1_q0xid")
+text = "SPIKE_THROW_LV_MAX_TEXT"
+name = "SPIKE_THROW_LV_MAX"
+
+[resource]
+script = ExtResource("1_bv0qo")
+lifetime = 10.0
+firerate = 5.0
+throw_amount = 3
+throw_force = 400
+damage = 15
+spike_amount = 10
+spike_spread_radius = 60
+description = SubResource("Resource_3q3oq")

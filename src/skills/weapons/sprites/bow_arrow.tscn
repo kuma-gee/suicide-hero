@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/skills/weapons/sprites/bow_arrow.gd" id="1_a6lkb"]
+[ext_resource type="Texture2D" uid="uid://dqlmucdvsel3c" path="res://assets/main/weapon_arrow.png" id="1_uyhtd"]
+[ext_resource type="Script" path="res://src/player/PlayerHitBox.gd" id="3_8jhcm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e13ie"]
+size = Vector2(22, 8)
+
+[node name="Arrow" type="CharacterBody2D" node_paths=PackedStringArray("hitbox")]
+script = ExtResource("1_a6lkb")
+hitbox = NodePath("HitBox2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(11, 0)
+rotation = 1.5708
+texture = ExtResource("1_uyhtd")
+
+[node name="HitBox2D" type="Area2D" parent="."]
+position = Vector2(11, 0)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("3_8jhcm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2D"]
+shape = SubResource("RectangleShape2D_e13ie")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="hit" from="HitBox2D" to="." method="_on_hit_box_2d_hit"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

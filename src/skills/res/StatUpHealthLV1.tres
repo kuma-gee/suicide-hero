@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="StatUpgradeResource" load_steps=5 format=3 uid="uid://blycog767c5s0"]
+
+[ext_resource type="Script" path="res://src/skills/upgrade/SkillDescriptionResource.gd" id="1_0qimf"]
+[ext_resource type="Script" path="res://src/skills/upgrade/stat_upgrade_resource.gd" id="1_by8pi"]
+[ext_resource type="Texture2D" uid="uid://de1kcwx14r1js" path="res://assets/ui/Skill_StatUp_Health_0.png" id="1_rdwqw"]
+
+[sub_resource type="Resource" id="Resource_fis75"]
+script = ExtResource("1_0qimf")
+text = "Health 10%"
+name = "HEALTH_LV1"
+icon = ExtResource("1_rdwqw")
+
+[resource]
+script = ExtResource("1_by8pi")
+health = 0.1
+speed = 0.0
+pickup = 0.0
+attack = 0.0
+attack_speed = 0.0
+crit = 0.0
+description = SubResource("Resource_fis75")

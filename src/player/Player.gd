@@ -12,7 +12,7 @@ signal multiplier_changed()
 
 @onready var hand := $GunPointRoot/Hand
 @onready var aim_direction := $AimDirection
-@onready var move := $StateMachine/Move2D
+@onready var move := $Move2D
 
 @onready var pickup_magnet := $PickupMagnet
 @onready var pickup_sound := $PickupArea/PickupSound
@@ -44,37 +44,41 @@ func get_level():
 	return stats.level
 
 func get_attack_multiplier() -> float:
-	return 1.0 + _combine_multipier(func(x): x.attack)
+	return 1.0 + _combine_multipier("attack")
 
 func get_attack_speed_multiplier() -> float:
 	# Firerate has to be reduced
-	return 1.0 - _combine_multipier(func(x): x.attack_speed)
+	return 1.0 - _combine_multipier("attack_speed")
 
 func get_move_speed_multiplier() -> float:
-	return 1.0 + _combine_multipier(func(x): x.move_speed)
+	return 1.0 + _combine_multipier("move_speed")
 
 func get_damage_multiplier() -> float:
-	return 1.0 + _combine_multipier(func(x): x.damage)
+	return 1.0 + _combine_multipier("damage")
 
 func get_health_multiplier() -> float:
-	return 1.0 + _combine_multipier(func(x): x.health)
+	return 1.0 + _combine_multipier("health")
 
 func get_pickup_increase() -> float:
-	return _combine_multipier(func(x): x.pickup)
+	return _combine_multipier("pickup")
 
 func get_crit_chance() -> float:
-	return _combine_multipier(func(x): x.crit_chance)
+	return _combine_multipier("crit_chance")
 
 func get_life_steal() -> float:
-	return _combine_multipier(func(x): x.life_steal)
+	return _combine_multipier("life_steal")
 
 func get_dodge_chance() -> float:
-	return _combine_multipier(func(x): x.dodge_chance)
+	return _combine_multipier("dodge_chance")
 
-func _combine_multipier(map: Callable) -> float:
+func _combine_multipier(prop: String) -> float:
 	var result = 0.0
 	for skill in _multiplier:
-		result *=  1 + map.call(_multiplier[skill])
+		var x = _multiplier[skill].get(prop)
+		if result == 0:
+			result += x
+		else:
+			result *= 1.0 + x
 	return result
 
 func get_current_health() -> int:
@@ -115,7 +119,7 @@ func add_skill(node: Node):
 func add_multiplier(skill: int, value: Multiplier):
 	_multiplier[skill] = value
 	multiplier_changed.emit()
-
+	
 	if skill == SkillManager.Skill.STATS:
 		pickup_magnet.set_range(get_pickup_increase())
 		stats.health.multiply(get_health_multiplier())

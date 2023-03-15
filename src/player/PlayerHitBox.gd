@@ -5,7 +5,7 @@ signal hit()
 
 @export var damage := 1
 @export var knockback_force := 0
-@export var crit_multipler := 2.0
+@export var crit_multiplier := 2.0
 
 var player: Player
 
@@ -13,6 +13,8 @@ func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	area_entered.connect(enter)
 	body_entered.connect(enter)
+	
+	collision_mask = 8
 
 
 func enter(node) -> void:

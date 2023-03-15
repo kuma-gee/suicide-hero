@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BombUpgradeResource" load_steps=4 format=3 uid="uid://cbno0fi1xxvhp"]
+
+[ext_resource type="Script" path="res://src/skills/upgrade/bomb_upgrade_resource.gd" id="1_7qjd6"]
+[ext_resource type="Script" path="res://src/skills/upgrade/SkillDescriptionResource.gd" id="1_8j38v"]
+
+[sub_resource type="Resource" id="Resource_5ptb3"]
+script = ExtResource("1_8j38v")
+text = "BOMB_LV_MAX_TEXT"
+name = "BOMB_LV_MAX"
+
+[resource]
+script = ExtResource("1_7qjd6")
+firerate = 5.0
+throw_force = 500
+throw_amount = 3
+explosion_radius = 80
+damage = 20
+description = SubResource("Resource_5ptb3")

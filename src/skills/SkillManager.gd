@@ -26,11 +26,11 @@ enum Skill {
 }
 
 const SKILL_SCENES = {
-	Skill.BOW: preload("res://src/skills/bow/bow.tscn"),
-	Skill.AIR_GUST: preload("res://src/skills/air_gust/air_gust.tscn"),
-	Skill.SPIKE_THROW: preload("res://src/skills/spike/spike_throw.tscn"),
-	Skill.KNIFE_CIRCLE: preload("res://src/skills/knife_circle/knife_circle.tscn"),
-	Skill.BOMB: preload("res://src/skills/bomb/bomb.tscn")
+	Skill.BOW: preload("res://src/skills/weapons/bow.tscn"),
+	Skill.AIR_GUST: preload("res://src/skills/weapons/air_gust.tscn"),
+	Skill.SPIKE_THROW: preload("res://src/skills/weapons/spike_throw.tscn"),
+	Skill.KNIFE_CIRCLE: preload("res://src/skills/weapons/knife_circle.tscn"),
+	Skill.BOMB: preload("res://src/skills/weapons/bomb.tscn")
 }
 
 const WEAPON_TYPES = [
@@ -55,7 +55,7 @@ var _current_skills = {}
 var _skill_nodes = {
 	Skill.SPIKED_GLOVES: SpikedGloves.new(),
 	Skill.VAMPIRE_FANGS: VampireFangs.new(),
-	Skill.STATS: StatUp.new()
+	Skill.STATS: StatUp.new(),
 	Skill.INVISIBLE_CLOAK: InvisibleCloak.new()
 }
 
@@ -63,6 +63,9 @@ var _logger = Logger.new("SkillManager")
 
 func _ready():
 	Events.skill_selected.connect(apply)
+	for x in _skill_pool:
+		if !is_instance_valid(x):
+			_skill_pool.erase(x)
 
 func apply(res: UpgradeResource):
 	var type = res.get_skill()
