@@ -3,14 +3,14 @@
 [ext_resource type="Script" path="res://src/skills/SkillManager.gd" id="1_3qdjn"]
 [ext_resource type="Resource" uid="uid://dnjuvey4ils4h" path="res://src/skills/res/AirGustLV1.tres" id="2_hd4le"]
 [ext_resource type="Resource" uid="uid://41jiv6qqxtp2" path="res://src/skills/res/BombLV1.tres" id="3_dfnav"]
-[ext_resource type="Resource" uid="uid://c7ne6bxnlv8e5" path="res://src/skills/res/InvisibleCloakLV1.tres" id="4_w0wij"]
+[ext_resource type="Resource" uid="uid://dppd5xqg6kxne" path="res://src/skills/res/StatUpCritLV1.tres" id="5_e5w5o"]
 [ext_resource type="Resource" uid="uid://qtnpdqbsu2h8" path="res://src/skills/res/KnifeCircleLV1.tres" id="5_ipg0l"]
-[ext_resource type="Resource" uid="uid://n2ckpgx02seh" path="res://src/skills/res/SpikedGlovesLV1.tres" id="6_uoj2r"]
+[ext_resource type="Resource" uid="uid://brbv4s8v1iovt" path="res://src/skills/res/StatUpAttackSpeedLV1.tres" id="6_hx8px"]
+[ext_resource type="Resource" uid="uid://g334wa4s3ibn" path="res://src/skills/res/StatUpAttackLV1.tres" id="7_o32nf"]
 [ext_resource type="Resource" uid="uid://ucp20pu3fdp7" path="res://src/skills/res/SpikeLV1.tres" id="7_v5i5o"]
-[ext_resource type="Resource" uid="uid://cj7yggo6kynw2" path="res://src/skills/res/VampireFangsLV1.tres" id="8_41whh"]
 
 [node name="SkillManager" type="Node"]
 script = ExtResource("1_3qdjn")
 max_weapons = 2
 max_items = 2
-_skill_pool = Array[Resource("res://src/skills/upgrade/UpgradeResource.gd")]([ExtResource("2_hd4le"), ExtResource("3_dfnav"), ExtResource("4_w0wij"), ExtResource("5_ipg0l"), ExtResource("6_uoj2r"), ExtResource("7_v5i5o"), ExtResource("8_41whh"), null, null, null, null, null, null, null, null, null, null, null, null, null])
+_skill_pool = Array[Resource("res://src/skills/upgrade/UpgradeResource.gd")]([ExtResource("2_hd4le"), ExtResource("3_dfnav"), ExtResource("5_ipg0l"), ExtResource("7_v5i5o"), ExtResource("7_o32nf"), ExtResource("6_hx8px"), ExtResource("5_e5w5o"), null, null, null, null, null, null, null, null, null, null])

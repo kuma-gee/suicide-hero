@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://vkgrsyar26y4"]
 
-[ext_resource type="Script" path="res://src/skills/weapons/knife_circle.gd" id="1_kvgj3"]
-[ext_resource type="PackedScene" path="res://src/skills/weapons/sprites/knife.tscn" id="2_a73d5"]
+[ext_resource type="Script" path="res://src/skills/weapons/knife_circle.gd" id="1_p028n"]
+[ext_resource type="PackedScene" uid="uid://dsfdm7tm7vd8k" path="res://src/skills/weapons/sprites/knife.tscn" id="2_c65qj"]
 
 [node name="KnifeCircle" type="Node2D" node_paths=PackedStringArray("timer")]
-script = ExtResource("1_kvgj3")
+script = ExtResource("1_p028n")
 timer = NodePath("Timer")
-knife = ExtResource("2_a73d5")
+knife = ExtResource("2_c65qj")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

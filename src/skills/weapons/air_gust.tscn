@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cbd1bek58hxs8"]
 
 [ext_resource type="Script" path="res://src/skills/weapons/air_gust.gd" id="1_idvdk"]
-[ext_resource type="PackedScene" path="res://src/skills/weapons/sprites/air_gust_item.tscn" id="2_vcsd6"]
+[ext_resource type="PackedScene" uid="uid://dpgrs2jevaj2p" path="res://src/skills/weapons/sprites/air_gust_item.tscn" id="2_vcsd6"]
 [ext_resource type="Script" path="res://src/skills/shared/fire_rate.gd" id="3_6d0kr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s681d"]

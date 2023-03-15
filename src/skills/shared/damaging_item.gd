@@ -1,7 +1,7 @@
 class_name DamagingItem
 extends Node2D
 
-@export var hitbox: HitBox2D
+@export var hitbox: PlayerHitBox
 
 var max_hits := 3
 var _hits := 0

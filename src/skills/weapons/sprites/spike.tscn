@@ -1,23 +1,23 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://ox7aughu0vsr"]
 
-[ext_resource type="Texture2D" uid="uid://klsj5hbdccbt" path="res://assets/main/spike.png" id="1_eihd5"]
-[ext_resource type="Script" path="res://src/skills/shared/damaging_item.gd" id="1_v6j6a"]
-[ext_resource type="Script" path="res://src/shared/rpg/HitBox2D.gd" id="2_osua0"]
+[ext_resource type="Script" path="res://src/skills/shared/damaging_item.gd" id="1_rktmj"]
+[ext_resource type="Texture2D" uid="uid://klsj5hbdccbt" path="res://assets/main/spike.png" id="2_cbdbv"]
+[ext_resource type="Script" path="res://src/player/PlayerHitBox.gd" id="3_7tg8r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bcdcw"]
 size = Vector2(11, 8)
 
 [node name="Spike" type="Node2D" node_paths=PackedStringArray("hitbox")]
-script = ExtResource("1_v6j6a")
+script = ExtResource("1_rktmj")
 hitbox = NodePath("HitBox2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_eihd5")
+texture = ExtResource("2_cbdbv")
 
 [node name="HitBox2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
-script = ExtResource("2_osua0")
+script = ExtResource("3_7tg8r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2D"]
 position = Vector2(0, 1)

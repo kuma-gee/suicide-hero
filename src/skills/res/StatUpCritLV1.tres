@@ -17,5 +17,5 @@ speed = 0.0
 pickup = 0.0
 attack = 0.0
 attack_speed = 0.0
-crit = 0.05
+crit = 0.1
 description = SubResource("Resource_dgjvg")

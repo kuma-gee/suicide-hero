@@ -1,23 +1,23 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://dsfdm7tm7vd8k"]
 
-[ext_resource type="Script" path="res://src/skills/shared/damaging_item.gd" id="1_ncpc0"]
-[ext_resource type="Texture2D" uid="uid://c8hvmcy8l0pki" path="res://assets/main/weapon_knife.png" id="2_ur353"]
-[ext_resource type="Script" path="res://src/shared/rpg/HitBox2D.gd" id="3_bevj1"]
+[ext_resource type="Script" path="res://src/skills/shared/damaging_item.gd" id="1_eleed"]
+[ext_resource type="Texture2D" uid="uid://c8hvmcy8l0pki" path="res://assets/main/weapon_knife.png" id="2_0once"]
+[ext_resource type="Script" path="res://src/player/PlayerHitBox.gd" id="3_wtl3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tgwb"]
 size = Vector2(8, 14)
 
 [node name="Knife" type="Node2D" node_paths=PackedStringArray("hitbox")]
-script = ExtResource("1_ncpc0")
+script = ExtResource("1_eleed")
 hitbox = NodePath("HitBox2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ur353")
+texture = ExtResource("2_0once")
 
 [node name="HitBox2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
-script = ExtResource("3_bevj1")
+script = ExtResource("3_wtl3j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2D"]
 shape = SubResource("RectangleShape2D_2tgwb")

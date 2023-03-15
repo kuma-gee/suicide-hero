@@ -1,6 +1,6 @@
 extends ThrowBody
 
-@export var hitbox: HitBox2D
+@export var hitbox: PlayerHitBox
 
 var knockback := 0
 
