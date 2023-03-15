@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://u17jn2wqhi2n" path="res://assets/ui/Skill_StatUp_Attack_0.png" id="1_4pvlr"]
 [ext_resource type="Script" path="res://src/skills/SkillDescriptionResource.gd" id="1_fk8r8"]
-[ext_resource type="Script" path="res://src/skills/stat_up/StatUpgradeResource.gd" id="3_6mr2m"]
+[ext_resource type="Script" path="res://src/skills/items/stat_upgrade_resource.gd" id="3_6mr2m"]
 
 [sub_resource type="Resource" id="Resource_tkw7b"]
 script = ExtResource("1_fk8r8")

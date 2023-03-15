@@ -6,12 +6,7 @@ extends UpgradeResource
 @export var pickup: float
 @export var attack: float
 @export var attack_speed: float
-
-# @export var crit: float
-
-# @export var armor: int
-# @export var dodge: float
-
+@export var crit: float
 
 func get_skill():
 	return SkillManager.Skill.STATS
