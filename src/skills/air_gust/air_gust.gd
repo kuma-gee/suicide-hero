@@ -56,7 +56,7 @@ func apply(res: AirGustUpgradeResource) -> void:
 	_update_debuff()
 
 func _update_firerate():
-	firerate.update_firerate(_res.firerate * player.get_attack_speed_multiplier())
+	firerate.update_firerate(_res.firerate)
 
 func _shoot_gust():
 	for i in range(0, _res.gust_amount):

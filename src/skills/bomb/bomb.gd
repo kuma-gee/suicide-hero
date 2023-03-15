@@ -30,7 +30,7 @@ func _throw_bombs():
 		var dir = Vector2.UP.rotated(TAU * randf())
 		
 		var node = bomb.instantiate()
-		node.damage = resource.damage * player.get_attack_multiplier()
+		node.damage = resource.damage
 		node.radius = resource.spike_spread_radius
 
 		node.speed = resource.throw_force

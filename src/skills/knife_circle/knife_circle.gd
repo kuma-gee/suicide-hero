@@ -39,7 +39,7 @@ func _spawn_knifes() -> void:
 		node.position += offset.rotated(angle)
 		node.rotation = angle_step * i
 		node.max_hits = _res.max_hits
-		node.damage = _res.damage * player.get_attack_multiplier()
+		node.damage = _res.damage
 		node.knockback = _res.knockback
 		node.scale = Vector2(_res.scale, _res.scale)
 		add_child(node)

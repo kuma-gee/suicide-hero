@@ -20,7 +20,7 @@ func apply(res: BowUpgradeResource):
 	_update_firerate()
 
 func _update_firerate():
-	firerate.update_firerate(_res.firerate * player.get_attack_speed_multiplier())
+	firerate.update_firerate(_res.firerate)
 
 func _shoot():
 	var arrow_count = _res.count
@@ -28,7 +28,8 @@ func _shoot():
 	for i in range(0, arrow_count):
 		var angle = angles[i]
 		var arrow_node = _create_arrow(angle)
-		arrow_node.set_damage(_res.damage * player.get_attack_multiplier())
+		arrow_node.set_damage(_res.damage)
+		arrow_node.set_crit(player.get_crit_chance())
 		arrow_node.pierce = _res.pierce
 		arrow_node.speed = _res.speed
 		arrow_node.set_knockback(_res.knockback_force)

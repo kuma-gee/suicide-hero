@@ -9,7 +9,6 @@ var _logger = Logger.new("SpikeThrow")
 var _res: SpikeUpgradeResource
 
 func _ready():
-	player.attack_speed_changed.connect(_update_firerate)
 	firerate.timeout.connect(_throw_spikes)
 
 func get_resource():
@@ -22,7 +21,7 @@ func apply(res: SpikeUpgradeResource):
 	_throw_spikes()
 
 func _update_firerate():
-	firerate.update_firerate(_res.firerate * player.get_attack_speed_multiplier())
+	firerate.update_firerate(_res.firerate)
 
 
 func _throw_spikes():
@@ -32,7 +31,7 @@ func _throw_spikes():
 		var dir = Vector2.UP.rotated(TAU * randf())
 		
 		var node = spike.instantiate()
-		node.damage = _res.damage * player.get_attack_multiplier()
+		node.damage = _res.damage
 		node.amount = _res.spike_amount
 		node.radius = _res.spike_spread_radius
 		node.lifetime = _res.lifetime
