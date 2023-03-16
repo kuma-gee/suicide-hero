@@ -59,6 +59,9 @@ func get_damage_multiplier() -> float:
 func get_health_multiplier() -> float:
 	return 1.0 + _combine_multipier("health")
 
+func get_exp_multiplier() -> float:
+	return 1.0 + _combine_multipier("experience")
+
 func get_pickup_increase() -> float:
 	return _combine_multipier("pickup")
 
@@ -119,6 +122,8 @@ func add_skill(node: Node):
 func add_multiplier(skill: int, value: Multiplier):
 	_multiplier[skill] = value
 	multiplier_changed.emit()
+
+	stats.exp_multiplier = get_exp_multiplier()
 	
 	if skill == SkillManager.Skill.STATS:
 		pickup_magnet.set_range(get_pickup_increase())

@@ -32,13 +32,15 @@ enum Skill {
 	SPIKED_GLOVES,
 	VAMPIRE_FANGS,
 	INVISIBLE_CLOAK,
+	SMART_GLASSES,
 }
 
 # Make sure all items are in here
 const ITEM_TYPES = [
 	Skill.SPIKED_GLOVES,
 	Skill.VAMPIRE_FANGS,
-	Skill.INVISIBLE_CLOAK
+	Skill.INVISIBLE_CLOAK,
+	Skill.SMART_GLASSES,
 ]
 
 const SKILL_SCENES = {
@@ -60,7 +62,8 @@ var _skill_nodes = {
 	Skill.SPIKED_GLOVES: SpikedGloves.new(),
 	Skill.VAMPIRE_FANGS: VampireFangs.new(),
 	Skill.STATS: StatUp.new(),
-	Skill.INVISIBLE_CLOAK: InvisibleCloak.new()
+	Skill.INVISIBLE_CLOAK: InvisibleCloak.new(),
+	Skill.SMART_GLASSES: SmartGlasses.new(),
 }
 
 var _logger = Logger.new("SkillManager")

@@ -16,7 +16,6 @@ func update_firerate(time: float):
 	if time > 0:
 		_current_time = time
 	
-	# TODO: check if updated correcty and not called multiple times
 	var new_time = _current_time * player.get_attack_speed_multiplier()
 	_logger.debug("upgrade firerate from %s to %s" % [wait_time, new_time])
 	if is_stopped() or new_time != wait_time:

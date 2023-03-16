@@ -10,3 +10,4 @@ var damage:= 0.0
 var crit_chance := 0.0
 var life_steal := 0.0
 var dodge_chance := 0.0
+var experience := 0.0

@@ -19,8 +19,6 @@ attack = NodePath("CenterContainer/VBoxContainer/Attack")
 attack_speed = NodePath("CenterContainer/VBoxContainer/AttackSpeed")
 damage = NodePath("CenterContainer/VBoxContainer/Damage")
 crit = NodePath("CenterContainer/VBoxContainer/Crit")
-dodge = NodePath("CenterContainer/VBoxContainer/Dodge")
-lifesteal = NodePath("CenterContainer/VBoxContainer/Lifesteal")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
@@ -76,18 +74,4 @@ layout_mode = 2
 text = "CRIT"
 
 [node name="Crit" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label8" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "DODGE"
-
-[node name="Dodge" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label9" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "LIFESTEAL"
-
-[node name="Lifesteal" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2

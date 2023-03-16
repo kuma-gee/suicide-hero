@@ -7,8 +7,6 @@ extends MarginContainer
 @export var attack_speed: Label
 @export var damage: Label
 @export var crit: Label
-@export var dodge: Label
-@export var lifesteal: Label
 
 func _ready():
 	var player: Player = get_tree().get_nodes_in_group("Player")[0]
@@ -21,8 +19,6 @@ func _ready():
 	
 	pickup.text = "%s%%" % _from_percentage(player.get_pickup_increase())
 	crit.text = "%s%%" % _from_percentage(player.get_crit_chance())
-	dodge.text = "%s%%" % _from_percentage(player.get_dodge_chance())
-	lifesteal.text = "%s%%" % _from_percentage(player.get_life_steal())
 
 func _from_multiplier(value: float):
 	return _from_percentage(value - 1.0)

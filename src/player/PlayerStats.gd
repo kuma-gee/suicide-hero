@@ -9,11 +9,13 @@ signal level_up(lvl)
 @onready var experience := $Experience
 @onready var health := $Health
 
+var exp_multiplier := 1.0
+
 func _process(delta):
 	_gain_experience()
 
 func _gain_experience() -> void:
-	var ex = health.value * exp_conversion
+	var ex = health.value * exp_conversion * exp_multiplier
 	experience.increase(ex)
 	health.reduce(ex)
 
