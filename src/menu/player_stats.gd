@@ -1,6 +1,5 @@
 extends MarginContainer
 
-@export var health: Label
 @export var speed: Label
 @export var pickup: Label
 @export var attack: Label
@@ -11,7 +10,6 @@ extends MarginContainer
 func _ready():
 	var player: Player = get_tree().get_nodes_in_group("Player")[0]
 	
-	health.text = "%s%%" % _from_multiplier(player.get_health_multiplier())
 	speed.text = "%s%%" % _from_multiplier(player.get_move_speed_multiplier())
 	attack.text = "%s%%" % _from_multiplier(player.get_attack_multiplier())
 	attack_speed.text = "%s%%" % _from_multiplier((-1 * (player.get_attack_speed_multiplier() - 1.0)) + 1)

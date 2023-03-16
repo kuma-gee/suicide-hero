@@ -24,12 +24,14 @@ func enter(node) -> void:
 
 func _hit(hurtbox: HurtBox2D):
 	var dmg = damage * player.get_attack_multiplier()
+	var is_crit = false
 	if randf() <= player.get_crit_chance():
 		dmg *= crit_multiplier
+		is_crit = true
 
 	var heal = dmg * player.get_life_steal()
 	if heal > 0:
 		player.heal(heal)
 
-	hurtbox.damage(dmg, global_position, knockback_force)
+	hurtbox.damage(dmg, global_position, knockback_force, is_crit)
 	hit.emit()

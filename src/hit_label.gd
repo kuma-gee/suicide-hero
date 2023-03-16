@@ -1,17 +1,28 @@
 extends Label
 
-@export var color: Color
-@export var move_speed := 50
-@export var angle_diff := 30.0
+@export var normal_font: LabelSettings
+@export var crit_font: LabelSettings
 
-@onready var rand_angle = randf_range(-angle_diff, angle_diff)
+@export var fade_effect: NewEffect
+
+@export var force := 100
+@export var angle_diff := 30.0
+@export var gravity := 5
+
+var is_crit := false
+var vel := Vector2.ZERO
 
 func _ready():
-	modulate = color
+	label_settings = crit_font if is_crit else normal_font
+	fade_effect.setup_props("modulate", Color.WHITE, Color.TRANSPARENT)
+	fade_effect.start()
+	
+	var rand_angle = randf_range(-angle_diff, angle_diff)
+	vel = Vector2.UP.rotated(deg_to_rad(rand_angle)) * force
 
 func _process(delta):
-	var dir = Vector2.UP
-	position += dir.rotated(deg_to_rad(rand_angle)) * move_speed * delta
+	vel += Vector2.DOWN * gravity
+	position += vel * delta
 
 func set_label(dmg: int):
 	text = str(dmg)

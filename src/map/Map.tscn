@@ -32,7 +32,7 @@ script = ExtResource("6_t135l")
 tilemap = NodePath("../TileMap")
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.1
 autostart = true
 
 [node name="NewEnemyTimer" type="Timer" parent="."]

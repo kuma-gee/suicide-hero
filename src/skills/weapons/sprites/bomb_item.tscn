@@ -7,9 +7,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_5fex5"]
 radius = 60.0
 
-[sub_resource type="Animation" id="Animation_15ptn"]
-resource_name = "explode"
-length = 0.5
+[sub_resource type="Animation" id="Animation_ppsxe"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -23,8 +22,9 @@ tracks/0/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_ppsxe"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_15ptn"]
+resource_name = "explode"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

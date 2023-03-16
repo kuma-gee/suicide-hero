@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BowUpgradeResource" load_steps=4 format=3]
+[gd_resource type="Resource" script_class="BowUpgradeResource" load_steps=4 format=3 uid="uid://c1kfhnt4ehixb"]
 
 [ext_resource type="Script" path="res://src/skills/upgrade/BowUpgradeResource.gd" id="1_e84tn"]
 [ext_resource type="Script" path="res://src/skills/upgrade/SkillDescriptionResource.gd" id="1_juvk7"]

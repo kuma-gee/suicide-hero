@@ -51,12 +51,13 @@ func _process(delta):
 		
 		move.look_dir = move.motion
 
-func _on_HurtBox_damaged(dmg):
+func _on_HurtBox_damaged(dmg, is_crit):
 #	print("Enemy hit: %s / %s -> %s" % [health.value, health.max_value, health.value - dmg])
 	health.reduce(dmg)
 
 	if dmg > 0:
 		var label = hit_label.instantiate()
+		label.is_crit = is_crit
 		label.position = global_position
 		label.set_label(dmg)
 		get_tree().current_scene.add_child(label)

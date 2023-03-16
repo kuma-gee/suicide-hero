@@ -1,6 +1,6 @@
 class_name HurtBox2D extends Area2D
 
-signal damaged(dmg)
+signal damaged(dmg, is_crit)
 signal hit()
 signal knockback(knockback)
 signal invincibility_timeout()
@@ -22,15 +22,15 @@ func _reset_invincibility():
 	emit_signal("invincibility_timeout")
 
 
-func damage(dmg: int, pos := Vector2.ZERO, knockback_force := 0) -> bool:
+func damage(dmg: int, pos := Vector2.ZERO, knockback_force := 0, is_crit := false) -> bool:
 	if invincible:
 		return false
 	
-	emit_signal("hit")
-	emit_signal("damaged", dmg)
+	hit.emit()
+	damaged.emit(dmg, is_crit)
 	if knockback_force != 0:
 		var knockback_vector = pos.direction_to(global_position)
-		emit_signal("knockback", knockback_vector * knockback_force)
+		knockback.emit(knockback_vector * knockback_force)
 	
 	if invincibility_time > 0:
 		invincible = true

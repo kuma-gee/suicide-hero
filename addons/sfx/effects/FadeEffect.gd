@@ -5,7 +5,7 @@ enum Type {
 	FADE_OUT,
 }
 
-@export var type: int
+@export var type: Type
 
 func _ready():
 	if start:

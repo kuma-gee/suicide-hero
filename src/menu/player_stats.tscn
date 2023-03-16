@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/menu/player_stats.gd" id="1_irocl"]
 
-[node name="PlayerStats" type="MarginContainer" node_paths=PackedStringArray("health", "speed", "pickup", "attack", "attack_speed", "damage", "crit", "dodge", "lifesteal")]
+[node name="PlayerStats" type="MarginContainer" node_paths=PackedStringArray("speed", "pickup", "attack", "attack_speed", "damage", "crit")]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 51.0
@@ -12,7 +12,6 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 script = ExtResource("1_irocl")
-health = NodePath("CenterContainer/VBoxContainer/Health")
 speed = NodePath("CenterContainer/VBoxContainer/Speed")
 pickup = NodePath("CenterContainer/VBoxContainer/Pickup")
 attack = NodePath("CenterContainer/VBoxContainer/Attack")
@@ -26,13 +25,6 @@ layout_mode = 2
 [node name="VBoxContainer" type="GridContainer" parent="CenterContainer"]
 layout_mode = 2
 columns = 2
-
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "HEALTH"
-
-[node name="Health" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2

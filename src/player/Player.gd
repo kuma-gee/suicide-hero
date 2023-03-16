@@ -101,7 +101,7 @@ func _on_Health_zero_value():
 	emit_signal("died")
 
 
-func _on_hurt_box_damaged(dmg):
+func _on_hurt_box_damaged(dmg, _is_crit):
 	if randf() <= get_dodge_chance():
 		# TODO: show dodge/miss label
 		return

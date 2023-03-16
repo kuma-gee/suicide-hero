@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cr1ikcoy7ht7b" path="res://assets/ui/Skill_Bow_0.png" id="1_llhki"]
 [ext_resource type="Script" path="res://src/skills/upgrade/SkillDescriptionResource.gd" id="2_ompot"]
-[ext_resource type="Resource" path="res://src/skills/res/BowLVMax.tres" id="3_n5gtw"]
+[ext_resource type="Resource" uid="uid://c1kfhnt4ehixb" path="res://src/skills/res/BowLVMax.tres" id="3_n5gtw"]
 [ext_resource type="Script" path="res://src/skills/upgrade/BowUpgradeResource.gd" id="4_xtah5"]
 
 [sub_resource type="Resource" id="Resource_eyuxe"]
