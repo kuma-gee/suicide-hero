@@ -6,6 +6,7 @@ signal multiplier_changed()
 
 @export var stats: PlayerStats
 @export var initial_skill: UpgradeResource
+@export var hit_label: PackedScene
 
 @onready var input := $PlayerInput
 @onready var gun_point_root := $GunPointRoot
@@ -103,7 +104,7 @@ func _on_Health_zero_value():
 
 func _on_hurt_box_damaged(dmg, _is_crit):
 	if randf() <= get_dodge_chance():
-		# TODO: show dodge/miss label
+		EffectManager.show_miss(global_position)
 		return
 
 	stats.damage_player(dmg * get_damage_multiplier())

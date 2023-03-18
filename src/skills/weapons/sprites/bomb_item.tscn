@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/skills/weapons/sprites/bomb_item.gd" id="1_vmn2q"]
 [ext_resource type="Script" path="res://src/player/PlayerHitBox.gd" id="2_gso7i"]
-[ext_resource type="Texture2D" uid="uid://cju1mq5hsegm3" path="res://icon.png" id="3_uxasn"]
+[ext_resource type="Texture2D" uid="uid://jrdwx1xxe1pp" path="res://assets/ui/Skill_Bomb_0.png" id="3_07epm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5fex5"]
 radius = 60.0
@@ -64,7 +64,7 @@ script = ExtResource("2_gso7i")
 shape = SubResource("CircleShape2D_5fex5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_uxasn")
+texture = ExtResource("3_07epm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

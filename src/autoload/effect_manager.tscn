@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://x1inby4qsmv5"]
+
+[ext_resource type="Script" path="res://src/autoload/effect_manager.gd" id="1_wc1s5"]
+[ext_resource type="PackedScene" uid="uid://y448hdwnou37" path="res://src/hit_label.tscn" id="2_f4f64"]
+
+[node name="EffectManager" type="Node"]
+script = ExtResource("1_wc1s5")
+hit_label = ExtResource("2_f4f64")

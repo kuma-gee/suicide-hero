@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://cf0rixcu8sbye"]
+
+[ext_resource type="Script" path="res://src/enemy/resource/EnemyResource.gd" id="1_570rf"]
+[ext_resource type="SpriteFrames" uid="uid://dipg6ef50wy3d" path="res://src/enemy/sprites/Skeleton.tres" id="2_fhpsq"]
+
+[resource]
+script = ExtResource("1_570rf")
+sprites = ExtResource("2_fhpsq")
+health = 10
+attack = 8
+speed = 50
+scale = 1.0

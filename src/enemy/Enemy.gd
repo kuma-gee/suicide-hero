@@ -32,6 +32,7 @@ func _ready():
 		health.max_value = resource.health
 		hitbox.damage = resource.attack
 		move.speed = resource.speed
+		scale = Vector2(resource.scale, resource.scale)
 		sprite.play("default")
 	else:
 		_logger.warn("No enemy resource for %s " % self)
@@ -52,15 +53,10 @@ func _process(delta):
 		move.look_dir = move.motion
 
 func _on_HurtBox_damaged(dmg, is_crit):
-#	print("Enemy hit: %s / %s -> %s" % [health.value, health.max_value, health.value - dmg])
 	health.reduce(dmg)
 
 	if dmg > 0:
-		var label = hit_label.instantiate()
-		label.is_crit = is_crit
-		label.position = global_position
-		label.set_label(dmg)
-		get_tree().current_scene.add_child(label)
+		EffectManager.show_hit(dmg, is_crit, global_position)
 
 
 func _on_Health_zero_value():

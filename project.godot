@@ -26,6 +26,7 @@ Events="*res://src/autoload/Events.gd"
 Settings="*res://src/autoload/Settings.gd"
 Debug="*res://addons/debug/Debug.tscn"
 SkillManager="*res://src/skills/skill_manager.tscn"
+EffectManager="*res://src/autoload/effect_manager.tscn"
 
 [display]
 

@@ -12,5 +12,5 @@ icon = ExtResource("1_tv6xw")
 
 [resource]
 script = ExtResource("1_guwge")
-dodge_chance = 0.1
+dodge_chance = 0.8
 description = SubResource("Resource_fhh8w")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://dal4ur2ice38y"]
+
+[ext_resource type="Script" path="res://src/enemy/resource/EnemyResource.gd" id="1_kaq1t"]
+[ext_resource type="SpriteFrames" uid="uid://dipg6ef50wy3d" path="res://src/enemy/sprites/Skeleton.tres" id="2_ta7wa"]
+
+[resource]
+script = ExtResource("1_kaq1t")
+sprites = ExtResource("2_ta7wa")
+health = 20
+attack = 18
+speed = 60
+scale = 1.2

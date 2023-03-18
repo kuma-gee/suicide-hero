@@ -27,5 +27,8 @@ func _process(delta):
 func set_label(dmg: int):
 	text = str(dmg)
 
+func set_miss():
+	text = tr("MISS")
+
 func _on_life_time_timeout():
 	queue_free()
